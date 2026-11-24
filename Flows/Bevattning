@@ -1,0 +1,216 @@
+{
+  "id": "dcf0bbd6-3050-48ea-bb47-a3a31f6225ea",
+  "uri": "homey:advancedflow:dcf0bbd6-3050-48ea-bb47-a3a31f6225ea",
+  "name": "Bevattning",
+  "folder": "979fc9cf-3fe5-43d5-ab2b-d0db0e261724",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "02d16c8e-68e0-488d-9721-cd32b06c2d48": {
+      "type": "all",
+      "x": 1400,
+      "y": 140,
+      "input": [
+        "456072dd-18ba-460e-9682-a6d9352fa187::outputTrue",
+        "d7c49126-935c-4512-980e-c78d5685d27a::outputTrue",
+        "a9000000-0000-4000-8000-000000000001::outputTrue"
+      ],
+      "outputSuccess": [
+        "8f62aa5f-f173-4331-a42e-4805f5e8e076"
+      ]
+    },
+    "3d21590d-0527-4939-a8ea-5e94e14fe213": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 1320,
+      "y": 480,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "0e3b5268-5094-4d29-9a91-c5239fff8525",
+          "name": "Regn lördag"
+        }
+      }
+    },
+    "41668c27-7b0d-43d4-9ca5-3a13ab345667": {
+      "type": "delay",
+      "x": 440,
+      "y": 1200,
+      "outputSuccess": [
+        "e3f0d3eb-32b0-42f8-849b-986f5fafe6b0"
+      ],
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 60
+        }
+      }
+    },
+    "456072dd-18ba-460e-9682-a6d9352fa187": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1000,
+      "y": 40,
+      "droptoken": "homey:manager:logic|0e3b5268-5094-4d29-9a91-c5239fff8525",
+      "inverted": true,
+      "outputTrue": [
+        "02d16c8e-68e0-488d-9721-cd32b06c2d48"
+      ]
+    },
+    "52156c87-525d-4f06-af31-3f5cfdb05c61": {
+      "type": "condition",
+      "id": "homey:manager:cron:month_number_multiselect",
+      "x": 320,
+      "y": 260,
+      "args": {
+        "month": [
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ]
+      },
+      "outputTrue": [
+        "b41fa870-d3db-4020-8f8c-91cd5429138a",
+        "67dd0c5e-5063-4ab8-a831-c8b4809bb4c0"
+      ]
+    },
+    "67dd0c5e-5063-4ab8-a831-c8b4809bb4c0": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 840,
+      "y": 380,
+      "args": {
+        "day": "2"
+      },
+      "outputTrue": [
+        "fcd07d40-3bba-4808-b004-cd1cf18fb153",
+        "3d21590d-0527-4939-a8ea-5e94e14fe213",
+        "a9000000-0000-4000-8000-000000000002"
+      ]
+    },
+    "8f62aa5f-f173-4331-a42e-4805f5e8e076": {
+      "type": "action",
+      "id": "homey:device:204683ec-648a-40db-96a4-3c145df320cc:on",
+      "x": 1760,
+      "y": 140,
+      "outputSuccess": [
+        "9b02c347-fd77-4bad-82bd-c962cc137b96"
+      ]
+    },
+    "9b02c347-fd77-4bad-82bd-c962cc137b96": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 2100,
+      "y": 140,
+      "args": {
+        "text": "Nu vattnas det",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "a05dd670-3892-4d24-84a0-d54043c36125": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 20,
+      "y": 120,
+      "args": {
+        "time": "07:00"
+      },
+      "outputSuccess": [
+        "52156c87-525d-4f06-af31-3f5cfdb05c61"
+      ]
+    },
+    "a9000000-0000-4000-8000-000000000001": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1000,
+      "y": 240,
+      "droptoken": "homey:manager:logic|03879d15-e3e0-4a1f-b58e-1dcacd446010",
+      "inverted": true,
+      "outputTrue": [
+        "02d16c8e-68e0-488d-9721-cd32b06c2d48"
+      ]
+    },
+    "a9000000-0000-4000-8000-000000000002": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 1320,
+      "y": 560,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "03879d15-e3e0-4a1f-b58e-1dcacd446010",
+          "name": "Regn"
+        }
+      }
+    },
+    "a9000000-0000-4000-8000-000000000003": {
+      "type": "note",
+      "x": 20,
+      "y": 700,
+      "value": "Måndag 07:00 (apr–sep): vattnar om det INTE regnat på lördag/söndag och INTE regnar på måndag. Värdena (Regn lördag, Regn söndag, Regn) kommer från Homey Pro via flowet ST Väder från Pro. Tisdag återställs de.",
+      "color": "blue"
+    },
+    "b41fa870-d3db-4020-8f8c-91cd5429138a": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 640,
+      "y": 100,
+      "args": {
+        "day": "1"
+      },
+      "outputTrue": [
+        "456072dd-18ba-460e-9682-a6d9352fa187",
+        "d7c49126-935c-4512-980e-c78d5685d27a",
+        "a9000000-0000-4000-8000-000000000001"
+      ]
+    },
+    "d7c49126-935c-4512-980e-c78d5685d27a": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1000,
+      "y": 140,
+      "droptoken": "homey:manager:logic|115fa6fe-3917-4edf-b063-1fc8e650cb30",
+      "inverted": true,
+      "outputTrue": [
+        "02d16c8e-68e0-488d-9721-cd32b06c2d48"
+      ]
+    },
+    "e3f0d3eb-32b0-42f8-849b-986f5fafe6b0": {
+      "type": "action",
+      "id": "homey:device:204683ec-648a-40db-96a4-3c145df320cc:off",
+      "x": 720,
+      "y": 1240
+    },
+    "f722c4d1-b88e-4334-bd77-9654432c7c77": {
+      "type": "trigger",
+      "id": "homey:device:204683ec-648a-40db-96a4-3c145df320cc:onoff_true",
+      "x": 0,
+      "y": 1180,
+      "outputSuccess": [
+        "41668c27-7b0d-43d4-9ca5-3a13ab345667"
+      ]
+    },
+    "fcd07d40-3bba-4808-b004-cd1cf18fb153": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 1320,
+      "y": 400,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "115fa6fe-3917-4edf-b063-1fc8e650cb30",
+          "name": "Regn söndag"
+        }
+      }
+    }
+  }
+}

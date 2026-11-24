@@ -1,0 +1,85 @@
+{
+  "id": "27762842-7cc8-4d80-b89d-f54bd787c36f",
+  "uri": "homey:advancedflow:27762842-7cc8-4d80-b89d-f54bd787c36f",
+  "name": "Morgonsläck",
+  "folder": "19ce2ee1-ea02-4801-8236-ea2a723cb2ca",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "285d248c-99eb-471b-84ca-f6a05959b701": {
+      "type": "action",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:off",
+      "x": 1460,
+      "y": 380
+    },
+    "47853c57-a3fd-46f6-97e7-8f9ab3ac91ef": {
+      "type": "condition",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:on",
+      "x": 1000,
+      "y": 300,
+      "outputTrue": [
+        "285d248c-99eb-471b-84ca-f6a05959b701"
+      ],
+      "outputError": [
+        "285d248c-99eb-471b-84ca-f6a05959b701"
+      ]
+    },
+    "644209e4-015a-4ea5-af26-1e98b0062177": {
+      "type": "action",
+      "id": "homey:device:bbca5c73-82d0-4e87-8995-b7fbae7cb4b8:off",
+      "x": 480,
+      "y": 580
+    },
+    "8194fbf3-4e67-4ad9-b8a9-ae501243b19e": {
+      "type": "action",
+      "id": "homey:device:af4bc28a-37c4-463e-a066-667443832776:off",
+      "x": 480,
+      "y": 660
+    },
+    "9a0e34a2-1e64-4116-836f-f3df1b5d5806": {
+      "type": "action",
+      "id": "homey:device:a2e9109b-2865-4b24-a305-bdd79f8cd0e0:off",
+      "x": 480,
+      "y": 500
+    },
+    "c12899c4-df3c-4fe4-a95c-92f8b6738952": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 280,
+      "args": {
+        "time": "09:00"
+      },
+      "outputSuccess": [
+        "47853c57-a3fd-46f6-97e7-8f9ab3ac91ef"
+      ]
+    },
+    "cf661e2b-0880-4326-a9cb-31cfe10d6147": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 860,
+      "y": 160,
+      "args": {
+        "time": "08:00"
+      },
+      "outputSuccess": [
+        "47853c57-a3fd-46f6-97e7-8f9ab3ac91ef"
+      ]
+    },
+    "e84e4836-3dfc-4bca-a679-5f8fe4e244f8": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 0,
+      "y": 500,
+      "args": {
+        "time": "10:05"
+      },
+      "outputSuccess": [
+        "9a0e34a2-1e64-4116-836f-f3df1b5d5806",
+        "644209e4-015a-4ea5-af26-1e98b0062177",
+        "8194fbf3-4e67-4ad9-b8a9-ae501243b19e"
+      ]
+    }
+  }
+}

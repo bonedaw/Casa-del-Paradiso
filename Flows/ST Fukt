@@ -1,0 +1,249 @@
+{
+  "id": "d84d2e4c-4389-4312-8046-393ab39528e8",
+  "uri": "homey:advancedflow:d84d2e4c-4389-4312-8046-393ab39528e8",
+  "name": "ST Fukt",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "886a72f5-60c4-5041-a535-897b0d1c705b": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "04:30"
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "3c186547-3517-55bd-895c-372c4503a157",
+        "e4e647e4-5d85-533b-ad99-0f49b230d000",
+        "fa73447c-5fb7-57c3-bef5-41504c15852b"
+      ],
+      "x": 20,
+      "y": 20
+    },
+    "3c186547-3517-55bd-895c-372c4503a157": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:gt",
+      "type": "condition",
+      "args": {
+        "comparator": 62
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_humidity",
+      "outputTrue": [
+        "edefa14b-c084-5004-8fda-7948571c9624"
+      ],
+      "x": 400,
+      "y": 20
+    },
+    "edefa14b-c084-5004-8fda-7948571c9624": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "type": "condition",
+      "args": {},
+      "inverted": true,
+      "droptoken": "homey:manager:logic|df6c274f-53e3-4d1d-84af-2f6379df559e",
+      "outputTrue": [
+        "fa2dfdb4-a371-5aee-9858-5f55c97b3794"
+      ],
+      "x": 780,
+      "y": 20
+    },
+    "fa2dfdb4-a371-5aee-9858-5f55c97b3794": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "df6c274f-53e3-4d1d-84af-2f6379df559e",
+          "name": "Hög Luftfuktighet"
+        },
+        "value": true
+      },
+      "x": 1160,
+      "y": 20
+    },
+    "e4e647e4-5d85-533b-ad99-0f49b230d000": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "type": "condition",
+      "args": {
+        "comparator": 38
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_humidity",
+      "outputTrue": [
+        "e79fbf41-b3c0-5c95-906f-9a07e8933fbe"
+      ],
+      "x": 400,
+      "y": 130
+    },
+    "e79fbf41-b3c0-5c95-906f-9a07e8933fbe": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "type": "condition",
+      "args": {},
+      "inverted": true,
+      "droptoken": "homey:manager:logic|2a464e72-4df4-4c05-b510-ec9fac4da55f",
+      "outputTrue": [
+        "1ceaa84f-ca29-5101-a7f6-d6ff16cefa84"
+      ],
+      "x": 780,
+      "y": 130
+    },
+    "1ceaa84f-ca29-5101-a7f6-d6ff16cefa84": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "2a464e72-4df4-4c05-b510-ec9fac4da55f",
+          "name": "Låg Luftfuktighet"
+        },
+        "value": true
+      },
+      "x": 1160,
+      "y": 130
+    },
+    "fa73447c-5fb7-57c3-bef5-41504c15852b": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "type": "action",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A24\",\"value\":\"[[homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_humidity]]\"}"
+      },
+      "x": 400,
+      "y": 240
+    },
+    "70fd537c-8a6a-5d17-b1b8-f4d080e2add6": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "10:00"
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "6b1df4dd-3b0a-5a4b-bb1e-6deba6e18310",
+        "44e74a57-2e24-5fbe-a8b4-75cc068f6da0"
+      ],
+      "x": 20,
+      "y": 130
+    },
+    "6b1df4dd-3b0a-5a4b-bb1e-6deba6e18310": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "type": "condition",
+      "args": {
+        "comparator": 61
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_humidity",
+      "outputTrue": [
+        "890dad4b-6a5c-51df-9fe1-7c3797724a3d"
+      ],
+      "x": 400,
+      "y": 350
+    },
+    "890dad4b-6a5c-51df-9fe1-7c3797724a3d": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "type": "condition",
+      "args": {},
+      "droptoken": "homey:manager:logic|df6c274f-53e3-4d1d-84af-2f6379df559e",
+      "outputTrue": [
+        "205862e6-4e31-53d0-a21d-3ee49a3d6044"
+      ],
+      "x": 780,
+      "y": 240
+    },
+    "205862e6-4e31-53d0-a21d-3ee49a3d6044": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "df6c274f-53e3-4d1d-84af-2f6379df559e",
+          "name": "Hög Luftfuktighet"
+        },
+        "value": false
+      },
+      "outputSuccess": [
+        "c5dcd1d3-f8bc-583e-bab3-7bed8625ebee"
+      ],
+      "x": 1160,
+      "y": 240
+    },
+    "c5dcd1d3-f8bc-583e-bab3-7bed8625ebee": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "a7161aac-de9e-4df1-8482-85ba2e584d41",
+          "name": "Luftfuktighet 70"
+        },
+        "value": false
+      },
+      "outputSuccess": [
+        "d2ce9c1d-ae36-5681-a526-c3861fe2a54d"
+      ],
+      "x": 1540,
+      "y": 20
+    },
+    "d2ce9c1d-ae36-5681-a526-c3861fe2a54d": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "0d8df5d9-9e60-40bb-a2d2-f868e098b4a5",
+          "name": "Luftfuktighet 65"
+        },
+        "value": false
+      },
+      "x": 1920,
+      "y": 20
+    },
+    "44e74a57-2e24-5fbe-a8b4-75cc068f6da0": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:gt",
+      "type": "condition",
+      "args": {
+        "comparator": 39
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_humidity",
+      "outputTrue": [
+        "6e613f17-2851-5714-8979-cdfdc1a22429"
+      ],
+      "x": 400,
+      "y": 460
+    },
+    "6e613f17-2851-5714-8979-cdfdc1a22429": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "type": "condition",
+      "args": {},
+      "droptoken": "homey:manager:logic|2a464e72-4df4-4c05-b510-ec9fac4da55f",
+      "outputTrue": [
+        "f1dff5db-dfda-59bc-9108-c6cd504c2829"
+      ],
+      "x": 780,
+      "y": 350
+    },
+    "f1dff5db-dfda-59bc-9108-c6cd504c2829": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "2a464e72-4df4-4c05-b510-ec9fac4da55f",
+          "name": "Låg Luftfuktighet"
+        },
+        "value": false
+      },
+      "x": 1160,
+      "y": 350
+    }
+  }
+}

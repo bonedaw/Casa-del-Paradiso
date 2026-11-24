@@ -1,0 +1,46 @@
+{
+  "id": "90764b96-2215-433f-af7f-a08765a0bead",
+  "uri": "homey:flow:90764b96-2215-433f-af7f-a08765a0bead",
+  "name": "Är kamera på",
+  "folder": "7e16329b-f54b-4d8a-a93a-ab24b25931c3",
+  "enabled": true,
+  "broken": false,
+  "triggerable": true,
+  "trigger": {
+    "id": "homey:manager:flow:programmatic_trigger",
+    "args": {}
+  },
+  "conditions": [
+    {
+      "id": "homey:manager:logic:equal_boolean",
+      "group": "group1",
+      "args": {},
+      "droptoken": "homey:manager:logic|88041046-3d88-4beb-b0cf-34057a3f5f70",
+      "inverted": true
+    }
+  ],
+  "actions": [
+    {
+      "id": "homey:manager:logic:variable_set_boolean",
+      "group": "then",
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "88041046-3d88-4beb-b0cf-34057a3f5f70",
+          "name": "Kamera påmind"
+        }
+      }
+    },
+    {
+      "id": "homey:manager:mobile:push_text",
+      "group": "then",
+      "args": {
+        "text": "Är kameran på",
+        "user": {
+          "id": "__all_not_present__",
+          "name": "Everyone who's away"
+        }
+      }
+    }
+  ]
+}

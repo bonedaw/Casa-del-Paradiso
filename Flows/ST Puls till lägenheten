@@ -1,0 +1,339 @@
+{
+  "id": "a49f9ddd-835c-45c9-ab12-dec628023cdb",
+  "uri": "homey:advancedflow:a49f9ddd-835c-45c9-ab12-dec628023cdb",
+  "name": "ST Puls till lägenheten",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "b2000000-0000-4000-8000-000000000002": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 900,
+      "y": 80,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/stugan_puls_a77168457227?tag=stugan"
+      }
+    },
+    "b2000000-0000-4000-8000-000000000003": {
+      "type": "note",
+      "x": 600,
+      "y": 320,
+      "value": "Varje hel timme: (1) puls till Homey Pro i lagenheten (vakthund), (2) inne- och loftsensorernas temperatur och luftfuktighet till Pro for fuktrisk/vadringsrad.",
+      "color": "blue"
+    },
+    "b2000000-0000-4000-8000-000000000004": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 900,
+      "y": 200,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/fukt_a77168457227?tag=[[homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_temperature]]_[[homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_humidity]]_[[homey:device:620c47f7-9437-402d-ae43-e47e550f5723|measure_temperature]]_[[homey:device:620c47f7-9437-402d-ae43-e47e550f5723|measure_humidity]]"
+      }
+    },
+    "b2000000-0000-4000-8000-000000000005": {
+      "type": "any",
+      "x": 600,
+      "y": 140,
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000002",
+        "b2000000-0000-4000-8000-000000000004"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000100": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 60,
+      "args": {
+        "time": "00:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000101": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 130,
+      "args": {
+        "time": "01:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000102": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 200,
+      "args": {
+        "time": "02:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000103": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 270,
+      "args": {
+        "time": "03:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000104": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 340,
+      "args": {
+        "time": "04:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000105": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 410,
+      "args": {
+        "time": "05:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000106": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 480,
+      "args": {
+        "time": "06:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000107": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 550,
+      "args": {
+        "time": "07:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000108": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 620,
+      "args": {
+        "time": "08:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000109": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 690,
+      "args": {
+        "time": "09:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-00000000010a": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 760,
+      "args": {
+        "time": "10:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-00000000010b": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 830,
+      "args": {
+        "time": "11:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-00000000010c": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 900,
+      "args": {
+        "time": "12:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-00000000010d": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 970,
+      "args": {
+        "time": "13:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-00000000010e": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 1040,
+      "args": {
+        "time": "14:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-00000000010f": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 1110,
+      "args": {
+        "time": "15:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000110": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 1180,
+      "args": {
+        "time": "16:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000111": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 1250,
+      "args": {
+        "time": "17:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000112": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 1320,
+      "args": {
+        "time": "18:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000113": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 1390,
+      "args": {
+        "time": "19:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000114": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 1460,
+      "args": {
+        "time": "20:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000115": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 1530,
+      "args": {
+        "time": "21:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000116": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 1600,
+      "args": {
+        "time": "22:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "b2000000-0000-4000-8000-000000000117": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 60,
+      "y": 1670,
+      "args": {
+        "time": "23:00"
+      },
+      "outputSuccess": [
+        "b2000000-0000-4000-8000-000000000005"
+      ]
+    }
+  }
+}

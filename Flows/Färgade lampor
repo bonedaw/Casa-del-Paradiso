@@ -1,0 +1,302 @@
+{
+  "id": "9d6010c4-5d56-46e5-8658-62ab0142067d",
+  "uri": "homey:advancedflow:9d6010c4-5d56-46e5-8658-62ab0142067d",
+  "name": "Färgade lampor",
+  "folder": "8bf73971-2b8c-4b29-8dc7-6d31babc68ca",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "03a10e33-b924-413e-a61c-9f20326a3861": {
+      "type": "action",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:color_random",
+      "x": 1800,
+      "y": 720
+    },
+    "256de8f7-9ee0-430b-8ac6-b1ead1d13383": {
+      "type": "action",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:color",
+      "x": 940,
+      "y": 780,
+      "args": {
+        "color": "#eb6123"
+      }
+    },
+    "2c0a6345-5dc3-47e1-8096-ace7fa70ef10": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 480,
+      "y": 1160,
+      "args": {
+        "comparator": "national"
+      },
+      "droptoken": "trigger::56caf726-abc8-40f4-a5eb-2082c80f60b2::tag",
+      "outputTrue": [
+        "37f79707-5c98-4917-b985-5cd44198be9f"
+      ]
+    },
+    "37f79707-5c98-4917-b985-5cd44198be9f": {
+      "type": "action",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:color",
+      "x": 940,
+      "y": 1160,
+      "args": {
+        "color": "#006AA7"
+      }
+    },
+    "41709b8a-9816-44b4-82c6-b9eeffee6465": {
+      "type": "trigger",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 60,
+      "y": 980,
+      "outputSuccess": [
+        "9f0b0a49-6cea-4b4e-9a2b-aa42b975a592"
+      ]
+    },
+    "4f77c322-cb3e-4cd9-bf16-4f5c1a311fab": {
+      "type": "trigger",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 60,
+      "y": 220,
+      "outputSuccess": [
+        "84c5b6aa-1e3b-4494-aac3-f86f495f41fc"
+      ]
+    },
+    "56caf726-abc8-40f4-a5eb-2082c80f60b2": {
+      "type": "trigger",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 60,
+      "y": 1160,
+      "outputSuccess": [
+        "2c0a6345-5dc3-47e1-8096-ace7fa70ef10"
+      ]
+    },
+    "5f9f1fb1-1873-4875-b715-5127dd2f3f04": {
+      "type": "trigger",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 60,
+      "y": 420,
+      "outputSuccess": [
+        "cceed2e3-b35c-4af7-9c43-1f8821f08d1b"
+      ]
+    },
+    "84c5b6aa-1e3b-4494-aac3-f86f495f41fc": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 480,
+      "y": 220,
+      "args": {
+        "comparator": "red"
+      },
+      "droptoken": "trigger::4f77c322-cb3e-4cd9-bf16-4f5c1a311fab::tag",
+      "outputTrue": [
+        "dc559a06-65e6-4474-9823-8451fe3bc37d"
+      ]
+    },
+    "8e7a0121-bb21-42cd-933d-4c0229fdd284": {
+      "type": "trigger",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 60,
+      "y": 780,
+      "outputSuccess": [
+        "ad0c6676-d3e6-4773-9f10-aacbcefe22b2"
+      ]
+    },
+    "9352ee81-4579-4cb7-98b8-089366db28a0": {
+      "type": "action",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:color_random",
+      "x": 940,
+      "y": 600,
+      "outputSuccess": [
+        "fead1fc0-ce0a-4560-9192-ae67ecd27cb9"
+      ]
+    },
+    "9f0b0a49-6cea-4b4e-9a2b-aa42b975a592": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 480,
+      "y": 980,
+      "args": {
+        "comparator": "green"
+      },
+      "droptoken": "trigger::41709b8a-9816-44b4-82c6-b9eeffee6465::tag",
+      "outputTrue": [
+        "dcf4ba31-d29d-4967-bcac-8042a4394121"
+      ]
+    },
+    "a4b26923-133e-4784-aecd-1335707b81e5": {
+      "type": "action",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:color",
+      "x": 940,
+      "y": 420,
+      "args": {
+        "color": "#ff00f7"
+      }
+    },
+    "ad0c6676-d3e6-4773-9f10-aacbcefe22b2": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 480,
+      "y": 780,
+      "args": {
+        "comparator": "halloween"
+      },
+      "droptoken": "trigger::8e7a0121-bb21-42cd-933d-4c0229fdd284::tag",
+      "outputTrue": [
+        "256de8f7-9ee0-430b-8ac6-b1ead1d13383"
+      ]
+    },
+    "cceed2e3-b35c-4af7-9c43-1f8821f08d1b": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 480,
+      "y": 420,
+      "args": {
+        "comparator": "purple"
+      },
+      "droptoken": "trigger::5f9f1fb1-1873-4875-b715-5127dd2f3f04::tag",
+      "outputTrue": [
+        "a4b26923-133e-4784-aecd-1335707b81e5"
+      ]
+    },
+    "d4770c0b-b3d5-4e0f-addf-17035e98fc98": {
+      "type": "action",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:color_random",
+      "x": 1520,
+      "y": 600,
+      "outputSuccess": [
+        "ff36f3d6-b20d-4c38-a558-a41c3c2e1407"
+      ]
+    },
+    "dc559a06-65e6-4474-9823-8451fe3bc37d": {
+      "type": "action",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:color",
+      "x": 940,
+      "y": 220,
+      "args": {
+        "color": "#ff0000"
+      }
+    },
+    "dcf4ba31-d29d-4967-bcac-8042a4394121": {
+      "type": "action",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:color",
+      "x": 940,
+      "y": 980,
+      "args": {
+        "color": "#00e33e"
+      }
+    },
+    "e0595e50-bf24-4aad-bf6a-6492ef657bb2": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 480,
+      "y": 600,
+      "args": {
+        "comparator": "blandad"
+      },
+      "droptoken": "trigger::ebca7018-e2ae-48ff-98e8-2b00b122e940::tag",
+      "outputTrue": [
+        "9352ee81-4579-4cb7-98b8-089366db28a0"
+      ]
+    },
+    "ebca7018-e2ae-48ff-98e8-2b00b122e940": {
+      "type": "trigger",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 60,
+      "y": 600,
+      "outputSuccess": [
+        "e0595e50-bf24-4aad-bf6a-6492ef657bb2"
+      ]
+    },
+    "f8000001-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 60,
+      "y": 1340,
+      "outputSuccess": [
+        "f8000001-0000-4000-8000-000000000002"
+      ]
+    },
+    "f8000001-0000-4000-8000-000000000002": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 480,
+      "y": 1340,
+      "args": {
+        "comparator": "easter"
+      },
+      "droptoken": "trigger::f8000001-0000-4000-8000-000000000001::tag",
+      "outputTrue": [
+        "f8000001-0000-4000-8000-000000000003"
+      ]
+    },
+    "f8000001-0000-4000-8000-000000000003": {
+      "type": "action",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:color",
+      "x": 940,
+      "y": 1340,
+      "args": {
+        "color": "#ffd400"
+      }
+    },
+    "f8000001-0000-4000-8000-000000000011": {
+      "type": "trigger",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 60,
+      "y": 1520,
+      "outputSuccess": [
+        "f8000001-0000-4000-8000-000000000012"
+      ]
+    },
+    "f8000001-0000-4000-8000-000000000012": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 480,
+      "y": 1520,
+      "args": {
+        "comparator": "midsummer"
+      },
+      "droptoken": "trigger::f8000001-0000-4000-8000-000000000011::tag",
+      "outputTrue": [
+        "f8000001-0000-4000-8000-000000000013"
+      ]
+    },
+    "f8000001-0000-4000-8000-000000000013": {
+      "type": "action",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:color",
+      "x": 940,
+      "y": 1520,
+      "args": {
+        "color": "#3fae49"
+      }
+    },
+    "fead1fc0-ce0a-4560-9192-ae67ecd27cb9": {
+      "type": "delay",
+      "x": 1340,
+      "y": 620,
+      "outputSuccess": [
+        "d4770c0b-b3d5-4e0f-addf-17035e98fc98"
+      ],
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 1
+        }
+      }
+    },
+    "ff36f3d6-b20d-4c38-a558-a41c3c2e1407": {
+      "type": "delay",
+      "x": 1920,
+      "y": 620,
+      "outputSuccess": [
+        "03a10e33-b924-413e-a61c-9f20326a3861"
+      ],
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 1
+        }
+      }
+    }
+  }
+}

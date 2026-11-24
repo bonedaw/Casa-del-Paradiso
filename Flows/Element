@@ -1,0 +1,304 @@
+{
+  "id": "6b3df165-8cfa-46d7-828d-cd8f33157506",
+  "uri": "homey:advancedflow:6b3df165-8cfa-46d7-828d-cd8f33157506",
+  "name": "Element",
+  "folder": "d3fc231a-c5b0-4a92-a263-de88756ccbc0",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "05f90bc1-5900-4523-9e82-0977c799580f": {
+      "type": "action",
+      "id": "homey:device:79fc93c8-0398-427a-b7b9-53c8628eafe3:on",
+      "x": 1040,
+      "y": 700,
+      "outputSuccess": [
+        "9d75b038-e2ee-4ae9-9c07-93a5b51ef3dc"
+      ]
+    },
+    "1e8841ed-7f5a-43f3-a94e-24eb881f531d": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 0,
+      "y": 100,
+      "args": {
+        "time": "22:20"
+      },
+      "outputSuccess": [
+        "c06780c3-6ec9-4356-aea9-8848c0e471eb"
+      ]
+    },
+    "26377a0a-bbec-4073-900e-8fac5a58b983": {
+      "type": "action",
+      "id": "homey:device:79fc93c8-0398-427a-b7b9-53c8628eafe3:off",
+      "x": 1340,
+      "y": 1100
+    },
+    "28cdfe97-80e1-4589-8d2d-5ecb2c23a026": {
+      "type": "trigger",
+      "id": "homey:manager:logic:variable_changed",
+      "x": 0,
+      "y": 1280,
+      "args": {
+        "variable": {
+          "id": "e5c4f7f3-ca68-41d4-a16d-cd5dde0eaf80",
+          "name": "Larmat"
+        }
+      },
+      "outputSuccess": [
+        "f017578c-0fbe-465c-93c6-90e6081f06c3"
+      ]
+    },
+    "2ce2aed3-a239-484f-b09b-a64bda5c7213": {
+      "type": "condition",
+      "id": "homey:device:79fc93c8-0398-427a-b7b9-53c8628eafe3:on",
+      "x": 1960,
+      "y": 320,
+      "inverted": true,
+      "outputTrue": [
+        "dadfeded-f620-46c3-bde0-cc7e0159def2"
+      ]
+    },
+    "3a764998-7ac4-46ce-a161-35bff1eb0d4d": {
+      "type": "trigger",
+      "id": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72:measure_temperature_changed",
+      "x": 0,
+      "y": 1100,
+      "outputSuccess": [
+        "9df11b78-d5fa-45c7-9294-add823bb9929"
+      ]
+    },
+    "57e3dbf9-f328-4213-a944-2371ae4ccf31": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 600,
+      "y": 100,
+      "args": {
+        "comparator": 17
+      },
+      "droptoken": "homey:device:b2bfa4a6-6427-4f13-bc8c-11b22dcdacc5|measure_temperature",
+      "outputTrue": [
+        "b72d6408-dcb4-43a2-a0a8-e7f8c7ad3fe7"
+      ]
+    },
+    "597bd48b-2451-4a99-9383-d4ea3014651d": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_between",
+      "x": 760,
+      "y": 300,
+      "args": {
+        "time1": "21:30",
+        "time2": "08:00"
+      },
+      "outputTrue": [
+        "9fa5fc19-ba9d-4497-8dd7-28daa36328ed"
+      ]
+    },
+    "5c191d58-106c-40b2-8579-69ecac731923": {
+      "type": "any",
+      "x": 1140,
+      "y": 1060,
+      "outputSuccess": [
+        "ef244bed-b76a-45ad-b739-b438184b6861",
+        "26377a0a-bbec-4073-900e-8fac5a58b983"
+      ]
+    },
+    "5c5a790b-1ee0-4524-a4a4-ac4cd2a52f99": {
+      "type": "trigger",
+      "id": "homey:manager:cron:every_nth",
+      "x": 0,
+      "y": 200,
+      "args": {
+        "n": 15,
+        "type": "minute"
+      },
+      "outputSuccess": [
+        "c06780c3-6ec9-4356-aea9-8848c0e471eb"
+      ]
+    },
+    "71564ada-6309-4741-9d35-ce4bf0d74709": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 480,
+      "y": 680,
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "outputTrue": [
+        "8c4e1a79-f0a4-4967-a003-986fb9d13416"
+      ]
+    },
+    "7c6242e4-3db7-4621-94de-173f72842d2d": {
+      "type": "note",
+      "x": 0,
+      "y": 600,
+      "value": "Starta element i hallen",
+      "color": "yellow"
+    },
+    "8c303f52-c4c7-41c2-b00f-292c354e6c04": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 0,
+      "y": 680,
+      "args": {
+        "time": "03:00"
+      },
+      "outputSuccess": [
+        "71564ada-6309-4741-9d35-ce4bf0d74709"
+      ]
+    },
+    "8c4e1a79-f0a4-4967-a003-986fb9d13416": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 800,
+      "y": 540,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "inverted": true,
+      "outputTrue": [
+        "05f90bc1-5900-4523-9e82-0977c799580f"
+      ]
+    },
+    "8ff0c8b4-bdb9-4c8c-bcac-0655803d618e": {
+      "type": "condition",
+      "id": "homey:device:eb742035-9b5b-4aab-97b9-a08296dd5dff:on",
+      "x": 1960,
+      "y": 200,
+      "inverted": true,
+      "outputTrue": [
+        "fca55a55-a627-49e8-8f78-3eddb56d9dc8"
+      ]
+    },
+    "9d75b038-e2ee-4ae9-9c07-93a5b51ef3dc": {
+      "type": "action",
+      "id": "homey:device:eb742035-9b5b-4aab-97b9-a08296dd5dff:on",
+      "x": 1440,
+      "y": 680
+    },
+    "9df11b78-d5fa-45c7-9294-add823bb9929": {
+      "type": "condition",
+      "id": "homey:manager:logic:gt",
+      "x": 380,
+      "y": 1080,
+      "args": {
+        "comparator": 21
+      },
+      "droptoken": "trigger::3a764998-7ac4-46ce-a161-35bff1eb0d4d::measure_temperature",
+      "outputTrue": [
+        "5c191d58-106c-40b2-8579-69ecac731923"
+      ]
+    },
+    "9fa5fc19-ba9d-4497-8dd7-28daa36328ed": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 1140,
+      "y": 260,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "inverted": true,
+      "outputTrue": [
+        "b23965bb-28b3-4a63-a7a4-43613f3fca55"
+      ]
+    },
+    "a905d7eb-4f19-4a74-8866-ac44cb46c405": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 600,
+      "y": 0,
+      "args": {
+        "comparator": 17
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_temperature",
+      "outputTrue": [
+        "b72d6408-dcb4-43a2-a0a8-e7f8c7ad3fe7"
+      ]
+    },
+    "ab7562a2-d0d7-4a8c-8872-dfab14cf779f": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 0,
+      "y": 1000,
+      "args": {
+        "time": "08:00"
+      },
+      "outputSuccess": [
+        "5c191d58-106c-40b2-8579-69ecac731923"
+      ]
+    },
+    "b23965bb-28b3-4a63-a7a4-43613f3fca55": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1580,
+      "y": 240,
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "outputTrue": [
+        "8ff0c8b4-bdb9-4c8c-bcac-0655803d618e",
+        "2ce2aed3-a239-484f-b09b-a64bda5c7213"
+      ]
+    },
+    "b72d6408-dcb4-43a2-a0a8-e7f8c7ad3fe7": {
+      "type": "any",
+      "x": 1060,
+      "y": 120,
+      "outputSuccess": [
+        "597bd48b-2451-4a99-9383-d4ea3014651d"
+      ]
+    },
+    "c06780c3-6ec9-4356-aea9-8848c0e471eb": {
+      "type": "any",
+      "x": 480,
+      "y": 180,
+      "outputSuccess": [
+        "a905d7eb-4f19-4a74-8866-ac44cb46c405",
+        "57e3dbf9-f328-4213-a944-2371ae4ccf31"
+      ]
+    },
+    "d2317c01-3220-4359-985b-9f5871c0b781": {
+      "type": "note",
+      "x": 0,
+      "y": 900,
+      "value": "Stäng av elementen (08:00, över 21 °C i vardagsrummet eller när larmet slås på). Elementen värmer hela natten tills värmepumpen tar över kl 08.\n\nBadrummet läses från 'Temp badrum' men flödet startas INTE av den givaren (den rapporterar så ofta att Homey stängde av flödet). I stället kontrolleras temperaturen var 15:e minut och kl 22:20. Elementen slås bara på om de är av, så inga onödiga kommandon skickas.",
+      "color": "yellow"
+    },
+    "dadfeded-f620-46c3-bde0-cc7e0159def2": {
+      "type": "action",
+      "id": "homey:device:79fc93c8-0398-427a-b7b9-53c8628eafe3:on",
+      "x": 2360,
+      "y": 300
+    },
+    "e2431fd4-897a-4730-946f-58fd4705cd2f": {
+      "type": "note",
+      "x": 0,
+      "y": 20,
+      "value": "Starta element",
+      "color": "yellow"
+    },
+    "ef244bed-b76a-45ad-b739-b438184b6861": {
+      "type": "action",
+      "id": "homey:device:eb742035-9b5b-4aab-97b9-a08296dd5dff:off",
+      "x": 1340,
+      "y": 1020
+    },
+    "f017578c-0fbe-465c-93c6-90e6081f06c3": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 380,
+      "y": 1280,
+      "args": {
+        "comparator": "Larmat"
+      },
+      "droptoken": "homey:manager:logic|82e364aa-2911-4c17-a909-d39fdcbb9f8e",
+      "outputTrue": [
+        "5c191d58-106c-40b2-8579-69ecac731923"
+      ]
+    },
+    "fca55a55-a627-49e8-8f78-3eddb56d9dc8": {
+      "type": "action",
+      "id": "homey:device:eb742035-9b5b-4aab-97b9-a08296dd5dff:on",
+      "x": 2360,
+      "y": 220
+    }
+  }
+}

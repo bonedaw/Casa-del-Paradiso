@@ -1,0 +1,338 @@
+{
+  "id": "2510a33d-7700-42ec-91e0-1400e76ed86d",
+  "uri": "homey:advancedflow:2510a33d-7700-42ec-91e0-1400e76ed86d",
+  "name": "ST Grundvärme elpris och frost",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "c9000001-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:logic:variable_changed",
+      "x": 40,
+      "y": 100,
+      "args": {
+        "variable": {
+          "id": "928fbc98-9ad2-433e-b2ee-6e1ac7e51dad",
+          "name": "Elpris"
+        }
+      },
+      "outputSuccess": [
+        "c9000001-0000-4000-8000-000000000004"
+      ]
+    },
+    "c9000001-0000-4000-8000-000000000002": {
+      "type": "trigger",
+      "id": "homey:manager:logic:variable_changed",
+      "x": 40,
+      "y": 200,
+      "args": {
+        "variable": {
+          "id": "d4533fb5-6d4d-4b58-84ab-362bb66c8579",
+          "name": "Frostprognos"
+        }
+      },
+      "outputSuccess": [
+        "c9000001-0000-4000-8000-000000000004"
+      ]
+    },
+    "c9000001-0000-4000-8000-000000000003": {
+      "type": "trigger",
+      "id": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72:measure_temperature_changed",
+      "x": 40,
+      "y": 300,
+      "args": {},
+      "outputSuccess": [
+        "c9000001-0000-4000-8000-000000000004"
+      ]
+    },
+    "c9000001-0000-4000-8000-000000000004": {
+      "type": "any",
+      "x": 300,
+      "y": 400,
+      "outputSuccess": [
+        "c9000001-0000-4000-8000-000000000005"
+      ]
+    },
+    "c9000001-0000-4000-8000-000000000005": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 400,
+      "y": 500,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "c9000001-0000-4000-8000-000000000006"
+      ]
+    },
+    "c9000001-0000-4000-8000-000000000006": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 600,
+      "y": 600,
+      "args": {},
+      "droptoken": "homey:manager:logic|be722fa1-d64b-46a7-b2f4-9b295088cf46",
+      "inverted": true,
+      "outputTrue": [
+        "c9000001-0000-4000-8000-00000000000a",
+        "c9000001-0000-4000-8000-000000000014",
+        "c9000001-0000-4000-8000-000000000028"
+      ]
+    },
+    "c9000001-0000-4000-8000-00000000000a": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 800,
+      "y": 700,
+      "args": {},
+      "droptoken": "homey:manager:logic|d4533fb5-6d4d-4b58-84ab-362bb66c8579",
+      "outputTrue": [
+        "c9000001-0000-4000-8000-00000000000b"
+      ]
+    },
+    "c9000001-0000-4000-8000-00000000000b": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 1000,
+      "y": 800,
+      "args": {
+        "comparator": 12
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_temperature",
+      "outputTrue": [
+        "c9000001-0000-4000-8000-00000000000c"
+      ]
+    },
+    "c9000001-0000-4000-8000-00000000000c": {
+      "type": "any",
+      "x": 1200,
+      "y": 1100,
+      "outputSuccess": [
+        "c9000001-0000-4000-8000-00000000000d"
+      ]
+    },
+    "c9000001-0000-4000-8000-00000000000d": {
+      "type": "condition",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:ac_mode_is",
+      "x": 1400,
+      "y": 1200,
+      "args": {
+        "acMode": "HEAT"
+      },
+      "inverted": true,
+      "outputTrue": [
+        "c9000001-0000-4000-8000-00000000000e"
+      ]
+    },
+    "c9000001-0000-4000-8000-00000000000e": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 1600,
+      "y": 1300,
+      "args": {
+        "comparator": 16
+      },
+      "droptoken": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf|measure_temperature",
+      "outputTrue": [
+        "c9000001-0000-4000-8000-00000000000f"
+      ]
+    },
+    "c9000001-0000-4000-8000-00000000000f": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 1800,
+      "y": 1400,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "13125052-a329-4a8a-b3fb-6c652e0432cd",
+          "name": "Frostvärme aktiv"
+        }
+      },
+      "outputSuccess": [
+        "c9000001-0000-4000-8000-000000000010"
+      ]
+    },
+    "c9000001-0000-4000-8000-000000000010": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_ac_mode",
+      "x": 2000,
+      "y": 1500,
+      "args": {
+        "acMode": "HEAT"
+      },
+      "outputSuccess": [
+        "c9000001-0000-4000-8000-000000000011"
+      ],
+      "outputError": [
+        "c9000001-0000-4000-8000-000000000013"
+      ]
+    },
+    "c9000001-0000-4000-8000-000000000011": {
+      "type": "delay",
+      "x": 2200,
+      "y": 1600,
+      "outputSuccess": [
+        "c9000001-0000-4000-8000-000000000012"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "c9000001-0000-4000-8000-000000000012": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:target_temperature_set",
+      "x": 2400,
+      "y": 1700,
+      "args": {
+        "target_temperature": 17
+      },
+      "outputError": [
+        "c9000001-0000-4000-8000-000000000013"
+      ]
+    },
+    "c9000001-0000-4000-8000-000000000013": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 2600,
+      "y": 1800,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "0a56c5e9-6495-4783-9a65-badeb85034b4",
+          "name": "Kommandofel"
+        }
+      }
+    },
+    "c9000001-0000-4000-8000-000000000014": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 800,
+      "y": 900,
+      "args": {
+        "comparator": "billig"
+      },
+      "droptoken": "homey:manager:logic|928fbc98-9ad2-433e-b2ee-6e1ac7e51dad",
+      "outputTrue": [
+        "c9000001-0000-4000-8000-000000000015"
+      ]
+    },
+    "c9000001-0000-4000-8000-000000000015": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 1000,
+      "y": 1000,
+      "args": {
+        "comparator": 13
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_temperature",
+      "outputTrue": [
+        "c9000001-0000-4000-8000-00000000000c"
+      ]
+    },
+    "c9000001-0000-4000-8000-000000000028": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 800,
+      "y": 1900,
+      "args": {
+        "comparator": "dyr"
+      },
+      "droptoken": "homey:manager:logic|928fbc98-9ad2-433e-b2ee-6e1ac7e51dad",
+      "outputTrue": [
+        "c9000001-0000-4000-8000-000000000029"
+      ]
+    },
+    "c9000001-0000-4000-8000-000000000029": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1000,
+      "y": 2000,
+      "args": {},
+      "droptoken": "homey:manager:logic|d4533fb5-6d4d-4b58-84ab-362bb66c8579",
+      "inverted": true,
+      "outputTrue": [
+        "c9000001-0000-4000-8000-00000000002a"
+      ]
+    },
+    "c9000001-0000-4000-8000-00000000002a": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1200,
+      "y": 2100,
+      "args": {},
+      "droptoken": "homey:manager:logic|13125052-a329-4a8a-b3fb-6c652e0432cd",
+      "outputTrue": [
+        "c9000001-0000-4000-8000-00000000002b"
+      ]
+    },
+    "c9000001-0000-4000-8000-00000000002b": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 1400,
+      "y": 2200,
+      "args": {
+        "comparator": 11
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_temperature",
+      "inverted": true,
+      "outputTrue": [
+        "c9000001-0000-4000-8000-00000000002c"
+      ]
+    },
+    "c9000001-0000-4000-8000-00000000002c": {
+      "type": "condition",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:ac_mode_is",
+      "x": 1600,
+      "y": 2300,
+      "args": {
+        "acMode": "OFF"
+      },
+      "inverted": true,
+      "outputTrue": [
+        "c9000001-0000-4000-8000-00000000002d"
+      ]
+    },
+    "c9000001-0000-4000-8000-00000000002d": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_ac_mode",
+      "x": 1800,
+      "y": 2400,
+      "args": {
+        "acMode": "OFF"
+      },
+      "outputSuccess": [
+        "c9000001-0000-4000-8000-00000000002e"
+      ],
+      "outputError": [
+        "c9000001-0000-4000-8000-000000000013"
+      ]
+    },
+    "c9000001-0000-4000-8000-00000000002e": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 2000,
+      "y": 2500,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "13125052-a329-4a8a-b3fb-6c652e0432cd",
+          "name": "Frostvärme aktiv"
+        }
+      }
+    },
+    "c9000001-0000-4000-8000-000000000032": {
+      "type": "note",
+      "x": 40,
+      "y": 2600,
+      "value": "Grundvärme när stugan är tom (Borta), bygger på ST Verkställ utan att ändra den. Billig el: värmer till minst 13 grader. Frostprognos: värmer till minst 12 grader. Dyr el (utan frostprognos): stoppar frostvärmen tidigt så länge det är minst 11 grader. Under 10 grader värmer ST Verkställ alltid som vanligt. Verkställ stänger av värmen när värmepumpen når 16 grader.",
+      "color": "blue"
+    }
+  }
+}

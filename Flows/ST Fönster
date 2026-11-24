@@ -1,0 +1,205 @@
+{
+  "id": "bfea5714-662f-438e-be10-ad10409f1ffc",
+  "uri": "homey:advancedflow:bfea5714-662f-438e-be10-ad10409f1ffc",
+  "name": "ST Fönster",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "04701c77-dbe4-5301-a46e-105abf50fd0f": {
+      "type": "condition",
+      "id": "homey:manager:presence:user_athome",
+      "x": 1920,
+      "y": 20,
+      "args": {
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputTrue": [
+        "66cd770a-c16a-5b13-b9f0-f96070de0631"
+      ],
+      "outputFalse": [
+        "9dc4f99c-e9ac-52ec-8fd2-53f7acc77841"
+      ]
+    },
+    "24bd98fa-00ea-5d6e-b701-39a189770fb7": {
+      "type": "condition",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:is_open_window_detected",
+      "x": 1540,
+      "y": 20,
+      "args": {},
+      "outputTrue": [
+        "04701c77-dbe4-5301-a46e-105abf50fd0f",
+        "dc7d45d0-5421-5994-96db-6f34026f2abd"
+      ]
+    },
+    "2b6a6e9c-89f2-538a-a5e8-0fbf96927ec3": {
+      "type": "condition",
+      "id": "homey:manager:mobile:push_confirm",
+      "x": 2300,
+      "y": 130,
+      "args": {
+        "text": "Verkar som ett fönster är öppet. Skall luftpumpen stängas av?",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputTrue": [
+        "a086df0a-9026-5ef1-8f8e-29712f9c448e"
+      ]
+    },
+    "429aa78c-ef62-5af0-ab84-22661927ae7b": {
+      "type": "delay",
+      "x": 3060,
+      "y": 20,
+      "outputSuccess": [
+        "c583ca95-25b1-52c2-add3-8c12cb77e471"
+      ],
+      "args": {
+        "delay": {
+          "number": "5",
+          "multiplier": 60
+        }
+      }
+    },
+    "63294ca7-e2c0-5edd-8e10-fcd9c3779a34": {
+      "type": "delay",
+      "x": 1160,
+      "y": 20,
+      "outputSuccess": [
+        "24bd98fa-00ea-5d6e-b701-39a189770fb7"
+      ],
+      "args": {
+        "delay": {
+          "number": "30",
+          "multiplier": 1
+        }
+      }
+    },
+    "6667d29c-eb86-5e0b-bf77-d7b8bd9e6ce1": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 780,
+      "y": 20,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "inverted": true,
+      "outputTrue": [
+        "63294ca7-e2c0-5edd-8e10-fcd9c3779a34"
+      ]
+    },
+    "66cd770a-c16a-5b13-b9f0-f96070de0631": {
+      "type": "condition",
+      "id": "homey:manager:mobile:push_confirm",
+      "x": 2300,
+      "y": 20,
+      "args": {
+        "text": "Verkar som ett fönster är öppet. Skall luftpumpen stängas av?",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputTrue": [
+        "a086df0a-9026-5ef1-8f8e-29712f9c448e"
+      ]
+    },
+    "99682413-6b58-5683-8bde-fe45c3e496f4": {
+      "type": "trigger",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:open_window_detected",
+      "x": 20,
+      "y": 20,
+      "args": {},
+      "outputSuccess": [
+        "f2f47657-53ee-50f5-9e21-6270be344952"
+      ]
+    },
+    "9dc4f99c-e9ac-52ec-8fd2-53f7acc77841": {
+      "type": "all",
+      "x": 2300,
+      "y": 240,
+      "input": [
+        "04701c77-dbe4-5301-a46e-105abf50fd0f::outputFalse",
+        "dc7d45d0-5421-5994-96db-6f34026f2abd::outputFalse"
+      ],
+      "outputSuccess": [
+        "a086df0a-9026-5ef1-8f8e-29712f9c448e"
+      ]
+    },
+    "a086df0a-9026-5ef1-8f8e-29712f9c448e": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 2680,
+      "y": 20,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "be722fa1-d64b-46a7-b2f4-9b295088cf46",
+          "name": "Fönster öppet"
+        }
+      },
+      "outputSuccess": [
+        "429aa78c-ef62-5af0-ab84-22661927ae7b"
+      ]
+    },
+    "c583ca95-25b1-52c2-add3-8c12cb77e471": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 3440,
+      "y": 20,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "be722fa1-d64b-46a7-b2f4-9b295088cf46",
+          "name": "Fönster öppet"
+        }
+      }
+    },
+    "dc7d45d0-5421-5994-96db-6f34026f2abd": {
+      "type": "condition",
+      "id": "homey:manager:presence:user_athome",
+      "x": 1920,
+      "y": 130,
+      "args": {
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputTrue": [
+        "2b6a6e9c-89f2-538a-a5e8-0fbf96927ec3"
+      ],
+      "outputFalse": [
+        "9dc4f99c-e9ac-52ec-8fd2-53f7acc77841"
+      ]
+    },
+    "f2f47657-53ee-50f5-9e21-6270be344952": {
+      "type": "delay",
+      "x": 400,
+      "y": 20,
+      "outputSuccess": [
+        "6667d29c-eb86-5e0b-bf77-d7b8bd9e6ce1"
+      ],
+      "args": {
+        "delay": {
+          "number": "30",
+          "multiplier": 1
+        }
+      }
+    }
+  }
+}

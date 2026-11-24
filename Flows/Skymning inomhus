@@ -1,0 +1,181 @@
+{
+  "id": "819a9891-4645-440b-b9c8-f79d224a85ea",
+  "uri": "homey:advancedflow:819a9891-4645-440b-b9c8-f79d224a85ea",
+  "name": "Skymning inomhus",
+  "folder": "8bf73971-2b8c-4b29-8dc7-6d31babc68ca",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "1b630691-bc5a-4b58-b39d-d0089690db1e": {
+      "type": "condition",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:on",
+      "x": 780,
+      "y": 0,
+      "inverted": true,
+      "outputTrue": [
+        "2e244ca6-8234-4acc-a7a5-df47176959d2"
+      ]
+    },
+    "28c7c369-b23b-4118-8ee6-7e9571d2df50": {
+      "type": "trigger",
+      "id": "homey:manager:cron:sunset",
+      "x": 20,
+      "y": 420,
+      "args": {
+        "before": 30
+      },
+      "outputSuccess": [
+        "57635527-80c0-46c4-838a-a9255ec47327"
+      ]
+    },
+    "2e244ca6-8234-4acc-a7a5-df47176959d2": {
+      "type": "action",
+      "id": "homey:mood:7921a075-750b-491c-a706-682e72d88fc8:set",
+      "x": 960,
+      "y": 120,
+      "outputSuccess": [
+        "b2e69899-3b3d-4244-8cac-d061eca423ff"
+      ]
+    },
+    "49e9058d-9bab-43c9-9934-52f57ddaf5ae": {
+      "type": "trigger",
+      "id": "homey:manager:cron:sunset",
+      "x": 40,
+      "y": 120,
+      "args": {
+        "before": 15
+      },
+      "outputSuccess": [
+        "a58ed152-fb4c-4fc5-abbd-5bf3538bac0e"
+      ]
+    },
+    "57635527-80c0-46c4-838a-a9255ec47327": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_number",
+      "x": 580,
+      "y": 420,
+      "args": {
+        "value": 0.9,
+        "variable": {
+          "id": "344a5236-34aa-4899-ac42-8bf28484053a",
+          "name": "Dim procent kökslampan"
+        }
+      },
+      "outputSuccess": []
+    },
+    "7aa85033-51ed-42cd-94ae-de8170458e4d": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 520,
+      "y": 120,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "inverted": true,
+      "outputTrue": [
+        "1b630691-bc5a-4b58-b39d-d0089690db1e",
+        "fd846a15-92b4-49a5-92ef-ea73cf7e4cd4"
+      ],
+      "outputFalse": [
+        "f51c520d-bd03-4586-956f-2b8f16a2dfb0"
+      ]
+    },
+    "89522202-dc09-4a59-b896-ba181cebac7d": {
+      "type": "condition",
+      "id": "homey:device:47aa5bf3-bb96-4dba-ae41-1b20a1f17780:on",
+      "x": 2120,
+      "y": 560,
+      "outputTrue": [
+        "a4443650-705d-461d-bc30-cdd3c01439be"
+      ]
+    },
+    "8bfab965-8539-4f5a-b50d-05df10bd982e": {
+      "type": "condition",
+      "id": "homey:device:ecd44716-7e10-4df3-8248-c816b8ea4101:on",
+      "x": 1520,
+      "y": 660,
+      "inverted": true,
+      "outputTrue": [
+        "e51a324e-14b9-44fb-9ad7-def635ea0e61"
+      ]
+    },
+    "8d958c06-e099-4430-9630-4662090a11cc": {
+      "type": "trigger",
+      "id": "homey:device:5f9be3e8-1438-4943-bf5f-2783c4633643:onoff_true",
+      "x": 40,
+      "y": 200,
+      "outputSuccess": [
+        "a58ed152-fb4c-4fc5-abbd-5bf3538bac0e"
+      ]
+    },
+    "a4443650-705d-461d-bc30-cdd3c01439be": {
+      "type": "action",
+      "id": "homey:device:47aa5bf3-bb96-4dba-ae41-1b20a1f17780:dim",
+      "x": 2340,
+      "y": 460,
+      "args": {
+        "dim": "[[homey:manager:logic|344a5236-34aa-4899-ac42-8bf28484053a]]"
+      }
+    },
+    "a58ed152-fb4c-4fc5-abbd-5bf3538bac0e": {
+      "type": "any",
+      "x": 420,
+      "y": 180,
+      "outputSuccess": [
+        "7aa85033-51ed-42cd-94ae-de8170458e4d"
+      ]
+    },
+    "b2e69899-3b3d-4244-8cac-d061eca423ff": {
+      "type": "delay",
+      "x": 1340,
+      "y": 240,
+      "outputSuccess": [
+        "8bfab965-8539-4f5a-b50d-05df10bd982e"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "c09ba8e8-4927-4b2b-aa32-b3b1bd21c0e8": {
+      "type": "action",
+      "id": "homey:device:5f9be3e8-1438-4943-bf5f-2783c4633643:off",
+      "x": 920,
+      "y": 340
+    },
+    "e51a324e-14b9-44fb-9ad7-def635ea0e61": {
+      "type": "condition",
+      "id": "homey:device:b8513f32-b97f-4eec-98c2-8b67462292f6:on",
+      "x": 1620,
+      "y": 500,
+      "inverted": true,
+      "outputTrue": [
+        "89522202-dc09-4a59-b896-ba181cebac7d"
+      ]
+    },
+    "f51c520d-bd03-4586-956f-2b8f16a2dfb0": {
+      "type": "delay",
+      "x": 760,
+      "y": 340,
+      "outputSuccess": [
+        "c09ba8e8-4927-4b2b-aa32-b3b1bd21c0e8"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 60
+        }
+      }
+    },
+    "fd846a15-92b4-49a5-92ef-ea73cf7e4cd4": {
+      "type": "action",
+      "id": "homey:device:5f9be3e8-1438-4943-bf5f-2783c4633643:on",
+      "x": 920,
+      "y": 260
+    }
+  }
+}

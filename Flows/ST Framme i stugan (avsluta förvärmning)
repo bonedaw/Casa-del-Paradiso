@@ -1,0 +1,54 @@
+{
+  "id": "d868a3a6-5146-46d9-a0fe-664fc3ccd335",
+  "uri": "homey:advancedflow:d868a3a6-5146-46d9-a0fe-664fc3ccd335",
+  "name": "ST Framme i stugan (avsluta förvärmning)",
+  "folder": null,
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "f3000000-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:device:6dece838-e029-48a2-bbc3-6bcbe29e5ed0:locked_false",
+      "x": 40,
+      "y": 100,
+      "args": {},
+      "outputSuccess": [
+        "f3000000-0000-4000-8000-000000000002",
+        "f3000000-0000-4000-8000-000000000003"
+      ]
+    },
+    "f3000000-0000-4000-8000-000000000002": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 340,
+      "y": 60,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/stugan_framme_a77168457227"
+      }
+    },
+    "f3000000-0000-4000-8000-000000000003": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 340,
+      "y": 200,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "30ad9a3e-a613-414a-a835-e4c97777e883",
+          "name": "Förvärmning pågår"
+        }
+      }
+    },
+    "f3000000-0000-4000-8000-000000000040": {
+      "type": "note",
+      "x": 40,
+      "y": 360,
+      "value": "Nar ytterdorren last upp: stang 'Vi akter till stugan' pa Pro och rensa flaggan Forvarmning pagar. Temperaturen (21 C varme eller kyla av) hanteras av ST Lage + ST Verkstall nar Stugläge byter till Hemma.",
+      "color": "blue"
+    }
+  }
+}

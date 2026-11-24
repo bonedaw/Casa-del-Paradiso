@@ -1,0 +1,484 @@
+{
+  "id": "1cd69b16-0ca7-43fc-9359-ee23f930f356",
+  "uri": "homey:advancedflow:1cd69b16-0ca7-43fc-9359-ee23f930f356",
+  "name": "ST Vakt",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "4ab20b85-2b45-50b8-a161-b192a929b00f": {
+      "ownerUri": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72",
+      "id": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72:measure_temperature_changed",
+      "type": "trigger",
+      "args": {},
+      "outputSuccess": [
+        "ef31132f-63df-5433-9b36-ccde1e387d4c"
+      ],
+      "x": 20,
+      "y": 20
+    },
+    "ef31132f-63df-5433-9b36-ccde1e387d4c": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "6b899104-83b9-4344-b9cc-e610b408cf3f",
+          "name": "Givare vardagsrum levande"
+        },
+        "value": true
+      },
+      "x": 400,
+      "y": 20
+    },
+    "50e8a704-89cb-5c60-b311-0a7084beb98e": {
+      "ownerUri": "homey:device:b59cbdec-c880-4a42-9481-a72154fc086c",
+      "id": "homey:device:b59cbdec-c880-4a42-9481-a72154fc086c:measure_temperature_changed",
+      "type": "trigger",
+      "args": {},
+      "outputSuccess": [
+        "e6a90ff4-cda4-5d7a-8201-1f801c688542"
+      ],
+      "x": 20,
+      "y": 130
+    },
+    "e6a90ff4-cda4-5d7a-8201-1f801c688542": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "cdde0a08-c358-4a99-860b-52f7db2d57da",
+          "name": "Givare badrum levande"
+        },
+        "value": true
+      },
+      "x": 400,
+      "y": 130
+    },
+    "a05ea8cf-f721-5771-9a69-18f3776ba9f4": {
+      "ownerUri": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:measure_temperature_changed",
+      "type": "trigger",
+      "args": {},
+      "outputSuccess": [
+        "f80e7e3c-6f71-52f7-9eab-ea23e8b0792e"
+      ],
+      "x": 20,
+      "y": 240
+    },
+    "f80e7e3c-6f71-52f7-9eab-ea23e8b0792e": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "bb4c8ed4-3c78-4c68-b041-707ce009f0ce",
+          "name": "Givare Tado levande"
+        },
+        "value": true
+      },
+      "x": 400,
+      "y": 240
+    },
+    "f70f345a-a128-5515-929a-b93514aa301e": {
+      "type": "any",
+      "outputSuccess": [
+        "8c4a1054-774f-5843-b8e5-148e8429cd04",
+        "6201161b-26f1-5a0e-9001-836d14d07b0b",
+        "09086eac-65f5-5f73-b5cb-79a20c4ccc47",
+        "470a231c-b801-59dd-923f-6675cc0f56b8"
+      ],
+      "x": 400,
+      "y": 350
+    },
+    "aa02946c-8015-5805-b80a-52e0596348d5": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "06:00"
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "f70f345a-a128-5515-929a-b93514aa301e"
+      ],
+      "x": 20,
+      "y": 350
+    },
+    "66b4b7ba-7a9a-5c64-ac9d-a6ea00e63bbf": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "18:00"
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "f70f345a-a128-5515-929a-b93514aa301e"
+      ],
+      "x": 20,
+      "y": 460
+    },
+    "8c4a1054-774f-5843-b8e5-148e8429cd04": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "type": "condition",
+      "args": {},
+      "inverted": true,
+      "droptoken": "homey:manager:logic|6b899104-83b9-4344-b9cc-e610b408cf3f",
+      "outputTrue": [
+        "98ba443b-d9f5-5423-8ecd-f96fb83e16d4"
+      ],
+      "x": 780,
+      "y": 20
+    },
+    "98ba443b-d9f5-5423-8ecd-f96fb83e16d4": {
+      "ownerUri": "homey:manager:mobile",
+      "id": "homey:manager:mobile:push_text_critical",
+      "type": "action",
+      "args": {
+        "user": {
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "name": "Christer Gustafsson",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "athomId": "5e04e01b6d46dd0c44fec6f3"
+        },
+        "text": "Givaren i vardagsrummet (Netatmo) har inte rapporterat på 12 timmar"
+      },
+      "x": 1160,
+      "y": 20
+    },
+    "6201161b-26f1-5a0e-9001-836d14d07b0b": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "type": "condition",
+      "args": {},
+      "inverted": true,
+      "droptoken": "homey:manager:logic|cdde0a08-c358-4a99-860b-52f7db2d57da",
+      "outputTrue": [
+        "820d76bf-0483-5ed5-8200-6db15f937731"
+      ],
+      "x": 780,
+      "y": 130
+    },
+    "820d76bf-0483-5ed5-8200-6db15f937731": {
+      "ownerUri": "homey:manager:mobile",
+      "id": "homey:manager:mobile:push_text_critical",
+      "type": "action",
+      "args": {
+        "user": {
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "name": "Christer Gustafsson",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "athomId": "5e04e01b6d46dd0c44fec6f3"
+        },
+        "text": "Givaren i badrummet har inte rapporterat på 12 timmar"
+      },
+      "x": 1160,
+      "y": 130
+    },
+    "09086eac-65f5-5f73-b5cb-79a20c4ccc47": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "type": "condition",
+      "args": {},
+      "inverted": true,
+      "droptoken": "homey:manager:logic|bb4c8ed4-3c78-4c68-b041-707ce009f0ce",
+      "outputTrue": [
+        "4dbd36ac-1b3f-5882-8869-048c85385170"
+      ],
+      "x": 780,
+      "y": 240
+    },
+    "4dbd36ac-1b3f-5882-8869-048c85385170": {
+      "ownerUri": "homey:manager:mobile",
+      "id": "homey:manager:mobile:push_text_critical",
+      "type": "action",
+      "args": {
+        "user": {
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "name": "Christer Gustafsson",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "athomId": "5e04e01b6d46dd0c44fec6f3"
+        },
+        "text": "Tado-givaren har inte rapporterat på 12 timmar"
+      },
+      "x": 1160,
+      "y": 240
+    },
+    "470a231c-b801-59dd-923f-6675cc0f56b8": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 1
+        }
+      },
+      "outputSuccess": [
+        "6a5380c9-9434-5b8b-9c6d-56a19a10ae8f",
+        "d930b6fb-d786-55a5-98bd-231c1e20c455",
+        "99883ced-0e75-522b-bb1d-87d25effad05"
+      ],
+      "x": 780,
+      "y": 350
+    },
+    "6a5380c9-9434-5b8b-9c6d-56a19a10ae8f": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "6b899104-83b9-4344-b9cc-e610b408cf3f",
+          "name": "Givare vardagsrum levande"
+        },
+        "value": false
+      },
+      "x": 1160,
+      "y": 350
+    },
+    "d930b6fb-d786-55a5-98bd-231c1e20c455": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "cdde0a08-c358-4a99-860b-52f7db2d57da",
+          "name": "Givare badrum levande"
+        },
+        "value": false
+      },
+      "x": 1160,
+      "y": 460
+    },
+    "99883ced-0e75-522b-bb1d-87d25effad05": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "bb4c8ed4-3c78-4c68-b041-707ce009f0ce",
+          "name": "Givare Tado levande"
+        },
+        "value": false
+      },
+      "x": 1160,
+      "y": 570
+    },
+    "fce1c6a1-0062-52f5-9d36-124e71fa589e": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "12:00"
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "de646e9f-282f-520d-931a-b8c8e9798b67"
+      ],
+      "x": 20,
+      "y": 570
+    },
+    "de646e9f-282f-520d-931a-b8c8e9798b67": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "type": "condition",
+      "args": {},
+      "inverted": true,
+      "droptoken": "homey:manager:logic|c97ed73c-e9d2-4121-bb58-62605e4c6937",
+      "outputTrue": [
+        "fef47014-43a6-5a0b-a585-f4e391254f73"
+      ],
+      "x": 400,
+      "y": 460
+    },
+    "fef47014-43a6-5a0b-a585-f4e391254f73": {
+      "ownerUri": "homey:manager:mobile",
+      "id": "homey:manager:mobile:push_text_critical",
+      "type": "action",
+      "args": {
+        "user": {
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "name": "Christer Gustafsson",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "athomId": "5e04e01b6d46dd0c44fec6f3"
+        },
+        "text": "Utetemperaturen kunde inte hämtas (väder). Värmestyrningen använder gammalt värde."
+      },
+      "x": 780,
+      "y": 460
+    },
+    "65843ea7-3031-5567-9551-dc48b1df4592": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_changed",
+      "args": {
+        "variable": {
+          "id": "0a56c5e9-6495-4783-9a65-badeb85034b4",
+          "name": "Kommandofel"
+        }
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "27b5a3c8-f9d9-57ff-9d9e-8dec41abe959"
+      ],
+      "x": 20,
+      "y": 680
+    },
+    "27b5a3c8-f9d9-57ff-9d9e-8dec41abe959": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "type": "condition",
+      "args": {},
+      "droptoken": "homey:manager:logic|0a56c5e9-6495-4783-9a65-badeb85034b4",
+      "outputTrue": [
+        "c70d1bb8-26ce-5b42-8cbf-743dfc191ff8"
+      ],
+      "x": 400,
+      "y": 570
+    },
+    "c70d1bb8-26ce-5b42-8cbf-743dfc191ff8": {
+      "ownerUri": "homey:manager:mobile",
+      "id": "homey:manager:mobile:push_text_critical",
+      "type": "action",
+      "args": {
+        "user": {
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "name": "Christer Gustafsson",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "athomId": "5e04e01b6d46dd0c44fec6f3"
+        },
+        "text": "Ett Tado-kommando i stugan misslyckades. Kontrollera värmepumpen."
+      },
+      "x": 780,
+      "y": 570
+    },
+    "b9d8e571-80d6-5057-b732-90cfab154dfd": {
+      "ownerUri": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72",
+      "id": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72:measure_temperature_threshold_below",
+      "type": "trigger",
+      "args": {
+        "threshold": 10
+      },
+      "outputSuccess": [
+        "08d9a971-be97-55ab-8251-c8aad4aa8731"
+      ],
+      "x": 20,
+      "y": 790
+    },
+    "08d9a971-be97-55ab-8251-c8aad4aa8731": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "type": "condition",
+      "args": {},
+      "inverted": true,
+      "droptoken": "homey:manager:logic|05613392-a9fa-46fe-ba3d-1a25f58baad8",
+      "outputTrue": [
+        "8deb357d-ef02-5114-b370-7e00f8c5a563"
+      ],
+      "x": 400,
+      "y": 680
+    },
+    "8deb357d-ef02-5114-b370-7e00f8c5a563": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "05613392-a9fa-46fe-ba3d-1a25f58baad8",
+          "name": "Låg Temperatur"
+        },
+        "value": true
+      },
+      "outputSuccess": [
+        "522f92f3-860c-5d03-92dc-702fe05264e0"
+      ],
+      "x": 780,
+      "y": 680
+    },
+    "522f92f3-860c-5d03-92dc-702fe05264e0": {
+      "ownerUri": "homey:manager:mobile",
+      "id": "homey:manager:mobile:push_text",
+      "type": "action",
+      "args": {
+        "user": {
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "name": "Christer Gustafsson",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "athomId": "5e04e01b6d46dd0c44fec6f3"
+        },
+        "text": "Låg temperatur i stugan [[homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_temperature]] grader"
+      },
+      "outputSuccess": [
+        "90c02fd7-841d-5b0e-ac8e-f10b76ba4211"
+      ],
+      "x": 1160,
+      "y": 680
+    },
+    "90c02fd7-841d-5b0e-ac8e-f10b76ba4211": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_between",
+      "type": "condition",
+      "args": {
+        "time1": "08:00",
+        "time2": "22:00"
+      },
+      "outputTrue": [
+        "ffecc7e7-6c20-5a8c-8004-7e259990edf3"
+      ],
+      "x": 1540,
+      "y": 20
+    },
+    "ffecc7e7-6c20-5a8c-8004-7e259990edf3": {
+      "ownerUri": "homey:manager:mobile",
+      "id": "homey:manager:mobile:push_confirm",
+      "type": "condition",
+      "args": {
+        "user": {
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "name": "Christer Gustafsson",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "athomId": "5e04e01b6d46dd0c44fec6f3"
+        },
+        "text": "Skall stugan värmas nu när det är [[homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_temperature]] grader?"
+      },
+      "outputTrue": [
+        "886d906f-9d49-5345-bec7-fa500b566229"
+      ],
+      "x": 1920,
+      "y": 20
+    },
+    "886d906f-9d49-5345-bec7-fa500b566229": {
+      "ownerUri": "homey:device:dbbafe31-60b9-42e2-9a82-4442f429c1b5",
+      "id": "homey:device:dbbafe31-60b9-42e2-9a82-4442f429c1b5:on",
+      "type": "action",
+      "args": {},
+      "x": 2300,
+      "y": 20
+    },
+    "9c2a2c27-832e-5382-b15d-94910324aa7e": {
+      "ownerUri": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72",
+      "id": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72:measure_temperature_threshold_above",
+      "type": "trigger",
+      "args": {
+        "threshold": 16
+      },
+      "outputSuccess": [
+        "137616fa-7dd4-5949-b3e4-06b828dc3fb9"
+      ],
+      "x": 20,
+      "y": 900
+    },
+    "137616fa-7dd4-5949-b3e4-06b828dc3fb9": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "05613392-a9fa-46fe-ba3d-1a25f58baad8",
+          "name": "Låg Temperatur"
+        },
+        "value": false
+      },
+      "x": 400,
+      "y": 790
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "id": "978a9349-9471-493e-b3e2-1fa56f514152",
+  "uri": "homey:advancedflow:978a9349-9471-493e-b3e2-1fa56f514152",
+  "name": "ST Elpris till lägenheten",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "d2000000-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:logic:variable_changed",
+      "x": 40,
+      "y": 100,
+      "args": {
+        "variable": {
+          "id": "928fbc98-9ad2-433e-b2ee-6e1ac7e51dad",
+          "name": "Elpris"
+        }
+      },
+      "outputSuccess": [
+        "d2000000-0000-4000-8000-000000000002"
+      ]
+    },
+    "d2000000-0000-4000-8000-000000000002": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 340,
+      "y": 100,
+      "args": {
+        "comparator": "billig"
+      },
+      "droptoken": "homey:manager:logic|928fbc98-9ad2-433e-b2ee-6e1ac7e51dad",
+      "outputTrue": [
+        "d2000000-0000-4000-8000-000000000011"
+      ],
+      "outputFalse": [
+        "d2000000-0000-4000-8000-000000000003"
+      ]
+    },
+    "d2000000-0000-4000-8000-000000000003": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 640,
+      "y": 200,
+      "args": {
+        "comparator": "dyr"
+      },
+      "droptoken": "homey:manager:logic|928fbc98-9ad2-433e-b2ee-6e1ac7e51dad",
+      "outputTrue": [
+        "d2000000-0000-4000-8000-000000000013"
+      ],
+      "outputFalse": [
+        "d2000000-0000-4000-8000-000000000012"
+      ]
+    },
+    "d2000000-0000-4000-8000-000000000011": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 940,
+      "y": 60,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/elfarg_billig_a77168457227"
+      }
+    },
+    "d2000000-0000-4000-8000-000000000012": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 940,
+      "y": 200,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/elfarg_normal_a77168457227"
+      }
+    },
+    "d2000000-0000-4000-8000-000000000013": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 940,
+      "y": 340,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/elfarg_dyr_a77168457227"
+      }
+    },
+    "d2000000-0000-4000-8000-000000000020": {
+      "type": "note",
+      "x": 40,
+      "y": 500,
+      "value": "Nar Elpris andras skickas en handelse till Homey Pro som farglagger Sofa right (gron/gul/rod).",
+      "color": "blue"
+    }
+  }
+}

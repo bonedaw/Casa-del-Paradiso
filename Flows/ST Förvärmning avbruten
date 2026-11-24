@@ -1,0 +1,126 @@
+{
+  "id": "1a6f9ff7-d092-4fa2-a7c8-b6f500784a32",
+  "uri": "homey:advancedflow:1a6f9ff7-d092-4fa2-a7c8-b6f500784a32",
+  "name": "ST Förvärmning avbruten",
+  "folder": null,
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "f4000000-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:logic:variable_changed",
+      "x": 40,
+      "y": 100,
+      "args": {
+        "variable": {
+          "id": "69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+          "name": "Stugläge"
+        }
+      },
+      "outputSuccess": [
+        "f4000000-0000-4000-8000-000000000002"
+      ]
+    },
+    "f4000000-0000-4000-8000-000000000002": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 340,
+      "y": 100,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "f4000000-0000-4000-8000-000000000003"
+      ]
+    },
+    "f4000000-0000-4000-8000-000000000003": {
+      "type": "delay",
+      "x": 640,
+      "y": 100,
+      "outputSuccess": [
+        "f4000000-0000-4000-8000-000000000004"
+      ],
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 1
+        }
+      }
+    },
+    "f4000000-0000-4000-8000-000000000004": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 940,
+      "y": 100,
+      "args": {},
+      "droptoken": "homey:manager:logic|30ad9a3e-a613-414a-a835-e4c97777e883",
+      "outputTrue": [
+        "f4000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "f4000000-0000-4000-8000-000000000005": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 1240,
+      "y": 100,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "f4000000-0000-4000-8000-000000000006",
+        "f4000000-0000-4000-8000-000000000007",
+        "f4000000-0000-4000-8000-000000000008"
+      ]
+    },
+    "f4000000-0000-4000-8000-000000000006": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1540,
+      "y": 20,
+      "args": {
+        "text": "Förvärmningen i stugan avbröts: Stugläge är tillbaka på Borta (troligen larmet). Värmepumpen styrs nu som när stugan är tom.",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "f4000000-0000-4000-8000-000000000007": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 1540,
+      "y": 140,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "30ad9a3e-a613-414a-a835-e4c97777e883",
+          "name": "Förvärmning pågår"
+        }
+      }
+    },
+    "f4000000-0000-4000-8000-000000000008": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 1540,
+      "y": 260,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/stugan_framme_a77168457227"
+      }
+    },
+    "f4000000-0000-4000-8000-000000000040": {
+      "type": "note",
+      "x": 40,
+      "y": 400,
+      "value": "Om Stugläge gar tillbaka till Borta medan Forvarmning pagar ar sant (och dorren inte last upp) skickas push och 'Vi akter till stugan' stangs av. 10 s fordrojning sa att ankomst (dorr last upp) hinner rensa flaggan forst.",
+      "color": "blue"
+    }
+  }
+}

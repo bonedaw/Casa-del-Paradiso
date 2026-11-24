@@ -1,0 +1,51 @@
+{
+  "id": "9edf1ef4-d3c9-46c1-a394-e65d08961f7a",
+  "uri": "homey:advancedflow:9edf1ef4-d3c9-46c1-a394-e65d08961f7a",
+  "name": "Homey tappar kontakt",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "5a6bd884-541a-4bd7-bbed-64447ab11973": {
+      "ownerUri": "homey:manager:notifications",
+      "id": "homey:manager:notifications:notification",
+      "type": "trigger",
+      "x": 80,
+      "y": 300,
+      "outputSuccess": [
+        "86276ae8-d632-4a2f-9351-eb5850cdcac3"
+      ]
+    },
+    "86276ae8-d632-4a2f-9351-eb5850cdcac3": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal",
+      "droptoken": "trigger::5a6bd884-541a-4bd7-bbed-64447ab11973::excerpt",
+      "args": {
+        "comparator": "Homey Bridge has lost connection"
+      },
+      "type": "condition",
+      "x": 500,
+      "y": 280,
+      "outputTrue": [
+        "30fa8493-699d-49fe-a083-77a695bc9984"
+      ]
+    },
+    "30fa8493-699d-49fe-a083-77a695bc9984": {
+      "ownerUri": "homey:manager:mobile",
+      "id": "homey:manager:mobile:push_text",
+      "args": {
+        "user": {
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "name": "Christer Gustafsson",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "athomId": "5e04e01b6d46dd0c44fec6f3"
+        },
+        "text": "Homey har tappat kontakten"
+      },
+      "type": "action",
+      "x": 940,
+      "y": 280
+    }
+  }
+}

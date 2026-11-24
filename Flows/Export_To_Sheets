@@ -1,0 +1,555 @@
+{
+  "id": "1323c588-da70-4d0f-8c1d-8dba904b8702",
+  "uri": "homey:advancedflow:1323c588-da70-4d0f-8c1d-8dba904b8702",
+  "name": "Export_To_Sheets",
+  "folder": "19ce2ee1-ea02-4801-8236-ea2a723cb2ca",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "3061420e-8a78-4d6a-8c5c-19b9df3138ef": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A4\",\"value\":\"[[homey:device:6dece838-e029-48a2-bbc3-6bcbe29e5ed0|measure_battery]]\"}"
+      },
+      "type": "action",
+      "x": 1220,
+      "y": 60
+    },
+    "baa15996-e3e1-4166-8cda-a9b3582ca7a5": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "04:00"
+      },
+      "type": "trigger",
+      "x": 80,
+      "y": 1520,
+      "outputSuccess": [
+        "6f7ff257-0de8-44f4-9715-cea58abbd7fb",
+        "ff3cdac8-ca31-488b-b519-ba86a0406c1f",
+        "f28e3f97-9f2f-4cc0-b9cd-d0274838eef9",
+        "78fb6b1c-d78a-4b9a-afd0-c5d108e6eaa9",
+        "ae24e10c-cf15-4539-b13c-65739c93b702",
+        "5f1e8ef2-1bfd-4e7d-aac4-cfd45c72af8a",
+        "9cb142d6-b8c5-4975-b4d8-de024e74df16",
+        "707034e8-ae07-4043-8d34-eb9ec72b451a",
+        "7a24893e-c258-4cf3-ac9a-de43ff86d7c3",
+        "6eae4c54-2191-4355-9166-6780f1045cf7",
+        "5776db6d-6982-40cd-a51f-371907c08a57",
+        "8e350f82-63b5-4b83-97ed-8701c0b50028",
+        "a6652b56-c0ba-414e-aabb-7010814ee6ff"
+      ]
+    },
+    "6f7ff257-0de8-44f4-9715-cea58abbd7fb": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "homey:device:6ebfc539-9592-4784-95ec-3a48d9e17471|measure_battery",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 600,
+      "y": 400,
+      "outputTrue": [
+        "525c147e-4bf0-4072-9e3d-4f60ed259982"
+      ]
+    },
+    "ff3cdac8-ca31-488b-b519-ba86a0406c1f": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "homey:device:20ad0094-f2fb-43b2-a7ee-d65a379dc108|measure_battery",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 600,
+      "y": 480,
+      "outputTrue": [
+        "f61d73ec-1d9a-4438-b82c-c771a9ad7770"
+      ]
+    },
+    "f28e3f97-9f2f-4cc0-b9cd-d0274838eef9": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "homey:device:85fe6386-9d10-4404-b733-c298f6d55109|measure_battery",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 600,
+      "y": 680,
+      "outputTrue": [
+        "dc912618-302d-4b6e-87bb-ac61d57df182"
+      ]
+    },
+    "78fb6b1c-d78a-4b9a-afd0-c5d108e6eaa9": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "homey:device:f9119942-bb7f-4eae-9905-242f9654622d|measure_battery",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 600,
+      "y": 860,
+      "outputTrue": [
+        "0d9a9b4e-cdac-4c6b-9257-b2c877606459"
+      ]
+    },
+    "ae24e10c-cf15-4539-b13c-65739c93b702": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "homey:device:620c47f7-9437-402d-ae43-e47e550f5723|measure_battery",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 600,
+      "y": 1020,
+      "outputTrue": [
+        "92c02e44-c76f-46cc-8f85-bc8d44b2f7b1"
+      ]
+    },
+    "5f1e8ef2-1bfd-4e7d-aac4-cfd45c72af8a": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "homey:device:043ef17f-995f-45c8-b54c-bb1a8c7268ed|measure_battery",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 600,
+      "y": 1280,
+      "outputTrue": [
+        "3e07f827-2a35-463b-b398-57d9a929aa8b"
+      ]
+    },
+    "9cb142d6-b8c5-4975-b4d8-de024e74df16": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "homey:device:49b97e7b-f343-4272-933f-f31f3f3bff1f|measure_battery",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 600,
+      "y": 1460,
+      "outputTrue": [
+        "b69cedfb-c875-49ef-8b54-b6ae35551427"
+      ]
+    },
+    "707034e8-ae07-4043-8d34-eb9ec72b451a": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90|measure_battery",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 600,
+      "y": 1560,
+      "outputTrue": [
+        "f211e8ed-c228-4db6-a544-85a278db0de3"
+      ]
+    },
+    "7a24893e-c258-4cf3-ac9a-de43ff86d7c3": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "homey:device:b59cbdec-c880-4a42-9481-a72154fc086c|measure_battery",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 600,
+      "y": 1840,
+      "outputTrue": [
+        "a4c1123c-a2f2-4d38-a823-9018fdb2c3be"
+      ]
+    },
+    "6eae4c54-2191-4355-9166-6780f1045cf7": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "homey:device:42151a84-c90b-46a8-aaad-af4e7e89216f|measure_battery",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 600,
+      "y": 1960,
+      "outputTrue": [
+        "863ba1ce-6bb5-4699-ad46-e4bd117caf03"
+      ]
+    },
+    "5776db6d-6982-40cd-a51f-371907c08a57": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "homey:device:01749f51-2648-4bb6-b15c-cde54c3bffbe|measure_battery",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 600,
+      "y": 2100,
+      "outputTrue": [
+        "a8e30be1-7601-44c6-9e96-4ae95e74e518"
+      ]
+    },
+    "8e350f82-63b5-4b83-97ed-8701c0b50028": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "homey:device:6dece838-e029-48a2-bbc3-6bcbe29e5ed0|measure_battery",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 600,
+      "y": 160,
+      "outputTrue": [
+        "3061420e-8a78-4d6a-8c5c-19b9df3138ef"
+      ]
+    },
+    "a6652b56-c0ba-414e-aabb-7010814ee6ff": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "homey:device:81f050a9-7492-4133-af07-d57a070ecbcc|measure_battery",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 600,
+      "y": 2320,
+      "outputTrue": [
+        "d6beae48-a7b9-4ee3-86a1-4a8da7114d57"
+      ]
+    },
+    "9ef186d4-2b92-45b2-be45-3dfbfd9b508e": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A5\",\"value\":\"[[homey:device:6ebfc539-9592-4784-95ec-3a48d9e17471|measure_battery]]\"}"
+      },
+      "type": "action",
+      "x": 1220,
+      "y": 340
+    },
+    "e717c199-e357-4e80-9e97-d4cfd4bd60fc": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A6\",\"value\":\"[[homey:device:20ad0094-f2fb-43b2-a7ee-d65a379dc108|measure_battery]]\"}"
+      },
+      "type": "action",
+      "x": 1220,
+      "y": 540
+    },
+    "885a257e-bff1-4d95-9d7c-d05b9be5e5e7": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A7\",\"value\":\"[[homey:device:85fe6386-9d10-4404-b733-c298f6d55109|measure_battery]]\"}"
+      },
+      "type": "action",
+      "x": 1220,
+      "y": 720
+    },
+    "b0abe476-88cc-4b4c-a2a9-d60e93570748": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A8\",\"value\":\"[[homey:device:f9119942-bb7f-4eae-9905-242f9654622d|measure_battery]]\"}"
+      },
+      "type": "action",
+      "x": 1220,
+      "y": 900
+    },
+    "2094a338-7522-4855-be3f-053a863c15aa": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A9\",\"value\":\"[[homey:device:620c47f7-9437-402d-ae43-e47e550f5723|measure_battery]]\"}"
+      },
+      "type": "action",
+      "x": 1220,
+      "y": 1080
+    },
+    "9996a836-d5b1-419a-9d6f-5d0b9fc90235": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A10\",\"value\":\"[[homey:device:043ef17f-995f-45c8-b54c-bb1a8c7268ed|measure_battery]]\"}"
+      },
+      "type": "action",
+      "x": 1220,
+      "y": 1260
+    },
+    "80ba8685-05e9-4c6a-ad50-59bb833fd89c": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A11\",\"value\":\"[[homey:device:49b97e7b-f343-4272-933f-f31f3f3bff1f|measure_battery]]\"}"
+      },
+      "type": "action",
+      "x": 1220,
+      "y": 1440
+    },
+    "5fad5e4e-2ca9-4ef5-b064-796300cf6cf3": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A12\",\"value\":\"[[homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90|measure_battery]]\"}"
+      },
+      "type": "action",
+      "x": 1220,
+      "y": 1620
+    },
+    "8238f011-0931-402e-a41f-53a26ebfeb22": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A13\",\"value\":\"[[homey:device:b59cbdec-c880-4a42-9481-a72154fc086c|measure_battery]]\"}"
+      },
+      "type": "action",
+      "x": 1220,
+      "y": 1800
+    },
+    "7b857e65-146d-4407-903d-8f1e7376e846": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A14\",\"value\":\"[[homey:device:42151a84-c90b-46a8-aaad-af4e7e89216f|measure_battery]]\"}"
+      },
+      "type": "action",
+      "x": 1220,
+      "y": 1980
+    },
+    "abba1deb-d024-40e0-92ff-2868c94f8f91": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A15\",\"value\":\"[[homey:device:01749f51-2648-4bb6-b15c-cde54c3bffbe|measure_battery]]\"}"
+      },
+      "type": "action",
+      "x": 1220,
+      "y": 2160
+    },
+    "61f99aac-f454-4f3d-ac24-4b145f303077": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A16\",\"value\":\"[[homey:device:81f050a9-7492-4133-af07-d57a070ecbcc|measure_battery]]\"}"
+      },
+      "type": "action",
+      "x": 1220,
+      "y": 2340
+    },
+    "525c147e-4bf0-4072-9e3d-4f60ed259982": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 60
+        }
+      },
+      "x": 1040,
+      "y": 400,
+      "outputSuccess": [
+        "9ef186d4-2b92-45b2-be45-3dfbfd9b508e"
+      ]
+    },
+    "f61d73ec-1d9a-4438-b82c-c771a9ad7770": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "2",
+          "multiplier": 60
+        }
+      },
+      "x": 1040,
+      "y": 520,
+      "outputSuccess": [
+        "e717c199-e357-4e80-9e97-d4cfd4bd60fc"
+      ]
+    },
+    "dc912618-302d-4b6e-87bb-ac61d57df182": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "3",
+          "multiplier": 60
+        }
+      },
+      "x": 1040,
+      "y": 700,
+      "outputSuccess": [
+        "885a257e-bff1-4d95-9d7c-d05b9be5e5e7"
+      ]
+    },
+    "0d9a9b4e-cdac-4c6b-9257-b2c877606459": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "4",
+          "multiplier": 60
+        }
+      },
+      "x": 1000,
+      "y": 880,
+      "outputSuccess": [
+        "b0abe476-88cc-4b4c-a2a9-d60e93570748"
+      ]
+    },
+    "92c02e44-c76f-46cc-8f85-bc8d44b2f7b1": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "5",
+          "multiplier": 60
+        }
+      },
+      "x": 1020,
+      "y": 1080,
+      "outputSuccess": [
+        "2094a338-7522-4855-be3f-053a863c15aa"
+      ]
+    },
+    "3e07f827-2a35-463b-b398-57d9a929aa8b": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "6",
+          "multiplier": 60
+        }
+      },
+      "x": 1020,
+      "y": 1340,
+      "outputSuccess": [
+        "9996a836-d5b1-419a-9d6f-5d0b9fc90235"
+      ]
+    },
+    "b69cedfb-c875-49ef-8b54-b6ae35551427": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "7",
+          "multiplier": 60
+        }
+      },
+      "x": 1040,
+      "y": 1480,
+      "outputSuccess": [
+        "80ba8685-05e9-4c6a-ad50-59bb833fd89c"
+      ]
+    },
+    "f211e8ed-c228-4db6-a544-85a278db0de3": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "8",
+          "multiplier": 60
+        }
+      },
+      "x": 1060,
+      "y": 1680,
+      "outputSuccess": [
+        "5fad5e4e-2ca9-4ef5-b064-796300cf6cf3"
+      ]
+    },
+    "a4c1123c-a2f2-4d38-a823-9018fdb2c3be": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "9",
+          "multiplier": 60
+        }
+      },
+      "x": 1060,
+      "y": 1880,
+      "outputSuccess": [
+        "8238f011-0931-402e-a41f-53a26ebfeb22"
+      ]
+    },
+    "863ba1ce-6bb5-4699-ad46-e4bd117caf03": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 60
+        }
+      },
+      "x": 1040,
+      "y": 2000,
+      "outputSuccess": [
+        "7b857e65-146d-4407-903d-8f1e7376e846"
+      ]
+    },
+    "a8e30be1-7601-44c6-9e96-4ae95e74e518": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "11",
+          "multiplier": 60
+        }
+      },
+      "x": 1020,
+      "y": 2180,
+      "outputSuccess": [
+        "abba1deb-d024-40e0-92ff-2868c94f8f91"
+      ]
+    },
+    "d6beae48-a7b9-4ee3-86a1-4a8da7114d57": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "12",
+          "multiplier": 60
+        }
+      },
+      "x": 1000,
+      "y": 2300,
+      "outputSuccess": [
+        "61f99aac-f454-4f3d-ac24-4b145f303077"
+      ]
+    }
+  }
+}

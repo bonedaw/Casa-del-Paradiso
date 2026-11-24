@@ -1,0 +1,1695 @@
+{
+  "id": "4be899e9-ca64-4d28-b9b7-5943c2374ac7",
+  "uri": "homey:advancedflow:4be899e9-ca64-4d28-b9b7-5943c2374ac7",
+  "name": "ST Verkställ",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "06df0289-9ff5-570b-8e18-a724e7832cfb": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 3440,
+      "y": 350,
+      "args": {},
+      "droptoken": "homey:manager:logic|13125052-a329-4a8a-b3fb-6c652e0432cd",
+      "outputTrue": [
+        "3d493a8b-88d7-5fc9-a36f-92b5297bc316"
+      ],
+      "outputFalse": [
+        "0e3a5bc2-e6f5-5106-992b-ac8d3d39df5d"
+      ]
+    },
+    "0982145e-28d3-521a-96e8-af08f11eb178": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 2300,
+      "y": 130,
+      "args": {},
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "outputTrue": [
+        "451dc8a9-8595-529e-99b6-22837677ea90"
+      ],
+      "outputFalse": [
+        "bfced542-f78a-508e-9817-1ee939f83574"
+      ]
+    },
+    "0a2cce10-a0f4-51ca-96e3-b039422d344d": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 20,
+      "y": 570,
+      "args": {
+        "time": "06:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "0ab7a495-bdf0-5230-a026-b36cb6719e84": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1160,
+      "y": 240,
+      "args": {},
+      "droptoken": "homey:manager:logic|be722fa1-d64b-46a7-b2f4-9b295088cf46",
+      "inverted": true,
+      "outputTrue": [
+        "d7a03cee-b704-55f8-90cc-f0b923ad4ced"
+      ]
+    },
+    "0b09bf2e-e53a-57ce-9f64-c571b58b7b0c": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 3820,
+      "y": 460,
+      "args": {
+        "comparator": 9
+      },
+      "droptoken": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf|measure_temperature",
+      "inverted": true,
+      "outputTrue": [
+        "8e61dce3-3342-5892-bac8-0b7376df0488"
+      ],
+      "outputFalse": [
+        "3d493a8b-88d7-5fc9-a36f-92b5297bc316"
+      ]
+    },
+    "0e3a5bc2-e6f5-5106-992b-ac8d3d39df5d": {
+      "type": "condition",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:ac_mode_is",
+      "x": 4200,
+      "y": 570,
+      "args": {
+        "acMode": "HEAT"
+      },
+      "inverted": true,
+      "outputTrue": [
+        "7fef3dfa-cb42-5951-9548-6fd078bef739"
+      ],
+      "outputFalse": [
+        "f63f7b7e-07a3-505f-afd5-fcbc0f1f8b33"
+      ]
+    },
+    "10e114dd-c096-5a51-ab17-7922a03d5695": {
+      "type": "trigger",
+      "id": "homey:manager:logic:variable_changed",
+      "x": 20,
+      "y": 130,
+      "args": {
+        "variable": {
+          "id": "be722fa1-d64b-46a7-b2f4-9b295088cf46",
+          "name": "Fönster öppet"
+        }
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "125c6e42-b4ce-5156-8da5-9a5c46d6b464": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_fan_level",
+      "x": 4960,
+      "y": 350,
+      "args": {
+        "fanLevel": "AUTO"
+      },
+      "outputSuccess": [
+        "774b6546-8086-565b-b65c-ccf682227be6"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "13679de0-e238-590f-b6bb-c9e0d29f6e00": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_horizontal_swing",
+      "x": 6480,
+      "y": 130,
+      "args": {
+        "horizontalSwing": "ON"
+      },
+      "outputSuccess": [
+        "87e249be-b4b9-5234-a0a4-c97a31d4c684"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "1c294ce2-b0e4-58bf-8748-e7c65a47ec48": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_horizontal_swing",
+      "x": 6860,
+      "y": 240,
+      "args": {
+        "horizontalSwing": "ON"
+      },
+      "outputSuccess": [
+        "9cad2cca-5a65-5549-9bee-f0554bc741f3"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "1faedd81-d087-54cf-8835-1e34676113ae": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 8380,
+      "y": 130,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "0a56c5e9-6495-4783-9a65-badeb85034b4",
+          "name": "Kommandofel"
+        }
+      },
+      "outputSuccess": [
+        "2b146f02-9fd3-541b-9f08-affc22127695"
+      ]
+    },
+    "237e2d67-7b73-58df-bf71-4878aee5684f": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_ac_mode",
+      "x": 4580,
+      "y": 130,
+      "args": {
+        "acMode": "OFF"
+      },
+      "outputSuccess": [
+        "d7fd2182-f557-56c6-981e-e3350676f589"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "2560404f-7000-5403-bb89-47d841160d28": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 3060,
+      "y": 460,
+      "args": {},
+      "droptoken": "homey:manager:logic|c97ed73c-e9d2-4121-bb58-62605e4c6937",
+      "inverted": true,
+      "outputTrue": [
+        "5ccf849f-9cb5-5036-82a1-2146c54e4627"
+      ],
+      "outputFalse": [
+        "bfced542-f78a-508e-9817-1ee939f83574"
+      ]
+    },
+    "27bf22fa-e5e5-553a-b715-836e51c91469": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_ac_mode",
+      "x": 3440,
+      "y": 240,
+      "args": {
+        "acMode": "COOL"
+      },
+      "outputSuccess": [
+        "fae6f086-948b-5914-be65-4e72f955aaf8"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "2b146f02-9fd3-541b-9f08-affc22127695": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 8760,
+      "y": 20,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "13125052-a329-4a8a-b3fb-6c652e0432cd",
+          "name": "Frostvärme aktiv"
+        }
+      }
+    },
+    "2bc9d097-5237-5a9e-8edc-769f502a66a5": {
+      "type": "condition",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:ac_mode_is",
+      "x": 3820,
+      "y": 570,
+      "args": {
+        "acMode": "OFF"
+      },
+      "inverted": true,
+      "outputTrue": [
+        "bfced542-f78a-508e-9817-1ee939f83574"
+      ]
+    },
+    "2c2ef222-0ffa-5056-90d9-0d561f30f43b": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:target_temperature_set",
+      "x": 4960,
+      "y": 240,
+      "args": {
+        "target_temperature": 21
+      },
+      "outputSuccess": [
+        "e5d3bf3a-15c3-5610-a1f2-07da0fe5b5c4"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "33650a94-ab35-5d63-94cf-138f4aeccd32": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 780,
+      "y": 240,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "0ab7a495-bdf0-5230-a026-b36cb6719e84"
+      ]
+    },
+    "34cf0c6f-77c1-591b-a8f5-b34d2f522b51": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 2680,
+      "y": 130,
+      "args": {
+        "comparator": 6
+      },
+      "droptoken": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf|measure_temperature",
+      "outputTrue": [
+        "9f4177dd-d940-5007-ad71-a9b83ee02956"
+      ],
+      "outputFalse": [
+        "aeb229bd-efac-5114-9feb-4e6446af1969"
+      ]
+    },
+    "38458795-9ac2-5ccd-8d82-f2e7e3b1ef81": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 5720,
+      "y": 130,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "0a56c5e9-6495-4783-9a65-badeb85034b4",
+          "name": "Kommandofel"
+        }
+      },
+      "outputSuccess": [
+        "fb2f3a5d-2118-5437-8ff2-0e7ce830fa90"
+      ]
+    },
+    "38d37c14-a5ad-5763-9f70-97c159f959b3": {
+      "type": "trigger",
+      "id": "homey:device:e220f422-7755-498a-aaf4-f69ed8f9d8cd:onoff_true",
+      "x": 20,
+      "y": 240,
+      "args": {},
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "3a9803f6-89f4-5b49-8d7d-987a85a569ea": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 3440,
+      "y": 460,
+      "args": {},
+      "droptoken": "homey:manager:logic|13125052-a329-4a8a-b3fb-6c652e0432cd",
+      "outputTrue": [
+        "0b09bf2e-e53a-57ce-9f64-c571b58b7b0c"
+      ],
+      "outputFalse": [
+        "2bc9d097-5237-5a9e-8edc-769f502a66a5"
+      ]
+    },
+    "3d493a8b-88d7-5fc9-a36f-92b5297bc316": {
+      "type": "condition",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:ac_mode_is",
+      "x": 3820,
+      "y": 350,
+      "args": {
+        "acMode": "HEAT"
+      },
+      "inverted": true,
+      "outputTrue": [
+        "0e3a5bc2-e6f5-5106-992b-ac8d3d39df5d"
+      ],
+      "outputFalse": [
+        "c6000001-0000-4000-8000-000000000001"
+      ]
+    },
+    "411f2843-1795-5e87-85c0-f133d4b0fe70": {
+      "type": "any",
+      "x": 400,
+      "y": 20,
+      "outputSuccess": [
+        "d5a55795-95d1-5ea8-b82b-7f1f873dcda2",
+        "d1d03945-d1a8-56ed-bd8d-83bf19fa52ac"
+      ]
+    },
+    "42a7167e-5286-5042-bbdb-df6f514686eb": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 2680,
+      "y": 350,
+      "args": {
+        "comparator": "Förkylning"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "7fc1482b-ad84-5d2e-a34d-b8a1cb6f7f56"
+      ]
+    },
+    "43ed8d7e-72e1-5528-a5d1-18a66f6c8fed": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 7620,
+      "y": 20,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "0a56c5e9-6495-4783-9a65-badeb85034b4",
+          "name": "Kommandofel"
+        }
+      }
+    },
+    "451dc8a9-8595-529e-99b6-22837677ea90": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 2680,
+      "y": 240,
+      "args": {
+        "comparator": 15
+      },
+      "droptoken": "homey:manager:logic|57ab09a1-dc3e-4f77-9418-1846d6543af7",
+      "outputTrue": [
+        "5ccf849f-9cb5-5036-82a1-2146c54e4627"
+      ],
+      "outputFalse": [
+        "2560404f-7000-5403-bb89-47d841160d28"
+      ]
+    },
+    "477d0eec-efce-5e24-a3a4-bb16d8ae804f": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 5720,
+      "y": 20,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "0a56c5e9-6495-4783-9a65-badeb85034b4",
+          "name": "Kommandofel"
+        }
+      }
+    },
+    "48009202-ce06-57ac-b660-75ac72ab17a7": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:target_temperature_set",
+      "x": 4200,
+      "y": 350,
+      "args": {
+        "target_temperature": 23
+      },
+      "outputSuccess": [
+        "a3d68341-e623-5258-8a9e-788696a714e8"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "4b056471-26e3-5f40-ae64-d1ca5948ef22": {
+      "type": "any",
+      "x": 5340,
+      "y": 130,
+      "outputSuccess": [
+        "38458795-9ac2-5ccd-8d82-f2e7e3b1ef81"
+      ]
+    },
+    "4cd76b6e-2824-5987-bb01-f8f1a97cac3a": {
+      "type": "delay",
+      "x": 4960,
+      "y": 570,
+      "outputSuccess": [
+        "f63f7b7e-07a3-505f-afd5-fcbc0f1f8b33"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "4d440a5f-1a0a-5a34-997e-5e2bf6d1e2d5": {
+      "type": "delay",
+      "x": 6100,
+      "y": 240,
+      "outputSuccess": [
+        "13679de0-e238-590f-b6bb-c9e0d29f6e00"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "4fa8be08-5022-5189-bbaa-d4d7ce1872cf": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 20,
+      "y": 790,
+      "args": {
+        "time": "18:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "537f6267-695b-57db-be69-4bce5f5c2cc1": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 2300,
+      "y": 240,
+      "args": {
+        "comparator": "Förvärmning"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "5b96e485-429f-5318-afe6-ad306c7e6b2f"
+      ],
+      "outputFalse": [
+        "42a7167e-5286-5042-bbdb-df6f514686eb"
+      ]
+    },
+    "599c65f4-d7a8-5996-821f-8cae0ab4e21d": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 2300,
+      "y": 20,
+      "args": {
+        "comparator": 6
+      },
+      "droptoken": "homey:device:b59cbdec-c880-4a42-9481-a72154fc086c|measure_temperature",
+      "outputTrue": [
+        "9f4177dd-d940-5007-ad71-a9b83ee02956"
+      ],
+      "outputFalse": [
+        "34cf0c6f-77c1-591b-a8f5-b34d2f522b51"
+      ]
+    },
+    "5b96e485-429f-5318-afe6-ad306c7e6b2f": {
+      "type": "condition",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:ac_mode_is",
+      "x": 2680,
+      "y": 20,
+      "args": {
+        "acMode": "HEAT"
+      },
+      "inverted": true,
+      "outputTrue": [
+        "8751a76c-c62a-51b1-a643-a620c1c72555"
+      ],
+      "outputFalse": [
+        "b69a059b-8803-5596-819a-13f437448e52"
+      ]
+    },
+    "5c68b6bc-e422-58b3-87e7-45096005f334": {
+      "type": "any",
+      "x": 400,
+      "y": 130,
+      "outputSuccess": [
+        "33650a94-ab35-5d63-94cf-138f4aeccd32"
+      ]
+    },
+    "5ccf849f-9cb5-5036-82a1-2146c54e4627": {
+      "type": "condition",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:ac_mode_is",
+      "x": 3440,
+      "y": 20,
+      "args": {
+        "acMode": "HEAT"
+      },
+      "inverted": true,
+      "outputTrue": [
+        "bcdacc06-1fdf-5f57-b344-f29a8dedc313"
+      ],
+      "outputFalse": [
+        "fe6fb87e-1f7f-5aea-a960-b010ebd7195b"
+      ]
+    },
+    "6824b03b-4dd5-55cc-934d-7a375a644b5f": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_horizontal_swing",
+      "x": 8000,
+      "y": 20,
+      "args": {
+        "horizontalSwing": "ON"
+      },
+      "outputSuccess": [
+        "1faedd81-d087-54cf-8835-1e34676113ae"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "690d6db6-c476-5f65-8b14-f7fcaee7da85": {
+      "type": "trigger",
+      "id": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72:measure_temperature_changed",
+      "x": 20,
+      "y": 900,
+      "args": {},
+      "outputSuccess": [
+        "5c68b6bc-e422-58b3-87e7-45096005f334"
+      ]
+    },
+    "73c2d489-91ea-552d-a271-b84238a547c3": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_ac_mode",
+      "x": 4580,
+      "y": 20,
+      "args": {
+        "acMode": "OFF"
+      },
+      "outputSuccess": [
+        "c9ed9e90-3175-5e9d-a046-f61610ed3be5"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "7511b6e3-db30-5955-9851-197c437db517": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 20,
+      "y": 680,
+      "args": {
+        "time": "12:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "774b6546-8086-565b-b65c-ccf682227be6": {
+      "type": "delay",
+      "x": 5340,
+      "y": 350,
+      "outputSuccess": [
+        "d42f0fdf-1224-5d26-8f2c-9e07c9b1c327"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "7888a26d-b35f-596e-9f8e-d0027823e6f4": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 1160,
+      "y": 20,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "13125052-a329-4a8a-b3fb-6c652e0432cd",
+          "name": "Frostvärme aktiv"
+        }
+      }
+    },
+    "7afc89ab-6f3b-50b7-b009-32138c2ee401": {
+      "type": "delay",
+      "x": 5720,
+      "y": 460,
+      "outputSuccess": [
+        "9e659eda-de51-58b8-b630-5c1b8aa5eb42"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "7d8b6abc-bef3-5e27-80d6-5fb06ff4112c": {
+      "type": "delay",
+      "x": 6100,
+      "y": 130,
+      "outputSuccess": [
+        "e11a2075-367a-561b-996d-0643e90a92a7"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "7e47d349-40a5-5ffe-a850-74b443622274": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_fan_level",
+      "x": 6480,
+      "y": 350,
+      "args": {
+        "fanLevel": "AUTO"
+      },
+      "outputSuccess": [
+        "fa090780-6585-5474-ac20-5e1b0ff38977"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "7e8b6364-938b-53b7-91d3-c0b9348600df": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 1920,
+      "y": 240,
+      "args": {
+        "comparator": "Natt"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "bfced542-f78a-508e-9817-1ee939f83574"
+      ],
+      "outputFalse": [
+        "537f6267-695b-57db-be69-4bce5f5c2cc1"
+      ]
+    },
+    "7f8c0316-4926-555a-997b-6c1f7665ef82": {
+      "type": "trigger",
+      "id": "homey:device:b59cbdec-c880-4a42-9481-a72154fc086c:measure_temperature_changed",
+      "x": 20,
+      "y": 1010,
+      "args": {},
+      "outputSuccess": [
+        "5c68b6bc-e422-58b3-87e7-45096005f334"
+      ]
+    },
+    "7fc1482b-ad84-5d2e-a34d-b8a1cb6f7f56": {
+      "type": "condition",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:ac_mode_is",
+      "x": 3060,
+      "y": 130,
+      "args": {
+        "acMode": "COOL"
+      },
+      "inverted": true,
+      "outputTrue": [
+        "27bf22fa-e5e5-553a-b715-836e51c91469"
+      ],
+      "outputFalse": [
+        "83ba830a-7078-5198-9a88-4ee34c623f5e"
+      ]
+    },
+    "7fef3dfa-cb42-5951-9548-6fd078bef739": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_ac_mode",
+      "x": 4580,
+      "y": 570,
+      "args": {
+        "acMode": "HEAT"
+      },
+      "outputSuccess": [
+        "4cd76b6e-2824-5987-bb01-f8f1a97cac3a"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "83ba830a-7078-5198-9a88-4ee34c623f5e": {
+      "type": "any",
+      "x": 4200,
+      "y": 460,
+      "outputSuccess": [
+        "8ce20e05-ecd4-50a1-ab5e-5465b938993f"
+      ]
+    },
+    "8482a3f0-71d7-5502-9bbd-00c73387bcec": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 20,
+      "y": 460,
+      "args": {
+        "time": "03:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "8751a76c-c62a-51b1-a643-a620c1c72555": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_ac_mode",
+      "x": 3060,
+      "y": 20,
+      "args": {
+        "acMode": "HEAT"
+      },
+      "outputSuccess": [
+        "c03fbe30-36b1-5921-bf6f-d3d9c7d21deb"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "87e249be-b4b9-5234-a0a4-c97a31d4c684": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 6860,
+      "y": 130,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "0a56c5e9-6495-4783-9a65-badeb85034b4",
+          "name": "Kommandofel"
+        }
+      }
+    },
+    "88bb6e68-7ee6-5fc9-915b-dafa0983427e": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 8380,
+      "y": 20,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "0a56c5e9-6495-4783-9a65-badeb85034b4",
+          "name": "Kommandofel"
+        }
+      }
+    },
+    "89092bbe-94c6-5fba-9b61-3b229d60f13b": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_fan_level",
+      "x": 5720,
+      "y": 240,
+      "args": {
+        "fanLevel": "AUTO"
+      },
+      "outputSuccess": [
+        "7d8b6abc-bef3-5e27-80d6-5fb06ff4112c"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "8af7145c-00f5-57b6-91ee-97b08aa3efe3": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_vertical_swing",
+      "x": 7240,
+      "y": 240,
+      "args": {
+        "verticalSwing": "ON"
+      },
+      "outputSuccess": [
+        "fef2fc68-252c-5910-ac05-5896b1216455"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "8b3d790b-4a6e-55d3-9563-89346cc7de00": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 1160,
+      "y": 130,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "d7a03cee-b704-55f8-90cc-f0b923ad4ced"
+      ],
+      "outputFalse": [
+        "f3662249-7609-5af3-ac7a-afff6f0d07d1"
+      ]
+    },
+    "8ce20e05-ecd4-50a1-ab5e-5465b938993f": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:target_temperature_set",
+      "x": 4580,
+      "y": 460,
+      "args": {
+        "target_temperature": 20
+      },
+      "outputSuccess": [
+        "eb267129-509d-520f-9feb-daa2f73124c9"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "8e61dce3-3342-5892-bac8-0b7376df0488": {
+      "type": "condition",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:ac_mode_is",
+      "x": 4200,
+      "y": 130,
+      "args": {
+        "acMode": "OFF"
+      },
+      "inverted": true,
+      "outputTrue": [
+        "237e2d67-7b73-58df-bf71-4878aee5684f"
+      ],
+      "outputFalse": [
+        "4b056471-26e3-5f40-ae64-d1ca5948ef22"
+      ]
+    },
+    "9cad2cca-5a65-5549-9bee-f0554bc741f3": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 7240,
+      "y": 130,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "0a56c5e9-6495-4783-9a65-badeb85034b4",
+          "name": "Kommandofel"
+        }
+      }
+    },
+    "9e659eda-de51-58b8-b630-5c1b8aa5eb42": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_vertical_swing",
+      "x": 6100,
+      "y": 350,
+      "args": {
+        "verticalSwing": "ON"
+      },
+      "outputSuccess": [
+        "e9aa545c-f543-5def-8c2b-f5f79439a4f1"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "9f4177dd-d940-5007-ad71-a9b83ee02956": {
+      "type": "any",
+      "x": 3060,
+      "y": 240,
+      "outputSuccess": [
+        "06df0289-9ff5-570b-8e18-a724e7832cfb"
+      ]
+    },
+    "a0b4d8ac-8843-54fb-9df3-4d37318215fe": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:target_temperature_set",
+      "x": 5720,
+      "y": 570,
+      "args": {
+        "target_temperature": 17
+      },
+      "outputSuccess": [
+        "bf612754-4dd4-590f-a98f-748b6e6251f0"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "a13e6730-908e-5eeb-bb16-f29defcfe9c4": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 1920,
+      "y": 20,
+      "args": {
+        "comparator": 6
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_temperature",
+      "outputTrue": [
+        "9f4177dd-d940-5007-ad71-a9b83ee02956"
+      ],
+      "outputFalse": [
+        "599c65f4-d7a8-5996-821f-8cae0ab4e21d"
+      ]
+    },
+    "a3d68341-e623-5258-8a9e-788696a714e8": {
+      "type": "delay",
+      "x": 4580,
+      "y": 350,
+      "outputSuccess": [
+        "125c6e42-b4ce-5156-8da5-9a5c46d6b464"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "a716952f-55c4-50d2-b7b2-7a90f3826620": {
+      "type": "trigger",
+      "id": "homey:device:e220f422-7755-498a-aaf4-f69ed8f9d8cd:onoff_false",
+      "x": 20,
+      "y": 350,
+      "args": {},
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "adb47eb7-e6e6-5b0a-bfa3-3762cf0fbb5e": {
+      "type": "any",
+      "x": 5340,
+      "y": 20,
+      "outputSuccess": [
+        "477d0eec-efce-5e24-a3a4-bb16d8ae804f"
+      ]
+    },
+    "aeb229bd-efac-5114-9feb-4e6446af1969": {
+      "type": "any",
+      "x": 3060,
+      "y": 350,
+      "outputSuccess": [
+        "3a9803f6-89f4-5b49-8d7d-987a85a569ea"
+      ]
+    },
+    "b69a059b-8803-5596-819a-13f437448e52": {
+      "type": "any",
+      "x": 3820,
+      "y": 130,
+      "outputSuccess": [
+        "48009202-ce06-57ac-b660-75ac72ab17a7"
+      ]
+    },
+    "bcdacc06-1fdf-5f57-b344-f29a8dedc313": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_ac_mode",
+      "x": 3820,
+      "y": 20,
+      "args": {
+        "acMode": "HEAT"
+      },
+      "outputSuccess": [
+        "c0453aa2-a0f7-597b-ab0b-255469fa1693"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "bf612754-4dd4-590f-a98f-748b6e6251f0": {
+      "type": "delay",
+      "x": 6100,
+      "y": 460,
+      "outputSuccess": [
+        "7e47d349-40a5-5ffe-a850-74b443622274"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "bfced542-f78a-508e-9817-1ee939f83574": {
+      "type": "condition",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:ac_mode_is",
+      "x": 4200,
+      "y": 20,
+      "args": {
+        "acMode": "OFF"
+      },
+      "inverted": true,
+      "outputTrue": [
+        "73c2d489-91ea-552d-a271-b84238a547c3"
+      ],
+      "outputFalse": [
+        "adb47eb7-e6e6-5b0a-bfa3-3762cf0fbb5e"
+      ]
+    },
+    "c03fbe30-36b1-5921-bf6f-d3d9c7d21deb": {
+      "type": "delay",
+      "x": 3440,
+      "y": 130,
+      "outputSuccess": [
+        "b69a059b-8803-5596-819a-13f437448e52"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "c0453aa2-a0f7-597b-ab0b-255469fa1693": {
+      "type": "delay",
+      "x": 4200,
+      "y": 240,
+      "outputSuccess": [
+        "fe6fb87e-1f7f-5aea-a960-b010ebd7195b"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "c4000001-0000-4000-8000-000000000001": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1540,
+      "y": 700,
+      "args": {},
+      "droptoken": "homey:manager:logic|13125052-a329-4a8a-b3fb-6c652e0432cd",
+      "outputTrue": [
+        "c4000001-0000-4000-8000-000000000002"
+      ],
+      "outputFalse": [
+        "a13e6730-908e-5eeb-bb16-f29defcfe9c4"
+      ]
+    },
+    "c4000001-0000-4000-8000-000000000002": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 1920,
+      "y": 700,
+      "args": {
+        "comparator": 9
+      },
+      "droptoken": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf|measure_temperature",
+      "inverted": true,
+      "outputTrue": [
+        "8e61dce3-3342-5892-bac8-0b7376df0488"
+      ],
+      "outputFalse": [
+        "a13e6730-908e-5eeb-bb16-f29defcfe9c4"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000000": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1230,
+      "args": {
+        "time": "00:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1280,
+      "args": {
+        "time": "01:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000002": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1330,
+      "args": {
+        "time": "02:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000004": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1380,
+      "args": {
+        "time": "04:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000005": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1430,
+      "args": {
+        "time": "05:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000007": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1480,
+      "args": {
+        "time": "07:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000008": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1530,
+      "args": {
+        "time": "08:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000009": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1580,
+      "args": {
+        "time": "09:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000010": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1630,
+      "args": {
+        "time": "10:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000011": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1680,
+      "args": {
+        "time": "11:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000013": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1730,
+      "args": {
+        "time": "13:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000014": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1780,
+      "args": {
+        "time": "14:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000015": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1830,
+      "args": {
+        "time": "15:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000016": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1880,
+      "args": {
+        "time": "16:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000017": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1930,
+      "args": {
+        "time": "17:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000019": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 1980,
+      "args": {
+        "time": "19:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000020": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 2030,
+      "args": {
+        "time": "20:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000021": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 2080,
+      "args": {
+        "time": "21:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000022": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 2130,
+      "args": {
+        "time": "22:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000023": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 300,
+      "y": 2180,
+      "args": {
+        "time": "23:00"
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c5000002-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:logic:variable_changed",
+      "x": 20,
+      "y": 2300,
+      "args": {
+        "variable": {
+          "id": "0a56c5e9-6495-4783-9a65-badeb85034b4",
+          "name": "Kommandofel"
+        }
+      },
+      "outputSuccess": [
+        "c5000002-0000-4000-8000-000000000002"
+      ]
+    },
+    "c5000002-0000-4000-8000-000000000002": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 400,
+      "y": 2300,
+      "args": {},
+      "droptoken": "homey:manager:logic|0a56c5e9-6495-4783-9a65-badeb85034b4",
+      "outputTrue": [
+        "c5000002-0000-4000-8000-000000000003"
+      ]
+    },
+    "c5000002-0000-4000-8000-000000000003": {
+      "type": "delay",
+      "x": 780,
+      "y": 2300,
+      "outputSuccess": [
+        "c5000002-0000-4000-8000-000000000004"
+      ],
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 60
+        }
+      }
+    },
+    "c5000002-0000-4000-8000-000000000004": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1160,
+      "y": 2300,
+      "args": {},
+      "droptoken": "homey:manager:logic|0a56c5e9-6495-4783-9a65-badeb85034b4",
+      "outputTrue": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "c6000001-0000-4000-8000-000000000001": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 4200,
+      "y": 680,
+      "args": {
+        "comparator": 17.5
+      },
+      "droptoken": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf|target_temperature",
+      "inverted": true,
+      "outputTrue": [
+        "f63f7b7e-07a3-505f-afd5-fcbc0f1f8b33"
+      ]
+    },
+    "c6000001-0000-4000-8000-000000000002": {
+      "type": "note",
+      "x": 4200,
+      "y": 800,
+      "value": "Frostvärme i Borta: startar när det är under 6 grader inne, värmer med mål 17 och stängs av vid 9 grader (vattnet är tömt). Om värmepumpen redan står på HEAT men med högre måltemperatur än 17 (t.ex. 23 kvar från Hemma), sänks den till 17.",
+      "color": "blue"
+    },
+    "c9ed9e90-3175-5e9d-a046-f61610ed3be5": {
+      "type": "delay",
+      "x": 4960,
+      "y": 20,
+      "outputSuccess": [
+        "adb47eb7-e6e6-5b0a-bfa3-3762cf0fbb5e"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "ce8c47db-e173-5d9d-81a9-681a21c4d7e2": {
+      "type": "trigger",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:measure_temperature_changed",
+      "x": 20,
+      "y": 1120,
+      "args": {},
+      "outputSuccess": [
+        "5c68b6bc-e422-58b3-87e7-45096005f334"
+      ]
+    },
+    "d1d03945-d1a8-56ed-bd8d-83bf19fa52ac": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 780,
+      "y": 130,
+      "args": {},
+      "droptoken": "homey:manager:logic|be722fa1-d64b-46a7-b2f4-9b295088cf46",
+      "outputTrue": [
+        "bfced542-f78a-508e-9817-1ee939f83574"
+      ],
+      "outputFalse": [
+        "8b3d790b-4a6e-55d3-9563-89346cc7de00"
+      ]
+    },
+    "d42f0fdf-1224-5d26-8f2c-9e07c9b1c327": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_vertical_swing",
+      "x": 5720,
+      "y": 350,
+      "args": {
+        "verticalSwing": "ON"
+      },
+      "outputSuccess": [
+        "4d440a5f-1a0a-5a34-997e-5e2bf6d1e2d5"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "d5a55795-95d1-5ea8-b82b-7f1f873dcda2": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 780,
+      "y": 20,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "inverted": true,
+      "outputTrue": [
+        "7888a26d-b35f-596e-9f8e-d0027823e6f4"
+      ]
+    },
+    "d7a03cee-b704-55f8-90cc-f0b923ad4ced": {
+      "type": "any",
+      "x": 1540,
+      "y": 20,
+      "outputSuccess": [
+        "c4000001-0000-4000-8000-000000000001"
+      ]
+    },
+    "d7fd2182-f557-56c6-981e-e3350676f589": {
+      "type": "delay",
+      "x": 4960,
+      "y": 130,
+      "outputSuccess": [
+        "4b056471-26e3-5f40-ae64-d1ca5948ef22"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "e11a2075-367a-561b-996d-0643e90a92a7": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_vertical_swing",
+      "x": 6480,
+      "y": 20,
+      "args": {
+        "verticalSwing": "ON"
+      },
+      "outputSuccess": [
+        "ecfdbcc6-2b6d-5d27-aa89-ea385969ef43"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "e439be94-24ce-5a99-9fcd-d3790f11c22e": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_horizontal_swing",
+      "x": 7240,
+      "y": 20,
+      "args": {
+        "horizontalSwing": "ON"
+      },
+      "outputSuccess": [
+        "43ed8d7e-72e1-5528-a5d1-18a66f6c8fed"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "e59d12fc-b7ca-5477-bdac-7f97e5bd4e91": {
+      "type": "condition",
+      "id": "homey:device:e220f422-7755-498a-aaf4-f69ed8f9d8cd:on",
+      "x": 1920,
+      "y": 130,
+      "args": {},
+      "outputTrue": [
+        "bfced542-f78a-508e-9817-1ee939f83574"
+      ],
+      "outputFalse": [
+        "0982145e-28d3-521a-96e8-af08f11eb178"
+      ]
+    },
+    "e5d3bf3a-15c3-5610-a1f2-07da0fe5b5c4": {
+      "type": "delay",
+      "x": 5340,
+      "y": 240,
+      "outputSuccess": [
+        "89092bbe-94c6-5fba-9b61-3b229d60f13b"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "e70b4685-2181-5634-a828-48f1511855e7": {
+      "type": "action",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:set_fan_level",
+      "x": 5340,
+      "y": 460,
+      "args": {
+        "fanLevel": "AUTO"
+      },
+      "outputSuccess": [
+        "7afc89ab-6f3b-50b7-b009-32138c2ee401"
+      ],
+      "outputError": [
+        "88bb6e68-7ee6-5fc9-915b-dafa0983427e"
+      ]
+    },
+    "e9aa545c-f543-5def-8c2b-f5f79439a4f1": {
+      "type": "delay",
+      "x": 6480,
+      "y": 240,
+      "outputSuccess": [
+        "1c294ce2-b0e4-58bf-8748-e7c65a47ec48"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "eaebb839-d6f7-5a9b-84f8-a3b8124c2ddd": {
+      "type": "trigger",
+      "id": "homey:manager:logic:variable_changed",
+      "x": 20,
+      "y": 20,
+      "args": {
+        "variable": {
+          "id": "69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+          "name": "Stugläge"
+        }
+      },
+      "outputSuccess": [
+        "411f2843-1795-5e87-85c0-f133d4b0fe70"
+      ]
+    },
+    "eb267129-509d-520f-9feb-daa2f73124c9": {
+      "type": "delay",
+      "x": 4960,
+      "y": 460,
+      "outputSuccess": [
+        "e70b4685-2181-5634-a828-48f1511855e7"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "ecfdbcc6-2b6d-5d27-aa89-ea385969ef43": {
+      "type": "delay",
+      "x": 6860,
+      "y": 20,
+      "outputSuccess": [
+        "e439be94-24ce-5a99-9fcd-d3790f11c22e"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "f3662249-7609-5af3-ac7a-afff6f0d07d1": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 1540,
+      "y": 130,
+      "args": {
+        "comparator": "Hemma"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "e59d12fc-b7ca-5477-bdac-7f97e5bd4e91"
+      ],
+      "outputFalse": [
+        "7e8b6364-938b-53b7-91d3-c0b9348600df"
+      ]
+    },
+    "f63f7b7e-07a3-505f-afd5-fcbc0f1f8b33": {
+      "type": "any",
+      "x": 5340,
+      "y": 570,
+      "outputSuccess": [
+        "a0b4d8ac-8843-54fb-9df3-4d37318215fe"
+      ]
+    },
+    "fa090780-6585-5474-ac20-5e1b0ff38977": {
+      "type": "delay",
+      "x": 6860,
+      "y": 350,
+      "outputSuccess": [
+        "8af7145c-00f5-57b6-91ee-97b08aa3efe3"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "fae6f086-948b-5914-be65-4e72f955aaf8": {
+      "type": "delay",
+      "x": 3820,
+      "y": 240,
+      "outputSuccess": [
+        "83ba830a-7078-5198-9a88-4ee34c623f5e"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "fb2f3a5d-2118-5437-8ff2-0e7ce830fa90": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 6100,
+      "y": 20,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "13125052-a329-4a8a-b3fb-6c652e0432cd",
+          "name": "Frostvärme aktiv"
+        }
+      }
+    },
+    "fe6fb87e-1f7f-5aea-a960-b010ebd7195b": {
+      "type": "any",
+      "x": 4580,
+      "y": 240,
+      "outputSuccess": [
+        "2c2ef222-0ffa-5056-90d9-0d561f30f43b"
+      ]
+    },
+    "fef2fc68-252c-5910-ac05-5896b1216455": {
+      "type": "delay",
+      "x": 7620,
+      "y": 130,
+      "outputSuccess": [
+        "6824b03b-4dd5-55cc-934d-7a375a644b5f"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,981 @@
+{
+  "id": "bf3f142b-6216-4cce-bbab-16a36b8884f7",
+  "uri": "homey:advancedflow:bf3f142b-6216-4cce-bbab-16a36b8884f7",
+  "name": "Vaken / Sover",
+  "folder": "19ce2ee1-ea02-4801-8236-ea2a723cb2ca",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "0062c7cc-68bc-4fd9-9e0d-8c7e29499931": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 120,
+      "y": 740,
+      "args": {
+        "comparator": "co2"
+      },
+      "droptoken": "trigger::e66383d0-5e05-4065-81d7-15d2c5b58afb::tag",
+      "outputTrue": [
+        "e61109b5-b4b0-464b-adb7-156d2a56d4e7"
+      ]
+    },
+    "029a9ca7-a13d-4ca1-926f-75b2e66edd6a": {
+      "type": "action",
+      "id": "homey:device:8040e223-aa46-46e2-a032-67e8fbab5523:off",
+      "x": 2040,
+      "y": 2940,
+      "outputSuccess": [
+        "c589c3fa-47cc-463c-b3aa-b46c6983ceeb"
+      ]
+    },
+    "04937277-94bb-4e59-af23-ff6889743ad6": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 1260,
+      "y": 900,
+      "args": {
+        "comparator": 600
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_co2",
+      "outputTrue": [
+        "c355b7aa-8c43-4657-bf9a-8c5f9cf23e2c"
+      ]
+    },
+    "05fe8987-6a65-427e-9f0b-826c92d490c1": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 2420,
+      "y": 0,
+      "args": {
+        "text": "God natt 💤",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "090d09f4-539f-4999-ae89-40582f6c27e4": {
+      "type": "condition",
+      "id": "homey:device:e5c5204d-9b66-49a1-b9ec-b7d2ef2ebefb:on",
+      "x": 1560,
+      "y": 1820,
+      "outputTrue": [
+        "c488283b-4793-457f-b77c-1986f4520775"
+      ],
+      "outputFalse": [
+        "54109db0-6730-4e26-8c8d-16e49562bd1a"
+      ],
+      "outputError": [
+        "c488283b-4793-457f-b77c-1986f4520775"
+      ]
+    },
+    "0971d063-9f0b-444e-9189-4b747daaa151": {
+      "type": "action",
+      "id": "homey:device:b8513f32-b97f-4eec-98c2-8b67462292f6:off",
+      "x": 1360,
+      "y": 1760
+    },
+    "114622ab-c292-47e1-a900-59dbd6bc550c": {
+      "type": "condition",
+      "id": "homey:device:e5c5204d-9b66-49a1-b9ec-b7d2ef2ebefb:on",
+      "x": 1620,
+      "y": 2840,
+      "outputTrue": [
+        "4cc2b156-6f5b-4c96-8834-aefa60b72dbd"
+      ],
+      "outputFalse": [
+        "999eb816-8983-4d59-81f7-ffcfadb8399b"
+      ],
+      "outputError": [
+        "4cc2b156-6f5b-4c96-8834-aefa60b72dbd"
+      ]
+    },
+    "13bc4425-6736-4c91-85c4-404f3af64d05": {
+      "type": "condition",
+      "id": "homey:manager:mobile:push_confirm",
+      "x": 1840,
+      "y": 160,
+      "args": {
+        "text": "Dags att sova?",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputTrue": [
+        "45ae0c26-493c-4307-b3de-453116d10f75",
+        "84620aff-6a67-4bf9-bf8e-9e48ec2d8463"
+      ]
+    },
+    "14a641d5-188c-4a26-9893-2b4a017cda14": {
+      "type": "condition",
+      "id": "homey:device:47aa5bf3-bb96-4dba-ae41-1b20a1f17780:on",
+      "x": 1620,
+      "y": 2480,
+      "outputTrue": [
+        "8548bd4b-22e5-4015-a75a-9c2312eeb0e0"
+      ],
+      "outputFalse": [
+        "c7207fa4-11c6-4cde-8201-1e3128cad4e2"
+      ],
+      "outputError": [
+        "8548bd4b-22e5-4015-a75a-9c2312eeb0e0"
+      ]
+    },
+    "167c9102-1ef9-4dd1-8f5c-f8965503739b": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 1240,
+      "y": 520,
+      "args": {
+        "comparator": "Avlarmat"
+      },
+      "droptoken": "homey:manager:logic|82e364aa-2911-4c17-a909-d39fdcbb9f8e",
+      "outputTrue": [
+        "1fc7b9f0-6925-4c1d-a799-18dac662394f",
+        "98e46694-3fe5-431f-8b31-c2b84c6f4c82"
+      ]
+    },
+    "181a8361-e356-4147-bb1b-856dc605ede3": {
+      "type": "condition",
+      "id": "homey:device:95f55f47-52ba-4313-b230-174727c0afce:on",
+      "x": 980,
+      "y": 1680,
+      "inverted": true,
+      "outputTrue": [
+        "43c5a5e5-78dc-4130-9783-a19d927c3602"
+      ]
+    },
+    "1f08471f-13b2-4e50-a578-27f4383d503e": {
+      "type": "delay",
+      "x": 1360,
+      "y": 2260,
+      "outputSuccess": [
+        "363d35a8-2e82-4131-9e80-48fcc1bd6f02"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "1fc7b9f0-6925-4c1d-a799-18dac662394f": {
+      "type": "action",
+      "id": "homey:manager:presence:set_awake",
+      "x": 1920,
+      "y": 400,
+      "args": {
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "2663dabf-e548-4839-8930-a387327f75c2": {
+      "type": "all",
+      "x": 1640,
+      "y": 300,
+      "input": [
+        "bcc1f02d-9844-4f3c-b2d5-6eb2d9c8143e::outputTrue",
+        "7dc84b30-2be6-4c75-9f66-5319dd8c1508::outputTrue"
+      ],
+      "outputSuccess": [
+        "98e46694-3fe5-431f-8b31-c2b84c6f4c82",
+        "1fc7b9f0-6925-4c1d-a799-18dac662394f"
+      ]
+    },
+    "2b9cfcb4-53fc-48b0-a465-7f8cffb6b9d5": {
+      "type": "condition",
+      "id": "homey:device:b8513f32-b97f-4eec-98c2-8b67462292f6:on",
+      "x": 980,
+      "y": 1760,
+      "outputTrue": [
+        "0971d063-9f0b-444e-9189-4b747daaa151"
+      ]
+    },
+    "2cb2ca07-7a24-4ce2-be9f-23696a4f30f2": {
+      "type": "condition",
+      "id": "homey:device:8040e223-aa46-46e2-a032-67e8fbab5523:on",
+      "x": 1560,
+      "y": 1920,
+      "outputTrue": [
+        "b0de02ae-020d-4ef5-846e-d556397b4804"
+      ],
+      "outputFalse": [
+        "e4c77c61-dfa0-43de-b9af-6d7cdb57ae64"
+      ],
+      "outputError": [
+        "b0de02ae-020d-4ef5-846e-d556397b4804"
+      ]
+    },
+    "32272dc3-38f4-4fa1-ac1e-8624c9a3cc75": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 720,
+      "y": 1960,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "inverted": true,
+      "outputTrue": [
+        "8e3e455d-1d98-44a1-8bb9-1edc491b9144",
+        "f43b6eed-33a8-46d2-a044-020fdec27089"
+      ]
+    },
+    "34dcf075-dfd8-43cf-a988-c2f1684a470a": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 960,
+      "y": 1580,
+      "droptoken": "homey:manager:logic|f761ccb2-bf02-4a04-bb04-dd4a31e68c87",
+      "outputTrue": [
+        "4fbe5250-72a6-4cfa-8661-db78279a6592"
+      ]
+    },
+    "363d35a8-2e82-4131-9e80-48fcc1bd6f02": {
+      "type": "condition",
+      "id": "homey:device:44359093-724d-428f-85f0-226b0f334f98:on",
+      "x": 1620,
+      "y": 2200,
+      "outputTrue": [
+        "ecfb2450-0615-4d39-8004-4dbc5131e18a"
+      ],
+      "outputFalse": [
+        "4bacd3ae-b11e-44a6-ae9e-44c5995fd2c0"
+      ],
+      "outputError": [
+        "ecfb2450-0615-4d39-8004-4dbc5131e18a"
+      ]
+    },
+    "3adde3f5-0c90-4816-995b-69a2bd7eb8f3": {
+      "type": "condition",
+      "id": "homey:device:5f9be3e8-1438-4943-bf5f-2783c4633643:on",
+      "x": 1320,
+      "y": 140,
+      "outputTrue": [
+        "13bc4425-6736-4c91-85c4-404f3af64d05",
+        "b9e3a97b-65e9-41f7-b6b4-1a87d4a5d95f"
+      ]
+    },
+    "4009c1f9-87d8-4565-8a6e-da67b45c2485": {
+      "type": "condition",
+      "id": "homey:device:82a35f46-a434-41e1-b5bc-4eea89e51771:on",
+      "x": 1660,
+      "y": 2580,
+      "outputTrue": [
+        "b4e06bfb-4b8e-44db-a5fd-ab08b3b94ef9"
+      ],
+      "outputFalse": [
+        "72b1890a-6cb0-46a1-9ee8-6c407fecb797"
+      ],
+      "outputError": [
+        "b4e06bfb-4b8e-44db-a5fd-ab08b3b94ef9"
+      ]
+    },
+    "43c5a5e5-78dc-4130-9783-a19d927c3602": {
+      "type": "action",
+      "id": "homey:device:95f55f47-52ba-4313-b230-174727c0afce:on",
+      "x": 1360,
+      "y": 1680,
+      "outputSuccess": []
+    },
+    "45ae0c26-493c-4307-b3de-453116d10f75": {
+      "type": "any",
+      "x": 2240,
+      "y": 120,
+      "outputSuccess": [
+        "cd68cbcd-30c2-4368-b262-089e855e0a39"
+      ]
+    },
+    "4b5abce8-a133-4e35-84f1-e36bc0df3dcd": {
+      "type": "action",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:dim",
+      "x": 2400,
+      "y": 3060,
+      "args": {
+        "dim": 0.02
+      }
+    },
+    "4bacd3ae-b11e-44a6-ae9e-44c5995fd2c0": {
+      "type": "delay",
+      "x": 1360,
+      "y": 2400,
+      "outputSuccess": [
+        "9d677da3-cb8d-4e09-ad37-6718dc267f5d"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "4c145549-72f3-4274-8dba-a6e7912ea83a": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_gt",
+      "x": 820,
+      "y": 320,
+      "args": {
+        "time": "07:00"
+      },
+      "outputTrue": [
+        "bcc1f02d-9844-4f3c-b2d5-6eb2d9c8143e",
+        "7dc84b30-2be6-4c75-9f66-5319dd8c1508"
+      ]
+    },
+    "4cc2b156-6f5b-4c96-8834-aefa60b72dbd": {
+      "type": "action",
+      "id": "homey:device:e5c5204d-9b66-49a1-b9ec-b7d2ef2ebefb:off",
+      "x": 2040,
+      "y": 2840,
+      "outputSuccess": [
+        "999eb816-8983-4d59-81f7-ffcfadb8399b"
+      ],
+      "outputError": [
+        "d872c08d-1def-4b29-873c-1dd3d51e0e5d"
+      ]
+    },
+    "4e42d842-ee5a-4fbc-8966-8d8842653bf2": {
+      "type": "any",
+      "x": 1860,
+      "y": 940,
+      "outputSuccess": [
+        "e3df6e3a-52b6-433e-a213-fbca981b34be"
+      ]
+    },
+    "4fbe5250-72a6-4cfa-8661-db78279a6592": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 1360,
+      "y": 1580,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "f761ccb2-bf02-4a04-bb04-dd4a31e68c87",
+          "name": "Tv"
+        }
+      },
+      "outputSuccess": []
+    },
+    "54109db0-6730-4e26-8c8d-16e49562bd1a": {
+      "type": "delay",
+      "x": 1340,
+      "y": 1940,
+      "outputSuccess": [
+        "2cb2ca07-7a24-4ce2-be9f-23696a4f30f2"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "54c0ed3b-c185-4122-b8d5-221756d9d973": {
+      "type": "action",
+      "id": "homey:device:ecd44716-7e10-4df3-8248-c816b8ea4101:off",
+      "x": 960,
+      "y": 1500
+    },
+    "5937ee6d-3fd3-43be-8e38-55665e9172dd": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 1260,
+      "y": 800,
+      "args": {
+        "comparator": 40
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_noise",
+      "outputTrue": [
+        "c355b7aa-8c43-4657-bf9a-8c5f9cf23e2c"
+      ]
+    },
+    "7093036c-e7fc-4e3f-9f11-f6aa126ee960": {
+      "type": "any",
+      "x": 2380,
+      "y": 940,
+      "outputSuccess": [
+        "cda52415-5541-429f-a73e-f28f5a6476e3",
+        "d1b68653-6510-42d5-8d37-25d29baa4e86"
+      ]
+    },
+    "713126cd-9b7d-4f56-ab1c-4d8ce0e144d8": {
+      "type": "trigger",
+      "id": "homey:manager:logic:variable_changed",
+      "x": 1120,
+      "y": 640,
+      "args": {
+        "variable": {
+          "id": "82e364aa-2911-4c17-a909-d39fdcbb9f8e",
+          "name": "Larmat"
+        }
+      },
+      "outputSuccess": [
+        "167c9102-1ef9-4dd1-8f5c-f8965503739b"
+      ]
+    },
+    "72b1890a-6cb0-46a1-9ee8-6c407fecb797": {
+      "type": "delay",
+      "x": 1400,
+      "y": 2840,
+      "outputSuccess": [
+        "114622ab-c292-47e1-a900-59dbd6bc550c"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "79ef3c63-2b94-477f-b564-e49693843ef0": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 1260,
+      "y": 1060,
+      "args": {
+        "time": "01:00"
+      },
+      "outputSuccess": [
+        "4e42d842-ee5a-4fbc-8966-8d8842653bf2",
+        "cd067a54-ca05-407a-b38b-7e95107d0a21"
+      ]
+    },
+    "7dc84b30-2be6-4c75-9f66-5319dd8c1508": {
+      "type": "condition",
+      "id": "homey:manager:logic:gt",
+      "x": 1240,
+      "y": 360,
+      "args": {
+        "comparator": 600
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_co2",
+      "outputTrue": [
+        "2663dabf-e548-4839-8930-a387327f75c2"
+      ]
+    },
+    "84620aff-6a67-4bf9-bf8e-9e48ec2d8463": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 2420,
+      "y": 180,
+      "args": {
+        "text": "God natt 💤",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "8548bd4b-22e5-4015-a75a-9c2312eeb0e0": {
+      "type": "action",
+      "id": "homey:device:47aa5bf3-bb96-4dba-ae41-1b20a1f17780:off",
+      "x": 2040,
+      "y": 2480,
+      "outputSuccess": [
+        "c7207fa4-11c6-4cde-8201-1e3128cad4e2"
+      ],
+      "outputError": [
+        "4009c1f9-87d8-4565-8a6e-da67b45c2485"
+      ]
+    },
+    "87c04f33-a0ff-4647-b294-f3d0ae0c86d1": {
+      "type": "trigger",
+      "id": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72:measure_noise_changed",
+      "x": 0,
+      "y": 580,
+      "outputSuccess": [
+        "e61109b5-b4b0-464b-adb7-156d2a56d4e7"
+      ]
+    },
+    "8dc44efc-9d3a-451a-a3c2-69eaf14c4a58": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_between",
+      "x": 920,
+      "y": 160,
+      "args": {
+        "time1": "06:00",
+        "time2": "21:00"
+      },
+      "inverted": true,
+      "outputTrue": [
+        "3adde3f5-0c90-4816-995b-69a2bd7eb8f3"
+      ]
+    },
+    "8e3e455d-1d98-44a1-8bb9-1edc491b9144": {
+      "type": "delay",
+      "x": 1340,
+      "y": 1840,
+      "outputSuccess": [
+        "090d09f4-539f-4999-ae89-40582f6c27e4"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "8e9d799d-3563-4c84-9181-d082a760f050": {
+      "type": "trigger",
+      "id": "homey:device:95f55f47-52ba-4313-b230-174727c0afce:onoff_true",
+      "x": 20,
+      "y": 200,
+      "outputSuccess": [
+        "bf00a9d2-2c23-4f91-ba61-16624a2556fb"
+      ]
+    },
+    "9348ee19-d23b-4ef8-b740-a80e3af3e267": {
+      "type": "action",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:off",
+      "x": 2020,
+      "y": 3180,
+      "outputSuccess": [],
+      "outputError": []
+    },
+    "94b4732b-c5a1-4f25-9ad1-727687eb4e40": {
+      "type": "trigger",
+      "id": "homey:device:a2e9109b-2865-4b24-a305-bdd79f8cd0e0:onoff_true",
+      "x": 80,
+      "y": 1580,
+      "outputSuccess": [
+        "fa523ce8-8cb7-47af-a66f-304a80d94c45"
+      ]
+    },
+    "98e46694-3fe5-431f-8b31-c2b84c6f4c82": {
+      "type": "action",
+      "id": "homey:manager:presence:set_awake",
+      "x": 1920,
+      "y": 300,
+      "args": {
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "999eb816-8983-4d59-81f7-ffcfadb8399b": {
+      "type": "delay",
+      "x": 1400,
+      "y": 2940,
+      "outputSuccess": [
+        "d872c08d-1def-4b29-873c-1dd3d51e0e5d"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "9d677da3-cb8d-4e09-ad37-6718dc267f5d": {
+      "type": "condition",
+      "id": "homey:device:e230ca8b-67f4-488d-9ce0-541b77d5d827:on",
+      "x": 1620,
+      "y": 2360,
+      "outputTrue": [
+        "d7c92c47-c09b-419c-9bed-3f75d3d62150"
+      ],
+      "outputFalse": [
+        "b3e43060-c0b5-458a-b62f-eb3025faeef1"
+      ],
+      "outputError": [
+        "d7c92c47-c09b-419c-9bed-3f75d3d62150"
+      ]
+    },
+    "b0de02ae-020d-4ef5-846e-d556397b4804": {
+      "type": "action",
+      "id": "homey:device:8040e223-aa46-46e2-a032-67e8fbab5523:off",
+      "x": 1980,
+      "y": 1920,
+      "outputSuccess": [
+        "e4c77c61-dfa0-43de-b9af-6d7cdb57ae64"
+      ],
+      "outputError": [
+        "b14e11cc-dab6-45b8-ad4c-124c88a34081"
+      ]
+    },
+    "b14e11cc-dab6-45b8-ad4c-124c88a34081": {
+      "type": "condition",
+      "id": "homey:device:27418356-ff6a-4239-a228-cacc401eb619:on",
+      "x": 1600,
+      "y": 2040,
+      "outputTrue": [
+        "bd71b588-c179-40db-a03e-38af84a0a15d"
+      ],
+      "outputFalse": [
+        "1f08471f-13b2-4e50-a578-27f4383d503e"
+      ],
+      "outputError": [
+        "bd71b588-c179-40db-a03e-38af84a0a15d"
+      ]
+    },
+    "b3e43060-c0b5-458a-b62f-eb3025faeef1": {
+      "type": "delay",
+      "x": 1360,
+      "y": 2500,
+      "outputSuccess": [
+        "14a641d5-188c-4a26-9893-2b4a017cda14"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "b4e06bfb-4b8e-44db-a5fd-ab08b3b94ef9": {
+      "type": "action",
+      "id": "homey:device:82a35f46-a434-41e1-b5bc-4eea89e51771:off",
+      "x": 2060,
+      "y": 2580,
+      "outputSuccess": [
+        "72b1890a-6cb0-46a1-9ee8-6c407fecb797"
+      ],
+      "outputError": [
+        "114622ab-c292-47e1-a900-59dbd6bc550c"
+      ]
+    },
+    "b9e3a97b-65e9-41f7-b6b4-1a87d4a5d95f": {
+      "type": "condition",
+      "id": "homey:manager:mobile:push_confirm",
+      "x": 1840,
+      "y": 40,
+      "args": {
+        "text": "Dags att sova?",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputTrue": [
+        "45ae0c26-493c-4307-b3de-453116d10f75",
+        "05fe8987-6a65-427e-9f0b-826c92d490c1"
+      ],
+      "outputFalse": []
+    },
+    "bc1da025-c3e8-4d54-9e81-2a3def51aa42": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 1240,
+      "y": 440,
+      "args": {
+        "time": "10:00"
+      },
+      "outputSuccess": [
+        "98e46694-3fe5-431f-8b31-c2b84c6f4c82",
+        "1fc7b9f0-6925-4c1d-a799-18dac662394f",
+        "be6d9a43-900c-4616-b57d-43a76840ef79"
+      ]
+    },
+    "bcc1f02d-9844-4f3c-b2d5-6eb2d9c8143e": {
+      "type": "condition",
+      "id": "homey:manager:logic:gt",
+      "x": 1240,
+      "y": 260,
+      "args": {
+        "comparator": 40
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_noise",
+      "outputTrue": [
+        "2663dabf-e548-4839-8930-a387327f75c2"
+      ]
+    },
+    "bd71b588-c179-40db-a03e-38af84a0a15d": {
+      "type": "action",
+      "id": "homey:device:27418356-ff6a-4239-a228-cacc401eb619:off",
+      "x": 2020,
+      "y": 2040,
+      "outputSuccess": [
+        "1f08471f-13b2-4e50-a578-27f4383d503e"
+      ],
+      "outputError": [
+        "363d35a8-2e82-4131-9e80-48fcc1bd6f02"
+      ]
+    },
+    "be6d9a43-900c-4616-b57d-43a76840ef79": {
+      "type": "action",
+      "id": "homey:device:a2e9109b-2865-4b24-a305-bdd79f8cd0e0:off",
+      "x": 1920,
+      "y": 480
+    },
+    "bf00a9d2-2c23-4f91-ba61-16624a2556fb": {
+      "type": "condition",
+      "id": "homey:device:9b69cb0b-04bd-473c-bfb2-573b0dabaa70:on",
+      "x": 480,
+      "y": 160,
+      "outputTrue": [
+        "8dc44efc-9d3a-451a-a3c2-69eaf14c4a58"
+      ]
+    },
+    "c355b7aa-8c43-4657-bf9a-8c5f9cf23e2c": {
+      "type": "all",
+      "x": 1720,
+      "y": 800,
+      "input": [
+        "5937ee6d-3fd3-43be-8e38-55665e9172dd::outputTrue",
+        "04937277-94bb-4e59-af23-ff6889743ad6::outputTrue"
+      ],
+      "outputSuccess": [
+        "d4f0ebde-d54a-4bbe-b19f-4606bd8d20d3"
+      ]
+    },
+    "c488283b-4793-457f-b77c-1986f4520775": {
+      "type": "action",
+      "id": "homey:device:e5c5204d-9b66-49a1-b9ec-b7d2ef2ebefb:off",
+      "x": 1980,
+      "y": 1820,
+      "outputSuccess": [
+        "54109db0-6730-4e26-8c8d-16e49562bd1a"
+      ],
+      "outputError": [
+        "2cb2ca07-7a24-4ce2-be9f-23696a4f30f2"
+      ]
+    },
+    "c589c3fa-47cc-463c-b3aa-b46c6983ceeb": {
+      "type": "condition",
+      "id": "homey:device:af4bc28a-37c4-463e-a066-667443832776:on",
+      "x": 1640,
+      "y": 3060,
+      "inverted": true,
+      "outputTrue": [
+        "fd1e6f6d-30a0-4d11-952d-5d807c1f08bc"
+      ],
+      "outputFalse": [
+        "4b5abce8-a133-4e35-84f1-e36bc0df3dcd"
+      ]
+    },
+    "c7207fa4-11c6-4cde-8201-1e3128cad4e2": {
+      "type": "delay",
+      "x": 1400,
+      "y": 2600,
+      "outputSuccess": [
+        "4009c1f9-87d8-4565-8a6e-da67b45c2485"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "cd067a54-ca05-407a-b38b-7e95107d0a21": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 1900,
+      "y": 1020,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "7093036c-e7fc-4e3f-9f11-f6aa126ee960"
+      ]
+    },
+    "cd68cbcd-30c2-4368-b262-089e855e0a39": {
+      "type": "action",
+      "id": "homey:device:a2e9109b-2865-4b24-a305-bdd79f8cd0e0:on",
+      "x": 2420,
+      "y": 100
+    },
+    "cda52415-5541-429f-a73e-f28f5a6476e3": {
+      "type": "action",
+      "id": "homey:manager:presence:set_asleep",
+      "x": 2580,
+      "y": 740,
+      "args": {
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "d085545a-1293-4f1f-ac01-865d91974666": {
+      "type": "condition",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:on",
+      "x": 1600,
+      "y": 3180,
+      "outputTrue": [
+        "9348ee19-d23b-4ef8-b740-a80e3af3e267"
+      ],
+      "outputFalse": [],
+      "outputError": [
+        "9348ee19-d23b-4ef8-b740-a80e3af3e267"
+      ]
+    },
+    "d1b68653-6510-42d5-8d37-25d29baa4e86": {
+      "type": "action",
+      "id": "homey:manager:presence:set_asleep",
+      "x": 2580,
+      "y": 840,
+      "args": {
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "d4f0ebde-d54a-4bbe-b19f-4606bd8d20d3": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_between",
+      "x": 1820,
+      "y": 800,
+      "args": {
+        "time1": "21:00",
+        "time2": "07:00"
+      },
+      "outputTrue": [
+        "4e42d842-ee5a-4fbc-8966-8d8842653bf2"
+      ]
+    },
+    "d7c92c47-c09b-419c-9bed-3f75d3d62150": {
+      "type": "action",
+      "id": "homey:device:e230ca8b-67f4-488d-9ce0-541b77d5d827:off",
+      "x": 2040,
+      "y": 2360,
+      "outputSuccess": [
+        "b3e43060-c0b5-458a-b62f-eb3025faeef1"
+      ],
+      "outputError": [
+        "14a641d5-188c-4a26-9893-2b4a017cda14"
+      ]
+    },
+    "d872c08d-1def-4b29-873c-1dd3d51e0e5d": {
+      "type": "condition",
+      "id": "homey:device:8040e223-aa46-46e2-a032-67e8fbab5523:on",
+      "x": 1620,
+      "y": 2940,
+      "outputTrue": [
+        "029a9ca7-a13d-4ca1-926f-75b2e66edd6a"
+      ],
+      "outputFalse": [
+        "c589c3fa-47cc-463c-b3aa-b46c6983ceeb"
+      ],
+      "outputError": [
+        "029a9ca7-a13d-4ca1-926f-75b2e66edd6a",
+        "c589c3fa-47cc-463c-b3aa-b46c6983ceeb"
+      ]
+    },
+    "e3df6e3a-52b6-433e-a213-fbca981b34be": {
+      "type": "condition",
+      "id": "homey:device:ecd44716-7e10-4df3-8248-c816b8ea4101:on",
+      "x": 1920,
+      "y": 840,
+      "inverted": true,
+      "outputTrue": [
+        "7093036c-e7fc-4e3f-9f11-f6aa126ee960"
+      ]
+    },
+    "e4c77c61-dfa0-43de-b9af-6d7cdb57ae64": {
+      "type": "delay",
+      "x": 1340,
+      "y": 2120,
+      "outputSuccess": [
+        "b14e11cc-dab6-45b8-ad4c-124c88a34081"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "e61109b5-b4b0-464b-adb7-156d2a56d4e7": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 300,
+      "y": 380,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "inverted": true,
+      "outputTrue": [
+        "4c145549-72f3-4274-8dba-a6e7912ea83a",
+        "5937ee6d-3fd3-43be-8e38-55665e9172dd",
+        "04937277-94bb-4e59-af23-ff6889743ad6"
+      ]
+    },
+    "e66383d0-5e05-4065-81d7-15d2c5b58afb": {
+      "type": "trigger",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 0,
+      "y": 860,
+      "outputSuccess": [
+        "0062c7cc-68bc-4fd9-9e0d-8c7e29499931"
+      ]
+    },
+    "ecfb2450-0615-4d39-8004-4dbc5131e18a": {
+      "type": "action",
+      "id": "homey:device:44359093-724d-428f-85f0-226b0f334f98:off",
+      "x": 2040,
+      "y": 2200,
+      "outputSuccess": [
+        "4bacd3ae-b11e-44a6-ae9e-44c5995fd2c0"
+      ],
+      "outputError": [
+        "9d677da3-cb8d-4e09-ad37-6718dc267f5d"
+      ]
+    },
+    "f43b6eed-33a8-46d2-a044-020fdec27089": {
+      "type": "action",
+      "id": "homey:device:5f9be3e8-1438-4943-bf5f-2783c4633643:off",
+      "x": 800,
+      "y": 2100
+    },
+    "f6b10e8e-2479-4255-9a07-4816bdd2ee65": {
+      "type": "trigger",
+      "id": "homey:device:a2e9109b-2865-4b24-a305-bdd79f8cd0e0:onoff_true",
+      "x": 1900,
+      "y": 720,
+      "outputSuccess": [
+        "7093036c-e7fc-4e3f-9f11-f6aa126ee960"
+      ]
+    },
+    "fa523ce8-8cb7-47af-a66f-304a80d94c45": {
+      "type": "any",
+      "x": 500,
+      "y": 1700,
+      "outputSuccess": [
+        "32272dc3-38f4-4fa1-ac1e-8624c9a3cc75",
+        "34dcf075-dfd8-43cf-a988-c2f1684a470a",
+        "181a8361-e356-4147-bb1b-856dc605ede3",
+        "2b9cfcb4-53fc-48b0-a465-7f8cffb6b9d5",
+        "54c0ed3b-c185-4122-b8d5-221756d9d973"
+      ]
+    },
+    "fd1e6f6d-30a0-4d11-952d-5d807c1f08bc": {
+      "type": "delay",
+      "x": 1380,
+      "y": 3200,
+      "outputSuccess": [
+        "d085545a-1293-4f1f-ac01-865d91974666"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    }
+  }
+}

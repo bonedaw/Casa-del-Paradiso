@@ -1,0 +1,86 @@
+{
+  "id": "15cf732d-b161-4a0d-9ada-3165d08a442d",
+  "uri": "homey:advancedflow:15cf732d-b161-4a0d-9ada-3165d08a442d",
+  "name": "ST Skymning mulet",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "c9000002-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:cron:sunset",
+      "x": 40,
+      "y": 100,
+      "args": {
+        "before": 90
+      },
+      "outputSuccess": [
+        "c9000002-0000-4000-8000-000000000002"
+      ]
+    },
+    "c9000002-0000-4000-8000-000000000002": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 340,
+      "y": 100,
+      "args": {},
+      "droptoken": "homey:manager:logic|5eb83246-a89b-4327-8ec7-7ca14d40d290",
+      "outputTrue": [
+        "c9000002-0000-4000-8000-000000000003"
+      ]
+    },
+    "c9000002-0000-4000-8000-000000000003": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 640,
+      "y": 100,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "inverted": true,
+      "outputTrue": [
+        "c9000002-0000-4000-8000-000000000004"
+      ]
+    },
+    "c9000002-0000-4000-8000-000000000004": {
+      "type": "condition",
+      "id": "homey:device:e5c5204d-9b66-49a1-b9ec-b7d2ef2ebefb:on",
+      "x": 940,
+      "y": 100,
+      "args": {},
+      "inverted": true,
+      "outputTrue": [
+        "c9000002-0000-4000-8000-000000000005"
+      ]
+    },
+    "c9000002-0000-4000-8000-000000000005": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_between",
+      "x": 1240,
+      "y": 100,
+      "args": {
+        "time1": "14:00",
+        "time2": "23:00"
+      },
+      "outputTrue": [
+        "c9000002-0000-4000-8000-000000000006"
+      ]
+    },
+    "c9000002-0000-4000-8000-000000000006": {
+      "type": "action",
+      "id": "homey:device:9247e755-97f0-4141-b1a9-6e95e997036d:on",
+      "x": 1540,
+      "y": 100,
+      "args": {}
+    },
+    "c9000002-0000-4000-8000-000000000007": {
+      "type": "note",
+      "x": 40,
+      "y": 300,
+      "value": "Vädrad belysning: vid mulet (prognos från Homey Pro) och när någon är i stugan startas kvällsbelysningen 90 minuter före solnedgång i stället för 30, genom att slå på Skymning fönsterlampor som Skymning-flödet redan lyssnar på.",
+      "color": "blue"
+    }
+  }
+}

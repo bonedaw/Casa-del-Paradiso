@@ -1,0 +1,41 @@
+{
+  "id": "37300a2c-ad44-4439-9f0b-210b29c4c6db",
+  "uri": "homey:advancedflow:37300a2c-ad44-4439-9f0b-210b29c4c6db",
+  "name": "TV on off",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "3b8c1277-af0f-4234-8301-6c7337b43561": {
+      "type": "action",
+      "id": "homey:device:b8513f32-b97f-4eec-98c2-8b67462292f6:on",
+      "x": 680,
+      "y": 80
+    },
+    "6ceedc25-4890-4e25-b3d8-c3f271f8f32c": {
+      "type": "action",
+      "id": "homey:device:b8513f32-b97f-4eec-98c2-8b67462292f6:off",
+      "x": 680,
+      "y": 300
+    },
+    "9f4f52ad-9af0-4f89-a3f4-675be8019f39": {
+      "type": "trigger",
+      "id": "homey:device:95f55f47-52ba-4313-b230-174727c0afce:onoff_true",
+      "x": 40,
+      "y": 300,
+      "outputSuccess": [
+        "6ceedc25-4890-4e25-b3d8-c3f271f8f32c"
+      ]
+    },
+    "aec6f2b6-b6b9-4d84-b6a5-bc235fa1718e": {
+      "type": "trigger",
+      "id": "homey:device:95f55f47-52ba-4313-b230-174727c0afce:onoff_false",
+      "x": 40,
+      "y": 160,
+      "outputSuccess": [
+        "3b8c1277-af0f-4234-8301-6c7337b43561"
+      ]
+    }
+  }
+}

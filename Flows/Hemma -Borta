@@ -1,0 +1,283 @@
+{
+  "id": "b9635aad-4530-4c10-8bbb-ecbac495e0fd",
+  "uri": "homey:advancedflow:b9635aad-4530-4c10-8bbb-ecbac495e0fd",
+  "name": "Hemma /Borta",
+  "folder": "7e16329b-f54b-4d8a-a93a-ab24b25931c3",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "02b95311-01b9-4602-aa64-295c8ebd8e50": {
+      "type": "condition",
+      "id": "homey:device:c0398229-3307-4f52-9b5e-47553368d6e2:on",
+      "x": 500,
+      "y": 680,
+      "inverted": true,
+      "outputTrue": [
+        "63bfe104-b0fc-41d1-9969-3d2cd8495fb8"
+      ]
+    },
+    "0a4fda37-d17e-4115-9dd7-8aa9cad091ce": {
+      "type": "delay",
+      "x": 3280,
+      "y": 1260,
+      "outputSuccess": [
+        "9d555fb5-929e-4eda-ac1f-429dbad59bcb",
+        "454f9b07-7b45-46d4-9c30-9ab5dc3b23ad"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "0f4dea80-9680-4b38-a3bf-32cdf8625de2": {
+      "type": "trigger",
+      "id": "homey:manager:presence:last_user_left",
+      "x": 20,
+      "y": 360,
+      "outputSuccess": [
+        "145c0109-07ec-4daf-915d-513cd7419076"
+      ]
+    },
+    "145c0109-07ec-4daf-915d-513cd7419076": {
+      "type": "condition",
+      "id": "homey:device:6dece838-e029-48a2-bbc3-6bcbe29e5ed0:locked",
+      "x": 540,
+      "y": 40,
+      "inverted": true,
+      "outputTrue": [
+        "e594e484-89d9-4568-940a-f256ddeea316",
+        "f8a5fc06-9c80-4245-a901-e20bc59c0a76"
+      ],
+      "outputFalse": [
+        "9484575c-d9fc-4da2-bf44-7ce72a699b06"
+      ]
+    },
+    "22642d32-8f29-46bd-9b20-14c719ca4849": {
+      "type": "any",
+      "x": 1480,
+      "y": 60,
+      "outputSuccess": [
+        "d5888f5a-9ecd-493f-bf14-6a6f4922c13e"
+      ]
+    },
+    "2a55a83d-23a9-4925-95bb-d2c956410592": {
+      "type": "any",
+      "x": 420,
+      "y": 1520,
+      "outputSuccess": [
+        "a7c1d2e3-5b64-4f10-9c2a-0d1e2f3a4b5c"
+      ]
+    },
+    "34aed03e-e9be-447d-9956-0306e23218c5": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 500,
+      "y": 1160,
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "outputTrue": [
+        "7d42f8ae-5a19-4323-bc3f-72fcc41b9d6b"
+      ],
+      "outputFalse": [
+        "388bdb1d-2a12-4e49-b9a1-a4ea6fbf8691"
+      ]
+    },
+    "388bdb1d-2a12-4e49-b9a1-a4ea6fbf8691": {
+      "type": "condition",
+      "id": "homey:device:e220f422-7755-498a-aaf4-f69ed8f9d8cd:on",
+      "x": 940,
+      "y": 1280,
+      "outputTrue": [
+        "a0b8928b-8661-4583-ad59-a3137615ffbe"
+      ],
+      "outputFalse": []
+    },
+    "3b234be2-a017-40aa-9acb-f629d085a458": {
+      "type": "trigger",
+      "id": "homey:device:6dece838-e029-48a2-bbc3-6bcbe29e5ed0:locked_false",
+      "x": 60,
+      "y": 1320,
+      "args": {},
+      "outputSuccess": [
+        "2a55a83d-23a9-4925-95bb-d2c956410592"
+      ]
+    },
+    "454f9b07-7b45-46d4-9c30-9ab5dc3b23ad": {
+      "type": "action",
+      "id": "homey:device:79fc93c8-0398-427a-b7b9-53c8628eafe3:off",
+      "x": 3420,
+      "y": 1340
+    },
+    "63bfe104-b0fc-41d1-9969-3d2cd8495fb8": {
+      "type": "all",
+      "x": 960,
+      "y": 740,
+      "input": [
+        "02b95311-01b9-4602-aa64-295c8ebd8e50::outputTrue",
+        "68200389-47ff-42e6-a2a1-4a37a7421867::outputTrue",
+        "9fbe774f-b179-4293-95bf-f903d1b7825f::outputTrue",
+        "ed4874fa-2da9-4986-8a94-5d3a920e2da4::outputTrue"
+      ],
+      "outputSuccess": [
+        "7c2a0aae-e7fe-41fe-bb59-2eae42c3ddd6"
+      ]
+    },
+    "642c02a7-6d04-422b-afd3-7513d8ccddd5": {
+      "type": "action",
+      "id": "homey:device:e220f422-7755-498a-aaf4-f69ed8f9d8cd:off",
+      "x": 2280,
+      "y": 980,
+      "outputSuccess": [
+        "0a4fda37-d17e-4115-9dd7-8aa9cad091ce"
+      ]
+    },
+    "68200389-47ff-42e6-a2a1-4a37a7421867": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 500,
+      "y": 760,
+      "args": {},
+      "droptoken": "homey:manager:logic|088e5cb5-82e5-45e4-ab19-bfb3256c15db",
+      "outputTrue": [
+        "63bfe104-b0fc-41d1-9969-3d2cd8495fb8"
+      ]
+    },
+    "7b7620c6-8d98-4354-8218-4a8f71e8b5d7": {
+      "type": "trigger",
+      "id": "homey:device:cdaa78ff-5188-4d30-a0db-d61539c8156f:onoff_false",
+      "x": 60,
+      "y": 1660,
+      "outputSuccess": [
+        "2a55a83d-23a9-4925-95bb-d2c956410592"
+      ]
+    },
+    "7c2a0aae-e7fe-41fe-bb59-2eae42c3ddd6": {
+      "type": "action",
+      "id": "homey:mood:7921a075-750b-491c-a706-682e72d88fc8:set",
+      "x": 1140,
+      "y": 840
+    },
+    "7d42f8ae-5a19-4323-bc3f-72fcc41b9d6b": {
+      "type": "condition",
+      "id": "homey:device:e220f422-7755-498a-aaf4-f69ed8f9d8cd:on",
+      "x": 1580,
+      "y": 1160,
+      "outputTrue": [
+        "642c02a7-6d04-422b-afd3-7513d8ccddd5"
+      ],
+      "outputFalse": [
+        "0a4fda37-d17e-4115-9dd7-8aa9cad091ce"
+      ]
+    },
+    "9484575c-d9fc-4da2-bf44-7ce72a699b06": {
+      "type": "action",
+      "id": "homey:manager:flow:programmatic_trigger",
+      "x": 1760,
+      "y": 200,
+      "args": {
+        "flow": {
+          "id": "90764b96-2215-433f-af7f-a08765a0bead",
+          "name": "Är kamera på",
+          "type": "standard"
+        }
+      }
+    },
+    "9d555fb5-929e-4eda-ac1f-429dbad59bcb": {
+      "type": "action",
+      "id": "homey:device:eb742035-9b5b-4aab-97b9-a08296dd5dff:off",
+      "x": 3420,
+      "y": 1260
+    },
+    "9fbe774f-b179-4293-95bf-f903d1b7825f": {
+      "type": "condition",
+      "id": "homey:device:b8513f32-b97f-4eec-98c2-8b67462292f6:on",
+      "x": 500,
+      "y": 840,
+      "inverted": true,
+      "outputTrue": [
+        "63bfe104-b0fc-41d1-9969-3d2cd8495fb8"
+      ]
+    },
+    "a0b8928b-8661-4583-ad59-a3137615ffbe": {
+      "type": "action",
+      "id": "homey:device:e220f422-7755-498a-aaf4-f69ed8f9d8cd:off",
+      "x": 1380,
+      "y": 1280,
+      "outputSuccess": []
+    },
+    "a7c1d2e3-5b64-4f10-9c2a-0d1e2f3a4b5c": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 700,
+      "y": 1560,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "88041046-3d88-4beb-b0cf-34057a3f5f70",
+          "name": "Kamera påmind"
+        }
+      }
+    },
+    "d4b9fc57-b2d4-4506-b4c1-9dc1a4f075e1": {
+      "type": "trigger",
+      "id": "homey:manager:presence:someone_enter",
+      "x": 40,
+      "y": 880,
+      "outputSuccess": [
+        "68200389-47ff-42e6-a2a1-4a37a7421867",
+        "02b95311-01b9-4602-aa64-295c8ebd8e50",
+        "9fbe774f-b179-4293-95bf-f903d1b7825f",
+        "34aed03e-e9be-447d-9956-0306e23218c5",
+        "ed4874fa-2da9-4986-8a94-5d3a920e2da4",
+        "2a55a83d-23a9-4925-95bb-d2c956410592"
+      ]
+    },
+    "d5888f5a-9ecd-493f-bf14-6a6f4922c13e": {
+      "type": "action",
+      "id": "homey:device:6dece838-e029-48a2-bbc3-6bcbe29e5ed0:lock",
+      "x": 1640,
+      "y": 60,
+      "outputSuccess": [
+        "9484575c-d9fc-4da2-bf44-7ce72a699b06"
+      ]
+    },
+    "e594e484-89d9-4568-940a-f256ddeea316": {
+      "type": "condition",
+      "id": "homey:manager:mobile:push_confirm",
+      "x": 1060,
+      "y": 0,
+      "args": {
+        "text": "Skall dörren låsas?",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputTrue": [
+        "22642d32-8f29-46bd-9b20-14c719ca4849"
+      ]
+    },
+    "f8a5fc06-9c80-4245-a901-e20bc59c0a76": {
+      "type": "condition",
+      "id": "homey:manager:mobile:push_confirm",
+      "x": 1060,
+      "y": 100,
+      "args": {
+        "text": "Skall dörren låsas?",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputTrue": [
+        "22642d32-8f29-46bd-9b20-14c719ca4849"
+      ]
+    }
+  }
+}

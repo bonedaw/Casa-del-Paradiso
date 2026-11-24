@@ -1,0 +1,126 @@
+{
+  "id": "891af899-b044-42eb-8e1b-4cb0915814d9",
+  "uri": "homey:advancedflow:891af899-b044-42eb-8e1b-4cb0915814d9",
+  "name": "ST Kalender från Pro",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "d5000000-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 60,
+      "y": 80,
+      "args": {
+        "event": "ctx_easter_a77168457227"
+      },
+      "outputSuccess": [
+        "d5000000-0000-4000-8000-000000000003"
+      ]
+    },
+    "d5000000-0000-4000-8000-000000000002": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 60,
+      "y": 360,
+      "args": {
+        "event": "ctx_midsummer_a77168457227"
+      },
+      "outputSuccess": [
+        "d5000000-0000-4000-8000-000000000006"
+      ]
+    },
+    "d5000000-0000-4000-8000-000000000003": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 420,
+      "y": 80,
+      "args": {
+        "comparator": "true"
+      },
+      "droptoken": "trigger::d5000000-0000-4000-8000-000000000001::tag",
+      "outputTrue": [
+        "d5000000-0000-4000-8000-000000000004"
+      ],
+      "outputFalse": [
+        "d5000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "d5000000-0000-4000-8000-000000000004": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 800,
+      "y": 20,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "fe180953-1e07-435d-baef-735f53ae27ef",
+          "name": "Påsk"
+        }
+      }
+    },
+    "d5000000-0000-4000-8000-000000000005": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 800,
+      "y": 140,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "fe180953-1e07-435d-baef-735f53ae27ef",
+          "name": "Påsk"
+        }
+      }
+    },
+    "d5000000-0000-4000-8000-000000000006": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 420,
+      "y": 360,
+      "args": {
+        "comparator": "true"
+      },
+      "droptoken": "trigger::d5000000-0000-4000-8000-000000000002::tag",
+      "outputTrue": [
+        "d5000000-0000-4000-8000-000000000007"
+      ],
+      "outputFalse": [
+        "d5000000-0000-4000-8000-000000000008"
+      ]
+    },
+    "d5000000-0000-4000-8000-000000000007": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 800,
+      "y": 300,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "5a848194-9cea-46ab-bd6c-19d6639163a4",
+          "name": "Midsommar"
+        }
+      }
+    },
+    "d5000000-0000-4000-8000-000000000008": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 800,
+      "y": 420,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "5a848194-9cea-46ab-bd6c-19d6639163a4",
+          "name": "Midsommar"
+        }
+      }
+    },
+    "d5000000-0000-4000-8000-000000000009": {
+      "type": "note",
+      "x": 60,
+      "y": 560,
+      "value": "Tar emot Påsk och Midsommar från Homey Pro (EasterMode och MidsummerMode) och speglar dem i Bridge-variablerna Påsk och Midsommar.",
+      "color": "blue"
+    }
+  }
+}

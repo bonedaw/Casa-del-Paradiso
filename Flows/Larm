@@ -1,0 +1,1153 @@
+{
+  "id": "b8526b8a-82e0-45bf-bf92-e7119949e0ab",
+  "uri": "homey:advancedflow:b8526b8a-82e0-45bf-bf92-e7119949e0ab",
+  "name": "Larm",
+  "folder": "1f49054e-1971-452b-85a1-ce6d1ef9f2dd",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "00eac4ee-2530-44e6-b065-64984a1dbe9c": {
+      "type": "note",
+      "x": 20,
+      "y": 2440,
+      "value": "Larm",
+      "color": "yellow"
+    },
+    "027420b1-4348-486f-9a80-0539887145da": {
+      "type": "any",
+      "x": 1040,
+      "y": 1200,
+      "outputSuccess": [
+        "8c4d1957-3fcc-4ce4-a7d9-6e04e95c87d3",
+        "6bc307f7-bd33-4d31-8d5b-51ba79cb3e68",
+        "1b571585-6bb6-4fad-8877-4d995e90115c"
+      ]
+    },
+    "060e31e6-0693-44a8-b220-9124b42e117a": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1580,
+      "y": 1640,
+      "args": {
+        "text": "Larmat",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputSuccess": [
+        "4a5df7d8-7425-4a94-a525-08e3c6cf6edc"
+      ]
+    },
+    "07a8a93c-b15b-4178-9f51-83ee90d9021c": {
+      "type": "action",
+      "id": "homey:manager:logic:http_advanced",
+      "x": 700,
+      "y": 2460,
+      "args": {
+        "body": "{\"cell\":\"A3\",\"value\":\"-\"}",
+        "headers": "Content-Type: application/json",
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br"
+      },
+      "outputSuccess": [
+        "86854c80-d155-46d1-a3ab-5909ad65b3d3"
+      ]
+    },
+    "088202e8-4d77-46e5-ac78-4ec7d3e614a0": {
+      "type": "condition",
+      "id": "homey:device:6dece838-e029-48a2-bbc3-6bcbe29e5ed0:locked",
+      "x": 320,
+      "y": 720,
+      "outputTrue": [
+        "3d60e92d-0709-415c-86fe-76ab53353940",
+        "f6bfaccc-3e01-4769-bdb2-f6c9b2a48f3b"
+      ]
+    },
+    "08ec8fb9-05fb-4848-9424-c51bca2c7bb2": {
+      "type": "action",
+      "id": "homey:device:6f174e96-3926-4bc4-8209-c246cf6ec915:off",
+      "x": 2160,
+      "y": 1740
+    },
+    "0cdd6e27-0ade-4d17-bf03-764b44dc0479": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 140,
+      "y": 1140,
+      "args": {
+        "comparator": "arm"
+      },
+      "droptoken": "trigger::ab3a6f9c-9735-4d45-af9f-03eb802c2ba5::value",
+      "outputTrue": [
+        "1af620ab-f3cc-444c-9325-3be83f9a6a52",
+        "a88131db-42bf-4073-aef5-df8276fc15f8",
+        "c3000001-0000-4000-8000-000000000002",
+        "c3000001-0000-4000-8000-000000000003",
+        "c5000001-0000-4000-8000-000000000001"
+      ],
+      "outputFalse": [
+        "562c46fe-5f8d-4745-af08-dc35a247fa32"
+      ]
+    },
+    "121ddacb-4315-4696-a7ba-7493badabbbe": {
+      "type": "action",
+      "id": "homey:device:8040e223-aa46-46e2-a032-67e8fbab5523:on",
+      "x": 2240,
+      "y": 920
+    },
+    "184721d9-6500-43c5-a6a7-21992f4a2876": {
+      "type": "action",
+      "id": "homey:device:9b69cb0b-04bd-473c-bfb2-573b0dabaa70:off",
+      "x": 1320,
+      "y": 2520
+    },
+    "1af620ab-f3cc-444c-9325-3be83f9a6a52": {
+      "type": "delay",
+      "x": 880,
+      "y": 1100,
+      "outputSuccess": [
+        "027420b1-4348-486f-9a80-0539887145da"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "1b571585-6bb6-4fad-8877-4d995e90115c": {
+      "type": "delay",
+      "x": 1680,
+      "y": 1280,
+      "outputSuccess": [
+        "43ca23a6-261d-4a16-b6dc-f714c69f45f3",
+        "84b0c8a8-df39-4597-a825-2051da948932"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "1b6849ed-cadb-403c-a950-43d85a9c8ffd": {
+      "type": "action",
+      "id": "homey:device:dbbafe31-60b9-42e2-9a82-4442f429c1b5:off",
+      "x": 1860,
+      "y": 260
+    },
+    "1f1aa22d-d0d1-4dd0-b029-6710d00fead5": {
+      "type": "trigger",
+      "id": "homey:device:01749f51-2648-4bb6-b15c-cde54c3bffbe:alarm_motion_true",
+      "x": 60,
+      "y": 3140,
+      "outputSuccess": [
+        "c3000001-0000-4000-8000-000000000010"
+      ]
+    },
+    "282a3dcf-5d9e-4c69-8822-424c3cc451f5": {
+      "type": "note",
+      "x": 0,
+      "y": 0,
+      "value": "Avlarmat",
+      "color": "yellow"
+    },
+    "2a44707c-36cd-49d4-bc82-8a5835ce12bb": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 2580,
+      "y": 540,
+      "args": {
+        "value": "Avlarmat",
+        "variable": {
+          "id": "82e364aa-2911-4c17-a909-d39fdcbb9f8e",
+          "name": "Larmat"
+        }
+      }
+    },
+    "3184953d-d2d0-42c8-b34b-98d1a794f216": {
+      "type": "delay",
+      "x": 1860,
+      "y": 340,
+      "outputSuccess": [
+        "8f7896d1-7494-4daa-acb4-260dde432ee7"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "31f8af93-e6ef-41e4-8ba2-121531122c81": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 2580,
+      "y": 620,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "e5c4f7f3-ca68-41d4-a16d-cd5dde0eaf80",
+          "name": "Larmat"
+        }
+      }
+    },
+    "3d60e92d-0709-415c-86fe-76ab53353940": {
+      "type": "condition",
+      "id": "homey:manager:presence:user_athome",
+      "x": 760,
+      "y": 440,
+      "args": {
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputTrue": [
+        "43a10f8e-e465-4aef-9ab7-4f0b076ae903"
+      ]
+    },
+    "43a10f8e-e465-4aef-9ab7-4f0b076ae903": {
+      "type": "condition",
+      "id": "homey:manager:mobile:push_confirm",
+      "x": 1220,
+      "y": 400,
+      "args": {
+        "text": "Skall dörren i stugan låsas upp?",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputTrue": [
+        "989483b7-ccdb-48b6-83f5-a26912e45502"
+      ],
+      "outputFalse": []
+    },
+    "43ca23a6-261d-4a16-b6dc-f714c69f45f3": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 1880,
+      "y": 1260,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "f761ccb2-bf02-4a04-bb04-dd4a31e68c87",
+          "name": "Tv"
+        }
+      },
+      "outputSuccess": [
+        "88b7a67a-1caf-45af-9f18-d6d721f02871",
+        "70b3695f-8bfc-495e-b86b-85b730a76a6e"
+      ]
+    },
+    "4a5df7d8-7425-4a94-a525-08e3c6cf6edc": {
+      "type": "delay",
+      "x": 1980,
+      "y": 1760,
+      "outputSuccess": [
+        "08ec8fb9-05fb-4848-9424-c51bca2c7bb2"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "4fd2a546-67fa-4a26-ad5e-fe37dc0e294c": {
+      "type": "delay",
+      "x": 960,
+      "y": 360,
+      "outputSuccess": [
+        "f293d25b-0456-4545-8f4e-b7f6a2f0f2ea"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "52481b2c-1421-443d-b454-9b2f99889013": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_lt",
+      "x": 2480,
+      "y": 1060,
+      "args": {
+        "time": "15:00"
+      },
+      "outputTrue": [
+        "e3271342-a839-47f2-87ae-fbd37a5a90b8"
+      ]
+    },
+    "52e7e38d-7847-48a3-8cdc-d89cb349a762": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 580,
+      "y": 2760,
+      "args": {
+        "comparator": "alarm"
+      },
+      "droptoken": "trigger::f65b35a0-a3df-4812-92b9-77c1c0683904::value",
+      "outputTrue": [
+        "ce4a3818-3aa3-404a-b5e0-c9289a0e2c04",
+        "b60f022d-5e71-426d-9b34-8b3fb9d1d007"
+      ]
+    },
+    "562c46fe-5f8d-4745-af08-dc35a247fa32": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 120,
+      "y": 340,
+      "args": {
+        "comparator": "disarmed"
+      },
+      "droptoken": "trigger::ab3a6f9c-9735-4d45-af9f-03eb802c2ba5::value",
+      "outputTrue": [
+        "4fd2a546-67fa-4a26-ad5e-fe37dc0e294c",
+        "088202e8-4d77-46e5-ac78-4ec7d3e614a0",
+        "67745e05-085c-47eb-a182-a65ccf5ef765",
+        "c3000001-0000-4000-8000-000000000001",
+        "c5000001-0000-4000-8000-000000000002"
+      ],
+      "outputFalse": [
+        "c7de4f2d-0614-435f-88ff-c71babb52fd4"
+      ]
+    },
+    "5944f212-fd3b-403e-a0bd-944d6c72fada": {
+      "type": "action",
+      "id": "homey:device:e5c5204d-9b66-49a1-b9ec-b7d2ef2ebefb:set_tunable_white_scene",
+      "x": 1020,
+      "y": 2880,
+      "args": {
+        "scene": "6"
+      },
+      "outputSuccess": [
+        "f5c0a7ed-f6e3-4697-bdd1-e452a3a43394"
+      ]
+    },
+    "660d7980-a13b-44c9-aa5f-960cc5869e31": {
+      "type": "condition",
+      "id": "homey:manager:cron:month_number",
+      "x": 1760,
+      "y": 1020,
+      "args": {
+        "month": "1"
+      },
+      "outputTrue": [
+        "c5a6f720-fd05-4dc5-be36-9640ac09d472"
+      ]
+    },
+    "67745e05-085c-47eb-a182-a65ccf5ef765": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 200,
+      "y": 440,
+      "args": {
+        "value": "Avlarmat",
+        "variable": {
+          "id": "82e364aa-2911-4c17-a909-d39fdcbb9f8e",
+          "name": "Larmat"
+        }
+      },
+      "outputSuccess": [
+        "aa9ae90a-82f5-4efd-9776-ddb7a6935546"
+      ]
+    },
+    "6bc307f7-bd33-4d31-8d5b-51ba79cb3e68": {
+      "type": "delay",
+      "x": 1280,
+      "y": 1160,
+      "outputSuccess": [
+        "bfe8afb7-fbd1-42f0-951b-6cf15b571a3b"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "6bdb5fa0-5765-4d17-a0df-94dfda9990d6": {
+      "type": "action",
+      "id": "homey:device:6dece838-e029-48a2-bbc3-6bcbe29e5ed0:unlock",
+      "x": 1660,
+      "y": 400
+    },
+    "70b3695f-8bfc-495e-b86b-85b730a76a6e": {
+      "type": "delay",
+      "x": 2380,
+      "y": 1280,
+      "outputSuccess": [
+        "f6a476a4-5832-4cad-b727-2743b21a3898",
+        "ba335b75-85d6-4407-a23b-91d94b7f0972"
+      ],
+      "args": {
+        "delay": {
+          "number": "2",
+          "multiplier": 1
+        }
+      }
+    },
+    "7989535d-114f-4787-8644-f5743d48dee7": {
+      "type": "condition",
+      "id": "homey:manager:cron:month_number",
+      "x": 1760,
+      "y": 860,
+      "args": {
+        "month": "12"
+      },
+      "outputTrue": [
+        "c5a6f720-fd05-4dc5-be36-9640ac09d472"
+      ],
+      "outputFalse": [
+        "660d7980-a13b-44c9-aa5f-960cc5869e31"
+      ]
+    },
+    "8396bd47-5107-4711-a247-005c3cd91a7f": {
+      "type": "action",
+      "id": "homey:manager:logic:http_advanced",
+      "x": 1480,
+      "y": 2660,
+      "args": {
+        "body": "{\"cell\":\"A3\",\"value\":\"1\"}",
+        "headers": "Content-Type: application/json",
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br"
+      },
+      "outputSuccess": []
+    },
+    "84b0c8a8-df39-4597-a825-2051da948932": {
+      "type": "delay",
+      "x": 1380,
+      "y": 1380,
+      "outputSuccess": [
+        "dff44838-4ffa-46d0-8288-7fb147d83432"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "86854c80-d155-46d1-a3ab-5909ad65b3d3": {
+      "type": "delay",
+      "x": 1140,
+      "y": 2520,
+      "outputSuccess": [
+        "184721d9-6500-43c5-a6a7-21992f4a2876"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "88b7a67a-1caf-45af-9f18-d6d721f02871": {
+      "type": "delay",
+      "x": 2300,
+      "y": 1120,
+      "outputSuccess": [
+        "52481b2c-1421-443d-b454-9b2f99889013"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "89970d85-df02-4de6-8ab2-64b42b26e6c1": {
+      "type": "delay",
+      "x": 2420,
+      "y": 540,
+      "outputSuccess": [
+        "2a44707c-36cd-49d4-bc82-8a5835ce12bb",
+        "31f8af93-e6ef-41e4-8ba2-121531122c81"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "8c4d1957-3fcc-4ce4-a7d9-6e04e95c87d3": {
+      "type": "action",
+      "id": "homey:manager:presence:set_away",
+      "x": 900,
+      "y": 1340,
+      "args": {
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "8f7896d1-7494-4daa-acb4-260dde432ee7": {
+      "type": "action",
+      "id": "homey:device:00526538-6e6c-4b19-bd19-814450782f8b:off",
+      "x": 2040,
+      "y": 540,
+      "outputSuccess": [
+        "89970d85-df02-4de6-8ab2-64b42b26e6c1"
+      ]
+    },
+    "902be99d-c435-4c4e-9b7c-db7f979976d4": {
+      "type": "note",
+      "x": 0,
+      "y": 880,
+      "value": "Larmat",
+      "color": "yellow"
+    },
+    "989483b7-ccdb-48b6-83f5-a26912e45502": {
+      "type": "any",
+      "x": 1660,
+      "y": 520,
+      "outputSuccess": [
+        "6bdb5fa0-5765-4d17-a0df-94dfda9990d6"
+      ]
+    },
+    "a0be5769-6826-4c25-a98d-2d233dd5f2bd": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 580,
+      "y": 2880,
+      "args": {
+        "comparator": "normal"
+      },
+      "droptoken": "trigger::f65b35a0-a3df-4812-92b9-77c1c0683904::value",
+      "outputTrue": [
+        "b37c32c8-decb-415b-8781-fbbbcbf008a8"
+      ]
+    },
+    "a3bf92bf-8233-4c40-9db2-425c7d09bd88": {
+      "type": "delay",
+      "x": 1060,
+      "y": 1480,
+      "outputSuccess": [
+        "060e31e6-0693-44a8-b220-9124b42e117a"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "a6237a0a-d789-45c3-8d87-9706f46d08d2": {
+      "type": "note",
+      "x": 1260,
+      "y": 2560,
+      "value": "2026-11-24: Inbrott skickas direkt till Pro via webhook (tag=inbrott), samma väg som brand. Pro pollar inte längre Sheet var 6:e minut. A3-skrivningen till Make finns kvar som logg.",
+      "color": "yellow"
+    },
+    "a88131db-42bf-4073-aef5-df8276fc15f8": {
+      "type": "action",
+      "id": "homey:device:cdaa78ff-5188-4d30-a0db-d61539c8156f:on",
+      "x": 600,
+      "y": 1160
+    },
+    "aa9ae90a-82f5-4efd-9776-ddb7a6935546": {
+      "type": "action",
+      "id": "homey:device:cdaa78ff-5188-4d30-a0db-d61539c8156f:off",
+      "x": 560,
+      "y": 160
+    },
+    "ab3a6f9c-9735-4d45-af9f-03eb802c2ba5": {
+      "type": "trigger",
+      "id": "homey:device:7639e352-3ffe-4e4e-b08a-b02996ddca86:receive_status_string",
+      "x": 0,
+      "y": 960,
+      "args": {
+        "code": {
+          "dataPoint": false,
+          "id": "master_mode",
+          "name": "master_mode",
+          "title": "master_mode"
+        }
+      },
+      "outputSuccess": [
+        "0cdd6e27-0ade-4d17-bf03-764b44dc0479"
+      ]
+    },
+    "b37c32c8-decb-415b-8781-fbbbcbf008a8": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 860,
+      "y": 2980,
+      "args": {},
+      "droptoken": "homey:manager:logic|088e5cb5-82e5-45e4-ab19-bfb3256c15db",
+      "outputTrue": [
+        "5944f212-fd3b-403e-a0bd-944d6c72fada"
+      ]
+    },
+    "b60f022d-5e71-426d-9b34-8b3fb9d1d007": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 1020,
+      "y": 2640,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/larm_a77168457227?tag=inbrott"
+      }
+    },
+    "ba335b75-85d6-4407-a23b-91d94b7f0972": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 2560,
+      "y": 1360,
+      "args": {
+        "value": "Larmat",
+        "variable": {
+          "id": "82e364aa-2911-4c17-a909-d39fdcbb9f8e",
+          "name": "Larmat"
+        }
+      }
+    },
+    "be7e77bb-1bf3-4caf-9bc2-23b542a6aa11": {
+      "type": "trigger",
+      "id": "homey:device:9b69cb0b-04bd-473c-bfb2-573b0dabaa70:onoff_true",
+      "x": 260,
+      "y": 2520,
+      "outputSuccess": [
+        "07a8a93c-b15b-4178-9f51-83ee90d9021c"
+      ]
+    },
+    "bfe8afb7-fbd1-42f0-951b-6cf15b571a3b": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1520,
+      "y": 920,
+      "args": {},
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "outputTrue": [
+        "7989535d-114f-4787-8644-f5743d48dee7"
+      ],
+      "outputFalse": [
+        "660d7980-a13b-44c9-aa5f-960cc5869e31"
+      ]
+    },
+    "c3000001-0000-4000-8000-000000000001": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 560,
+      "y": 300,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "481372e1-1656-43f0-82c6-766b4f136f16",
+          "name": "Larm utlöst"
+        }
+      }
+    },
+    "c3000001-0000-4000-8000-000000000002": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 600,
+      "y": 1260,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "481372e1-1656-43f0-82c6-766b4f136f16",
+          "name": "Larm utlöst"
+        }
+      }
+    },
+    "c3000001-0000-4000-8000-000000000003": {
+      "type": "delay",
+      "x": 600,
+      "y": 1360,
+      "outputSuccess": [
+        "c3000001-0000-4000-8000-000000000006"
+      ],
+      "args": {
+        "delay": {
+          "number": "30",
+          "multiplier": 1
+        }
+      }
+    },
+    "c3000001-0000-4000-8000-000000000004": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 720,
+      "y": 2080,
+      "args": {
+        "text": "Panelen skickade Delvis larmat. Det läget används inte, inget ändrat",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "c3000001-0000-4000-8000-000000000005": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 720,
+      "y": 2180,
+      "args": {
+        "text": "Okänt larmläge från panelen, inget ändrat",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "c3000001-0000-4000-8000-000000000006": {
+      "type": "condition",
+      "id": "homey:device:cdaa78ff-5188-4d30-a0db-d61539c8156f:on",
+      "x": 840,
+      "y": 1400,
+      "inverted": true,
+      "outputTrue": [
+        "c3000001-0000-4000-8000-000000000007",
+        "c3000001-0000-4000-8000-000000000008"
+      ]
+    },
+    "c3000001-0000-4000-8000-000000000007": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1120,
+      "y": 1700,
+      "args": {
+        "text": "Larmet kunde inte bekräftas aktivt – kontrollera panelen",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "c3000001-0000-4000-8000-000000000008": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1120,
+      "y": 1800,
+      "args": {
+        "text": "Larmet kunde inte bekräftas aktivt – kontrollera panelen",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "c3000001-0000-4000-8000-000000000010": {
+      "type": "any",
+      "x": 500,
+      "y": 3240,
+      "outputSuccess": [
+        "c3000001-0000-4000-8000-000000000011"
+      ]
+    },
+    "c3000001-0000-4000-8000-000000000011": {
+      "type": "condition",
+      "id": "homey:device:cdaa78ff-5188-4d30-a0db-d61539c8156f:on",
+      "x": 760,
+      "y": 3240,
+      "outputTrue": [
+        "c3000001-0000-4000-8000-000000000012"
+      ]
+    },
+    "c3000001-0000-4000-8000-000000000012": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1020,
+      "y": 3240,
+      "droptoken": "homey:manager:logic|481372e1-1656-43f0-82c6-766b4f136f16",
+      "inverted": true,
+      "outputTrue": [
+        "c3000001-0000-4000-8000-000000000013"
+      ]
+    },
+    "c3000001-0000-4000-8000-000000000013": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 1280,
+      "y": 3240,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "481372e1-1656-43f0-82c6-766b4f136f16",
+          "name": "Larm utlöst"
+        }
+      },
+      "outputSuccess": [
+        "c3000001-0000-4000-8000-000000000014",
+        "c3000001-0000-4000-8000-000000000015",
+        "c3000001-0000-4000-8000-000000000016"
+      ]
+    },
+    "c3000001-0000-4000-8000-000000000014": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1560,
+      "y": 3160,
+      "args": {
+        "text": "LARM i stugan: nyckelskåp eller loft har aktiverats",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "c3000001-0000-4000-8000-000000000015": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1560,
+      "y": 3260,
+      "args": {
+        "text": "LARM i stugan: nyckelskåp eller loft har aktiverats",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "c3000001-0000-4000-8000-000000000016": {
+      "type": "action",
+      "id": "homey:device:7639e352-3ffe-4e4e-b08a-b02996ddca86:send_command_string",
+      "x": 1560,
+      "y": 3360,
+      "args": {
+        "code": {
+          "dataPoint": false,
+          "id": "master_state",
+          "name": "master_state",
+          "title": "master_state"
+        },
+        "value": "alarm"
+      }
+    },
+    "c5000001-0000-4000-8000-000000000001": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 600,
+      "y": 1500,
+      "args": {
+        "value": "arm",
+        "variable": {
+          "id": "e18e0371-c1a3-4f48-87ff-9012fd6eb025",
+          "name": "Larmläge"
+        }
+      }
+    },
+    "c5000001-0000-4000-8000-000000000002": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 200,
+      "y": 540,
+      "args": {
+        "value": "disarmed",
+        "variable": {
+          "id": "e18e0371-c1a3-4f48-87ff-9012fd6eb025",
+          "name": "Larmläge"
+        }
+      }
+    },
+    "c5000001-0000-4000-8000-000000000003": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 720,
+      "y": 2280,
+      "args": {
+        "value": "home",
+        "variable": {
+          "id": "e18e0371-c1a3-4f48-87ff-9012fd6eb025",
+          "name": "Larmläge"
+        }
+      }
+    },
+    "c5000001-0000-4000-8000-000000000004": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 720,
+      "y": 2380,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "e5c4f7f3-ca68-41d4-a16d-cd5dde0eaf80",
+          "name": "Larmat"
+        }
+      }
+    },
+    "c5000001-0000-4000-8000-000000000005": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 720,
+      "y": 2480,
+      "args": {
+        "value": "Delvis larmat",
+        "variable": {
+          "id": "82e364aa-2911-4c17-a909-d39fdcbb9f8e",
+          "name": "Larmat"
+        }
+      }
+    },
+    "c5000001-0000-4000-8000-000000000006": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 500,
+      "y": 1520,
+      "args": {
+        "comparator": "sos"
+      },
+      "droptoken": "trigger::ab3a6f9c-9735-4d45-af9f-03eb802c2ba5::value",
+      "outputTrue": [
+        "c5000001-0000-4000-8000-000000000007",
+        "c5000001-0000-4000-8000-000000000008"
+      ],
+      "outputFalse": [
+        "c3000001-0000-4000-8000-000000000005"
+      ]
+    },
+    "c5000001-0000-4000-8000-000000000007": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 720,
+      "y": 2580,
+      "args": {
+        "value": "sos",
+        "variable": {
+          "id": "e18e0371-c1a3-4f48-87ff-9012fd6eb025",
+          "name": "Larmläge"
+        }
+      }
+    },
+    "c5000001-0000-4000-8000-000000000008": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 720,
+      "y": 2680,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "e5c4f7f3-ca68-41d4-a16d-cd5dde0eaf80",
+          "name": "Larmat"
+        }
+      }
+    },
+    "c5a6f720-fd05-4dc5-be36-9640ac09d472": {
+      "type": "any",
+      "x": 2000,
+      "y": 920,
+      "outputSuccess": [
+        "121ddacb-4315-4696-a7ba-7493badabbbe"
+      ]
+    },
+    "c7de4f2d-0614-435f-88ff-c71babb52fd4": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 340,
+      "y": 1420,
+      "args": {
+        "comparator": "home"
+      },
+      "droptoken": "trigger::ab3a6f9c-9735-4d45-af9f-03eb802c2ba5::value",
+      "outputTrue": [
+        "c3000001-0000-4000-8000-000000000004",
+        "c5000001-0000-4000-8000-000000000003",
+        "c5000001-0000-4000-8000-000000000004",
+        "c5000001-0000-4000-8000-000000000005"
+      ],
+      "outputFalse": [
+        "c5000001-0000-4000-8000-000000000006"
+      ]
+    },
+    "cb91d7f3-0665-4ab2-a27f-6f2d284b8d5c": {
+      "type": "trigger",
+      "id": "homey:device:205766ba-7a99-48c1-913e-55a5dcd38b24:alarm_contact_true",
+      "x": 80,
+      "y": 3340,
+      "outputSuccess": [
+        "c3000001-0000-4000-8000-000000000010"
+      ]
+    },
+    "ce4a3818-3aa3-404a-b5e0-c9289a0e2c04": {
+      "type": "action",
+      "id": "homey:device:e5c5204d-9b66-49a1-b9ec-b7d2ef2ebefb:set_tunable_white_scene",
+      "x": 1020,
+      "y": 2760,
+      "args": {
+        "scene": "35"
+      },
+      "outputSuccess": [
+        "8396bd47-5107-4711-a247-005c3cd91a7f"
+      ]
+    },
+    "d01dae1d-eb38-4d6d-9740-c4be19c79648": {
+      "type": "condition",
+      "id": "homey:manager:mobile:push_confirm",
+      "x": 1160,
+      "y": 740,
+      "args": {
+        "text": "Skall dörren i stugan låsas upp?",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputTrue": [
+        "989483b7-ccdb-48b6-83f5-a26912e45502"
+      ]
+    },
+    "de86f83e-52a1-48d5-851f-a57da6521935": {
+      "type": "action",
+      "id": "homey:device:e5c5204d-9b66-49a1-b9ec-b7d2ef2ebefb:dim",
+      "x": 1720,
+      "y": 2880,
+      "args": {
+        "dim": 0.05
+      }
+    },
+    "dff44838-4ffa-46d0-8288-7fb147d83432": {
+      "type": "action",
+      "id": "homey:manager:presence:set_away",
+      "x": 1680,
+      "y": 1360,
+      "args": {
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputSuccess": [
+        "a3bf92bf-8233-4c40-9db2-425c7d09bd88"
+      ]
+    },
+    "e3271342-a839-47f2-87ae-fbd37a5a90b8": {
+      "type": "action",
+      "id": "homey:zone:92d561e7-98f7-4805-af56-3815e880c36d:turn_off",
+      "x": 2620,
+      "y": 1180,
+      "args": {
+        "class": "light"
+      }
+    },
+    "eb4a98af-a999-435e-a1ea-9ea67751f492": {
+      "type": "delay",
+      "x": 1700,
+      "y": 260,
+      "outputSuccess": [
+        "1b6849ed-cadb-403c-a950-43d85a9c8ffd",
+        "3184953d-d2d0-42c8-b34b-98d1a794f216"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "f293d25b-0456-4545-8f4e-b7f6a2f0f2ea": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1340,
+      "y": 260,
+      "args": {
+        "text": "Avlarmat",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputSuccess": [
+        "eb4a98af-a999-435e-a1ea-9ea67751f492"
+      ]
+    },
+    "f5c0a7ed-f6e3-4697-bdd1-e452a3a43394": {
+      "type": "delay",
+      "x": 1480,
+      "y": 2880,
+      "outputSuccess": [
+        "de86f83e-52a1-48d5-851f-a57da6521935"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "f65b35a0-a3df-4812-92b9-77c1c0683904": {
+      "type": "trigger",
+      "id": "homey:device:7639e352-3ffe-4e4e-b08a-b02996ddca86:receive_status_string",
+      "x": 40,
+      "y": 2780,
+      "args": {
+        "code": {
+          "dataPoint": false,
+          "id": "master_state",
+          "name": "master_state",
+          "title": "master_state"
+        }
+      },
+      "outputSuccess": [
+        "52e7e38d-7847-48a3-8cdc-d89cb349a762",
+        "a0be5769-6826-4c25-a98d-2d233dd5f2bd"
+      ]
+    },
+    "f6a476a4-5832-4cad-b727-2743b21a3898": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 2560,
+      "y": 1260,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "e5c4f7f3-ca68-41d4-a16d-cd5dde0eaf80",
+          "name": "Larmat"
+        }
+      }
+    },
+    "f6bfaccc-3e01-4769-bdb2-f6c9b2a48f3b": {
+      "type": "condition",
+      "id": "homey:manager:presence:user_athome",
+      "x": 740,
+      "y": 740,
+      "args": {
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputTrue": [
+        "d01dae1d-eb38-4d6d-9740-c4be19c79648"
+      ]
+    }
+  }
+}

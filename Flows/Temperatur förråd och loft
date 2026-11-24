@@ -1,0 +1,896 @@
+{
+  "id": "c59efa68-dedb-4f93-b2de-e1d3fb04d31a",
+  "uri": "homey:advancedflow:c59efa68-dedb-4f93-b2de-e1d3fb04d31a",
+  "name": "Temperatur förråd och loft",
+  "folder": "1d996cdb-fb5a-4f99-91b0-e0ac97273cb6",
+  "triggerable": false,
+  "enabled": false,
+  "broken": false,
+  "cards": {
+    "41ea8a8a-3708-486a-98ef-3cd116b1e08a": {
+      "ownerUri": "homey:device:043ef17f-995f-45c8-b54c-bb1a8c7268ed",
+      "id": "homey:device:043ef17f-995f-45c8-b54c-bb1a8c7268ed:measure_temperature_changed",
+      "type": "trigger",
+      "x": 40,
+      "y": 60,
+      "outputSuccess": [
+        "75cb4d60-29a6-4862-bfaa-92cb03ba9b50"
+      ]
+    },
+    "cf7ccd65-4f96-4571-bfd4-0acf7dc5c22c": {
+      "ownerUri": "homey:device:49b97e7b-f343-4272-933f-f31f3f3bff1f",
+      "id": "homey:device:49b97e7b-f343-4272-933f-f31f3f3bff1f:measure_temperature_changed",
+      "type": "trigger",
+      "x": 40,
+      "y": 160,
+      "outputSuccess": [
+        "c387b24c-25e9-49ac-9e7f-5d6fbc65ef4e"
+      ]
+    },
+    "7a89c724-e130-4614-abc3-3cbe55f646c0": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "trigger::41ea8a8a-3708-486a-98ef-3cd116b1e08a::measure_temperature",
+      "args": {
+        "comparator": "[[homey:manager:logic|dbafda57-580f-4912-a9e1-8210fcf63f89]]"
+      },
+      "type": "condition",
+      "x": 900,
+      "y": 60,
+      "outputTrue": [
+        "ef43f161-4847-44d2-bf22-0b70feefceac"
+      ]
+    },
+    "bd43f16f-d079-45fa-97b0-5d897cf42e46": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "trigger::cf7ccd65-4f96-4571-bfd4-0acf7dc5c22c::measure_temperature",
+      "args": {
+        "comparator": "[[homey:manager:logic|a4a01395-1cf4-4529-abfc-93d3ccb4931c]]"
+      },
+      "type": "condition",
+      "x": 900,
+      "y": 160,
+      "outputTrue": [
+        "d163da71-5239-41f1-966e-5e30eab29bdd"
+      ]
+    },
+    "ef43f161-4847-44d2-bf22-0b70feefceac": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number",
+      "args": {
+        "variable": {
+          "id": "dbafda57-580f-4912-a9e1-8210fcf63f89",
+          "name": "Temp Förråd Mat"
+        },
+        "value": "[[trigger::41ea8a8a-3708-486a-98ef-3cd116b1e08a::measure_temperature]]"
+      },
+      "type": "action",
+      "x": 1320,
+      "y": 60
+    },
+    "d163da71-5239-41f1-966e-5e30eab29bdd": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number",
+      "args": {
+        "variable": {
+          "id": "a4a01395-1cf4-4529-abfc-93d3ccb4931c",
+          "name": "Temp Förråd Trädgård"
+        },
+        "value": "[[trigger::cf7ccd65-4f96-4571-bfd4-0acf7dc5c22c::measure_temperature]]"
+      },
+      "type": "action",
+      "x": 1320,
+      "y": 180
+    },
+    "75cb4d60-29a6-4862-bfaa-92cb03ba9b50": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "type": "condition",
+      "x": 460,
+      "y": 60,
+      "outputTrue": [
+        "7a89c724-e130-4614-abc3-3cbe55f646c0"
+      ]
+    },
+    "c387b24c-25e9-49ac-9e7f-5d6fbc65ef4e": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "type": "condition",
+      "x": 460,
+      "y": 160,
+      "outputTrue": [
+        "bd43f16f-d079-45fa-97b0-5d897cf42e46"
+      ]
+    },
+    "0d7edabf-7ee8-43d3-9414-4bcf9bbc55b8": {
+      "type": "note",
+      "value": "Trädgårdsförrådet",
+      "color": "yellow",
+      "x": 20,
+      "y": 600,
+      "width": null,
+      "height": null
+    },
+    "a4f22322-eaf4-4241-80ee-e19b6566f7f0": {
+      "ownerUri": "homey:device:49b97e7b-f343-4272-933f-f31f3f3bff1f",
+      "id": "homey:device:49b97e7b-f343-4272-933f-f31f3f3bff1f:measure_temperature_changed",
+      "type": "trigger",
+      "x": 20,
+      "y": 760,
+      "outputSuccess": [
+        "a6d30fae-e98d-4838-85c7-cbc2d811b3eb",
+        "0a23e25a-dd06-421b-baa0-422e7b82745d"
+      ]
+    },
+    "39045439-de36-449e-97ca-4c4ff3a7fefd": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "variable": {
+          "id": "748f1f51-dc97-4b47-a11e-3d218337d7ae",
+          "name": "Kallt i förråd trädgård"
+        },
+        "value": false
+      },
+      "type": "action",
+      "x": 1240,
+      "y": 860
+    },
+    "a7fb61b1-870a-4810-af82-71ecb2df6c96": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|748f1f51-dc97-4b47-a11e-3d218337d7ae",
+      "type": "condition",
+      "x": 880,
+      "y": 660,
+      "inverted": true,
+      "outputTrue": [
+        "4b78bb8c-c43a-42e5-88b9-943c62942f8e"
+      ]
+    },
+    "4b78bb8c-c43a-42e5-88b9-943c62942f8e": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "variable": {
+          "id": "748f1f51-dc97-4b47-a11e-3d218337d7ae",
+          "name": "Kallt i förråd trädgård"
+        },
+        "value": true
+      },
+      "type": "action",
+      "x": 1280,
+      "y": 660
+    },
+    "3c8dfba5-44b2-45e0-9327-a09436fb8b19": {
+      "type": "note",
+      "value": "Matlagningsförrådet",
+      "color": "yellow",
+      "x": 20,
+      "y": 960,
+      "width": null,
+      "height": null
+    },
+    "87c1a9fa-bd7e-44e3-8823-02bf779920d0": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|44a16c82-4a7a-4269-8042-879dc0378af5",
+      "type": "condition",
+      "x": 900,
+      "y": 1040,
+      "inverted": true,
+      "outputTrue": [
+        "82e5aa1c-1644-45e8-b7b1-545333452e65"
+      ]
+    },
+    "82e5aa1c-1644-45e8-b7b1-545333452e65": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "variable": {
+          "id": "44a16c82-4a7a-4269-8042-879dc0378af5",
+          "name": "Kallt i förråd mat"
+        },
+        "value": true
+      },
+      "type": "action",
+      "x": 1340,
+      "y": 1020
+    },
+    "ddc8847b-e22b-44fd-adf5-026dffd6ca44": {
+      "ownerUri": "homey:device:043ef17f-995f-45c8-b54c-bb1a8c7268ed",
+      "id": "homey:device:043ef17f-995f-45c8-b54c-bb1a8c7268ed:measure_temperature_changed",
+      "type": "trigger",
+      "x": 20,
+      "y": 1160,
+      "outputSuccess": [
+        "d2873335-fd97-4e45-8e6b-dee9fb50fec1",
+        "00cb38fa-1718-497b-8869-ba1b6abf7ce2"
+      ]
+    },
+    "f291e5a3-5744-46fa-9679-ac4c3cc0ee8e": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "variable": {
+          "id": "44a16c82-4a7a-4269-8042-879dc0378af5",
+          "name": "Kallt i förråd mat"
+        },
+        "value": false
+      },
+      "type": "action",
+      "x": 1360,
+      "y": 1280
+    },
+    "a6d30fae-e98d-4838-85c7-cbc2d811b3eb": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "trigger::061ccc5c-06d5-4417-b260-98db832e2e39::measure_temperature",
+      "args": {
+        "comparator": 5
+      },
+      "type": "condition",
+      "x": 460,
+      "y": 640,
+      "outputTrue": [
+        "a7fb61b1-870a-4810-af82-71ecb2df6c96"
+      ]
+    },
+    "0a23e25a-dd06-421b-baa0-422e7b82745d": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:gt",
+      "type": "condition",
+      "x": 460,
+      "y": 880,
+      "outputTrue": [
+        "fd3e7c89-872f-4c0c-8b3b-2290e6eff9ec"
+      ],
+      "droptoken": "trigger::061ccc5c-06d5-4417-b260-98db832e2e39::measure_temperature",
+      "args": {
+        "comparator": 5
+      }
+    },
+    "d2873335-fd97-4e45-8e6b-dee9fb50fec1": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "trigger::e52a8139-181f-4573-8a4e-6b5ef0848acf::measure_temperature",
+      "args": {
+        "comparator": 5
+      },
+      "type": "condition",
+      "x": 480,
+      "y": 1040,
+      "outputTrue": [
+        "87c1a9fa-bd7e-44e3-8823-02bf779920d0"
+      ]
+    },
+    "00cb38fa-1718-497b-8869-ba1b6abf7ce2": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:gt",
+      "type": "condition",
+      "x": 480,
+      "y": 1280,
+      "outputTrue": [
+        "ce8c601b-5fc6-4cc2-86fd-f8d1ef5debce"
+      ],
+      "droptoken": "trigger::e52a8139-181f-4573-8a4e-6b5ef0848acf::measure_temperature",
+      "args": {
+        "comparator": 5
+      }
+    },
+    "fd3e7c89-872f-4c0c-8b3b-2290e6eff9ec": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|748f1f51-dc97-4b47-a11e-3d218337d7ae",
+      "type": "condition",
+      "x": 840,
+      "y": 840,
+      "inverted": false,
+      "outputTrue": [
+        "39045439-de36-449e-97ca-4c4ff3a7fefd"
+      ]
+    },
+    "ce8c601b-5fc6-4cc2-86fd-f8d1ef5debce": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|44a16c82-4a7a-4269-8042-879dc0378af5",
+      "type": "condition",
+      "x": 920,
+      "y": 1260,
+      "inverted": false,
+      "outputTrue": [
+        "f291e5a3-5744-46fa-9679-ac4c3cc0ee8e"
+      ]
+    },
+    "d3a1b400-e77a-4475-a5eb-4059dd989c2f": {
+      "ownerUri": "homey:device:620c47f7-9437-402d-ae43-e47e550f5723",
+      "id": "homey:device:620c47f7-9437-402d-ae43-e47e550f5723:measure_temperature_changed",
+      "type": "trigger",
+      "x": 0,
+      "y": 1700,
+      "outputSuccess": [
+        "730fd35e-0f2b-4403-b0c1-ac9dc35dc159",
+        "f99c9ddf-bc70-4e75-b4fb-8ef788ea76ff"
+      ]
+    },
+    "ef30857a-7794-41ec-9ab3-a7991fcf139c": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "variable": {
+          "id": "cb3d79c8-0126-4514-a22e-a56f87916c97",
+          "name": "Kallt på loftet"
+        },
+        "value": false
+      },
+      "type": "action",
+      "x": 1260,
+      "y": 1680
+    },
+    "61e9383e-a603-4af9-9070-35548987ca65": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|cb3d79c8-0126-4514-a22e-a56f87916c97",
+      "type": "condition",
+      "x": 880,
+      "y": 1500,
+      "inverted": true,
+      "outputTrue": [
+        "c4e108eb-3438-4694-9f5e-46e25ed61160"
+      ]
+    },
+    "c4e108eb-3438-4694-9f5e-46e25ed61160": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "variable": {
+          "id": "cb3d79c8-0126-4514-a22e-a56f87916c97",
+          "name": "Kallt på loftet"
+        },
+        "value": true
+      },
+      "type": "action",
+      "x": 1280,
+      "y": 1500
+    },
+    "951d83ca-6e94-426f-937a-458f1b0f352e": {
+      "type": "note",
+      "value": "Temperatur loftet",
+      "color": "yellow",
+      "x": 0,
+      "y": 1400,
+      "width": null,
+      "height": null
+    },
+    "730fd35e-0f2b-4403-b0c1-ac9dc35dc159": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:gt",
+      "droptoken": "trigger::d3a1b400-e77a-4475-a5eb-4059dd989c2f::measure_temperature",
+      "args": {
+        "comparator": 5
+      },
+      "type": "condition",
+      "x": 420,
+      "y": 1700,
+      "outputTrue": [
+        "ff0076d6-8ddd-467c-8260-38f164489197"
+      ]
+    },
+    "f99c9ddf-bc70-4e75-b4fb-8ef788ea76ff": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "trigger::d3a1b400-e77a-4475-a5eb-4059dd989c2f::measure_temperature",
+      "args": {
+        "comparator": 5
+      },
+      "type": "condition",
+      "x": 400,
+      "y": 1500,
+      "outputTrue": [
+        "61e9383e-a603-4af9-9070-35548987ca65"
+      ]
+    },
+    "ff0076d6-8ddd-467c-8260-38f164489197": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|cb3d79c8-0126-4514-a22e-a56f87916c97",
+      "type": "condition",
+      "x": 820,
+      "y": 1700,
+      "inverted": false,
+      "outputTrue": [
+        "ef30857a-7794-41ec-9ab3-a7991fcf139c"
+      ]
+    },
+    "f38ce316-ffeb-4ba7-9635-a8a3cfc1a660": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "10:00"
+      },
+      "type": "trigger",
+      "x": 20,
+      "y": 2340,
+      "outputSuccess": [
+        "f2162d53-cf53-44af-9384-424e254c00d2"
+      ]
+    },
+    "f2162d53-cf53-44af-9384-424e254c00d2": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "type": "condition",
+      "x": 440,
+      "y": 2340,
+      "outputFalse": [],
+      "outputTrue": [
+        "4bf9f5c1-87f3-4363-a550-a36b71c08e76",
+        "1f1fef86-0f4c-45fb-8bdc-f4da374ec1af",
+        "e9e7701a-e250-4685-a90d-5f8b33843ef3",
+        "d9caae47-a4d7-44a6-afd8-d8ae0020fea0"
+      ]
+    },
+    "4bf9f5c1-87f3-4363-a550-a36b71c08e76": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 60
+        }
+      },
+      "x": 1240,
+      "y": 2340,
+      "outputSuccess": [
+        "4e3ac55f-3a71-4004-b4d3-e6f9335b2336",
+        "2c2fec92-f992-4a31-8915-154a0314ea19"
+      ]
+    },
+    "4e3ac55f-3a71-4004-b4d3-e6f9335b2336": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number",
+      "args": {
+        "variable": {
+          "id": "dbafda57-580f-4912-a9e1-8210fcf63f89",
+          "name": "Temp Förråd Mat"
+        },
+        "value": 50
+      },
+      "type": "action",
+      "x": 1440,
+      "y": 2260
+    },
+    "2c2fec92-f992-4a31-8915-154a0314ea19": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number",
+      "args": {
+        "variable": {
+          "id": "a4a01395-1cf4-4529-abfc-93d3ccb4931c",
+          "name": "Temp Förråd Trädgård"
+        },
+        "value": 50
+      },
+      "type": "action",
+      "x": 1440,
+      "y": 2380
+    },
+    "d42f44f5-7030-43d8-9359-45b33bfe787f": {
+      "ownerUri": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72",
+      "id": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72:measure_temperature_changed",
+      "type": "trigger",
+      "x": 60,
+      "y": 2720,
+      "outputSuccess": [
+        "e97f7292-057d-4f8e-933e-783c302beef1"
+      ]
+    },
+    "fd971a96-ad9c-4929-ad04-903b69ab68b7": {
+      "ownerUri": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:measure_temperature_changed",
+      "type": "trigger",
+      "x": 60,
+      "y": 2800,
+      "outputSuccess": [
+        "7413fd4f-c2a9-49b2-a618-a57f27015fcb"
+      ]
+    },
+    "aff3de32-6040-460b-92d9-ec54b7f1bbd8": {
+      "ownerUri": "homey:device:b59cbdec-c880-4a42-9481-a72154fc086c",
+      "id": "homey:device:b59cbdec-c880-4a42-9481-a72154fc086c:measure_temperature_changed",
+      "type": "trigger",
+      "x": 60,
+      "y": 2880,
+      "outputSuccess": [
+        "413acaf7-65be-4bec-a233-9cfaedb6be96"
+      ]
+    },
+    "f06c4678-efbf-4960-be43-dfec21066d9a": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "trigger::d42f44f5-7030-43d8-9359-45b33bfe787f::measure_temperature",
+      "args": {
+        "comparator": "[[homey:manager:logic|5594dff5-ef19-454a-90a6-e49031f23652]]"
+      },
+      "type": "condition",
+      "x": 1160,
+      "y": 2680,
+      "outputTrue": [
+        "24ec96a6-178f-4094-86e7-636f2dcf4123"
+      ]
+    },
+    "4bab4c7a-9f51-49f9-9513-52eb2ff9bd32": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "trigger::fd971a96-ad9c-4929-ad04-903b69ab68b7::measure_temperature",
+      "args": {
+        "comparator": "[[homey:manager:logic|6f49f4e9-08e9-430e-971c-b5b4f965502a]]"
+      },
+      "type": "condition",
+      "x": 1160,
+      "y": 2780,
+      "outputTrue": [
+        "cfe1ecc0-bbb5-4089-a872-0868af4af68a"
+      ]
+    },
+    "b558079f-fa37-4acf-8d9a-ba2a037ee990": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "trigger::aff3de32-6040-460b-92d9-ec54b7f1bbd8::measure_temperature",
+      "args": {
+        "comparator": "[[homey:manager:logic|72e97aa1-3101-4d9e-9859-0a60dc9bf521]]"
+      },
+      "type": "condition",
+      "x": 1160,
+      "y": 2880,
+      "outputTrue": [
+        "0735e883-267a-4ac8-9d8b-533f757475d8"
+      ]
+    },
+    "24ec96a6-178f-4094-86e7-636f2dcf4123": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number",
+      "args": {
+        "variable": {
+          "id": "5594dff5-ef19-454a-90a6-e49031f23652",
+          "name": "Temperatur vardagsrum"
+        },
+        "value": "[[trigger::d42f44f5-7030-43d8-9359-45b33bfe787f::measure_temperature]]"
+      },
+      "type": "action",
+      "x": 1560,
+      "y": 2680,
+      "outputSuccess": [
+        "784b5046-f24c-4623-9940-1ed9262e4d38"
+      ]
+    },
+    "cfe1ecc0-bbb5-4089-a872-0868af4af68a": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number",
+      "args": {
+        "variable": {
+          "id": "6f49f4e9-08e9-430e-971c-b5b4f965502a",
+          "name": "Temperatur värmepump"
+        },
+        "value": "[[trigger::fd971a96-ad9c-4929-ad04-903b69ab68b7::measure_temperature]]"
+      },
+      "type": "action",
+      "x": 1560,
+      "y": 2780,
+      "outputSuccess": [
+        "784b5046-f24c-4623-9940-1ed9262e4d38"
+      ]
+    },
+    "0735e883-267a-4ac8-9d8b-533f757475d8": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number",
+      "args": {
+        "variable": {
+          "id": "72e97aa1-3101-4d9e-9859-0a60dc9bf521",
+          "name": "Temperatur toalett"
+        },
+        "value": "[[trigger::16d487f5-50c6-491c-882c-e617a3000373::measure_temperature]]"
+      },
+      "type": "action",
+      "x": 1560,
+      "y": 2880,
+      "outputSuccess": [
+        "784b5046-f24c-4623-9940-1ed9262e4d38"
+      ]
+    },
+    "33a582f8-9a61-4393-913a-c756a058900e": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number_math",
+      "args": {
+        "variable": {
+          "id": "323c3d80-6525-4808-89a9-701a40d80c39",
+          "name": "Kallast stugan"
+        },
+        "value": "{{round([[homey:manager:logic|5594dff5-ef19-454a-90a6-e49031f23652]]+[[homey:manager:logic|6f49f4e9-08e9-430e-971c-b5b4f965502a]]+[[homey:manager:logic|72e97aa1-3101-4d9e-9859-0a60dc9bf521]],2)/3}}"
+      },
+      "type": "action",
+      "x": 2400,
+      "y": 2720
+    },
+    "b432d45b-44b3-4a5c-8ec6-4dbdc2623db2": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "10:05"
+      },
+      "type": "trigger",
+      "x": 100,
+      "y": 3420,
+      "outputSuccess": [
+        "5e77dcbc-deb2-42fe-88ef-607feaa9bb0e"
+      ]
+    },
+    "5e77dcbc-deb2-42fe-88ef-607feaa9bb0e": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "type": "condition",
+      "x": 520,
+      "y": 3420,
+      "outputFalse": [],
+      "outputTrue": [
+        "3d895d93-2965-441d-a5f4-fcd983227117"
+      ]
+    },
+    "0bf2a84d-08d0-47cc-aadc-6e15adaad927": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "3",
+          "multiplier": 60
+        }
+      },
+      "x": 1320,
+      "y": 3420,
+      "outputSuccess": [
+        "53851817-3937-4b08-8e45-f4c276c27d11"
+      ]
+    },
+    "53851817-3937-4b08-8e45-f4c276c27d11": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number",
+      "args": {
+        "variable": {
+          "id": "323c3d80-6525-4808-89a9-701a40d80c39",
+          "name": "Kallast stugan"
+        },
+        "value": 50
+      },
+      "type": "action",
+      "x": 1520,
+      "y": 3340,
+      "outputSuccess": [
+        "cb6a9866-4def-4a27-bde7-ba855c7a85bf"
+      ]
+    },
+    "e97f7292-057d-4f8e-933e-783c302beef1": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "type": "condition",
+      "x": 540,
+      "y": 2720,
+      "outputTrue": [
+        "f06c4678-efbf-4960-be43-dfec21066d9a"
+      ],
+      "outputFalse": []
+    },
+    "503ed84e-2f44-4b98-b6d9-42f3fcedd74a": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 60
+        }
+      },
+      "x": 2120,
+      "y": 2760,
+      "outputSuccess": [
+        "33a582f8-9a61-4393-913a-c756a058900e"
+      ]
+    },
+    "cb6a9866-4def-4a27-bde7-ba855c7a85bf": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number",
+      "args": {
+        "variable": {
+          "id": "5594dff5-ef19-454a-90a6-e49031f23652",
+          "name": "Temperatur vardagsrum"
+        },
+        "value": 50
+      },
+      "type": "action",
+      "x": 1600,
+      "y": 3460,
+      "outputSuccess": [
+        "bfd94d67-8ecc-4ab7-a458-b7d69bc748b0"
+      ]
+    },
+    "bfd94d67-8ecc-4ab7-a458-b7d69bc748b0": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number",
+      "args": {
+        "variable": {
+          "id": "6f49f4e9-08e9-430e-971c-b5b4f965502a",
+          "name": "Temperatur värmepump"
+        },
+        "value": 50
+      },
+      "type": "action",
+      "x": 1600,
+      "y": 3560,
+      "outputSuccess": [
+        "e4ff1d12-3b4c-4f66-8674-c3ec7716735f"
+      ]
+    },
+    "e4ff1d12-3b4c-4f66-8674-c3ec7716735f": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number",
+      "args": {
+        "variable": {
+          "id": "72e97aa1-3101-4d9e-9859-0a60dc9bf521",
+          "name": "Temperatur toalett"
+        },
+        "value": 50
+      },
+      "type": "action",
+      "x": 1600,
+      "y": 3660,
+      "outputSuccess": []
+    },
+    "7413fd4f-c2a9-49b2-a618-a57f27015fcb": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "type": "condition",
+      "x": 540,
+      "y": 2800,
+      "outputTrue": [
+        "4bab4c7a-9f51-49f9-9513-52eb2ff9bd32"
+      ],
+      "outputFalse": []
+    },
+    "413acaf7-65be-4bec-a233-9cfaedb6be96": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "type": "condition",
+      "x": 540,
+      "y": 2880,
+      "outputTrue": [
+        "b558079f-fa37-4acf-8d9a-ba2a037ee990",
+        "63906bbc-7c51-443a-aed8-cf4994065f1d"
+      ],
+      "outputFalse": []
+    },
+    "784b5046-f24c-4623-9940-1ed9262e4d38": {
+      "type": "any",
+      "x": 1960,
+      "y": 2760,
+      "outputSuccess": [
+        "503ed84e-2f44-4b98-b6d9-42f3fcedd74a"
+      ]
+    },
+    "63906bbc-7c51-443a-aed8-cf4994065f1d": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal",
+      "droptoken": "homey:manager:logic|5594dff5-ef19-454a-90a6-e49031f23652",
+      "args": {
+        "comparator": "50"
+      },
+      "type": "condition",
+      "x": 1160,
+      "y": 3040,
+      "outputTrue": [
+        "9f5bdd4c-1a14-4f4b-8dee-e9febbe5784c"
+      ]
+    },
+    "9f5bdd4c-1a14-4f4b-8dee-e9febbe5784c": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number",
+      "args": {
+        "variable": {
+          "id": "5594dff5-ef19-454a-90a6-e49031f23652",
+          "name": "Temperatur vardagsrum"
+        },
+        "value": "[[homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_temperature]]"
+      },
+      "type": "action",
+      "x": 1580,
+      "y": 3040,
+      "outputSuccess": [
+        "784b5046-f24c-4623-9940-1ed9262e4d38"
+      ]
+    },
+    "e9e7701a-e250-4685-a90d-5f8b33843ef3": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A20\",\"value\":\"[[homey:manager:logic|dbafda57-580f-4912-a9e1-8210fcf63f89]]\"}"
+      },
+      "type": "action",
+      "x": 1000,
+      "y": 2000
+    },
+    "d9caae47-a4d7-44a6-afd8-d8ae0020fea0": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A21\",\"value\":\"[[homey:manager:logic|a4a01395-1cf4-4529-abfc-93d3ccb4931c]]\"}"
+      },
+      "type": "action",
+      "x": 1460,
+      "y": 2040
+    },
+    "1f1fef86-0f4c-45fb-8bdc-f4da374ec1af": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A22\",\"value\":\"[[homey:device:620c47f7-9437-402d-ae43-e47e550f5723|measure_temperature]]\"}"
+      },
+      "type": "action",
+      "x": 600,
+      "y": 1880
+    },
+    "3d895d93-2965-441d-a5f4-fcd983227117": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:http_advanced",
+      "args": {
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br",
+        "headers": "Content-Type: application/json",
+        "body": "{\"cell\":\"A23\",\"value\":\"[[homey:manager:logic|323c3d80-6525-4808-89a9-701a40d80c39]]\"}"
+      },
+      "type": "action",
+      "x": 920,
+      "y": 3360,
+      "outputSuccess": [
+        "0bf2a84d-08d0-47cc-aadc-6e15adaad927"
+      ]
+    },
+    "061ccc5c-06d5-4417-b260-98db832e2e39": {
+      "id": "homey:device:00a7df1d-d8c0-4246-a98b-da6de99ffe76:measure_temperature_changed",
+      "type": "trigger",
+      "x": 20,
+      "y": 840,
+      "outputSuccess": [
+        "a6d30fae-e98d-4838-85c7-cbc2d811b3eb",
+        "0a23e25a-dd06-421b-baa0-422e7b82745d"
+      ]
+    },
+    "e52a8139-181f-4573-8a4e-6b5ef0848acf": {
+      "id": "homey:device:017aab61-9fb7-49f9-b312-b120cdb6b0aa:measure_temperature_changed",
+      "type": "trigger",
+      "x": 20,
+      "y": 1240,
+      "outputSuccess": [
+        "d2873335-fd97-4e45-8e6b-dee9fb50fec1",
+        "00cb38fa-1718-497b-8869-ba1b6abf7ce2"
+      ]
+    },
+    "16d487f5-50c6-491c-882c-e617a3000373": {
+      "id": "homey:device:b2bfa4a6-6427-4f13-bc8c-11b22dcdacc5:measure_temperature_changed",
+      "type": "trigger",
+      "x": 60,
+      "y": 2960,
+      "outputSuccess": [
+        "413acaf7-65be-4bec-a233-9cfaedb6be96"
+      ]
+    }
+  }
+}

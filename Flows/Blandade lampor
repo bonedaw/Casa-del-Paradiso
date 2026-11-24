@@ -1,0 +1,157 @@
+{
+  "id": "d49eeae6-a34d-4e33-badd-8b4de988143f",
+  "uri": "homey:advancedflow:d49eeae6-a34d-4e33-badd-8b4de988143f",
+  "name": "Blandade lampor",
+  "folder": "8bf73971-2b8c-4b29-8dc7-6d31babc68ca",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "ab8c5569-79f4-4154-897c-073f1d37f5d3": {
+      "ownerUri": "homey:device:df59a9c8-f95b-445e-b379-c4397024e6d4",
+      "id": "homey:device:df59a9c8-f95b-445e-b379-c4397024e6d4:trigger_button1_scene",
+      "args": {
+        "scene": {
+          "id": "Key Pressed 3 times",
+          "name": "Pressed 3x"
+        }
+      },
+      "type": "trigger",
+      "x": 0,
+      "y": 240,
+      "outputSuccess": [
+        "01b2d5f0-ba62-4284-823f-b2e9539bac88"
+      ]
+    },
+    "b5765d29-89a2-4ed1-8efa-1b80ab5673d2": {
+      "ownerUri": "homey:device:df59a9c8-f95b-445e-b379-c4397024e6d4",
+      "id": "homey:device:df59a9c8-f95b-445e-b379-c4397024e6d4:trigger_button1_scene",
+      "args": {
+        "scene": {
+          "id": "Key Pressed 5 times",
+          "name": "Pressed 5x"
+        }
+      },
+      "type": "trigger",
+      "x": 0,
+      "y": 420,
+      "outputSuccess": [
+        "c0ab28a8-f5f7-4798-b81f-cdc1b7f05439"
+      ]
+    },
+    "7c73f242-d693-4e6b-87df-1bd27b25b290": {
+      "type": "note",
+      "value": "En gång TV på och dimma lampor",
+      "color": "yellow",
+      "x": 0,
+      "y": 0,
+      "width": null,
+      "height": null
+    },
+    "66884fd5-ecd5-4b78-b005-5e93bb8eb4d6": {
+      "type": "note",
+      "value": "Två gånger stänga av lampor",
+      "color": "yellow",
+      "x": 0,
+      "y": 80,
+      "width": null,
+      "height": null
+    },
+    "55e07737-f99f-498a-b201-6a063b7d4d40": {
+      "type": "note",
+      "value": "Tre gånger",
+      "color": "yellow",
+      "x": 0,
+      "y": 160,
+      "width": null,
+      "height": null
+    },
+    "36b4158f-1f8f-4df8-81a2-83133fc02bbe": {
+      "ownerUri": "homey:device:e230ca8b-67f4-488d-9ce0-541b77d5d827",
+      "id": "homey:device:e230ca8b-67f4-488d-9ce0-541b77d5d827:dim",
+      "args": {
+        "dim": 0.25
+      },
+      "type": "action",
+      "x": 480,
+      "y": 240,
+      "outputSuccess": [
+        "05da0910-7db6-410b-8b0f-05baab591414"
+      ]
+    },
+    "cc709247-e371-4fc4-aff8-5b246494db68": {
+      "ownerUri": "homey:device:47aa5bf3-bb96-4dba-ae41-1b20a1f17780",
+      "id": "homey:device:47aa5bf3-bb96-4dba-ae41-1b20a1f17780:dim",
+      "type": "action",
+      "x": 1000,
+      "y": 240,
+      "args": {
+        "dim": 0.51
+      }
+    },
+    "05da0910-7db6-410b-8b0f-05baab591414": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      },
+      "x": 860,
+      "y": 260,
+      "outputSuccess": [
+        "cc709247-e371-4fc4-aff8-5b246494db68"
+      ]
+    },
+    "c0ab28a8-f5f7-4798-b81f-cdc1b7f05439": {
+      "ownerUri": "homey:device:82a35f46-a434-41e1-b5bc-4eea89e51771",
+      "id": "homey:device:82a35f46-a434-41e1-b5bc-4eea89e51771:on",
+      "type": "action",
+      "x": 480,
+      "y": 420
+    },
+    "500caf56-02b4-486c-bf2c-4891e09e074d": {
+      "type": "note",
+      "value": "Tänd sängen",
+      "color": "yellow",
+      "x": 0,
+      "y": 340,
+      "width": null,
+      "height": null
+    },
+    "01b2d5f0-ba62-4284-823f-b2e9539bac88": {
+      "ownerUri": "homey:device:e230ca8b-67f4-488d-9ce0-541b77d5d827",
+      "id": "homey:device:e230ca8b-67f4-488d-9ce0-541b77d5d827:on",
+      "type": "action",
+      "x": 480,
+      "y": 100,
+      "outputSuccess": [
+        "c8f5c742-7b23-49c0-913a-8282bd7be7a3"
+      ]
+    },
+    "7d633d2c-0738-48ea-a609-ae0b2f0da711": {
+      "ownerUri": "homey:device:47aa5bf3-bb96-4dba-ae41-1b20a1f17780",
+      "id": "homey:device:47aa5bf3-bb96-4dba-ae41-1b20a1f17780:on",
+      "type": "action",
+      "x": 1000,
+      "y": 100,
+      "outputSuccess": [
+        "36b4158f-1f8f-4df8-81a2-83133fc02bbe"
+      ]
+    },
+    "c8f5c742-7b23-49c0-913a-8282bd7be7a3": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      },
+      "x": 860,
+      "y": 120,
+      "outputSuccess": [
+        "7d633d2c-0738-48ea-a609-ae0b2f0da711"
+      ]
+    }
+  }
+}

@@ -1,0 +1,394 @@
+{
+  "id": "8e0863a7-9119-4bc5-ab21-24fed1d330d8",
+  "uri": "homey:advancedflow:8e0863a7-9119-4bc5-ab21-24fed1d330d8",
+  "name": "ST Prognos från Pro",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "c8000000-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 40,
+      "y": 110,
+      "args": {
+        "event": "ctx_elpris_a77168457227"
+      },
+      "outputSuccess": [
+        "c8000000-0000-4000-8000-000000000002"
+      ]
+    },
+    "c8000000-0000-4000-8000-000000000002": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 380,
+      "y": 220,
+      "args": {
+        "comparator": "billig"
+      },
+      "droptoken": "trigger::c8000000-0000-4000-8000-000000000001::tag",
+      "outputTrue": [
+        "c8000000-0000-4000-8000-000000000003"
+      ],
+      "outputFalse": [
+        "c8000000-0000-4000-8000-000000000004"
+      ]
+    },
+    "c8000000-0000-4000-8000-000000000003": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 760,
+      "y": 330,
+      "args": {
+        "value": "billig",
+        "variable": {
+          "id": "928fbc98-9ad2-433e-b2ee-6e1ac7e51dad",
+          "name": "Elpris"
+        }
+      }
+    },
+    "c8000000-0000-4000-8000-000000000004": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 380,
+      "y": 440,
+      "args": {
+        "comparator": "dyr"
+      },
+      "droptoken": "trigger::c8000000-0000-4000-8000-000000000001::tag",
+      "outputTrue": [
+        "c8000000-0000-4000-8000-000000000005"
+      ],
+      "outputFalse": [
+        "c8000000-0000-4000-8000-000000000006"
+      ]
+    },
+    "c8000000-0000-4000-8000-000000000005": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 760,
+      "y": 550,
+      "args": {
+        "value": "dyr",
+        "variable": {
+          "id": "928fbc98-9ad2-433e-b2ee-6e1ac7e51dad",
+          "name": "Elpris"
+        }
+      }
+    },
+    "c8000000-0000-4000-8000-000000000006": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 760,
+      "y": 660,
+      "args": {
+        "value": "normal",
+        "variable": {
+          "id": "928fbc98-9ad2-433e-b2ee-6e1ac7e51dad",
+          "name": "Elpris"
+        }
+      }
+    },
+    "c8000000-0000-4000-8000-00000000000a": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 40,
+      "y": 770,
+      "args": {
+        "event": "ctx_frost_a77168457227"
+      },
+      "outputSuccess": [
+        "c8000000-0000-4000-8000-00000000000b"
+      ]
+    },
+    "c8000000-0000-4000-8000-00000000000b": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 380,
+      "y": 880,
+      "args": {
+        "comparator": "true"
+      },
+      "droptoken": "trigger::c8000000-0000-4000-8000-00000000000a::tag",
+      "outputTrue": [
+        "c8000000-0000-4000-8000-00000000000c"
+      ],
+      "outputFalse": [
+        "c8000000-0000-4000-8000-000000000010"
+      ]
+    },
+    "c8000000-0000-4000-8000-00000000000c": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 760,
+      "y": 990,
+      "args": {},
+      "droptoken": "homey:manager:logic|d4533fb5-6d4d-4b58-84ab-362bb66c8579",
+      "inverted": true,
+      "outputTrue": [
+        "c8000000-0000-4000-8000-00000000000d"
+      ]
+    },
+    "c8000000-0000-4000-8000-00000000000d": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 760,
+      "y": 1100,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "d4533fb5-6d4d-4b58-84ab-362bb66c8579",
+          "name": "Frostprognos"
+        }
+      },
+      "outputSuccess": [
+        "c8000000-0000-4000-8000-00000000000e"
+      ]
+    },
+    "c8000000-0000-4000-8000-00000000000e": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 1140,
+      "y": 1210,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "c8000000-0000-4000-8000-00000000000f",
+        "c8000000-0000-4000-8000-000000000011"
+      ]
+    },
+    "c8000000-0000-4000-8000-00000000000f": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1500,
+      "y": 1320,
+      "args": {
+        "text": "Frost eller kraftigt fallande temperatur väntas vid stugan. Grundvärmen höjs i förväg.",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "c8000000-0000-4000-8000-000000000010": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 760,
+      "y": 1430,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "d4533fb5-6d4d-4b58-84ab-362bb66c8579",
+          "name": "Frostprognos"
+        }
+      }
+    },
+    "c8000000-0000-4000-8000-000000000011": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1500,
+      "y": 1540,
+      "args": {
+        "text": "Frost eller kraftigt fallande temperatur väntas vid stugan. Grundvärmen höjs i förväg.",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "c8000000-0000-4000-8000-000000000014": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 40,
+      "y": 1650,
+      "args": {
+        "event": "ctx_mulet_a77168457227"
+      },
+      "outputSuccess": [
+        "c8000000-0000-4000-8000-000000000015"
+      ]
+    },
+    "c8000000-0000-4000-8000-000000000015": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 380,
+      "y": 1760,
+      "args": {
+        "comparator": "true"
+      },
+      "droptoken": "trigger::c8000000-0000-4000-8000-000000000014::tag",
+      "outputTrue": [
+        "c8000000-0000-4000-8000-000000000016"
+      ],
+      "outputFalse": [
+        "c8000000-0000-4000-8000-000000000017"
+      ]
+    },
+    "c8000000-0000-4000-8000-000000000016": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 760,
+      "y": 1870,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "5eb83246-a89b-4327-8ec7-7ca14d40d290",
+          "name": "Mulet"
+        }
+      }
+    },
+    "c8000000-0000-4000-8000-000000000017": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 760,
+      "y": 1980,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "5eb83246-a89b-4327-8ec7-7ca14d40d290",
+          "name": "Mulet"
+        }
+      }
+    },
+    "c8000000-0000-4000-8000-00000000001e": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 40,
+      "y": 2090,
+      "args": {
+        "event": "ctx_vadra_a77168457227"
+      },
+      "outputSuccess": [
+        "c8000000-0000-4000-8000-00000000001f"
+      ]
+    },
+    "c8000000-0000-4000-8000-00000000001f": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 380,
+      "y": 2200,
+      "args": {
+        "comparator": "true"
+      },
+      "droptoken": "trigger::c8000000-0000-4000-8000-00000000001e::tag",
+      "outputTrue": [
+        "c8000000-0000-4000-8000-000000000020"
+      ],
+      "outputFalse": [
+        "c8000000-0000-4000-8000-000000000027"
+      ]
+    },
+    "c8000000-0000-4000-8000-000000000020": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 760,
+      "y": 2310,
+      "args": {},
+      "droptoken": "homey:manager:logic|ac989955-a36c-405c-9274-c5f0cb0241dc",
+      "inverted": true,
+      "outputTrue": [
+        "c8000000-0000-4000-8000-000000000021"
+      ]
+    },
+    "c8000000-0000-4000-8000-000000000021": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 760,
+      "y": 2420,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "ac989955-a36c-405c-9274-c5f0cb0241dc",
+          "name": "Vädra"
+        }
+      },
+      "outputSuccess": [
+        "c8000000-0000-4000-8000-000000000022"
+      ]
+    },
+    "c8000000-0000-4000-8000-000000000022": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 1140,
+      "y": 2530,
+      "args": {
+        "comparator": "Hemma"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "c8000000-0000-4000-8000-000000000023"
+      ]
+    },
+    "c8000000-0000-4000-8000-000000000023": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_between",
+      "x": 1320,
+      "y": 2640,
+      "args": {
+        "time1": "09:00",
+        "time2": "20:00"
+      },
+      "outputTrue": [
+        "c8000000-0000-4000-8000-000000000024",
+        "c8000000-0000-4000-8000-000000000025"
+      ]
+    },
+    "c8000000-0000-4000-8000-000000000024": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1500,
+      "y": 2750,
+      "args": {
+        "text": "Det lönar sig att vädra i stugan: uteluften är torrare än inneluften.",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "c8000000-0000-4000-8000-000000000025": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1500,
+      "y": 2860,
+      "args": {
+        "text": "Det lönar sig att vädra i stugan: uteluften är torrare än inneluften.",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "c8000000-0000-4000-8000-000000000027": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 760,
+      "y": 2970,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "ac989955-a36c-405c-9274-c5f0cb0241dc",
+          "name": "Vädra"
+        }
+      }
+    },
+    "c8000000-0000-4000-8000-000000000028": {
+      "type": "note",
+      "x": 40,
+      "y": 1900,
+      "value": "Tar emot från Homey Pro: Elpris (billig/normal/dyr), Frostprognos (push om stugan är tom), Mulet och Vädra (push om någon är i stugan 09–20). Används av ST Grundvärme, ST Skymning mulet och vädringsrådet.",
+      "color": "blue"
+    }
+  }
+}

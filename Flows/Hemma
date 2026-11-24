@@ -1,0 +1,57 @@
+{
+  "id": "ed2e91cf-de37-4456-8096-173995723d19",
+  "uri": "homey:flow:ed2e91cf-de37-4456-8096-173995723d19",
+  "name": "Hemma",
+  "folder": null,
+  "enabled": true,
+  "broken": false,
+  "triggerable": true,
+  "trigger": {
+    "id": "homey:manager:flow:programmatic_trigger",
+    "args": {}
+  },
+  "conditions": [],
+  "actions": [
+    {
+      "id": "homey:manager:presence:set_home",
+      "group": "then",
+      "delay": null,
+      "duration": null,
+      "args": {
+        "user": {
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "name": "Christer Gustafsson",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "athomId": "5e04e01b6d46dd0c44fec6f3"
+        }
+      }
+    },
+    {
+      "id": "homey:manager:presence:set_home",
+      "group": "then",
+      "delay": null,
+      "duration": null,
+      "args": {
+        "user": {
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "name": "Lidija Tomic",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "athomId": "5e5bb16268f3640c4a77c2f8"
+        }
+      }
+    },
+    {
+      "id": "homey:manager:logic:variable_set_string",
+      "group": "then",
+      "delay": null,
+      "duration": null,
+      "args": {
+        "variable": {
+          "id": "69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+          "name": "Stugläge"
+        },
+        "value": "Hemma"
+      }
+    }
+  ]
+}

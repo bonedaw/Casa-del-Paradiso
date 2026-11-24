@@ -1,0 +1,177 @@
+{
+  "id": "e8fac8a2-6948-4eec-9452-e6e8805b33a4",
+  "uri": "homey:advancedflow:e8fac8a2-6948-4eec-9452-e6e8805b33a4",
+  "name": "Läckagesensorer",
+  "folder": "1d996cdb-fb5a-4f99-91b0-e0ac97273cb6",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "05643017-bff8-475e-8668-14c81bf521d5": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "x": 520,
+      "y": 180,
+      "args": {
+        "text": "Läckage badrum",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "1be47ead-4bd3-4730-9749-a0644c2fe52b": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "x": 520,
+      "y": 280,
+      "args": {
+        "text": "Läckage köket",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "27a6f262-cd6a-4feb-b52f-b878b82e7b28": {
+      "type": "trigger",
+      "id": "homey:device:20ad0094-f2fb-43b2-a7ee-d65a379dc108:alarm_water_true",
+      "x": 0,
+      "y": 200,
+      "outputSuccess": [
+        "3b3a9394-26ce-476b-9a39-31a5bd355d8d",
+        "1be47ead-4bd3-4730-9749-a0644c2fe52b",
+        "ca000000-0000-4000-8000-000000000001"
+      ]
+    },
+    "3b3a9394-26ce-476b-9a39-31a5bd355d8d": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "x": 520,
+      "y": 200,
+      "args": {
+        "text": "Läckage köket",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "60cf499a-1959-47d0-8ec7-da85c75a8614": {
+      "type": "note",
+      "x": 0,
+      "y": 0,
+      "value": "Läckage",
+      "color": "yellow"
+    },
+    "7b4a41dd-8444-4db6-92d3-e6d108c5d95b": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "x": 520,
+      "y": 300,
+      "args": {
+        "text": "Läckage loftet",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "7fe75f63-0dae-442b-b798-f194e1115048": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "x": 520,
+      "y": 100,
+      "args": {
+        "text": "Läckage badrum",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "8b998cfc-f609-4b86-8863-0b6e1616b83e": {
+      "type": "trigger",
+      "id": "homey:device:85fe6386-9d10-4404-b733-c298f6d55109:alarm_water_true",
+      "x": 0,
+      "y": 300,
+      "outputSuccess": [
+        "7b4a41dd-8444-4db6-92d3-e6d108c5d95b",
+        "d11ba3f8-344a-46fa-b285-dcd1943d8eb3",
+        "ca000000-0000-4000-8000-000000000003"
+      ]
+    },
+    "ca000000-0000-4000-8000-000000000001": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 520,
+      "y": 460,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/larm_a77168457227?tag=lackage_kok"
+      }
+    },
+    "ca000000-0000-4000-8000-000000000002": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 520,
+      "y": 540,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/larm_a77168457227?tag=lackage_badrum"
+      }
+    },
+    "ca000000-0000-4000-8000-000000000003": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 520,
+      "y": 620,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/larm_a77168457227?tag=lackage_loftet"
+      }
+    },
+    "d11ba3f8-344a-46fa-b285-dcd1943d8eb3": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "x": 520,
+      "y": 380,
+      "args": {
+        "text": "Läckage loftet",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "ef698819-e68f-4e39-83fb-0216ab3c8a3e": {
+      "type": "trigger",
+      "id": "homey:device:6ebfc539-9592-4784-95ec-3a48d9e17471:alarm_water_true",
+      "x": 0,
+      "y": 120,
+      "outputSuccess": [
+        "7fe75f63-0dae-442b-b798-f194e1115048",
+        "05643017-bff8-475e-8668-14c81bf521d5",
+        "ca000000-0000-4000-8000-000000000002"
+      ]
+    }
+  }
+}

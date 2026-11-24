@@ -1,0 +1,324 @@
+{
+  "id": "53a4b36e-2cbf-4687-b1c8-0c4c3e1c141e",
+  "uri": "homey:advancedflow:53a4b36e-2cbf-4687-b1c8-0c4c3e1c141e",
+  "name": "ST Mörkt från Pro",
+  "folder": null,
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "f7000000-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 40,
+      "y": 60,
+      "args": {
+        "event": "mork_ja_a77168457227"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000011"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000002": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 40,
+      "y": 160,
+      "args": {
+        "event": "mork_nej_a77168457227"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000021"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000011": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 360,
+      "y": 60,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "dc74541d-0ca3-478c-b5e1-cbbd73ac82a3",
+          "name": "Pro hörts av"
+        }
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000012"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000012": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 680,
+      "y": 60,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "088e5cb5-82e5-45e4-ab19-bfb3256c15db",
+          "name": "Mörkt"
+        }
+      }
+    },
+    "f7000000-0000-4000-8000-000000000021": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 360,
+      "y": 160,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "dc74541d-0ca3-478c-b5e1-cbbd73ac82a3",
+          "name": "Pro hörts av"
+        }
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000022"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000022": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 680,
+      "y": 160,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "088e5cb5-82e5-45e4-ab19-bfb3256c15db",
+          "name": "Mörkt"
+        }
+      }
+    },
+    "f7000000-0000-4000-8000-000000000031": {
+      "type": "trigger",
+      "id": "homey:manager:cron:sunset",
+      "x": 40,
+      "y": 300,
+      "args": {
+        "before": 0
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000032"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000032": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 360,
+      "y": 300,
+      "args": {},
+      "droptoken": "homey:manager:logic|dc74541d-0ca3-478c-b5e1-cbbd73ac82a3",
+      "inverted": true,
+      "outputTrue": [
+        "f7000000-0000-4000-8000-000000000033"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000033": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 680,
+      "y": 300,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "088e5cb5-82e5-45e4-ab19-bfb3256c15db",
+          "name": "Mörkt"
+        }
+      }
+    },
+    "f7000000-0000-4000-8000-000000000041": {
+      "type": "trigger",
+      "id": "homey:manager:cron:sunrise",
+      "x": 40,
+      "y": 420,
+      "args": {
+        "before": 0
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000042"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000042": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 360,
+      "y": 420,
+      "args": {},
+      "droptoken": "homey:manager:logic|dc74541d-0ca3-478c-b5e1-cbbd73ac82a3",
+      "inverted": true,
+      "outputTrue": [
+        "f7000000-0000-4000-8000-000000000043"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000043": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 680,
+      "y": 420,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "088e5cb5-82e5-45e4-ab19-bfb3256c15db",
+          "name": "Mörkt"
+        }
+      }
+    },
+    "f7000000-0000-4000-8000-000000000051": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 560,
+      "args": {
+        "time": "00:50"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000060"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000052": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 620,
+      "args": {
+        "time": "03:50"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000060"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000053": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 680,
+      "args": {
+        "time": "06:50"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000060"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000054": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 740,
+      "args": {
+        "time": "09:50"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000060"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000055": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 800,
+      "args": {
+        "time": "12:50"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000060"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000056": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 860,
+      "args": {
+        "time": "15:50"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000060"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000057": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 920,
+      "args": {
+        "time": "18:50"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000060"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000058": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 980,
+      "args": {
+        "time": "21:50"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000060"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000060": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 360,
+      "y": 780,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "dc74541d-0ca3-478c-b5e1-cbbd73ac82a3",
+          "name": "Pro hörts av"
+        }
+      }
+    },
+    "f7000000-0000-4000-8000-000000000071": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1100,
+      "args": {
+        "time": "12:00"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000072"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000072": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 360,
+      "y": 1100,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "3303045a-7dc4-4ca8-b615-17f87a23a424",
+          "name": "Mörkläggning gjord"
+        }
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000073"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000073": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 680,
+      "y": 1100,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "fa28310c-7a41-43dd-846e-e229a63e7954",
+          "name": "Uppdragning gjord"
+        }
+      }
+    },
+    "f7000000-0000-4000-8000-000000000090": {
+      "type": "note",
+      "x": 400,
+      "y": 1260,
+      "value": "Pro skickar mork_ja/mork_nej nar Is_Dark andras och varje timme. Pro hortts av nollstalls var tredje timme; om Pro darefter ar tyst satts Morkt av solnedgang/soluppgang. Kl 12:00 nollstalls dygnsvakterna for rullgardinen (Morklaggning gjord, Uppdragning gjord).",
+      "color": "blue"
+    }
+  }
+}

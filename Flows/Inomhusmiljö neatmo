@@ -1,0 +1,498 @@
+{
+  "id": "4c6e2a06-9db9-42b4-80e5-d24a6d20da10",
+  "uri": "homey:advancedflow:4c6e2a06-9db9-42b4-80e5-d24a6d20da10",
+  "name": "Inomhusmiljö neatmo",
+  "folder": "d3fc231a-c5b0-4a92-a263-de88756ccbc0",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "04ebf9e1-2ccf-4874-a697-4c86d845dd5b": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 2400,
+      "y": 540,
+      "args": {
+        "text": "Vädra i stugan, skadlig luft",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputSuccess": [
+        "7806d968-ea0a-4552-bcee-79efa7ca0eb4"
+      ]
+    },
+    "0790b562-4bab-4b7e-ad2f-e4b019767762": {
+      "type": "condition",
+      "id": "homey:manager:presence:user_athome",
+      "x": 1920,
+      "y": 320,
+      "args": {
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputTrue": [
+        "6b504fc3-4ab9-4145-b6de-71459b2369d2"
+      ]
+    },
+    "150837a0-ae42-4d21-8df4-c43d2612af19": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 960,
+      "y": 1220,
+      "droptoken": "homey:manager:logic|69558fc2-ea87-4618-84b6-fec14d8c9bd8",
+      "outputTrue": [
+        "bc7e46b7-a3df-4a3f-b27d-af46c81353f4"
+      ]
+    },
+    "1819bb96-a558-4d73-a488-9de0cf67a9e3": {
+      "type": "condition",
+      "id": "homey:manager:presence:user_athome",
+      "x": 1960,
+      "y": 660,
+      "args": {
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputTrue": [
+        "ad535e42-b364-466c-b46b-224665a96cad"
+      ]
+    },
+    "1cec5ce1-591d-46a8-8ad7-ad317268102f": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1540,
+      "y": 100,
+      "droptoken": "homey:manager:logic|5a46d2f1-c0d5-411d-ba0d-0f5231396e77",
+      "inverted": true,
+      "outputTrue": [
+        "d5c9e495-bd82-4f30-a150-272fa0d45999"
+      ]
+    },
+    "1cf96aa7-3f4d-47a6-9104-6e5a31c6a93c": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1460,
+      "y": 400,
+      "droptoken": "homey:manager:logic|5a46d2f1-c0d5-411d-ba0d-0f5231396e77",
+      "inverted": true,
+      "outputTrue": [
+        "0790b562-4bab-4b7e-ad2f-e4b019767762",
+        "58724dd9-44f4-40af-8e2f-ec54064f7065"
+      ]
+    },
+    "20ae5525-c2b7-4816-b330-2b8b9dce1537": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 80,
+      "y": 160,
+      "args": {
+        "time": "10:00"
+      },
+      "outputSuccess": [
+        "f795ef21-7fd4-4d93-b481-fe5c0fb6ff8f"
+      ]
+    },
+    "228cdca9-c2ef-4d9a-b53e-5a268edc7719": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 3020,
+      "y": 360,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "5a46d2f1-c0d5-411d-ba0d-0f5231396e77",
+          "name": "Dålig luft"
+        }
+      }
+    },
+    "251706e8-5cbd-4d3b-9fb1-0b25c01b8f44": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 500,
+      "y": 1160,
+      "args": {
+        "comparator": 1500
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_co2",
+      "outputTrue": [
+        "150837a0-ae42-4d21-8df4-c43d2612af19"
+      ]
+    },
+    "278e427c-6e0d-4191-b343-703b7f11cb07": {
+      "type": "condition",
+      "id": "homey:manager:presence:user_athome",
+      "x": 1100,
+      "y": 200,
+      "args": {
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputTrue": [
+        "bada7207-51d9-451e-96f1-90b86f6e8be5"
+      ]
+    },
+    "2fe5f618-1a52-43ed-ba87-11816ed765ed": {
+      "type": "condition",
+      "id": "homey:device:a2e9109b-2865-4b24-a305-bdd79f8cd0e0:on",
+      "x": 960,
+      "y": 380,
+      "inverted": true,
+      "outputTrue": [
+        "1cf96aa7-3f4d-47a6-9104-6e5a31c6a93c"
+      ]
+    },
+    "58724dd9-44f4-40af-8e2f-ec54064f7065": {
+      "type": "condition",
+      "id": "homey:manager:presence:user_athome",
+      "x": 1920,
+      "y": 420,
+      "args": {
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputTrue": [
+        "5f6a8755-3d05-4432-bfd4-1457a831fcf1"
+      ]
+    },
+    "5f6a8755-3d05-4432-bfd4-1457a831fcf1": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 2380,
+      "y": 400,
+      "args": {
+        "text": "Vädra i stugan",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputSuccess": [
+        "228cdca9-c2ef-4d9a-b53e-5a268edc7719"
+      ]
+    },
+    "6aebc24f-fa30-4f3f-a392-a96e44f9162f": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 500,
+      "y": 1020,
+      "args": {
+        "comparator": 1400
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_co2",
+      "outputTrue": [
+        "90a00d4b-3354-49a6-9960-194aa000b06a"
+      ]
+    },
+    "6b065dcc-18ce-4a12-9c71-5ef8a1727563": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 1840,
+      "y": 1100,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "5a46d2f1-c0d5-411d-ba0d-0f5231396e77",
+          "name": "Dålig luft"
+        }
+      }
+    },
+    "6b504fc3-4ab9-4145-b6de-71459b2369d2": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 2380,
+      "y": 300,
+      "args": {
+        "text": "Vädra i stugan",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputSuccess": [
+        "228cdca9-c2ef-4d9a-b53e-5a268edc7719"
+      ]
+    },
+    "6c1bd60d-2200-4815-957d-4d18b149e6b9": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 0,
+      "y": 1100,
+      "args": {
+        "time": "08:00"
+      },
+      "outputSuccess": [
+        "6aebc24f-fa30-4f3f-a392-a96e44f9162f",
+        "251706e8-5cbd-4d3b-9fb1-0b25c01b8f44"
+      ]
+    },
+    "7806d968-ea0a-4552-bcee-79efa7ca0eb4": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 3020,
+      "y": 600,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "69558fc2-ea87-4618-84b6-fec14d8c9bd8",
+          "name": "Skadlig luft"
+        }
+      }
+    },
+    "8188f405-df87-4f36-a7b8-06095fe28a87": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_between",
+      "x": 580,
+      "y": 820,
+      "args": {
+        "time1": "21:00",
+        "time2": "23:59"
+      },
+      "outputTrue": [
+        "8e7e75e5-0b19-4cf8-8c91-9839b6cb1a3b"
+      ]
+    },
+    "81b1e334-5a13-44d8-a703-1829c2c9ca57": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1480,
+      "y": 600,
+      "droptoken": "homey:manager:logic|69558fc2-ea87-4618-84b6-fec14d8c9bd8",
+      "inverted": true,
+      "outputTrue": [
+        "9dd97588-174b-4c4a-a7f6-dc773b3fbf25",
+        "1819bb96-a558-4d73-a488-9de0cf67a9e3"
+      ]
+    },
+    "8e7e75e5-0b19-4cf8-8c91-9839b6cb1a3b": {
+      "type": "action",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 1060,
+      "y": 800,
+      "args": {
+        "flow": {
+          "id": "bf3f142b-6216-4cce-bbab-16a36b8884f7",
+          "name": "Vaken / Sover",
+          "type": "advanced"
+        },
+        "string": "co2"
+      }
+    },
+    "90a00d4b-3354-49a6-9960-194aa000b06a": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 960,
+      "y": 1100,
+      "droptoken": "homey:manager:logic|5a46d2f1-c0d5-411d-ba0d-0f5231396e77",
+      "outputTrue": [
+        "6b065dcc-18ce-4a12-9c71-5ef8a1727563"
+      ]
+    },
+    "996603ee-d48b-41a4-b2b8-3b09f244d821": {
+      "type": "condition",
+      "id": "homey:device:a2e9109b-2865-4b24-a305-bdd79f8cd0e0:on",
+      "x": 1000,
+      "y": 580,
+      "inverted": true,
+      "outputTrue": [
+        "81b1e334-5a13-44d8-a703-1829c2c9ca57"
+      ]
+    },
+    "9dd97588-174b-4c4a-a7f6-dc773b3fbf25": {
+      "type": "condition",
+      "id": "homey:manager:presence:user_athome",
+      "x": 1960,
+      "y": 560,
+      "args": {
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputTrue": [
+        "04ebf9e1-2ccf-4874-a697-4c86d845dd5b"
+      ]
+    },
+    "a5b01568-cb23-4291-9f2e-03cc9f3e53bd": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1980,
+      "y": 180,
+      "args": {
+        "text": "Vädra i stugan",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputSuccess": []
+    },
+    "ab57da37-3d15-4c64-b2f0-fb7a7a8bc443": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_between",
+      "x": 580,
+      "y": 720,
+      "args": {
+        "time1": "08:00",
+        "time2": "12:00"
+      },
+      "outputTrue": [
+        "8e7e75e5-0b19-4cf8-8c91-9839b6cb1a3b"
+      ]
+    },
+    "ad535e42-b364-466c-b46b-224665a96cad": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 2400,
+      "y": 640,
+      "args": {
+        "text": "Vädra i stugan, skadlig luft",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputSuccess": [
+        "7806d968-ea0a-4552-bcee-79efa7ca0eb4"
+      ]
+    },
+    "b82bad27-7370-4f20-85f9-14a49f605d56": {
+      "type": "condition",
+      "id": "homey:manager:presence:user_athome",
+      "x": 1100,
+      "y": 100,
+      "args": {
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputTrue": [
+        "1cec5ce1-591d-46a8-8ad7-ad317268102f"
+      ]
+    },
+    "bada7207-51d9-451e-96f1-90b86f6e8be5": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1540,
+      "y": 200,
+      "droptoken": "homey:manager:logic|5a46d2f1-c0d5-411d-ba0d-0f5231396e77",
+      "inverted": true,
+      "outputTrue": [
+        "a5b01568-cb23-4291-9f2e-03cc9f3e53bd"
+      ]
+    },
+    "bc7e46b7-a3df-4a3f-b27d-af46c81353f4": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 1840,
+      "y": 1180,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "69558fc2-ea87-4618-84b6-fec14d8c9bd8",
+          "name": "Skadlig luft"
+        }
+      }
+    },
+    "c52c678b-ea49-46dc-8dea-2fc761439785": {
+      "type": "condition",
+      "id": "homey:manager:logic:gt",
+      "x": 500,
+      "y": 380,
+      "args": {
+        "comparator": 1500
+      },
+      "droptoken": "trigger::f0c4d4aa-8631-4e0a-b5fd-021ed5a751a4::measure_co2",
+      "outputTrue": [
+        "2fe5f618-1a52-43ed-ba87-11816ed765ed"
+      ]
+    },
+    "d5c9e495-bd82-4f30-a150-272fa0d45999": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1980,
+      "y": 80,
+      "args": {
+        "text": "Vädra i stugan",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputSuccess": []
+    },
+    "f0c4d4aa-8631-4e0a-b5fd-021ed5a751a4": {
+      "type": "trigger",
+      "id": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72:measure_co2_changed",
+      "x": 40,
+      "y": 760,
+      "outputSuccess": [
+        "c52c678b-ea49-46dc-8dea-2fc761439785",
+        "f805d04f-48d1-42eb-9267-15fc750b6343",
+        "ab57da37-3d15-4c64-b2f0-fb7a7a8bc443",
+        "8188f405-df87-4f36-a7b8-06095fe28a87"
+      ]
+    },
+    "f795ef21-7fd4-4d93-b481-fe5c0fb6ff8f": {
+      "type": "condition",
+      "id": "homey:manager:logic:gt",
+      "x": 580,
+      "y": 160,
+      "args": {
+        "comparator": 1500
+      },
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_co2",
+      "outputTrue": [
+        "b82bad27-7370-4f20-85f9-14a49f605d56",
+        "278e427c-6e0d-4191-b343-703b7f11cb07"
+      ]
+    },
+    "f805d04f-48d1-42eb-9267-15fc750b6343": {
+      "type": "condition",
+      "id": "homey:manager:logic:gt",
+      "x": 500,
+      "y": 580,
+      "args": {
+        "comparator": 1700
+      },
+      "droptoken": "trigger::f0c4d4aa-8631-4e0a-b5fd-021ed5a751a4::measure_co2",
+      "outputTrue": [
+        "996603ee-d48b-41a4-b2b8-3b09f244d821"
+      ]
+    }
+  }
+}

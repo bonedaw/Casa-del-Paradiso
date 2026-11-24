@@ -1,0 +1,65 @@
+{
+  "id": "c25c29b9-4755-4594-961b-6635f771614f",
+  "uri": "homey:advancedflow:c25c29b9-4755-4594-961b-6635f771614f",
+  "name": "Larmat – lås ytterdörren",
+  "folder": null,
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "a1000001-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:device:7639e352-3ffe-4e4e-b08a-b02996ddca86:receive_status_string",
+      "x": 40,
+      "y": 80,
+      "args": {
+        "code": {
+          "dataPoint": false,
+          "id": "master_mode",
+          "name": "master_mode",
+          "title": "master_mode"
+        }
+      },
+      "outputSuccess": [
+        "a1000001-0000-4000-8000-000000000002"
+      ]
+    },
+    "a1000001-0000-4000-8000-000000000002": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 320,
+      "y": 80,
+      "args": {
+        "comparator": "arm"
+      },
+      "droptoken": "trigger::a1000001-0000-4000-8000-000000000001::value",
+      "outputTrue": [
+        "a1000001-0000-4000-8000-000000000003"
+      ]
+    },
+    "a1000001-0000-4000-8000-000000000003": {
+      "type": "action",
+      "id": "homey:device:6dece838-e029-48a2-bbc3-6bcbe29e5ed0:lock",
+      "x": 600,
+      "y": 80,
+      "outputSuccess": [
+        "a1000001-0000-4000-8000-000000000004"
+      ]
+    },
+    "a1000001-0000-4000-8000-000000000004": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 880,
+      "y": 80,
+      "args": {
+        "text": "Stugan larmad: ytterdörren låstes",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    }
+  }
+}

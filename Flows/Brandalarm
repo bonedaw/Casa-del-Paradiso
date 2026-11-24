@@ -1,0 +1,273 @@
+{
+  "id": "61c948d7-9664-4d3c-954e-c8c5d4c08818",
+  "uri": "homey:advancedflow:61c948d7-9664-4d3c-954e-c8c5d4c08818",
+  "name": "Brandalarm",
+  "folder": "1f49054e-1971-452b-85a1-ce6d1ef9f2dd",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "0b410d57-a381-4362-be4f-d22289d69500": {
+      "type": "condition",
+      "id": "homey:manager:presence:noone_asleep",
+      "x": 980,
+      "y": 440,
+      "inverted": true,
+      "outputTrue": [
+        "909230c1-d2d1-4de1-b256-aa369b18a69c",
+        "6280e23c-83ec-4191-9448-f93e74f98dab",
+        "b2d93908-b19e-4943-84bd-ff56b9fdf372"
+      ],
+      "outputFalse": [
+        "6280e23c-83ec-4191-9448-f93e74f98dab",
+        "b2d93908-b19e-4943-84bd-ff56b9fdf372"
+      ]
+    },
+    "0f823a02-567c-4f00-a1b5-fb96fca61590": {
+      "type": "action",
+      "id": "homey:device:e5c5204d-9b66-49a1-b9ec-b7d2ef2ebefb:set_scene_speed",
+      "x": 1540,
+      "y": 300,
+      "args": {
+        "speed": 125
+      }
+    },
+    "1506f552-062e-429a-955e-93cbeea368ad": {
+      "type": "action",
+      "id": "homey:device:e5c5204d-9b66-49a1-b9ec-b7d2ef2ebefb:set_tunable_white_scene",
+      "x": 1320,
+      "y": 680,
+      "args": {
+        "scene": "35"
+      },
+      "outputSuccess": [
+        "8b48dab6-3831-4857-b1ce-6d1c214062d8"
+      ]
+    },
+    "1cc5f752-04ba-45ee-b6e6-6b8e5c5870b8": {
+      "type": "action",
+      "id": "homey:manager:logic:http_advanced",
+      "x": 1140,
+      "y": 100,
+      "args": {
+        "body": "{\"cell\":\"A2\",\"value\":\"1\"}",
+        "headers": "Content-Type: application/json",
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br"
+      }
+    },
+    "2a7902ff-15ad-4da4-9bf1-d7c0d3617145": {
+      "type": "trigger",
+      "id": "homey:device:9b69cb0b-04bd-473c-bfb2-573b0dabaa70:onoff_true",
+      "x": 100,
+      "y": 900,
+      "outputSuccess": [
+        "bbb807cd-a624-493e-bfc2-73cee8f1f5f0"
+      ]
+    },
+    "4c785c37-e86e-4c24-8cfc-6c2f2d56b34e": {
+      "type": "action",
+      "id": "homey:device:9b69cb0b-04bd-473c-bfb2-573b0dabaa70:off",
+      "x": 1160,
+      "y": 900
+    },
+    "5f68c3b9-8d61-4af2-98d4-2b8577c72778": {
+      "type": "delay",
+      "x": 980,
+      "y": 900,
+      "outputSuccess": [
+        "4c785c37-e86e-4c24-8cfc-6c2f2d56b34e"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "6280e23c-83ec-4191-9448-f93e74f98dab": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "x": 1000,
+      "y": 560,
+      "args": {
+        "text": "Brandlarm i stugan",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "6f2eb2f0-0b64-47c6-8b5e-56bf7f8c3e34": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "x": 1100,
+      "y": 60,
+      "args": {
+        "text": "Brandlarm i stugan",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "8b48dab6-3831-4857-b1ce-6d1c214062d8": {
+      "type": "action",
+      "id": "homey:device:e5c5204d-9b66-49a1-b9ec-b7d2ef2ebefb:set_scene_speed",
+      "x": 1740,
+      "y": 680,
+      "args": {
+        "speed": 125
+      }
+    },
+    "909230c1-d2d1-4de1-b256-aa369b18a69c": {
+      "type": "action",
+      "id": "homey:zone:92d561e7-98f7-4805-af56-3815e880c36d:turn_on",
+      "x": 1400,
+      "y": 380,
+      "args": {
+        "class": "light"
+      },
+      "outputSuccess": [
+        "9d09a030-6197-4c2d-bc45-36985ee2a7a6"
+      ]
+    },
+    "9d09a030-6197-4c2d-bc45-36985ee2a7a6": {
+      "type": "delay",
+      "x": 1320,
+      "y": 560,
+      "outputSuccess": [
+        "1506f552-062e-429a-955e-93cbeea368ad"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 1
+        }
+      }
+    },
+    "a1902e99-1e76-4124-8e9a-460c17c4091f": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 660,
+      "y": 340,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "b3ccaa4d-c9de-4d98-81cc-fe30cdbf7ad3",
+        "b6180f1c-7190-4115-9c56-5993aa7560d7",
+        "1cc5f752-04ba-45ee-b6e6-6b8e5c5870b8",
+        "6f2eb2f0-0b64-47c6-8b5e-56bf7f8c3e34"
+      ],
+      "outputFalse": [
+        "0b410d57-a381-4362-be4f-d22289d69500"
+      ]
+    },
+    "a32934ae-0745-4134-8f79-394e3ce4d835": {
+      "type": "trigger",
+      "id": "homey:device:b29080ac-3e58-45d2-8ee4-d15f01f67ca0:receive_status_string",
+      "x": 60,
+      "y": 340,
+      "args": {
+        "code": {
+          "dataPoint": false,
+          "id": "smoke_sensor_status",
+          "name": "smoke_sensor_status",
+          "title": "smoke_sensor_status"
+        }
+      },
+      "outputSuccess": [
+        "e712877c-3ffb-4a7a-b556-b9842c417443"
+      ]
+    },
+    "b2d93908-b19e-4943-84bd-ff56b9fdf372": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "x": 1000,
+      "y": 620,
+      "args": {
+        "text": "Brandlarm i stugan",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "b3ccaa4d-c9de-4d98-81cc-fe30cdbf7ad3": {
+      "type": "action",
+      "id": "homey:device:e5c5204d-9b66-49a1-b9ec-b7d2ef2ebefb:set_tunable_white_scene",
+      "x": 1120,
+      "y": 300,
+      "args": {
+        "scene": "35"
+      },
+      "outputSuccess": [
+        "0f823a02-567c-4f00-a1b5-fb96fca61590"
+      ]
+    },
+    "b6180f1c-7190-4115-9c56-5993aa7560d7": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "x": 1100,
+      "y": 0,
+      "args": {
+        "text": "Brandlarm i stugan",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "bbb807cd-a624-493e-bfc2-73cee8f1f5f0": {
+      "type": "action",
+      "id": "homey:manager:logic:http_advanced",
+      "x": 540,
+      "y": 840,
+      "args": {
+        "body": "{\"cell\":\"A2\",\"value\":\"-\"}",
+        "headers": "Content-Type: application/json",
+        "method": "post",
+        "url": "https://hook.eu1.make.com/d397tlxq1p4whotzc67bc9qtaxp648br"
+      },
+      "outputSuccess": [
+        "5f68c3b9-8d61-4af2-98d4-2b8577c72778"
+      ]
+    },
+    "c9000000-0000-4000-8000-000000000001": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 660,
+      "y": 700,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/larm_a77168457227?tag=brand"
+      }
+    },
+    "e712877c-3ffb-4a7a-b556-b9842c417443": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 340,
+      "y": 520,
+      "args": {
+        "comparator": "alarm"
+      },
+      "droptoken": "trigger::a32934ae-0745-4134-8f79-394e3ce4d835::value",
+      "outputTrue": [
+        "a1902e99-1e76-4124-8e9a-460c17c4091f",
+        "c9000000-0000-4000-8000-000000000001"
+      ]
+    }
+  }
+}

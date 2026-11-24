@@ -1,0 +1,530 @@
+{
+  "id": "5d2e961e-9b1c-4fd8-817f-253cbae0f376",
+  "uri": "homey:advancedflow:5d2e961e-9b1c-4fd8-817f-253cbae0f376",
+  "name": "ST Vi åker till stugan (förvärmning)",
+  "folder": null,
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "f2000000-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 40,
+      "y": 60,
+      "args": {
+        "event": "pavag_kall_a77168457227"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000004"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000002": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 40,
+      "y": 260,
+      "args": {
+        "event": "pavag_varm_a77168457227"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000014"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000004": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 340,
+      "y": 60,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "30ad9a3e-a613-414a-a835-e4c97777e883",
+          "name": "Förvärmning pågår"
+        }
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000005": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 640,
+      "y": 60,
+      "args": {
+        "value": "Förvärmning",
+        "variable": {
+          "id": "69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+          "name": "Stugläge"
+        }
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000060"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000014": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 340,
+      "y": 260,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "30ad9a3e-a613-414a-a835-e4c97777e883",
+          "name": "Förvärmning pågår"
+        }
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000015"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000015": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 640,
+      "y": 260,
+      "args": {
+        "value": "Förkylning",
+        "variable": {
+          "id": "69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+          "name": "Stugläge"
+        }
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000060"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000040": {
+      "type": "note",
+      "x": 40,
+      "y": 460,
+      "value": "Pro skickar pavag_kall/varm (normal ignoreras). Flodet satter flaggan Forvarmning pagar, nollar 'Förvärmning timmar' och satter Stugläge till Forvarmning (kall dag) eller Forkylning (varm dag). ST Verkstall styr varmepumpen (23 C varme / 20 C kyla). Varje hel timme (cron nedan) laggs 1 till 'Förvärmning timmar' sa lange flaggan ar sann. Vid 6 timmar utan ankomst: flagga av, Stugläge Borta, 'Vi åker' stängs av på Pro och push skickas. Klarar omstart av Homey (rakna sparas i variabel).",
+      "color": "blue"
+    },
+    "f2000000-0000-4000-8000-000000000051": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 640,
+      "y": 700,
+      "args": {},
+      "droptoken": "homey:manager:logic|30ad9a3e-a613-414a-a835-e4c97777e883",
+      "outputTrue": [
+        "f2000000-0000-4000-8000-000000000071"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000052": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 1540,
+      "y": 600,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "30ad9a3e-a613-414a-a835-e4c97777e883",
+          "name": "Förvärmning pågår"
+        }
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000056"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000053": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 1540,
+      "y": 720,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/stugan_framme_a77168457227"
+      }
+    },
+    "f2000000-0000-4000-8000-000000000054": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1540,
+      "y": 840,
+      "args": {
+        "text": "Förvärmningen i stugan stoppades efter 6 timmar eftersom ingen kom fram. Stugläge är Borta och värmepumpen styrs som när stugan är tom.",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "f2000000-0000-4000-8000-000000000055": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1540,
+      "y": 960,
+      "args": {
+        "text": "Förvärmningen i stugan stoppades efter 6 timmar eftersom ingen kom fram. Stugläge är Borta och värmepumpen styrs som när stugan är tom.",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "f2000000-0000-4000-8000-000000000056": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 1840,
+      "y": 600,
+      "args": {
+        "value": "Borta",
+        "variable": {
+          "id": "69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+          "name": "Stugläge"
+        }
+      }
+    },
+    "f2000000-0000-4000-8000-000000000060": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_number",
+      "x": 940,
+      "y": 160,
+      "args": {
+        "value": 0,
+        "variable": {
+          "id": "6bc5ed81-721f-40e5-b0dd-749d3aeac049",
+          "name": "Förvärmning timmar"
+        }
+      }
+    },
+    "f2000000-0000-4000-8000-000000000070": {
+      "type": "any",
+      "x": 340,
+      "y": 700,
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000051"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000071": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_number_math",
+      "x": 940,
+      "y": 700,
+      "args": {
+        "value": "{{ [[homey:manager:logic|6bc5ed81-721f-40e5-b0dd-749d3aeac049]] + 1 }}",
+        "variable": {
+          "id": "6bc5ed81-721f-40e5-b0dd-749d3aeac049",
+          "name": "Förvärmning timmar"
+        }
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000072"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000072": {
+      "type": "condition",
+      "id": "homey:manager:logic:lt",
+      "x": 1240,
+      "y": 700,
+      "args": {
+        "comparator": 6
+      },
+      "droptoken": "homey:manager:logic|6bc5ed81-721f-40e5-b0dd-749d3aeac049",
+      "inverted": true,
+      "outputTrue": [
+        "f2000000-0000-4000-8000-000000000052",
+        "f2000000-0000-4000-8000-000000000053",
+        "f2000000-0000-4000-8000-000000000054",
+        "f2000000-0000-4000-8000-000000000055"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000100": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 600,
+      "args": {
+        "time": "00:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000101": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 650,
+      "args": {
+        "time": "01:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000102": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 700,
+      "args": {
+        "time": "02:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000103": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 750,
+      "args": {
+        "time": "03:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000104": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 800,
+      "args": {
+        "time": "04:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000105": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 850,
+      "args": {
+        "time": "05:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000106": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 900,
+      "args": {
+        "time": "06:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000107": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 950,
+      "args": {
+        "time": "07:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000108": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1000,
+      "args": {
+        "time": "08:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000109": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1050,
+      "args": {
+        "time": "09:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000110": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1100,
+      "args": {
+        "time": "10:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000111": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1150,
+      "args": {
+        "time": "11:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000112": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1200,
+      "args": {
+        "time": "12:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000113": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1250,
+      "args": {
+        "time": "13:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000114": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1300,
+      "args": {
+        "time": "14:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000115": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1350,
+      "args": {
+        "time": "15:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000116": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1400,
+      "args": {
+        "time": "16:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000117": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1450,
+      "args": {
+        "time": "17:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000118": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1500,
+      "args": {
+        "time": "18:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000119": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1550,
+      "args": {
+        "time": "19:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000120": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1600,
+      "args": {
+        "time": "20:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000121": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1650,
+      "args": {
+        "time": "21:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000122": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1700,
+      "args": {
+        "time": "22:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    },
+    "f2000000-0000-4000-8000-000000000123": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1750,
+      "args": {
+        "time": "23:00"
+      },
+      "outputSuccess": [
+        "f2000000-0000-4000-8000-000000000070"
+      ]
+    }
+  }
+}

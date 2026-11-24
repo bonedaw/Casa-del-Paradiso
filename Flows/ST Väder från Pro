@@ -1,0 +1,180 @@
+{
+  "id": "63146404-2e17-4b0c-b4a0-693a206ef9e8",
+  "uri": "homey:advancedflow:63146404-2e17-4b0c-b4a0-693a206ef9e8",
+  "name": "ST Väder från Pro",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "f7000000-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 60,
+      "y": 60,
+      "args": {
+        "event": "ctx_rain_sat_a77168457227"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000011"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000002": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 60,
+      "y": 300,
+      "args": {
+        "event": "ctx_rain_sun_a77168457227"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000021"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000003": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 60,
+      "y": 540,
+      "args": {
+        "event": "ctx_rain_mon_a77168457227"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000031"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000011": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 420,
+      "y": 60,
+      "args": {
+        "comparator": "true"
+      },
+      "droptoken": "trigger::f7000000-0000-4000-8000-000000000001::tag",
+      "outputTrue": [
+        "f7000000-0000-4000-8000-000000000012"
+      ],
+      "outputFalse": [
+        "f7000000-0000-4000-8000-000000000013"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000012": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 800,
+      "y": 20,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "0e3b5268-5094-4d29-9a91-c5239fff8525",
+          "name": "Regn lördag"
+        }
+      }
+    },
+    "f7000000-0000-4000-8000-000000000013": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 800,
+      "y": 120,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "0e3b5268-5094-4d29-9a91-c5239fff8525",
+          "name": "Regn lördag"
+        }
+      }
+    },
+    "f7000000-0000-4000-8000-000000000021": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 420,
+      "y": 300,
+      "args": {
+        "comparator": "true"
+      },
+      "droptoken": "trigger::f7000000-0000-4000-8000-000000000002::tag",
+      "outputTrue": [
+        "f7000000-0000-4000-8000-000000000022"
+      ],
+      "outputFalse": [
+        "f7000000-0000-4000-8000-000000000023"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000022": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 800,
+      "y": 260,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "115fa6fe-3917-4edf-b063-1fc8e650cb30",
+          "name": "Regn söndag"
+        }
+      }
+    },
+    "f7000000-0000-4000-8000-000000000023": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 800,
+      "y": 360,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "115fa6fe-3917-4edf-b063-1fc8e650cb30",
+          "name": "Regn söndag"
+        }
+      }
+    },
+    "f7000000-0000-4000-8000-000000000031": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 420,
+      "y": 540,
+      "args": {
+        "comparator": "true"
+      },
+      "droptoken": "trigger::f7000000-0000-4000-8000-000000000003::tag",
+      "outputTrue": [
+        "f7000000-0000-4000-8000-000000000032"
+      ],
+      "outputFalse": [
+        "f7000000-0000-4000-8000-000000000033"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000032": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 800,
+      "y": 500,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "03879d15-e3e0-4a1f-b58e-1dcacd446010",
+          "name": "Regn"
+        }
+      }
+    },
+    "f7000000-0000-4000-8000-000000000033": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 800,
+      "y": 600,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "03879d15-e3e0-4a1f-b58e-1dcacd446010",
+          "name": "Regn"
+        }
+      }
+    },
+    "f7000000-0000-4000-8000-000000000040": {
+      "type": "note",
+      "x": 60,
+      "y": 760,
+      "value": "Tar emot faktisk nederbörd (lördag, söndag) och dagens prognos (måndag) från Homey Pro och sätter Regn lördag, Regn söndag och Regn. Används av Bevattning.",
+      "color": "blue"
+    }
+  }
+}

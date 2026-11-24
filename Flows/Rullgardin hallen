@@ -1,0 +1,687 @@
+{
+  "id": "ace77e09-08e0-4d25-a1a2-873caf339a0c",
+  "uri": "homey:advancedflow:ace77e09-08e0-4d25-a1a2-873caf339a0c",
+  "name": "Rullgardin hallen",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "0302ddc3-74d6-43f1-bcf2-c4fb0dcd14d0": {
+      "type": "trigger",
+      "id": "homey:device:a2e9109b-2865-4b24-a305-bdd79f8cd0e0:onoff_true",
+      "x": 60,
+      "y": 140,
+      "outputSuccess": [
+        "4bfecb22-6ab4-4b23-aa27-94ee2fada601"
+      ]
+    },
+    "0e8df2ed-1a65-4889-8297-e2b784eb0de8": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 460,
+      "y": 560,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "inverted": true,
+      "outputTrue": [
+        "300d41cd-a438-4466-b93a-b1194c82ffb8"
+      ]
+    },
+    "0f68a305-46be-42d6-84de-457eac769d37": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 920,
+      "y": 680,
+      "args": {
+        "day": "0"
+      },
+      "outputTrue": [
+        "db146348-01ef-4901-9e58-6e37f3a72465"
+      ]
+    },
+    "12deb7bf-81a6-4031-b7e0-c87d6ae1becd": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 920,
+      "y": 880,
+      "args": {
+        "day": "3"
+      },
+      "outputTrue": [
+        "e6ad2cba-590e-4a01-b886-6d9c2c3e0e0e"
+      ]
+    },
+    "137bbf41-e8b0-4028-987d-b3f1437da020": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1340,
+      "y": 1240,
+      "args": {
+        "windowcoverings_set": 0.12
+      }
+    },
+    "15ae1cbe-48ac-49b6-a01f-e6b03f8e83f8": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 840,
+      "y": 1520,
+      "args": {
+        "day": "0"
+      },
+      "outputTrue": [
+        "73bf94de-f6d8-4d6f-813f-fe8cdc809457"
+      ]
+    },
+    "2a74744c-cc08-4801-97df-1c80c914bed0": {
+      "type": "action",
+      "id": "homey:device:708aa4db-3cac-4d50-ae42-64d1fe2c83b0:on",
+      "x": 900,
+      "y": 460
+    },
+    "2d27096d-03e7-4014-87f4-00fc78c52ff3": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1340,
+      "y": 1340,
+      "args": {
+        "windowcoverings_set": 0.32
+      }
+    },
+    "2da062fb-3169-4f7c-ac8d-b6e060f00e92": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 460,
+      "y": 460,
+      "args": {
+        "comparator": "0.98"
+      },
+      "droptoken": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90|windowcoverings_set",
+      "outputTrue": [
+        "2a74744c-cc08-4801-97df-1c80c914bed0"
+      ]
+    },
+    "2df4aa11-934a-4445-a2b6-522c06c1f6f5": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 840,
+      "y": 2120,
+      "args": {
+        "day": "2"
+      },
+      "outputTrue": [
+        "419aec12-5824-4a36-8aaf-523019856eee"
+      ]
+    },
+    "2fcb0f01-83fd-4aa2-81db-ab821a4d55ea": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 480,
+      "y": 760,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "0f68a305-46be-42d6-84de-457eac769d37",
+        "d47ad2f3-d6d3-4497-8163-3bbc99b47fa4",
+        "12deb7bf-81a6-4031-b7e0-c87d6ae1becd",
+        "7de1778c-4507-4170-9f1f-50f8a923fe59",
+        "eaa3e547-ef52-419a-95ff-0006f280a79e",
+        "ffc8946f-22f3-47a1-8968-812ea9f0f534",
+        "7ab6aa6a-93c9-4ee7-bd25-42f513baff08"
+      ]
+    },
+    "300d41cd-a438-4466-b93a-b1194c82ffb8": {
+      "type": "condition",
+      "id": "homey:device:a2e9109b-2865-4b24-a305-bdd79f8cd0e0:on",
+      "x": 760,
+      "y": 560,
+      "inverted": true,
+      "outputTrue": [
+        "d7e71861-eeef-4045-b397-64a849c2bb25"
+      ]
+    },
+    "35aa74be-eca0-4779-9b2b-36c7950abe18": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 840,
+      "y": 1620,
+      "args": {
+        "day": "6"
+      },
+      "outputTrue": [
+        "366e19f9-9c60-4bb6-b754-95701e514bc9"
+      ]
+    },
+    "366e19f9-9c60-4bb6-b754-95701e514bc9": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1320,
+      "y": 1560,
+      "args": {
+        "windowcoverings_set": 0.84
+      }
+    },
+    "3788eeaa-d278-40b0-ab59-a92632a0a400": {
+      "type": "note",
+      "x": 40,
+      "y": 360,
+      "value": "Morgon",
+      "color": "yellow"
+    },
+    "419aec12-5824-4a36-8aaf-523019856eee": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1320,
+      "y": 1960,
+      "args": {
+        "windowcoverings_set": 0.84
+      }
+    },
+    "436f43ea-7921-40de-bec2-91fb42785e3e": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1320,
+      "y": 1800,
+      "args": {
+        "windowcoverings_set": 0.84
+      }
+    },
+    "44606fa9-578a-4b2f-95ca-bf336e3f945f": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1320,
+      "y": 1880,
+      "args": {
+        "windowcoverings_set": 0.98
+      }
+    },
+    "44b04758-9994-430e-a212-a646ef46bc58": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1320,
+      "y": 1720,
+      "args": {
+        "windowcoverings_set": 0.67
+      }
+    },
+    "4bfecb22-6ab4-4b23-aa27-94ee2fada601": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 520,
+      "y": 120,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "inverted": true,
+      "outputTrue": [
+        "657d1410-d0c8-4690-b525-9dc6fd6e39b8"
+      ]
+    },
+    "4e93d698-ec8f-40c4-af71-d27a9c84fe58": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 840,
+      "y": 1920,
+      "args": {
+        "day": "1"
+      },
+      "outputTrue": [
+        "436f43ea-7921-40de-bec2-91fb42785e3e"
+      ]
+    },
+    "5e2e30d8-1627-47a6-a2a5-a3c1a2d8e885": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1340,
+      "y": 780,
+      "args": {
+        "windowcoverings_set": 0.12
+      }
+    },
+    "657d1410-d0c8-4690-b525-9dc6fd6e39b8": {
+      "type": "condition",
+      "id": "homey:manager:logic:gt",
+      "x": 940,
+      "y": 120,
+      "args": {
+        "comparator": 0
+      },
+      "droptoken": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90|windowcoverings_set",
+      "outputTrue": [
+        "8d664028-3c92-4dd8-991f-e2cfec406f4b"
+      ]
+    },
+    "6632ffdd-6feb-4fed-b7ee-3a97791f836f": {
+      "type": "note",
+      "x": 0,
+      "y": 1440,
+      "value": "Morgon",
+      "color": "yellow"
+    },
+    "71300ca1-dfb9-4eb5-9bc8-9cb3b5b8c99e": {
+      "type": "action",
+      "id": "homey:device:708aa4db-3cac-4d50-ae42-64d1fe2c83b0:dim",
+      "x": 40,
+      "y": 460,
+      "args": {
+        "dim": "[[homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90|windowcoverings_set]]"
+      }
+    },
+    "73bf94de-f6d8-4d6f-813f-fe8cdc809457": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1320,
+      "y": 1480,
+      "args": {
+        "windowcoverings_set": 0.67
+      },
+      "outputSuccess": []
+    },
+    "7ab6aa6a-93c9-4ee7-bd25-42f513baff08": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 920,
+      "y": 1280,
+      "args": {
+        "day": "2"
+      },
+      "outputTrue": [
+        "2d27096d-03e7-4014-87f4-00fc78c52ff3"
+      ]
+    },
+    "7de1778c-4507-4170-9f1f-50f8a923fe59": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 920,
+      "y": 980,
+      "args": {
+        "day": "5"
+      },
+      "outputTrue": [
+        "a5a24df3-8bf6-47af-8ed4-cea66bf495e7"
+      ]
+    },
+    "8b3ba13f-e871-4e85-9341-b7761645ba26": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 840,
+      "y": 1720,
+      "args": {
+        "day": "3"
+      },
+      "outputTrue": [
+        "c045e07b-976a-481d-bcc4-506f8543071d"
+      ]
+    },
+    "8d664028-3c92-4dd8-991f-e2cfec406f4b": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1340,
+      "y": 100,
+      "args": {
+        "windowcoverings_set": 0
+      }
+    },
+    "91595e72-0c15-4c08-9db8-7f2823a81a08": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 400,
+      "y": 1600,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "15ae1cbe-48ac-49b6-a01f-e6b03f8e83f8",
+        "35aa74be-eca0-4779-9b2b-36c7950abe18",
+        "8b3ba13f-e871-4e85-9341-b7761645ba26",
+        "f78699f0-b4f8-4569-95f9-25653df5ba02",
+        "4e93d698-ec8f-40c4-af71-d27a9c84fe58",
+        "9c8921c9-47f9-443a-871d-1dbab545c808",
+        "2df4aa11-934a-4445-a2b6-522c06c1f6f5",
+        "e9081ea6-fb2e-4190-bef6-a94e6cf6b783"
+      ]
+    },
+    "9220dcc0-c306-45f4-a20e-0a3ec6e321a0": {
+      "type": "action",
+      "id": "homey:device:708aa4db-3cac-4d50-ae42-64d1fe2c83b0:off",
+      "x": 640,
+      "y": 240
+    },
+    "9c8921c9-47f9-443a-871d-1dbab545c808": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 840,
+      "y": 2020,
+      "args": {
+        "day": "4"
+      },
+      "outputTrue": [
+        "44606fa9-578a-4b2f-95ca-bf336e3f945f"
+      ]
+    },
+    "a274c6f3-78f2-43a5-9d2c-f02f9ffeebdc": {
+      "type": "note",
+      "x": 60,
+      "y": 40,
+      "value": "Mörkläggning",
+      "color": "yellow"
+    },
+    "a5a24df3-8bf6-47af-8ed4-cea66bf495e7": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1340,
+      "y": 1020,
+      "args": {
+        "windowcoverings_set": 0.12
+      }
+    },
+    "b6ea2198-3473-4ee2-8f81-0b218605cca0": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 340,
+      "y": 760,
+      "args": {
+        "comparator": "Larmat"
+      },
+      "droptoken": "homey:manager:logic|82e364aa-2911-4c17-a909-d39fdcbb9f8e",
+      "outputTrue": [
+        "2fcb0f01-83fd-4aa2-81db-ab821a4d55ea"
+      ]
+    },
+    "b91d4d78-586d-4ed4-96bc-aa6098d1ed68": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 80,
+      "y": 240,
+      "args": {
+        "comparator": "0"
+      },
+      "droptoken": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90|windowcoverings_set",
+      "outputTrue": [
+        "9220dcc0-c306-45f4-a20e-0a3ec6e321a0"
+      ],
+      "outputFalse": [
+        "2da062fb-3169-4f7c-ac8d-b6e060f00e92"
+      ]
+    },
+    "bc85a2e9-2341-4d29-b8cb-c5dad045fe29": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1340,
+      "y": 1120,
+      "args": {
+        "windowcoverings_set": 0.32
+      }
+    },
+    "bce4e41c-1f3f-40d3-9470-7658f9247e7c": {
+      "type": "trigger",
+      "id": "homey:device:708aa4db-3cac-4d50-ae42-64d1fe2c83b0:onoff_true",
+      "x": 40,
+      "y": 560,
+      "outputSuccess": [
+        "0e8df2ed-1a65-4889-8297-e2b784eb0de8"
+      ]
+    },
+    "c045e07b-976a-481d-bcc4-506f8543071d": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1320,
+      "y": 1640,
+      "args": {
+        "windowcoverings_set": 0.98
+      }
+    },
+    "c92a0809-a169-4107-b6ef-ce3c4d0162b0": {
+      "type": "action",
+      "id": "homey:device:708aa4db-3cac-4d50-ae42-64d1fe2c83b0:off",
+      "x": 480,
+      "y": 860
+    },
+    "ce0d2088-cd69-4fa7-9e41-7e0a8a8edd59": {
+      "type": "trigger",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set_changed",
+      "x": 400,
+      "y": 320,
+      "outputSuccess": [
+        "b91d4d78-586d-4ed4-96bc-aa6098d1ed68",
+        "d6dc150c-e245-4ad2-b7c2-0742c4a62ced"
+      ]
+    },
+    "d47ad2f3-d6d3-4497-8163-3bbc99b47fa4": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 920,
+      "y": 780,
+      "args": {
+        "day": "6"
+      },
+      "outputTrue": [
+        "5e2e30d8-1627-47a6-a2a5-a3c1a2d8e885"
+      ]
+    },
+    "d7e71861-eeef-4045-b397-64a849c2bb25": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 900,
+      "y": 560,
+      "args": {
+        "windowcoverings_set": 0.98
+      }
+    },
+    "db146348-01ef-4901-9e58-6e37f3a72465": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1340,
+      "y": 660,
+      "args": {
+        "windowcoverings_set": 0.32
+      }
+    },
+    "e5555e4b-eed9-4238-a4df-a7ea15611de2": {
+      "type": "note",
+      "x": 40,
+      "y": 700,
+      "value": "Mörkläggning",
+      "color": "yellow"
+    },
+    "e6ad2cba-590e-4a01-b886-6d9c2c3e0e0e": {
+      "type": "action",
+      "id": "homey:device:2ffc894f-fb5e-47c8-8323-0db67e3bda90:windowcoverings_set",
+      "x": 1340,
+      "y": 900,
+      "args": {
+        "windowcoverings_set": 0.32
+      }
+    },
+    "e9081ea6-fb2e-4190-bef6-a94e6cf6b783": {
+      "type": "action",
+      "id": "homey:device:708aa4db-3cac-4d50-ae42-64d1fe2c83b0:on",
+      "x": 660,
+      "y": 1400
+    },
+    "eaa3e547-ef52-419a-95ff-0006f280a79e": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 920,
+      "y": 1080,
+      "args": {
+        "day": "1"
+      },
+      "outputTrue": [
+        "bc85a2e9-2341-4d29-b8cb-c5dad045fe29"
+      ]
+    },
+    "f78699f0-b4f8-4569-95f9-25653df5ba02": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 840,
+      "y": 1820,
+      "args": {
+        "day": "5"
+      },
+      "outputTrue": [
+        "44b04758-9994-430e-a212-a646ef46bc58"
+      ]
+    },
+    "f9000001-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:logic:variable_changed",
+      "x": 0,
+      "y": 1100,
+      "args": {
+        "variable": {
+          "id": "088e5cb5-82e5-45e4-ab19-bfb3256c15db",
+          "name": "Mörkt"
+        }
+      },
+      "outputSuccess": [
+        "f9000001-0000-4000-8000-000000000002",
+        "f9000001-0000-4000-8000-000000000007"
+      ]
+    },
+    "f9000001-0000-4000-8000-000000000002": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 120,
+      "y": 900,
+      "args": {},
+      "droptoken": "homey:manager:logic|088e5cb5-82e5-45e4-ab19-bfb3256c15db",
+      "outputTrue": [
+        "f9000001-0000-4000-8000-000000000003"
+      ]
+    },
+    "f9000001-0000-4000-8000-000000000003": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_between",
+      "x": 200,
+      "y": 940,
+      "args": {
+        "time1": "12:00",
+        "time2": "03:00"
+      },
+      "outputTrue": [
+        "f9000001-0000-4000-8000-000000000004"
+      ]
+    },
+    "f9000001-0000-4000-8000-000000000004": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 240,
+      "y": 980,
+      "args": {},
+      "droptoken": "homey:manager:logic|3303045a-7dc4-4ca8-b615-17f87a23a424",
+      "inverted": true,
+      "outputTrue": [
+        "f9000001-0000-4000-8000-000000000005"
+      ]
+    },
+    "f9000001-0000-4000-8000-000000000005": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 280,
+      "y": 1020,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "3303045a-7dc4-4ca8-b615-17f87a23a424",
+          "name": "Mörkläggning gjord"
+        }
+      },
+      "outputSuccess": [
+        "b6ea2198-3473-4ee2-8f81-0b218605cca0",
+        "c92a0809-a169-4107-b6ef-ce3c4d0162b0"
+      ]
+    },
+    "f9000001-0000-4000-8000-000000000007": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 120,
+      "y": 1500,
+      "args": {},
+      "droptoken": "homey:manager:logic|088e5cb5-82e5-45e4-ab19-bfb3256c15db",
+      "inverted": true,
+      "outputTrue": [
+        "f9000001-0000-4000-8000-000000000008"
+      ]
+    },
+    "f9000001-0000-4000-8000-000000000008": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_between",
+      "x": 160,
+      "y": 1540,
+      "args": {
+        "time1": "03:00",
+        "time2": "12:00"
+      },
+      "outputTrue": [
+        "f9000001-0000-4000-8000-000000000009"
+      ]
+    },
+    "f9000001-0000-4000-8000-000000000009": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 200,
+      "y": 1580,
+      "args": {},
+      "droptoken": "homey:manager:logic|fa28310c-7a41-43dd-846e-e229a63e7954",
+      "inverted": true,
+      "outputTrue": [
+        "f9000001-0000-4000-8000-000000000010"
+      ]
+    },
+    "f9000001-0000-4000-8000-000000000010": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 240,
+      "y": 1620,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "fa28310c-7a41-43dd-846e-e229a63e7954",
+          "name": "Uppdragning gjord"
+        }
+      },
+      "outputSuccess": [
+        "feaef8b8-6101-4e98-b9f0-15089b3303b0"
+      ]
+    },
+    "f9000001-0000-4000-8000-000000000099": {
+      "type": "note",
+      "x": 0,
+      "y": 1700,
+      "value": "Mork/ljus kommer fran variabeln Morkt (Pro, med sol som reserv). Dygnsvakt: stangning hogst en gang (12:00-03:00) och uppdragning hogst en gang (03:00-12:00) per dygn; vakterna nollstalls 12:00 i ST Morkt fran Pro.",
+      "color": "blue"
+    },
+    "feaef8b8-6101-4e98-b9f0-15089b3303b0": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 260,
+      "y": 1600,
+      "args": {
+        "comparator": "Larmat"
+      },
+      "droptoken": "homey:manager:logic|82e364aa-2911-4c17-a909-d39fdcbb9f8e",
+      "outputTrue": [
+        "91595e72-0c15-4c08-9db8-7f2823a81a08"
+      ]
+    },
+    "ffc8946f-22f3-47a1-8968-812ea9f0f534": {
+      "type": "condition",
+      "id": "homey:manager:cron:day_equals",
+      "x": 920,
+      "y": 1180,
+      "args": {
+        "day": "4"
+      },
+      "outputTrue": [
+        "137bbf41-e8b0-4028-987d-b3f1437da020"
+      ]
+    }
+  }
+}

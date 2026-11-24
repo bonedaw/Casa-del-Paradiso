@@ -1,0 +1,42 @@
+{
+  "id": "d5177a78-35ae-465a-bb3b-5b73ca7ac230",
+  "uri": "homey:advancedflow:d5177a78-35ae-465a-bb3b-5b73ca7ac230",
+  "name": "ST Vakthund svar till lägenheten",
+  "folder": null,
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "f5000000-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 40,
+      "y": 100,
+      "args": {
+        "event": "ping_a77168457227"
+      },
+      "outputSuccess": [
+        "f5000000-0000-4000-8000-000000000002"
+      ]
+    },
+    "f5000000-0000-4000-8000-000000000002": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 340,
+      "y": 100,
+      "args": {
+        "body": "",
+        "headers": "",
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/pong_a77168457227"
+      }
+    },
+    "f5000000-0000-4000-8000-000000000003": {
+      "type": "note",
+      "x": 40,
+      "y": 300,
+      "value": "Pro skickar ping varje timme (:40). Bridge svarar med pong direkt. Uteblir svaret skickar Pro en push (se ST Vakthund ping stugan pa Pro). Testar att Bridge faktiskt tar emot och kor flodet, inte bara att den kan skicka.",
+      "color": "blue"
+    }
+  }
+}

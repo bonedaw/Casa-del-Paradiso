@@ -1,0 +1,99 @@
+{
+  "id": "c13a8629-b701-42fb-96a8-955f266b784d",
+  "uri": "homey:advancedflow:c13a8629-b701-42fb-96a8-955f266b784d",
+  "name": "Loftet",
+  "folder": "8bf73971-2b8c-4b29-8dc7-6d31babc68ca",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "162932a7-cf1d-4b74-8a81-8d61a65120d3": {
+      "type": "note",
+      "value": "Automatisk lampa",
+      "color": "yellow",
+      "x": 0,
+      "y": 0,
+      "width": null,
+      "height": null
+    },
+    "359828bf-9903-44ad-a1bd-067f924ad5e7": {
+      "ownerUri": "homey:device:f9119942-bb7f-4eae-9905-242f9654622d",
+      "id": "homey:device:f9119942-bb7f-4eae-9905-242f9654622d:alarm_contact_true",
+      "type": "trigger",
+      "x": 0,
+      "y": 80,
+      "outputSuccess": [
+        "4d0904ed-c3f0-4780-b391-d0bcc34bdb6b"
+      ]
+    },
+    "a352caf4-b4bd-4802-8f29-49cf7db4b605": {
+      "ownerUri": "homey:device:6f174e96-3926-4bc4-8209-c246cf6ec915",
+      "id": "homey:device:6f174e96-3926-4bc4-8209-c246cf6ec915:on",
+      "type": "action",
+      "x": 600,
+      "y": 140
+    },
+    "12b3b9da-1288-4fd1-a46c-5c5118649140": {
+      "ownerUri": "homey:device:f9119942-bb7f-4eae-9905-242f9654622d",
+      "id": "homey:device:f9119942-bb7f-4eae-9905-242f9654622d:alarm_contact_false",
+      "type": "trigger",
+      "x": 0,
+      "y": 400,
+      "outputSuccess": [
+        "be98be60-0669-4f32-b3e6-e363e2dea36d"
+      ]
+    },
+    "8601d573-60ef-43af-8d63-7db945943ae7": {
+      "ownerUri": "homey:device:6f174e96-3926-4bc4-8209-c246cf6ec915",
+      "id": "homey:device:6f174e96-3926-4bc4-8209-c246cf6ec915:off",
+      "type": "action",
+      "x": 1100,
+      "y": 380
+    },
+    "4f1a6ff1-cf69-4060-8d85-bd2d6b39ef34": {
+      "id": "homey:device:205766ba-7a99-48c1-913e-55a5dcd38b24:alarm_contact_true",
+      "type": "trigger",
+      "x": 0,
+      "y": 160,
+      "outputSuccess": [
+        "4d0904ed-c3f0-4780-b391-d0bcc34bdb6b"
+      ]
+    },
+    "4d0904ed-c3f0-4780-b391-d0bcc34bdb6b": {
+      "type": "any",
+      "x": 440,
+      "y": 140,
+      "outputSuccess": [
+        "a352caf4-b4bd-4802-8f29-49cf7db4b605"
+      ]
+    },
+    "c3d96279-bd16-4615-9616-d63e824db682": {
+      "id": "homey:device:205766ba-7a99-48c1-913e-55a5dcd38b24:alarm_contact_false",
+      "type": "trigger",
+      "x": 0,
+      "y": 480,
+      "outputSuccess": [
+        "be98be60-0669-4f32-b3e6-e363e2dea36d"
+      ]
+    },
+    "be98be60-0669-4f32-b3e6-e363e2dea36d": {
+      "type": "any",
+      "x": 520,
+      "y": 440,
+      "outputSuccess": [
+        "c1000000-0000-4000-8000-000000000002"
+      ]
+    },
+    "c1000000-0000-4000-8000-000000000002": {
+      "ownerUri": "homey:device:205766ba-7a99-48c1-913e-55a5dcd38b24",
+      "id": "homey:device:205766ba-7a99-48c1-913e-55a5dcd38b24:alarm_contact",
+      "type": "condition",
+      "inverted": true,
+      "x": 660,
+      "y": 480,
+      "outputTrue": [
+        "8601d573-60ef-43af-8d63-7db945943ae7"
+      ]
+    }
+  }
+}

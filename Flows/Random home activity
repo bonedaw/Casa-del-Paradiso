@@ -1,0 +1,590 @@
+{
+  "id": "0657c7a1-593d-44ae-9b72-4d045ebc9e44",
+  "uri": "homey:advancedflow:0657c7a1-593d-44ae-9b72-4d045ebc9e44",
+  "name": "Random home activity",
+  "folder": "9803b89b-231c-46b5-a21e-48ceffbae759",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "d6000001-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 40,
+      "args": {
+        "time": "15:45"
+      },
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000010"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000002": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 120,
+      "args": {
+        "time": "16:45"
+      },
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000010"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000003": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 200,
+      "args": {
+        "time": "17:45"
+      },
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000010"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000004": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 280,
+      "args": {
+        "time": "18:45"
+      },
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000010"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000005": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 360,
+      "args": {
+        "time": "19:45"
+      },
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000010"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000006": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 440,
+      "args": {
+        "time": "20:45"
+      },
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000010"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000007": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 520,
+      "args": {
+        "time": "21:45"
+      },
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000010"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000008": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 600,
+      "args": {
+        "time": "22:45"
+      },
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000010"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000009": {
+      "type": "trigger",
+      "id": "homey:manager:cron:sunset",
+      "x": 40,
+      "y": 680,
+      "args": {
+        "before": 0
+      },
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000010"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000010": {
+      "type": "condition",
+      "id": "homey:manager:cron:after_sunset",
+      "x": 400,
+      "y": 340,
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000011"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000011": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_lt",
+      "x": 700,
+      "y": 340,
+      "args": {
+        "time": "23:00"
+      },
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000012"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000012": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 1000,
+      "y": 340,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000014"
+      ],
+      "outputFalse": [
+        "d6000001-0000-4000-8000-000000000013"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000013": {
+      "type": "condition",
+      "id": "homey:manager:presence:noone_athome",
+      "x": 1300,
+      "y": 440,
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000014"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000014": {
+      "type": "any",
+      "x": 1600,
+      "y": 340,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000015"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000015": {
+      "type": "condition",
+      "id": "homey:manager:logic:random",
+      "x": 1900,
+      "y": 340,
+      "args": {
+        "chance": 70
+      },
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000020"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000020": {
+      "type": "condition",
+      "id": "homey:manager:logic:random",
+      "x": 2200,
+      "y": 340,
+      "args": {
+        "chance": 25
+      },
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000030"
+      ],
+      "outputFalse": [
+        "d6000001-0000-4000-8000-000000000021"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000021": {
+      "type": "condition",
+      "id": "homey:manager:logic:random",
+      "x": 2200,
+      "y": 440,
+      "args": {
+        "chance": 33
+      },
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000025"
+      ],
+      "outputFalse": [
+        "d6000001-0000-4000-8000-000000000022"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000022": {
+      "type": "condition",
+      "id": "homey:manager:logic:random",
+      "x": 2200,
+      "y": 540,
+      "args": {
+        "chance": 50
+      },
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000026"
+      ],
+      "outputFalse": [
+        "d6000001-0000-4000-8000-000000000027"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000025": {
+      "type": "delay",
+      "x": 2500,
+      "y": 440,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000030"
+      ],
+      "args": {
+        "delay": {
+          "number": "5",
+          "multiplier": 60
+        }
+      }
+    },
+    "d6000001-0000-4000-8000-000000000026": {
+      "type": "delay",
+      "x": 2500,
+      "y": 540,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000030"
+      ],
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 60
+        }
+      }
+    },
+    "d6000001-0000-4000-8000-000000000027": {
+      "type": "delay",
+      "x": 2500,
+      "y": 640,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000030"
+      ],
+      "args": {
+        "delay": {
+          "number": "15",
+          "multiplier": 60
+        }
+      }
+    },
+    "d6000001-0000-4000-8000-000000000030": {
+      "type": "any",
+      "x": 2800,
+      "y": 400,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000031"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000031": {
+      "type": "action",
+      "id": "homey:device:e230ca8b-67f4-488d-9ce0-541b77d5d827:on",
+      "x": 3050,
+      "y": 400,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000040"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000040": {
+      "type": "condition",
+      "id": "homey:manager:logic:random",
+      "x": 3350,
+      "y": 400,
+      "args": {
+        "chance": 25
+      },
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000044"
+      ],
+      "outputFalse": [
+        "d6000001-0000-4000-8000-000000000041"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000041": {
+      "type": "condition",
+      "id": "homey:manager:logic:random",
+      "x": 3350,
+      "y": 500,
+      "args": {
+        "chance": 33
+      },
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000045"
+      ],
+      "outputFalse": [
+        "d6000001-0000-4000-8000-000000000042"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000042": {
+      "type": "condition",
+      "id": "homey:manager:logic:random",
+      "x": 3350,
+      "y": 600,
+      "args": {
+        "chance": 50
+      },
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000046"
+      ],
+      "outputFalse": [
+        "d6000001-0000-4000-8000-000000000047"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000044": {
+      "type": "delay",
+      "x": 3650,
+      "y": 400,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000050"
+      ],
+      "args": {
+        "delay": {
+          "number": "1",
+          "multiplier": 60
+        }
+      }
+    },
+    "d6000001-0000-4000-8000-000000000045": {
+      "type": "delay",
+      "x": 3650,
+      "y": 500,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000050"
+      ],
+      "args": {
+        "delay": {
+          "number": "3",
+          "multiplier": 60
+        }
+      }
+    },
+    "d6000001-0000-4000-8000-000000000046": {
+      "type": "delay",
+      "x": 3650,
+      "y": 600,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000050"
+      ],
+      "args": {
+        "delay": {
+          "number": "6",
+          "multiplier": 60
+        }
+      }
+    },
+    "d6000001-0000-4000-8000-000000000047": {
+      "type": "delay",
+      "x": 3650,
+      "y": 700,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000050"
+      ],
+      "args": {
+        "delay": {
+          "number": "12",
+          "multiplier": 60
+        }
+      }
+    },
+    "d6000001-0000-4000-8000-000000000050": {
+      "type": "any",
+      "x": 3950,
+      "y": 500,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000051",
+        "d6000001-0000-4000-8000-000000000052"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000051": {
+      "type": "action",
+      "id": "homey:device:e230ca8b-67f4-488d-9ce0-541b77d5d827:off",
+      "x": 4200,
+      "y": 440
+    },
+    "d6000001-0000-4000-8000-000000000052": {
+      "type": "action",
+      "id": "homey:device:82a35f46-a434-41e1-b5bc-4eea89e51771:on",
+      "x": 4200,
+      "y": 560,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000060"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000060": {
+      "type": "condition",
+      "id": "homey:manager:logic:random",
+      "x": 4500,
+      "y": 560,
+      "args": {
+        "chance": 25
+      },
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000064"
+      ],
+      "outputFalse": [
+        "d6000001-0000-4000-8000-000000000061"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000061": {
+      "type": "condition",
+      "id": "homey:manager:logic:random",
+      "x": 4500,
+      "y": 660,
+      "args": {
+        "chance": 33
+      },
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000065"
+      ],
+      "outputFalse": [
+        "d6000001-0000-4000-8000-000000000062"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000062": {
+      "type": "condition",
+      "id": "homey:manager:logic:random",
+      "x": 4500,
+      "y": 760,
+      "args": {
+        "chance": 50
+      },
+      "outputTrue": [
+        "d6000001-0000-4000-8000-000000000066"
+      ],
+      "outputFalse": [
+        "d6000001-0000-4000-8000-000000000067"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000064": {
+      "type": "delay",
+      "x": 4800,
+      "y": 560,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000070"
+      ],
+      "args": {
+        "delay": {
+          "number": "3",
+          "multiplier": 60
+        }
+      }
+    },
+    "d6000001-0000-4000-8000-000000000065": {
+      "type": "delay",
+      "x": 4800,
+      "y": 660,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000070"
+      ],
+      "args": {
+        "delay": {
+          "number": "6",
+          "multiplier": 60
+        }
+      }
+    },
+    "d6000001-0000-4000-8000-000000000066": {
+      "type": "delay",
+      "x": 4800,
+      "y": 760,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000070"
+      ],
+      "args": {
+        "delay": {
+          "number": "9",
+          "multiplier": 60
+        }
+      }
+    },
+    "d6000001-0000-4000-8000-000000000067": {
+      "type": "delay",
+      "x": 4800,
+      "y": 860,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000070"
+      ],
+      "args": {
+        "delay": {
+          "number": "15",
+          "multiplier": 60
+        }
+      }
+    },
+    "d6000001-0000-4000-8000-000000000070": {
+      "type": "any",
+      "x": 5100,
+      "y": 660,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000071"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000071": {
+      "type": "action",
+      "id": "homey:device:82a35f46-a434-41e1-b5bc-4eea89e51771:off",
+      "x": 5350,
+      "y": 660
+    },
+    "d6000001-0000-4000-8000-000000000080": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 40,
+      "y": 1000,
+      "args": {
+        "time": "23:00"
+      },
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000082"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000081": {
+      "type": "trigger",
+      "id": "homey:manager:presence:first_user_enter",
+      "x": 40,
+      "y": 1100,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000082"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000082": {
+      "type": "any",
+      "x": 400,
+      "y": 1050,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000083",
+        "d6000001-0000-4000-8000-000000000084"
+      ]
+    },
+    "d6000001-0000-4000-8000-000000000083": {
+      "type": "action",
+      "id": "homey:device:e230ca8b-67f4-488d-9ce0-541b77d5d827:off",
+      "x": 700,
+      "y": 1000
+    },
+    "d6000001-0000-4000-8000-000000000084": {
+      "type": "action",
+      "id": "homey:device:82a35f46-a434-41e1-b5bc-4eea89e51771:off",
+      "x": 700,
+      "y": 1100
+    },
+    "d6000001-0000-4000-8000-000000000090": {
+      "type": "note",
+      "x": 40,
+      "y": -100,
+      "value": "Närvarosimulering: körs vid solnedgång/varje hel timme efter solnedgång, till 23:00, när Stugläge = Borta eller ingen är hemma. 70 % chans per start, slumpad startfördröjning och slumpad längd. 23:00 och första som kommer hem släcker båda.",
+      "color": "yellow"
+    },
+    "23d6d300-d2a5-4061-819c-c464c3798912": {
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "08:00"
+      },
+      "type": "trigger",
+      "x": 40,
+      "y": 920,
+      "outputSuccess": [
+        "d6000001-0000-4000-8000-000000000082"
+      ]
+    }
+  }
+}

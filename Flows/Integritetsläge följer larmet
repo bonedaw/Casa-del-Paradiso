@@ -1,0 +1,74 @@
+{
+  "id": "1dfa1a9e-feb9-415f-a37e-24bd11563931",
+  "uri": "homey:advancedflow:1dfa1a9e-feb9-415f-a37e-24bd11563931",
+  "name": "Integritetsläge följer larmet",
+  "folder": null,
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "e5000000-0000-4000-8000-000000000001": {
+      "type": "trigger",
+      "id": "homey:device:7639e352-3ffe-4e4e-b08a-b02996ddca86:receive_status_string",
+      "x": 40,
+      "y": 140,
+      "args": {
+        "code": {
+          "dataPoint": false,
+          "id": "master_mode",
+          "name": "master_mode",
+          "title": "master_mode"
+        }
+      },
+      "outputSuccess": [
+        "e5000000-0000-4000-8000-000000000002",
+        "e5000000-0000-4000-8000-000000000003"
+      ]
+    },
+    "e5000000-0000-4000-8000-000000000002": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 380,
+      "y": 60,
+      "args": {
+        "comparator": "disarmed"
+      },
+      "droptoken": "trigger::e5000000-0000-4000-8000-000000000001::value",
+      "outputTrue": [
+        "e5000000-0000-4000-8000-000000000004"
+      ]
+    },
+    "e5000000-0000-4000-8000-000000000003": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 380,
+      "y": 220,
+      "args": {
+        "comparator": "arm"
+      },
+      "droptoken": "trigger::e5000000-0000-4000-8000-000000000001::value",
+      "outputTrue": [
+        "e5000000-0000-4000-8000-000000000005"
+      ]
+    },
+    "e5000000-0000-4000-8000-000000000004": {
+      "type": "action",
+      "id": "homey:device:b52780e6-01b4-49f9-a3fe-0d1ea923a097:on",
+      "x": 720,
+      "y": 60
+    },
+    "e5000000-0000-4000-8000-000000000005": {
+      "type": "action",
+      "id": "homey:device:b52780e6-01b4-49f9-a3fe-0d1ea923a097:off",
+      "x": 720,
+      "y": 220
+    },
+    "e5000000-0000-4000-8000-000000000010": {
+      "type": "note",
+      "x": 40,
+      "y": 380,
+      "value": "När larmpanelen rapporterar disarmed slås Integritetsläge på, när den rapporterar arm stängs det av. Läget home (delvis larmat) används inte och ändrar inget.",
+      "color": "blue"
+    }
+  }
+}

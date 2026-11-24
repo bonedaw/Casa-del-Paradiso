@@ -1,0 +1,147 @@
+{
+  "id": "36fb3387-99cf-4c58-af86-8a43c2e85523",
+  "uri": "homey:advancedflow:36fb3387-99cf-4c58-af86-8a43c2e85523",
+  "name": "Vintertid",
+  "folder": "19ce2ee1-ea02-4801-8236-ea2a723cb2ca",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "3725cc38-8579-4fad-8741-ace5459146a2": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "08:00"
+      },
+      "type": "trigger",
+      "x": 0,
+      "y": 40,
+      "outputSuccess": [
+        "bbc21cfc-9ee2-4e00-b96f-fa94cc4bdc99",
+        "1073648c-69c2-47ef-bae7-df0943b6ba5c",
+        "d5210580-39e9-4687-8b63-957bf70d24d6"
+      ]
+    },
+    "bbc21cfc-9ee2-4e00-b96f-fa94cc4bdc99": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:season",
+      "args": {
+        "season": "spring"
+      },
+      "type": "condition",
+      "x": 440,
+      "y": 20,
+      "outputTrue": [
+        "eb6b5e21-eadd-4623-8e6e-4dfb25077a63"
+      ],
+      "outputFalse": [
+        "0014f37a-a5e1-42e0-b3a6-13625ac45582"
+      ]
+    },
+    "d5210580-39e9-4687-8b63-957bf70d24d6": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:season",
+      "args": {
+        "season": "winter"
+      },
+      "type": "condition",
+      "x": 440,
+      "y": 180,
+      "outputTrue": [
+        "eb6b5e21-eadd-4623-8e6e-4dfb25077a63"
+      ],
+      "outputFalse": [
+        "0014f37a-a5e1-42e0-b3a6-13625ac45582"
+      ]
+    },
+    "1073648c-69c2-47ef-bae7-df0943b6ba5c": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:season",
+      "args": {
+        "season": "fall"
+      },
+      "type": "condition",
+      "x": 440,
+      "y": 100,
+      "outputTrue": [
+        "eb6b5e21-eadd-4623-8e6e-4dfb25077a63"
+      ],
+      "outputFalse": [
+        "0014f37a-a5e1-42e0-b3a6-13625ac45582"
+      ]
+    },
+    "293e93b5-38e2-487c-b018-07f4a75c9abd": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "variable": {
+          "id": "b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+          "name": "Vintertid"
+        },
+        "value": true
+      },
+      "type": "action",
+      "x": 1440,
+      "y": 60
+    },
+    "93cb0436-bb38-4f70-a6f2-e06a2708e22e": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "variable": {
+          "id": "b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+          "name": "Vintertid"
+        },
+        "value": false
+      },
+      "type": "action",
+      "x": 1460,
+      "y": 260
+    },
+    "eb6b5e21-eadd-4623-8e6e-4dfb25077a63": {
+      "type": "any",
+      "x": 880,
+      "y": 100,
+      "outputSuccess": [
+        "f0f40d31-6e30-48c6-b720-8a56d79e0757"
+      ]
+    },
+    "0014f37a-a5e1-42e0-b3a6-13625ac45582": {
+      "type": "all",
+      "x": 880,
+      "y": 200,
+      "input": [
+        "bbc21cfc-9ee2-4e00-b96f-fa94cc4bdc99::outputFalse",
+        "1073648c-69c2-47ef-bae7-df0943b6ba5c::outputFalse",
+        "d5210580-39e9-4687-8b63-957bf70d24d6::outputFalse"
+      ],
+      "outputSuccess": [
+        "69661d49-4fe1-43ff-95cb-c8ec9b9ac5f6"
+      ]
+    },
+    "f0f40d31-6e30-48c6-b720-8a56d79e0757": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "type": "condition",
+      "x": 1040,
+      "y": 60,
+      "inverted": true,
+      "outputTrue": [
+        "293e93b5-38e2-487c-b018-07f4a75c9abd"
+      ]
+    },
+    "69661d49-4fe1-43ff-95cb-c8ec9b9ac5f6": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "type": "condition",
+      "x": 1060,
+      "y": 260,
+      "inverted": false,
+      "outputTrue": [
+        "93cb0436-bb38-4f70-a6f2-e06a2708e22e"
+      ]
+    }
+  }
+}

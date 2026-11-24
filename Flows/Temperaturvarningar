@@ -1,0 +1,428 @@
+{
+  "id": "f79cdaaa-bdc2-409d-b5b4-c8106ea70f19",
+  "uri": "homey:advancedflow:f79cdaaa-bdc2-409d-b5b4-c8106ea70f19",
+  "name": "Temperaturvarningar",
+  "folder": "1d996cdb-fb5a-4f99-91b0-e0ac97273cb6",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "db44a239-079f-459e-89f1-25b265f56024": {
+      "ownerUri": "homey:manager:mobile",
+      "id": "homey:manager:mobile:push_text",
+      "args": {
+        "user": {
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "name": "Christer Gustafsson",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "athomId": "5e04e01b6d46dd0c44fec6f3"
+        },
+        "text": "Hög temp kylen i stugan [[trigger::7e21b683-af6b-4354-8585-c0befec1fc99::measure_temperature]]"
+      },
+      "type": "action",
+      "x": 1800,
+      "y": 120
+    },
+    "73e61f98-f2e5-4059-b03d-156f4019aacd": {
+      "type": "note",
+      "value": "Kylskåpet",
+      "color": "yellow",
+      "x": 20,
+      "y": 20,
+      "width": null,
+      "height": null
+    },
+    "7e21b683-af6b-4354-8585-c0befec1fc99": {
+      "ownerUri": "homey:device:42151a84-c90b-46a8-aaad-af4e7e89216f",
+      "id": "homey:device:42151a84-c90b-46a8-aaad-af4e7e89216f:measure_temperature_changed",
+      "type": "trigger",
+      "x": 20,
+      "y": 240,
+      "outputSuccess": [
+        "d083cab1-773d-442c-9f87-47b1f397a429",
+        "ff25632f-e673-43ea-8414-d33572cac8c7"
+      ]
+    },
+    "85a51d72-e0b2-44aa-8789-09a5ff226b97": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "variable": {
+          "id": "0ba224da-7a19-4b43-93cf-7f187036bb44",
+          "name": "Varmt i kylen"
+        },
+        "value": false
+      },
+      "type": "action",
+      "x": 1300,
+      "y": 320
+    },
+    "f714913f-f4d3-4cc0-86f2-155efbc39fbe": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "variable": {
+          "id": "0ba224da-7a19-4b43-93cf-7f187036bb44",
+          "name": "Varmt i kylen"
+        },
+        "value": true
+      },
+      "type": "action",
+      "x": 2200,
+      "y": 140,
+      "outputSuccess": [
+        "db44a239-079f-459e-89f1-25b265f56024"
+      ]
+    },
+    "04f48b0b-fc1b-45d4-b1c7-4c4d220cacf2": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|0ba224da-7a19-4b43-93cf-7f187036bb44",
+      "type": "condition",
+      "x": 880,
+      "y": 140,
+      "inverted": true,
+      "outputTrue": [
+        "5d6ce690-e59a-4609-80e6-282a86a1cd2e"
+      ]
+    },
+    "472cb4eb-ef92-4b87-ab3c-65db764b44a0": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:gt",
+      "droptoken": "trigger::7e21b683-af6b-4354-8585-c0befec1fc99::measure_temperature",
+      "args": {
+        "comparator": 8
+      },
+      "type": "condition",
+      "x": 460,
+      "y": 120,
+      "outputTrue": [
+        "04f48b0b-fc1b-45d4-b1c7-4c4d220cacf2"
+      ]
+    },
+    "d083cab1-773d-442c-9f87-47b1f397a429": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "trigger::7e21b683-af6b-4354-8585-c0befec1fc99::measure_temperature",
+      "args": {
+        "comparator": 7
+      },
+      "type": "condition",
+      "x": 440,
+      "y": 340,
+      "outputTrue": [
+        "34e336d5-73b9-419e-a90c-3b2d5a7e124a"
+      ]
+    },
+    "5d6ce690-e59a-4609-80e6-282a86a1cd2e": {
+      "type": "delay",
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 60
+        }
+      },
+      "x": 1280,
+      "y": 160,
+      "outputSuccess": [
+        "4f7ce1a6-89bb-40db-b6c5-f654c56e5f77"
+      ]
+    },
+    "4f7ce1a6-89bb-40db-b6c5-f654c56e5f77": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:gt",
+      "droptoken": "trigger::7e21b683-af6b-4354-8585-c0befec1fc99::measure_temperature",
+      "args": {
+        "comparator": 8
+      },
+      "type": "condition",
+      "x": 1440,
+      "y": 160,
+      "outputTrue": [
+        "63b1a927-38f3-4184-88a8-41266fe9ad0d"
+      ]
+    },
+    "34e336d5-73b9-419e-a90c-3b2d5a7e124a": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|0ba224da-7a19-4b43-93cf-7f187036bb44",
+      "type": "condition",
+      "x": 860,
+      "y": 340,
+      "inverted": false,
+      "outputTrue": [
+        "85a51d72-e0b2-44aa-8789-09a5ff226b97"
+      ]
+    },
+    "ff25632f-e673-43ea-8414-d33572cac8c7": {
+      "ownerUri": "homey:device:42c8bc5a-42c4-4b2b-b338-3f54266e60c3",
+      "id": "homey:device:42c8bc5a-42c4-4b2b-b338-3f54266e60c3:on",
+      "type": "condition",
+      "x": 420,
+      "y": 220,
+      "outputTrue": [
+        "472cb4eb-ef92-4b87-ab3c-65db764b44a0"
+      ]
+    },
+    "0cde8554-2d83-4347-9151-42b0d096128d": {
+      "ownerUri": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72",
+      "id": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72:measure_temperature_changed",
+      "type": "trigger",
+      "x": 40,
+      "y": 700,
+      "outputSuccess": [
+        "3e34aec9-510a-4f97-9d90-ff56e6fc9925",
+        "5945467e-5d05-476e-80fb-8a8a5ee4ec08"
+      ]
+    },
+    "1d3508f9-ddc6-44b5-92f2-da1e9e2a5382": {
+      "ownerUri": "homey:device:b59cbdec-c880-4a42-9481-a72154fc086c",
+      "id": "homey:device:b59cbdec-c880-4a42-9481-a72154fc086c:measure_temperature_changed",
+      "type": "trigger",
+      "x": 40,
+      "y": 780,
+      "outputSuccess": [
+        "85c4cad9-b9d3-4a57-9c5e-ba4d06a93c0f",
+        "9954bfb6-bcb1-48ce-88a1-846b423f1bc9"
+      ]
+    },
+    "22a76826-e6a0-4ea7-8986-f1df644b8f66": {
+      "ownerUri": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf",
+      "id": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf:measure_temperature_changed",
+      "type": "trigger",
+      "x": 40,
+      "y": 860,
+      "outputSuccess": [
+        "023a946c-2245-4157-80c5-0035e56530b9",
+        "16906bd6-c218-4eb1-b946-607a9959b1ad"
+      ]
+    },
+    "3e34aec9-510a-4f97-9d90-ff56e6fc9925": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "trigger::0cde8554-2d83-4347-9151-42b0d096128d::measure_temperature",
+      "args": {
+        "comparator": 5
+      },
+      "type": "condition",
+      "x": 1040,
+      "y": 620,
+      "outputTrue": [
+        "3d4b6313-1012-4c28-b0b0-bfef62eb491a"
+      ]
+    },
+    "85c4cad9-b9d3-4a57-9c5e-ba4d06a93c0f": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "trigger::1d3508f9-ddc6-44b5-92f2-da1e9e2a5382::measure_temperature",
+      "args": {
+        "comparator": 5
+      },
+      "type": "condition",
+      "x": 1040,
+      "y": 700,
+      "outputTrue": [
+        "3d4b6313-1012-4c28-b0b0-bfef62eb491a"
+      ]
+    },
+    "023a946c-2245-4157-80c5-0035e56530b9": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:lt",
+      "droptoken": "trigger::22a76826-e6a0-4ea7-8986-f1df644b8f66::measure_temperature",
+      "args": {
+        "comparator": 5
+      },
+      "type": "condition",
+      "x": 1040,
+      "y": 780,
+      "outputTrue": [
+        "3d4b6313-1012-4c28-b0b0-bfef62eb491a"
+      ]
+    },
+    "aef3e085-8309-42fb-b0ed-2d32d4859e56": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|26d8335f-acc6-4d7a-98ae-81ac11f9c444",
+      "type": "condition",
+      "x": 1580,
+      "y": 720,
+      "inverted": true,
+      "outputTrue": [
+        "cad3534d-cef0-4bd9-9ce5-8cfc04afcc0b"
+      ]
+    },
+    "1dd0fb76-e5c7-45f0-bfd7-0facc5c88630": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|26d8335f-acc6-4d7a-98ae-81ac11f9c444",
+      "type": "condition",
+      "x": 1600,
+      "y": 980,
+      "inverted": false,
+      "outputTrue": [
+        "24529318-d9ff-4cdf-a26b-dc4abbc376b1"
+      ]
+    },
+    "5945467e-5d05-476e-80fb-8a8a5ee4ec08": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:gt",
+      "type": "condition",
+      "x": 1040,
+      "y": 900,
+      "outputTrue": [
+        "8a8d46d1-6b08-424f-9c6b-d97ded5da3e5"
+      ],
+      "droptoken": "trigger::0cde8554-2d83-4347-9151-42b0d096128d::measure_temperature",
+      "args": {
+        "comparator": 10
+      }
+    },
+    "9954bfb6-bcb1-48ce-88a1-846b423f1bc9": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:gt",
+      "type": "condition",
+      "x": 1040,
+      "y": 980,
+      "outputTrue": [
+        "8a8d46d1-6b08-424f-9c6b-d97ded5da3e5"
+      ],
+      "droptoken": "trigger::1d3508f9-ddc6-44b5-92f2-da1e9e2a5382::measure_temperature",
+      "args": {
+        "comparator": 10
+      }
+    },
+    "16906bd6-c218-4eb1-b946-607a9959b1ad": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:gt",
+      "type": "condition",
+      "x": 1040,
+      "y": 1060,
+      "droptoken": "trigger::22a76826-e6a0-4ea7-8986-f1df644b8f66::measure_temperature",
+      "args": {
+        "comparator": 10
+      },
+      "outputTrue": [
+        "8a8d46d1-6b08-424f-9c6b-d97ded5da3e5"
+      ]
+    },
+    "8a8d46d1-6b08-424f-9c6b-d97ded5da3e5": {
+      "type": "any",
+      "x": 1440,
+      "y": 1000,
+      "outputSuccess": [
+        "920f1aaf-d0a5-4213-9b89-7e6a7e95773c"
+      ]
+    },
+    "3d4b6313-1012-4c28-b0b0-bfef62eb491a": {
+      "type": "any",
+      "x": 1440,
+      "y": 720,
+      "outputSuccess": [
+        "aef3e085-8309-42fb-b0ed-2d32d4859e56"
+      ]
+    },
+    "24529318-d9ff-4cdf-a26b-dc4abbc376b1": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "variable": {
+          "id": "26d8335f-acc6-4d7a-98ae-81ac11f9c444",
+          "name": "Kallt i stugan"
+        },
+        "value": false
+      },
+      "type": "action",
+      "x": 2060,
+      "y": 980,
+      "outputSuccess": []
+    },
+    "cad3534d-cef0-4bd9-9ce5-8cfc04afcc0b": {
+      "ownerUri": "homey:manager:mobile",
+      "id": "homey:manager:mobile:push_text",
+      "args": {
+        "user": {
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "name": "Christer Gustafsson",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "athomId": "5e04e01b6d46dd0c44fec6f3"
+        },
+        "text": "Låg temp i stugan [[homey:device:b59cbdec-c880-4a42-9481-a72154fc086c|measure_temperature]]"
+      },
+      "type": "action",
+      "x": 2040,
+      "y": 700,
+      "outputSuccess": [
+        "2ea3c73f-0f93-47a3-9d7c-29174a27cb8a"
+      ]
+    },
+    "2ea3c73f-0f93-47a3-9d7c-29174a27cb8a": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "variable": {
+          "id": "26d8335f-acc6-4d7a-98ae-81ac11f9c444",
+          "name": "Kallt i stugan"
+        },
+        "value": true
+      },
+      "type": "action",
+      "x": 2440,
+      "y": 720,
+      "outputSuccess": []
+    },
+    "f8a5b22f-8a42-4f71-887e-3cc0bc924ab0": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:gt",
+      "droptoken": "homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf|measure_temperature",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 1560,
+      "y": 1080,
+      "outputTrue": [
+        "1dd0fb76-e5c7-45f0-bfd7-0facc5c88630"
+      ]
+    },
+    "6bf36f6d-6f99-431b-9711-cd57cf8abd95": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:gt",
+      "droptoken": "homey:device:b59cbdec-c880-4a42-9481-a72154fc086c|measure_temperature",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 1500,
+      "y": 1040,
+      "outputTrue": [
+        "f8a5b22f-8a42-4f71-887e-3cc0bc924ab0"
+      ]
+    },
+    "920f1aaf-d0a5-4213-9b89-7e6a7e95773c": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:gt",
+      "droptoken": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_temperature",
+      "args": {
+        "comparator": 10
+      },
+      "type": "condition",
+      "x": 1440,
+      "y": 1000,
+      "outputTrue": [
+        "6bf36f6d-6f99-431b-9711-cd57cf8abd95"
+      ]
+    },
+    "63b1a927-38f3-4184-88a8-41266fe9ad0d": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equal_boolean",
+      "droptoken": "homey:manager:logic|0ba224da-7a19-4b43-93cf-7f187036bb44",
+      "type": "condition",
+      "x": 1600,
+      "y": 160,
+      "inverted": true,
+      "outputTrue": [
+        "f714913f-f4d3-4cc0-86f2-155efbc39fbe"
+      ]
+    }
+  }
+}

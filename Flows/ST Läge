@@ -1,0 +1,710 @@
+{
+  "id": "53c15db6-b989-49f0-ad2f-23a7405b4a4a",
+  "uri": "homey:advancedflow:53c15db6-b989-49f0-ad2f-23a7405b4a4a",
+  "name": "ST Läge",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "035196f6-fea5-57eb-b353-4e3be6b31636": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 3060,
+      "y": 330,
+      "args": {
+        "value": "Hemma",
+        "variable": {
+          "id": "69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+          "name": "Stugläge"
+        }
+      }
+    },
+    "06122b63-184a-52e5-9251-b66bf99fa465": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 400,
+      "y": 440,
+      "args": {
+        "comparator": "Förvärmning"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "ee01d8e7-5f56-538e-a358-9e42e90cd818"
+      ]
+    },
+    "18f8bb9e-f1c5-529e-9d0a-dffbcd33dc5e": {
+      "type": "action",
+      "id": "homey:device:00526538-6e6c-4b19-bd19-814450782f8b:off",
+      "x": 780,
+      "y": 220,
+      "args": {}
+    },
+    "1b2383a6-204a-5811-8ad9-7b030283d777": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 1920,
+      "y": 220,
+      "args": {
+        "value": "Borta",
+        "variable": {
+          "id": "69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+          "name": "Stugläge"
+        }
+      },
+      "outputSuccess": [
+        "a1000000-0000-4000-8000-000000000004"
+      ]
+    },
+    "1e5ae04f-1499-55bb-acad-01e6b814d91d": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 20,
+      "y": 1320,
+      "args": {
+        "time": "22:00"
+      },
+      "outputSuccess": [
+        "9ff19e17-d13e-5d66-9b13-fe0de6d7c373",
+        "06122b63-184a-52e5-9251-b66bf99fa465",
+        "2203dbe1-31ee-522c-aa5b-a118e8ba8e1a"
+      ]
+    },
+    "2203dbe1-31ee-522c-aa5b-a118e8ba8e1a": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 400,
+      "y": 550,
+      "args": {
+        "comparator": "Förkylning"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "ee01d8e7-5f56-538e-a358-9e42e90cd818"
+      ]
+    },
+    "32fec145-61e0-5bf3-8b05-6ae704703c17": {
+      "type": "action",
+      "id": "homey:device:00526538-6e6c-4b19-bd19-814450782f8b:on",
+      "x": 2680,
+      "y": 550,
+      "args": {}
+    },
+    "364c1894-0360-5ac5-9fcb-4400d7990aa2": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_between",
+      "x": 2680,
+      "y": 440,
+      "args": {
+        "time1": "22:00",
+        "time2": "08:00"
+      },
+      "outputTrue": [
+        "d9bc9f84-bc12-5ff9-9b09-f6ade3749ecb"
+      ],
+      "outputFalse": [
+        "035196f6-fea5-57eb-b353-4e3be6b31636"
+      ]
+    },
+    "401896da-816b-4a4c-9b5f-96bba8236ec9": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1980,
+      "y": 20,
+      "args": {
+        "text": "Ingen verkar vara kvar i stugan men larmet är inte på. Stugan står kvar i läge Hemma tills larmet slås på.",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "4461bfca-c5bf-562f-a93a-c0d369c3813a": {
+      "type": "action",
+      "id": "homey:device:dbbafe31-60b9-42e2-9a82-4442f429c1b5:off",
+      "x": 400,
+      "y": 330,
+      "args": {},
+      "outputSuccess": [
+        "18f8bb9e-f1c5-529e-9d0a-dffbcd33dc5e"
+      ]
+    },
+    "48f7ba04-c39b-5e64-a34e-731372978cb9": {
+      "type": "action",
+      "id": "homey:device:dbbafe31-60b9-42e2-9a82-4442f429c1b5:off",
+      "x": 2300,
+      "y": 220,
+      "args": {},
+      "outputSuccess": [
+        "7b05749e-f6f1-5c09-b348-6732993e3266"
+      ]
+    },
+    "4a83bfe5-3e59-54d5-86c0-1cf570c2cf18": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1160,
+      "y": 330,
+      "args": {
+        "text": "Förvärmning eller Förkylning är fortfarande på i stugan",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "4b1d9656-92ef-504a-9ba8-4e26cd1fd271": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 400,
+      "y": 660,
+      "args": {},
+      "droptoken": "homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a",
+      "inverted": true,
+      "outputTrue": [
+        "4f9b89fa-5fa9-5c2a-97f3-248333c0efe0"
+      ]
+    },
+    "4f9b89fa-5fa9-5c2a-97f3-248333c0efe0": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 780,
+      "y": 550,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "inverted": true,
+      "outputTrue": [
+        "54614128-2681-5acf-9f3e-0f5ad873d541"
+      ]
+    },
+    "517e4549-fdb1-54ac-a702-e8eb5b0ff6f6": {
+      "type": "trigger",
+      "id": "homey:device:6dece838-e029-48a2-bbc3-6bcbe29e5ed0:locked_true",
+      "x": 20,
+      "y": 1430,
+      "args": {},
+      "outputSuccess": [
+        "9ff19e17-d13e-5d66-9b13-fe0de6d7c373"
+      ]
+    },
+    "53cc76e3-0058-53fe-a3f1-0f49eb66b7a3": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 2680,
+      "y": 330,
+      "args": {
+        "value": "Förvärmning",
+        "variable": {
+          "id": "69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+          "name": "Stugläge"
+        }
+      }
+    },
+    "54614128-2681-5acf-9f3e-0f5ad873d541": {
+      "type": "condition",
+      "id": "homey:manager:cron:time_between",
+      "x": 1160,
+      "y": 550,
+      "args": {
+        "time1": "08:00",
+        "time2": "22:00"
+      },
+      "outputTrue": [
+        "dd0c3bca-8b53-5c98-915f-efadd7b72723"
+      ]
+    },
+    "6300211d-8e27-4e89-8711-f0717c6a9444": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1980,
+      "y": -80,
+      "args": {
+        "text": "Ingen verkar vara kvar i stugan men larmet är inte på. Stugan står kvar i läge Hemma tills larmet slås på.",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "656d8398-ae3a-533d-a220-372e0a470084": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 400,
+      "y": 770,
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "1ff5f02b-a5f7-487f-bb17-4918551595cc",
+          "name": "Varmt i stugan"
+        }
+      }
+    },
+    "6d54d4a7-85dd-5687-a7fc-9b6a37d1ec49": {
+      "type": "condition",
+      "id": "homey:device:dbbafe31-60b9-42e2-9a82-4442f429c1b5:on",
+      "x": 2300,
+      "y": 330,
+      "args": {},
+      "outputTrue": [
+        "53cc76e3-0058-53fe-a3f1-0f49eb66b7a3"
+      ],
+      "outputFalse": [
+        "364c1894-0360-5ac5-9fcb-4400d7990aa2"
+      ]
+    },
+    "70cc4619-474c-5ead-9ce0-8349767386b1": {
+      "type": "trigger",
+      "id": "homey:manager:presence:first_user_enter",
+      "x": 20,
+      "y": 1100,
+      "outputSuccess": [
+        "9ff19e17-d13e-5d66-9b13-fe0de6d7c373"
+      ]
+    },
+    "78f3b320-de39-5e45-bd2f-6f17ce733feb": {
+      "type": "trigger",
+      "id": "homey:device:00526538-6e6c-4b19-bd19-814450782f8b:onoff_false",
+      "x": 20,
+      "y": 770,
+      "args": {},
+      "outputSuccess": [
+        "9ff19e17-d13e-5d66-9b13-fe0de6d7c373"
+      ]
+    },
+    "7b05749e-f6f1-5c09-b348-6732993e3266": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 2680,
+      "y": 220,
+      "args": {
+        "value": "Förkylning",
+        "variable": {
+          "id": "69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+          "name": "Stugläge"
+        }
+      }
+    },
+    "7ee27b57-b39d-5f2f-9f3d-46b588839719": {
+      "type": "condition",
+      "id": "homey:manager:mobile:push_confirm",
+      "x": 2300,
+      "y": 440,
+      "args": {
+        "text": "Nu är det varmt i stugan! Skall det kylas i stugan?",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "outputTrue": [
+        "32fec145-61e0-5bf3-8b05-6ae704703c17"
+      ]
+    },
+    "7f64a5b0-72a4-5a72-9669-83443b456a8e": {
+      "type": "trigger",
+      "id": "homey:device:da69b402-4a05-44de-9a1e-1b152d836b72:measure_temperature_threshold_above_duration",
+      "x": 20,
+      "y": 1540,
+      "args": {
+        "duration": 30,
+        "threshold": 25
+      },
+      "outputSuccess": [
+        "4b1d9656-92ef-504a-9ba8-4e26cd1fd271"
+      ]
+    },
+    "811505cf-c085-5a6f-82e7-c0333510be0e": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 20,
+      "y": 1650,
+      "args": {
+        "time": "10:00"
+      },
+      "outputSuccess": [
+        "656d8398-ae3a-533d-a220-372e0a470084"
+      ]
+    },
+    "85aed842-faad-5b6a-8d59-32c0e488351e": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 1160,
+      "y": 440,
+      "args": {
+        "text": "Förvärmning eller Förkylning är fortfarande på i stugan",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      }
+    },
+    "8a0a80e8-fc1c-4dff-b405-1a137dd5efbe": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 560,
+      "y": 960,
+      "args": {
+        "text": "[[card::a1000000-0000-4000-8000-000000000008::error]]",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "8bb42957-b4bf-5909-a6c2-01f8385b2ffe": {
+      "type": "trigger",
+      "id": "homey:manager:cron:time_exactly",
+      "x": 20,
+      "y": 1210,
+      "args": {
+        "time": "08:00"
+      },
+      "outputSuccess": [
+        "9ff19e17-d13e-5d66-9b13-fe0de6d7c373"
+      ]
+    },
+    "9f17eee6-75fa-58e1-b040-f7a73250051d": {
+      "type": "condition",
+      "id": "homey:device:00526538-6e6c-4b19-bd19-814450782f8b:on",
+      "x": 1920,
+      "y": 330,
+      "args": {},
+      "outputTrue": [
+        "48f7ba04-c39b-5e64-a34e-731372978cb9"
+      ],
+      "outputFalse": [
+        "6d54d4a7-85dd-5687-a7fc-9b6a37d1ec49"
+      ]
+    },
+    "9ff19e17-d13e-5d66-9b13-fe0de6d7c373": {
+      "type": "any",
+      "x": 400,
+      "y": 220,
+      "outputSuccess": [
+        "fdbfdc52-19be-5866-80d2-45703604a67f"
+      ]
+    },
+    "a1000000-0000-4000-8000-000000000001": {
+      "type": "delay",
+      "x": 1340,
+      "y": 120,
+      "outputSuccess": [
+        "a1000000-0000-4000-8000-000000000002"
+      ],
+      "args": {
+        "delay": {
+          "number": "5",
+          "multiplier": 60
+        }
+      }
+    },
+    "a1000000-0000-4000-8000-000000000002": {
+      "type": "condition",
+      "id": "homey:manager:presence:noone_athome",
+      "x": 1440,
+      "y": -20,
+      "args": {},
+      "outputTrue": [
+        "b9a52e49-5610-4c60-b752-361ebad51919"
+      ]
+    },
+    "a1000000-0000-4000-8000-000000000004": {
+      "type": "delay",
+      "x": 2000,
+      "y": 120,
+      "outputSuccess": [
+        "a1000000-0000-4000-8000-000000000005"
+      ],
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 60
+        }
+      }
+    },
+    "a1000000-0000-4000-8000-000000000005": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 2100,
+      "y": 120,
+      "args": {
+        "comparator": "Borta"
+      },
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "outputTrue": [
+        "a1000000-0000-4000-8000-000000000006"
+      ]
+    },
+    "a1000000-0000-4000-8000-000000000006": {
+      "type": "condition",
+      "id": "homey:device:6dece838-e029-48a2-bbc3-6bcbe29e5ed0:locked",
+      "x": 2200,
+      "y": 120,
+      "args": {},
+      "inverted": true,
+      "outputTrue": [
+        "a1000000-0000-4000-8000-000000000007"
+      ]
+    },
+    "a1000000-0000-4000-8000-000000000007": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "x": 2300,
+      "y": 120,
+      "args": {
+        "text": "Stugläge är Borta men ytterdörren är inte låst",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      }
+    },
+    "a1000000-0000-4000-8000-000000000008": {
+      "type": "action",
+      "id": "homey:device:7639e352-3ffe-4e4e-b08a-b02996ddca86:send_command_string",
+      "x": 400,
+      "y": 880,
+      "args": {
+        "code": {
+          "dataPoint": false,
+          "id": "master_mode",
+          "name": "master_mode",
+          "title": "master_mode"
+        },
+        "value": "disarmed"
+      },
+      "outputError": [
+        "8a0a80e8-fc1c-4dff-b405-1a137dd5efbe"
+      ]
+    },
+    "acabac03-d08f-5c0e-996f-d446515aa1db": {
+      "type": "trigger",
+      "id": "homey:device:dbbafe31-60b9-42e2-9a82-4442f429c1b5:onoff_false",
+      "x": 20,
+      "y": 550,
+      "args": {},
+      "outputSuccess": [
+        "9ff19e17-d13e-5d66-9b13-fe0de6d7c373"
+      ]
+    },
+    "b0000001-0000-4000-8000-000000000001": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1160,
+      "y": 220,
+      "args": {},
+      "droptoken": "homey:manager:logic|30ad9a3e-a613-414a-a835-e4c97777e883",
+      "inverted": true,
+      "outputTrue": [
+        "1b2383a6-204a-5811-8ad9-7b030283d777"
+      ]
+    },
+    "b0000001-0000-4000-8000-000000000002": {
+      "type": "note",
+      "x": 1160,
+      "y": 140,
+      "value": "Förvärmning pågår: larmet får inte sätta Borta medan förvärmning/förkylning pågår (annars avbryts den av 08:00/22:00-körningen eller när låset/närvaron ändras). Förvärmningen avslutas av ST Framme (dörren låses upp) eller av 6-timmarsgränsen i ST Vi åker till stugan.",
+      "color": "blue"
+    },
+    "b9a52e49-5610-4c60-b752-361ebad51919": {
+      "type": "condition",
+      "id": "homey:device:cdaa78ff-5188-4d30-a0db-d61539c8156f:on",
+      "x": 1700,
+      "y": -20,
+      "inverted": true,
+      "outputTrue": [
+        "6300211d-8e27-4e89-8711-f0717c6a9444",
+        "401896da-816b-4a4c-9b5f-96bba8236ec9"
+      ]
+    },
+    "c4000002-0000-4000-8000-000000000001": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 210,
+      "y": 960,
+      "args": {
+        "comparator": "disarmed"
+      },
+      "droptoken": "homey:manager:logic|e18e0371-c1a3-4f48-87ff-9012fd6eb025",
+      "inverted": true,
+      "outputTrue": [
+        "a1000000-0000-4000-8000-000000000008"
+      ]
+    },
+    "c57676ec-d74b-5947-aa85-5db44f0e49f0": {
+      "type": "trigger",
+      "id": "homey:device:00526538-6e6c-4b19-bd19-814450782f8b:onoff_true",
+      "x": 20,
+      "y": 660,
+      "args": {},
+      "outputSuccess": [
+        "9ff19e17-d13e-5d66-9b13-fe0de6d7c373"
+      ]
+    },
+    "cfbb7b77-5623-5c51-ac9a-4d60c87e7a71": {
+      "type": "trigger",
+      "id": "homey:device:dbbafe31-60b9-42e2-9a82-4442f429c1b5:onoff_true",
+      "x": 20,
+      "y": 440,
+      "args": {},
+      "outputSuccess": [
+        "9ff19e17-d13e-5d66-9b13-fe0de6d7c373"
+      ]
+    },
+    "d395c918-8b49-5e6b-8714-1d2e2303939e": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 1920,
+      "y": 440,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "1ff5f02b-a5f7-487f-bb17-4918551595cc",
+          "name": "Varmt i stugan"
+        }
+      },
+      "outputSuccess": [
+        "7ee27b57-b39d-5f2f-9f3d-46b588839719",
+        "ed035633-d524-5002-96c4-07a5608fbfa7"
+      ]
+    },
+    "d9bc9f84-bc12-5ff9-9b09-f6ade3749ecb": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_string",
+      "x": 3060,
+      "y": 220,
+      "args": {
+        "value": "Natt",
+        "variable": {
+          "id": "69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+          "name": "Stugläge"
+        }
+      }
+    },
+    "dbadc55d-b0a2-45c8-a2a6-7df380180133": {
+      "type": "note",
+      "x": 20,
+      "y": -160,
+      "value": "Hemma/Borta styrs av LARMET, inte av dörrlåset (låset reagerar även på manuell låsning inifrån).\n• Larmat 🚨 på → Borta.\n• Larmat 🚨 av → Förkylning / Förvärmning / Natt (22–08) / Hemma.\n• Skyddsnät: om alla telefoner lämnat stugan och larmet fortfarande är av efter 5 min → push-påminnelse. Läget ändras inte automatiskt.\n• Upplåst dörr skickar avlarmning till panelen bara när textvariabeln Larmläge inte är disarmed (arm/home/sos).",
+      "color": "yellow"
+    },
+    "dd0c3bca-8b53-5c98-915f-efadd7b72723": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 1540,
+      "y": 330,
+      "args": {},
+      "droptoken": "homey:manager:logic|1ff5f02b-a5f7-487f-bb17-4918551595cc",
+      "inverted": true,
+      "outputTrue": [
+        "d395c918-8b49-5e6b-8714-1d2e2303939e"
+      ]
+    },
+    "e54693df-56ae-5a0b-83e4-19525eaf38e4": {
+      "type": "trigger",
+      "id": "homey:device:6dece838-e029-48a2-bbc3-6bcbe29e5ed0:locked_false",
+      "x": 20,
+      "y": 880,
+      "args": {},
+      "outputSuccess": [
+        "9ff19e17-d13e-5d66-9b13-fe0de6d7c373",
+        "4461bfca-c5bf-562f-a93a-c0d369c3813a",
+        "c4000002-0000-4000-8000-000000000001"
+      ]
+    },
+    "e7052c9e-f73d-57c9-a0fc-2b73872f96fb": {
+      "type": "trigger",
+      "id": "homey:device:cdaa78ff-5188-4d30-a0db-d61539c8156f:onoff_true",
+      "x": 20,
+      "y": 220,
+      "outputSuccess": [
+        "9ff19e17-d13e-5d66-9b13-fe0de6d7c373"
+      ]
+    },
+    "ed035633-d524-5002-96c4-07a5608fbfa7": {
+      "type": "condition",
+      "id": "homey:manager:mobile:push_confirm",
+      "x": 2300,
+      "y": 550,
+      "args": {
+        "text": "Nu är det varmt i stugan! Skall det kylas i stugan?",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "outputTrue": [
+        "32fec145-61e0-5bf3-8b05-6ae704703c17"
+      ]
+    },
+    "ee01d8e7-5f56-538e-a358-9e42e90cd818": {
+      "type": "any",
+      "x": 780,
+      "y": 440,
+      "outputSuccess": [
+        "4a83bfe5-3e59-54d5-86c0-1cf570c2cf18",
+        "85aed842-faad-5b6a-8d59-32c0e488351e"
+      ]
+    },
+    "f542673f-3a30-5518-b847-6169c19d96ad": {
+      "type": "condition",
+      "id": "homey:manager:presence:noone_athome",
+      "x": 1160,
+      "y": -20,
+      "args": {},
+      "outputTrue": [
+        "a1000000-0000-4000-8000-000000000001"
+      ]
+    },
+    "f6fa1960-d3cc-53fc-b740-6c2bc7e6c33c": {
+      "type": "trigger",
+      "id": "homey:manager:presence:last_user_left",
+      "x": 20,
+      "y": 990,
+      "outputSuccess": [
+        "9ff19e17-d13e-5d66-9b13-fe0de6d7c373",
+        "f542673f-3a30-5518-b847-6169c19d96ad"
+      ]
+    },
+    "fa4c21d3-a2bb-5eff-9bfd-1a5ecd6b146c": {
+      "type": "trigger",
+      "id": "homey:device:cdaa78ff-5188-4d30-a0db-d61539c8156f:onoff_false",
+      "x": 20,
+      "y": 330,
+      "outputSuccess": [
+        "9ff19e17-d13e-5d66-9b13-fe0de6d7c373",
+        "4461bfca-c5bf-562f-a93a-c0d369c3813a"
+      ]
+    },
+    "fdbfdc52-19be-5866-80d2-45703604a67f": {
+      "type": "condition",
+      "id": "homey:device:cdaa78ff-5188-4d30-a0db-d61539c8156f:on",
+      "x": 780,
+      "y": 330,
+      "args": {},
+      "outputTrue": [
+        "b0000001-0000-4000-8000-000000000001"
+      ],
+      "outputFalse": [
+        "9f17eee6-75fa-58e1-b040-f7a73250051d"
+      ]
+    }
+  }
+}

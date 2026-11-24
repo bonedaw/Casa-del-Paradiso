@@ -1,0 +1,186 @@
+{
+  "id": "34053dc7-aa42-4b7c-95c1-41d049c5984c",
+  "uri": "homey:advancedflow:34053dc7-aa42-4b7c-95c1-41d049c5984c",
+  "name": "ST Utetemp",
+  "folder": "14d9f5a0-4460-44e7-ba57-dfe53424cb1d",
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "78aeb413-7409-5aa6-8542-f9e61f7ed04d": {
+      "type": "any",
+      "outputSuccess": [
+        "f3212a0d-dfe4-5406-a2ee-473ff5bf01f7"
+      ],
+      "x": 400,
+      "y": 20
+    },
+    "884e2d17-6034-597b-a99c-f9c0aabfcfc1": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "00:00"
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "78aeb413-7409-5aa6-8542-f9e61f7ed04d"
+      ],
+      "x": 20,
+      "y": 20
+    },
+    "30e56829-db89-5b01-b445-177f43b37648": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "03:00"
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "78aeb413-7409-5aa6-8542-f9e61f7ed04d"
+      ],
+      "x": 20,
+      "y": 130
+    },
+    "56761998-c343-5333-b5e0-75824c0a7b67": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "06:00"
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "78aeb413-7409-5aa6-8542-f9e61f7ed04d"
+      ],
+      "x": 20,
+      "y": 240
+    },
+    "f7b24ee5-2cc3-51f5-adae-27070f5c72d5": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "09:00"
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "78aeb413-7409-5aa6-8542-f9e61f7ed04d"
+      ],
+      "x": 20,
+      "y": 350
+    },
+    "353ce287-3c2b-5e0a-8e2c-ec87cacd6ed9": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "12:00"
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "78aeb413-7409-5aa6-8542-f9e61f7ed04d"
+      ],
+      "x": 20,
+      "y": 460
+    },
+    "769af8ab-ea60-54df-96d7-64cdd1ca77e9": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "15:00"
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "78aeb413-7409-5aa6-8542-f9e61f7ed04d"
+      ],
+      "x": 20,
+      "y": 570
+    },
+    "111d742b-a478-5424-b282-f51aa0a70eb4": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "18:00"
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "78aeb413-7409-5aa6-8542-f9e61f7ed04d"
+      ],
+      "x": 20,
+      "y": 680
+    },
+    "00d8a600-6647-543a-916a-8918aa9da783": {
+      "ownerUri": "homey:manager:cron",
+      "id": "homey:manager:cron:time_exactly",
+      "args": {
+        "time": "21:00"
+      },
+      "type": "trigger",
+      "outputSuccess": [
+        "78aeb413-7409-5aa6-8542-f9e61f7ed04d"
+      ],
+      "x": 20,
+      "y": 790
+    },
+    "f3212a0d-dfe4-5406-a2ee-473ff5bf01f7": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:equation",
+      "type": "condition",
+      "args": {
+        "value1": "[[homey:manager:weather|temperature]]",
+        "operator": "gt",
+        "value2": "-60"
+      },
+      "outputTrue": [
+        "ca1a97c6-b82f-55bc-bc06-fe90bcc27dac"
+      ],
+      "outputFalse": [
+        "31dad433-f89f-5166-a992-2bf33688af59"
+      ],
+      "x": 780,
+      "y": 20
+    },
+    "ca1a97c6-b82f-55bc-bc06-fe90bcc27dac": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_number",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "57ab09a1-dc3e-4f77-9418-1846d6543af7",
+          "name": "Temp utomhus"
+        },
+        "value": "[[homey:manager:weather|temperature]]"
+      },
+      "outputSuccess": [
+        "f93323ea-0790-59f1-bd78-4d9556606da6"
+      ],
+      "x": 1160,
+      "y": 20
+    },
+    "f93323ea-0790-59f1-bd78-4d9556606da6": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "c97ed73c-e9d2-4121-bb58-62605e4c6937",
+          "name": "Utetemp ok"
+        },
+        "value": true
+      },
+      "x": 1540,
+      "y": 20
+    },
+    "31dad433-f89f-5166-a992-2bf33688af59": {
+      "ownerUri": "homey:manager:logic",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "type": "action",
+      "args": {
+        "variable": {
+          "id": "c97ed73c-e9d2-4121-bb58-62605e4c6937",
+          "name": "Utetemp ok"
+        },
+        "value": false
+      },
+      "x": 1160,
+      "y": 130
+    }
+  }
+}
