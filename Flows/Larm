@@ -552,7 +552,7 @@
       "type": "note",
       "x": 1260,
       "y": 2560,
-      "value": "2026-11-24: Inbrott skickas direkt till Pro via webhook (tag=inbrott), samma väg som brand. Pro pollar inte längre Sheet var 6:e minut. A3-skrivningen till Make finns kvar som logg.",
+      "value": "2026-11-24: Inbrott skickas direkt till Pro via webhook (tag=inbrott), samma väg som brand. Pro pollar inte längre Sheet var 6:e minut. A3-skrivningen till Make finns kvar som logg.\n\n2026-11-25: LARM i stugan-notiserna (nyckelskåp/loft) är kritisk push, så de går igenom stör ej även om Pro är nere.",
       "color": "yellow"
     },
     "a88131db-42bf-4073-aef5-df8276fc15f8": {
@@ -802,7 +802,7 @@
     },
     "c3000001-0000-4000-8000-000000000014": {
       "type": "action",
-      "id": "homey:manager:mobile:push_text",
+      "id": "homey:manager:mobile:push_text_critical",
       "x": 1560,
       "y": 3160,
       "args": {
@@ -817,7 +817,7 @@
     },
     "c3000001-0000-4000-8000-000000000015": {
       "type": "action",
-      "id": "homey:manager:mobile:push_text",
+      "id": "homey:manager:mobile:push_text_critical",
       "x": 1560,
       "y": 3260,
       "args": {

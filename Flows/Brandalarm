@@ -62,7 +62,8 @@
       "x": 100,
       "y": 900,
       "outputSuccess": [
-        "bbb807cd-a624-493e-bfc2-73cee8f1f5f0"
+        "bbb807cd-a624-493e-bfc2-73cee8f1f5f0",
+        "d37228d0-930d-4440-920a-8060a3470b06"
       ]
     },
     "4c785c37-e86e-4c24-8cfc-6c2f2d56b34e": {
@@ -183,7 +184,8 @@
         }
       },
       "outputSuccess": [
-        "e712877c-3ffb-4a7a-b556-b9842c417443"
+        "e712877c-3ffb-4a7a-b556-b9842c417443",
+        "c928ff15-ebda-47ef-8961-8c74ff3a6944"
       ]
     },
     "b2d93908-b19e-4943-84bd-ff56b9fdf372": {
@@ -266,7 +268,273 @@
       "droptoken": "trigger::a32934ae-0745-4134-8f79-394e3ce4d835::value",
       "outputTrue": [
         "a1902e99-1e76-4124-8e9a-460c17c4091f",
-        "c9000000-0000-4000-8000-000000000001"
+        "c9000000-0000-4000-8000-000000000001",
+        "6d5f913c-98f4-4104-b564-0a46d439540b"
+      ]
+    },
+    "59e66cfa-d7f8-48d3-b4d5-e5bc4b2d586e": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "6fd8077e-d109-42bd-8354-00d295b4b23b",
+          "name": "Brand pågår"
+        }
+      },
+      "x": 620,
+      "y": 1100,
+      "outputSuccess": [
+        "8cccdd25-b78f-4b5e-b9ce-46d5a40fb129"
+      ]
+    },
+    "8cccdd25-b78f-4b5e-b9ce-46d5a40fb129": {
+      "type": "action",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 880,
+      "y": 1100,
+      "args": {
+        "flow": {
+          "id": "61c948d7-9664-4d3c-954e-c8c5d4c08818",
+          "name": "Brandalarm",
+          "type": "advanced"
+        },
+        "string": "brand"
+      }
+    },
+    "c928ff15-ebda-47ef-8961-8c74ff3a6944": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 340,
+      "y": 1240,
+      "args": {
+        "comparator": "normal"
+      },
+      "droptoken": "trigger::a32934ae-0745-4134-8f79-394e3ce4d835::value",
+      "outputTrue": [
+        "25c8e0ab-5654-44be-9529-e34a6992eee2"
+      ]
+    },
+    "25c8e0ab-5654-44be-9529-e34a6992eee2": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "6fd8077e-d109-42bd-8354-00d295b4b23b",
+          "name": "Brand pågår"
+        }
+      },
+      "x": 620,
+      "y": 1240
+    },
+    "d37228d0-930d-4440-920a-8060a3470b06": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "6fd8077e-d109-42bd-8354-00d295b4b23b",
+          "name": "Brand pågår"
+        }
+      },
+      "x": 540,
+      "y": 980
+    },
+    "95c81c5b-ddbc-41d5-9001-a4f3922d64bf": {
+      "type": "trigger",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 60,
+      "y": 1400,
+      "outputSuccess": [
+        "27cd59d1-92b2-43c2-be52-ea96c7ee4eb3"
+      ]
+    },
+    "27cd59d1-92b2-43c2-be52-ea96c7ee4eb3": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 340,
+      "y": 1400,
+      "args": {
+        "comparator": "brand"
+      },
+      "droptoken": "trigger::95c81c5b-ddbc-41d5-9001-a4f3922d64bf::tag",
+      "outputTrue": [
+        "0c8b60ed-45e4-4f8a-836e-a7151850a2a7"
+      ]
+    },
+    "0c8b60ed-45e4-4f8a-836e-a7151850a2a7": {
+      "type": "delay",
+      "x": 580,
+      "y": 1400,
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 60
+        }
+      },
+      "outputSuccess": [
+        "1f59f2ed-a7f8-45b9-9fe6-e3c7cd1be564"
+      ]
+    },
+    "1f59f2ed-a7f8-45b9-9fe6-e3c7cd1be564": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 820,
+      "y": 1400,
+      "droptoken": "homey:manager:logic|6fd8077e-d109-42bd-8354-00d295b4b23b",
+      "outputTrue": [
+        "1aaf0656-9be2-48c2-bbfc-052f48e153a4",
+        "b197ae5a-6672-4617-8ad3-cb3591fe9f0f",
+        "60b98f2f-16e7-4164-9e07-fdc49e6a38d5"
+      ]
+    },
+    "1aaf0656-9be2-48c2-bbfc-052f48e153a4": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "args": {
+        "text": "Brandlarmet i stugan pågår fortfarande 🔥 Tryck Disarm för att kvittera",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "x": 1080,
+      "y": 1360
+    },
+    "b197ae5a-6672-4617-8ad3-cb3591fe9f0f": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "args": {
+        "text": "Brandlarmet i stugan pågår fortfarande 🔥 Tryck Disarm för att kvittera",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "x": 1080,
+      "y": 1440
+    },
+    "60b98f2f-16e7-4164-9e07-fdc49e6a38d5": {
+      "type": "action",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 1340,
+      "y": 1400,
+      "args": {
+        "flow": {
+          "id": "61c948d7-9664-4d3c-954e-c8c5d4c08818",
+          "name": "Brandalarm",
+          "type": "advanced"
+        },
+        "string": "brand"
+      }
+    },
+    "1e102fb5-73a6-4d12-b4b3-1ef17900013f": {
+      "type": "trigger",
+      "id": "homey:device:b29080ac-3e58-45d2-8ee4-d15f01f67ca0:device_offline",
+      "x": 60,
+      "y": 1600,
+      "outputSuccess": [
+        "c7bde5a6-8826-4950-9951-d6810e4767f0"
+      ]
+    },
+    "c7bde5a6-8826-4950-9951-d6810e4767f0": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "e5ddec73-0a14-401b-8f64-29b3719a45e3",
+          "name": "Brandvarnare offline"
+        }
+      },
+      "x": 340,
+      "y": 1600,
+      "outputSuccess": [
+        "e78128fc-1d84-4a83-a06b-2d8d6982b47f"
+      ]
+    },
+    "e78128fc-1d84-4a83-a06b-2d8d6982b47f": {
+      "type": "delay",
+      "x": 580,
+      "y": 1600,
+      "args": {
+        "delay": {
+          "number": "30",
+          "multiplier": 60
+        }
+      },
+      "outputSuccess": [
+        "a24d61a0-fecb-492d-b3be-0e4534a93e19"
+      ]
+    },
+    "a24d61a0-fecb-492d-b3be-0e4534a93e19": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 820,
+      "y": 1600,
+      "droptoken": "homey:manager:logic|e5ddec73-0a14-401b-8f64-29b3719a45e3",
+      "outputTrue": [
+        "b4503662-8de0-4f77-8586-d9530aa832b8"
+      ]
+    },
+    "b4503662-8de0-4f77-8586-d9530aa832b8": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "args": {
+        "text": "🔥 Brandvarnaren i stugan har inte kontakt med Homey sedan 30 min. Kontrollera batteri och wifi",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "x": 1080,
+      "y": 1600
+    },
+    "ca79a1a2-536a-4510-a0c4-81df3b7b8c57": {
+      "type": "trigger",
+      "id": "homey:device:b29080ac-3e58-45d2-8ee4-d15f01f67ca0:device_online",
+      "x": 60,
+      "y": 1720,
+      "outputSuccess": [
+        "109abca4-8079-4c96-a788-6bcd1cb89ce8"
+      ]
+    },
+    "109abca4-8079-4c96-a788-6bcd1cb89ce8": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "e5ddec73-0a14-401b-8f64-29b3719a45e3",
+          "name": "Brandvarnare offline"
+        }
+      },
+      "x": 340,
+      "y": 1720
+    },
+    "2ebf7bc2-d636-4b6e-a7a9-95ea3db0cde7": {
+      "type": "note",
+      "x": 60,
+      "y": 1880,
+      "color": "yellow",
+      "value": "Omg. 2026-11-25: Brand pågår sätts vid larm och nollas när brandvarnaren rapporterar normal eller Disarm trycks. Så länge den är på kommer en kritisk push var 10:e minut (tagg brand). Nedre spår: om brandvarnaren går offline och inte är tillbaka inom 30 min kommer en push."
+    },
+    "6d5f913c-98f4-4104-b564-0a46d439540b": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 340,
+      "y": 1040,
+      "droptoken": "homey:manager:logic|6fd8077e-d109-42bd-8354-00d295b4b23b",
+      "inverted": true,
+      "outputTrue": [
+        "59e66cfa-d7f8-48d3-b4d5-e5bc4b2d586e"
       ]
     }
   }

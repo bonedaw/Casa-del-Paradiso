@@ -18,6 +18,13 @@ Pro skickar till stugan: mörker (ST Mörkt från Pro), väder/regn (ST Väder f
 
 Make/Google Sheet används fortfarande för loggning och den dagliga batteri-/miljösammanställningen (Export_To_Sheets m.fl.), men larm går inte längre den vägen till Pro.
 
+## Larmvakter (2026-11-25)
+
+- **Brandalarm**: kritisk push var 10:e minut så länge brandlarmet pågår (variabeln *Brand pågår*, nollas av status `normal` eller Disarm). Push om brandvarnaren varit offline i 30 min (*Brandvarnare offline*).
+- **Läckagesensorer**: kritisk push var 10:e minut så länge en sensor är blöt. Push när en sensor går under 20 % batteri. Bridge kan inte se tappad kontakt för läckagesensorerna utan falsklarm.
+- **ST Mörkt från Pro**: push till båda om Pro inte hörts av på ca 3 timmar (en gång, spärr *Pro tyst varnat*) och när Pro hörs av igen.
+- **Larm**: "LARM i stugan" från stugans egna sensorer är kritisk push.
+
 ## Kända lösa trådar i Homey (2026-11-24)
 
 - **Rullgardin hallen**: triggern `windowcoverings_set_changed` pekar även på kortet `d6dc150c-…`, som inte finns.

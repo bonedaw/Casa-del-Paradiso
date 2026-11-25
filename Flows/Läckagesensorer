@@ -45,7 +45,8 @@
       "outputSuccess": [
         "3b3a9394-26ce-476b-9a39-31a5bd355d8d",
         "1be47ead-4bd3-4730-9749-a0644c2fe52b",
-        "ca000000-0000-4000-8000-000000000001"
+        "ca000000-0000-4000-8000-000000000001",
+        "933c01ce-01b4-415b-b341-8814c28e5ace"
       ]
     },
     "3b3a9394-26ce-476b-9a39-31a5bd355d8d": {
@@ -108,7 +109,8 @@
       "outputSuccess": [
         "7b4a41dd-8444-4db6-92d3-e6d108c5d95b",
         "d11ba3f8-344a-46fa-b285-dcd1943d8eb3",
-        "ca000000-0000-4000-8000-000000000003"
+        "ca000000-0000-4000-8000-000000000003",
+        "9ac18e40-88c4-4735-a0f0-0bde24e361b1"
       ]
     },
     "ca000000-0000-4000-8000-000000000001": {
@@ -170,8 +172,396 @@
       "outputSuccess": [
         "7fe75f63-0dae-442b-b798-f194e1115048",
         "05643017-bff8-475e-8668-14c81bf521d5",
-        "ca000000-0000-4000-8000-000000000002"
+        "ca000000-0000-4000-8000-000000000002",
+        "28740428-814c-4f14-b558-6e144b782b60"
       ]
+    },
+    "32e34f45-46f9-4ebd-bf8b-011133475bf4": {
+      "type": "trigger",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 0,
+      "y": 800,
+      "outputSuccess": [
+        "577e910e-38be-48de-81e7-eb65280d2131",
+        "cd81f9bd-95f1-4618-b301-ca65ae155d33",
+        "f0073e3f-c512-47ad-8a4e-f6c1f712f049"
+      ]
+    },
+    "933c01ce-01b4-415b-b341-8814c28e5ace": {
+      "type": "action",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 820,
+      "y": 120,
+      "args": {
+        "flow": {
+          "id": "e8fac8a2-6948-4eec-9452-e6e8805b33a4",
+          "name": "Läckagesensorer",
+          "type": "advanced"
+        },
+        "string": "kok"
+      }
+    },
+    "577e910e-38be-48de-81e7-eb65280d2131": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 300,
+      "y": 760,
+      "args": {
+        "comparator": "kok"
+      },
+      "droptoken": "trigger::32e34f45-46f9-4ebd-bf8b-011133475bf4::tag",
+      "outputTrue": [
+        "9dfe3368-fa6f-417c-9300-429400a6a1ca"
+      ]
+    },
+    "9dfe3368-fa6f-417c-9300-429400a6a1ca": {
+      "type": "delay",
+      "x": 540,
+      "y": 760,
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 60
+        }
+      },
+      "outputSuccess": [
+        "72652bc5-28a8-405d-b079-7c8357c81ef9"
+      ]
+    },
+    "72652bc5-28a8-405d-b079-7c8357c81ef9": {
+      "type": "condition",
+      "id": "homey:device:20ad0094-f2fb-43b2-a7ee-d65a379dc108:alarm_water",
+      "x": 780,
+      "y": 760,
+      "outputTrue": [
+        "9c42238c-20e6-4fd0-ae04-ad3855c8c36c",
+        "6dcd14f7-7c35-48b5-8525-934c5b5e2350",
+        "0cb75ee3-3cba-40db-8bd3-a71c70aaed93"
+      ]
+    },
+    "9c42238c-20e6-4fd0-ae04-ad3855c8c36c": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "args": {
+        "text": "Läckage i köket pågår fortfarande 💧 Sensorn är fortfarande blöt",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "x": 1040,
+      "y": 720
+    },
+    "6dcd14f7-7c35-48b5-8525-934c5b5e2350": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "args": {
+        "text": "Läckage i köket pågår fortfarande 💧 Sensorn är fortfarande blöt",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "x": 1040,
+      "y": 800
+    },
+    "0cb75ee3-3cba-40db-8bd3-a71c70aaed93": {
+      "type": "action",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 1300,
+      "y": 760,
+      "args": {
+        "flow": {
+          "id": "e8fac8a2-6948-4eec-9452-e6e8805b33a4",
+          "name": "Läckagesensorer",
+          "type": "advanced"
+        },
+        "string": "kok"
+      }
+    },
+    "0b784a3f-6f4c-479f-98c2-e89bc12d0970": {
+      "type": "trigger",
+      "id": "homey:device:20ad0094-f2fb-43b2-a7ee-d65a379dc108:measure_battery_threshold_below",
+      "x": 0,
+      "y": 1500,
+      "args": {
+        "threshold": 20
+      },
+      "outputSuccess": [
+        "b25d0a47-f99b-4956-bbda-d804c4847e30"
+      ]
+    },
+    "b25d0a47-f99b-4956-bbda-d804c4847e30": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "args": {
+        "text": "🔋 Läckagesensorn i köket i stugan har under 20 % batteri",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "x": 400,
+      "y": 1500
+    },
+    "28740428-814c-4f14-b558-6e144b782b60": {
+      "type": "action",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 820,
+      "y": 220,
+      "args": {
+        "flow": {
+          "id": "e8fac8a2-6948-4eec-9452-e6e8805b33a4",
+          "name": "Läckagesensorer",
+          "type": "advanced"
+        },
+        "string": "badrum"
+      }
+    },
+    "cd81f9bd-95f1-4618-b301-ca65ae155d33": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 300,
+      "y": 960,
+      "args": {
+        "comparator": "badrum"
+      },
+      "droptoken": "trigger::32e34f45-46f9-4ebd-bf8b-011133475bf4::tag",
+      "outputTrue": [
+        "702bf4d8-36bc-4a16-8a05-66da9fb4bc3c"
+      ]
+    },
+    "702bf4d8-36bc-4a16-8a05-66da9fb4bc3c": {
+      "type": "delay",
+      "x": 540,
+      "y": 960,
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 60
+        }
+      },
+      "outputSuccess": [
+        "84fdaf22-0cfa-4c20-8148-74714be54aae"
+      ]
+    },
+    "84fdaf22-0cfa-4c20-8148-74714be54aae": {
+      "type": "condition",
+      "id": "homey:device:6ebfc539-9592-4784-95ec-3a48d9e17471:alarm_water",
+      "x": 780,
+      "y": 960,
+      "outputTrue": [
+        "1dc28ee9-c585-4734-8f8e-b05dbd0b991d",
+        "d2464141-1423-4889-998c-e9467b4d8272",
+        "4c7a26eb-f1c4-4639-89c2-f54a441b9726"
+      ]
+    },
+    "1dc28ee9-c585-4734-8f8e-b05dbd0b991d": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "args": {
+        "text": "Läckage i badrummet pågår fortfarande 💧 Sensorn är fortfarande blöt",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "x": 1040,
+      "y": 920
+    },
+    "d2464141-1423-4889-998c-e9467b4d8272": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "args": {
+        "text": "Läckage i badrummet pågår fortfarande 💧 Sensorn är fortfarande blöt",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "x": 1040,
+      "y": 1000
+    },
+    "4c7a26eb-f1c4-4639-89c2-f54a441b9726": {
+      "type": "action",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 1300,
+      "y": 960,
+      "args": {
+        "flow": {
+          "id": "e8fac8a2-6948-4eec-9452-e6e8805b33a4",
+          "name": "Läckagesensorer",
+          "type": "advanced"
+        },
+        "string": "badrum"
+      }
+    },
+    "2456d317-ea48-4ad3-9c08-61e2fbfcdb1c": {
+      "type": "trigger",
+      "id": "homey:device:6ebfc539-9592-4784-95ec-3a48d9e17471:measure_battery_threshold_below",
+      "x": 0,
+      "y": 1600,
+      "args": {
+        "threshold": 20
+      },
+      "outputSuccess": [
+        "79056c45-091c-4486-8bd1-d37c93ba6171"
+      ]
+    },
+    "79056c45-091c-4486-8bd1-d37c93ba6171": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "args": {
+        "text": "🔋 Läckagesensorn i badrummet i stugan har under 20 % batteri",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "x": 400,
+      "y": 1600
+    },
+    "9ac18e40-88c4-4735-a0f0-0bde24e361b1": {
+      "type": "action",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 820,
+      "y": 320,
+      "args": {
+        "flow": {
+          "id": "e8fac8a2-6948-4eec-9452-e6e8805b33a4",
+          "name": "Läckagesensorer",
+          "type": "advanced"
+        },
+        "string": "loftet"
+      }
+    },
+    "f0073e3f-c512-47ad-8a4e-f6c1f712f049": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 300,
+      "y": 1160,
+      "args": {
+        "comparator": "loftet"
+      },
+      "droptoken": "trigger::32e34f45-46f9-4ebd-bf8b-011133475bf4::tag",
+      "outputTrue": [
+        "c9a596b9-5bc9-44af-8707-089b638c79d0"
+      ]
+    },
+    "c9a596b9-5bc9-44af-8707-089b638c79d0": {
+      "type": "delay",
+      "x": 540,
+      "y": 1160,
+      "args": {
+        "delay": {
+          "number": "10",
+          "multiplier": 60
+        }
+      },
+      "outputSuccess": [
+        "bd393369-f209-46f3-8a21-34d1ebe92188"
+      ]
+    },
+    "bd393369-f209-46f3-8a21-34d1ebe92188": {
+      "type": "condition",
+      "id": "homey:device:85fe6386-9d10-4404-b733-c298f6d55109:alarm_water",
+      "x": 780,
+      "y": 1160,
+      "outputTrue": [
+        "fed82ac9-0f07-4752-b201-4878aa647f5d",
+        "390f678b-799f-4bd3-b25a-d67849d592dc",
+        "e1ef379b-be2a-4fb0-9058-63b551379fe3"
+      ]
+    },
+    "fed82ac9-0f07-4752-b201-4878aa647f5d": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "args": {
+        "text": "Läckage på loftet pågår fortfarande 💧 Sensorn är fortfarande blöt",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "x": 1040,
+      "y": 1120
+    },
+    "390f678b-799f-4bd3-b25a-d67849d592dc": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text_critical",
+      "args": {
+        "text": "Läckage på loftet pågår fortfarande 💧 Sensorn är fortfarande blöt",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "x": 1040,
+      "y": 1200
+    },
+    "e1ef379b-be2a-4fb0-9058-63b551379fe3": {
+      "type": "action",
+      "id": "homey:manager:flow:programmatic_trigger_string_tag",
+      "x": 1300,
+      "y": 1160,
+      "args": {
+        "flow": {
+          "id": "e8fac8a2-6948-4eec-9452-e6e8805b33a4",
+          "name": "Läckagesensorer",
+          "type": "advanced"
+        },
+        "string": "loftet"
+      }
+    },
+    "5c9a84c1-8025-42fe-9b74-25f7bcff6324": {
+      "type": "trigger",
+      "id": "homey:device:85fe6386-9d10-4404-b733-c298f6d55109:measure_battery_threshold_below",
+      "x": 0,
+      "y": 1700,
+      "args": {
+        "threshold": 20
+      },
+      "outputSuccess": [
+        "7fe75d18-a7e4-4994-907e-90ac9eb5fd43"
+      ]
+    },
+    "7fe75d18-a7e4-4994-907e-90ac9eb5fd43": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "args": {
+        "text": "🔋 Läckagesensorn på loftet i stugan har under 20 % batteri",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "x": 400,
+      "y": 1700
+    },
+    "159ad087-9c2a-475c-a688-e232c43cccab": {
+      "type": "note",
+      "x": 0,
+      "y": 1400,
+      "color": "yellow",
+      "value": "Omg. 2026-11-25: påminnelse var 10:e minut (kritisk push) så länge en läckagesensor är blöt (tagg kok/badrum/loftet). Batterivarning direkt när en läckagesensor går under 20 %. Bridge kan inte se om en läckagesensor tappat kontakten utan falsklarm, så batterivarningen är vakten."
     }
   }
 }

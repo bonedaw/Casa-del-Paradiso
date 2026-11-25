@@ -16,7 +16,8 @@
         "event": "mork_ja_a77168457227"
       },
       "outputSuccess": [
-        "f7000000-0000-4000-8000-000000000011"
+        "f7000000-0000-4000-8000-000000000011",
+        "fbce0f36-5bcd-440d-b461-26e014ea3443"
       ]
     },
     "f7000000-0000-4000-8000-000000000002": {
@@ -28,7 +29,8 @@
         "event": "mork_nej_a77168457227"
       },
       "outputSuccess": [
-        "f7000000-0000-4000-8000-000000000021"
+        "f7000000-0000-4000-8000-000000000021",
+        "fbce0f36-5bcd-440d-b461-26e014ea3443"
       ]
     },
     "f7000000-0000-4000-8000-000000000011": {
@@ -172,7 +174,7 @@
         "time": "00:50"
       },
       "outputSuccess": [
-        "f7000000-0000-4000-8000-000000000060"
+        "2670a17c-d4ce-4b83-b0fc-5edf21fa9e81"
       ]
     },
     "f7000000-0000-4000-8000-000000000052": {
@@ -184,7 +186,7 @@
         "time": "03:50"
       },
       "outputSuccess": [
-        "f7000000-0000-4000-8000-000000000060"
+        "2670a17c-d4ce-4b83-b0fc-5edf21fa9e81"
       ]
     },
     "f7000000-0000-4000-8000-000000000053": {
@@ -196,7 +198,7 @@
         "time": "06:50"
       },
       "outputSuccess": [
-        "f7000000-0000-4000-8000-000000000060"
+        "2670a17c-d4ce-4b83-b0fc-5edf21fa9e81"
       ]
     },
     "f7000000-0000-4000-8000-000000000054": {
@@ -208,7 +210,7 @@
         "time": "09:50"
       },
       "outputSuccess": [
-        "f7000000-0000-4000-8000-000000000060"
+        "2670a17c-d4ce-4b83-b0fc-5edf21fa9e81"
       ]
     },
     "f7000000-0000-4000-8000-000000000055": {
@@ -220,7 +222,7 @@
         "time": "12:50"
       },
       "outputSuccess": [
-        "f7000000-0000-4000-8000-000000000060"
+        "2670a17c-d4ce-4b83-b0fc-5edf21fa9e81"
       ]
     },
     "f7000000-0000-4000-8000-000000000056": {
@@ -232,7 +234,7 @@
         "time": "15:50"
       },
       "outputSuccess": [
-        "f7000000-0000-4000-8000-000000000060"
+        "2670a17c-d4ce-4b83-b0fc-5edf21fa9e81"
       ]
     },
     "f7000000-0000-4000-8000-000000000057": {
@@ -244,7 +246,7 @@
         "time": "18:50"
       },
       "outputSuccess": [
-        "f7000000-0000-4000-8000-000000000060"
+        "2670a17c-d4ce-4b83-b0fc-5edf21fa9e81"
       ]
     },
     "f7000000-0000-4000-8000-000000000058": {
@@ -256,14 +258,14 @@
         "time": "21:50"
       },
       "outputSuccess": [
-        "f7000000-0000-4000-8000-000000000060"
+        "2670a17c-d4ce-4b83-b0fc-5edf21fa9e81"
       ]
     },
     "f7000000-0000-4000-8000-000000000060": {
       "type": "action",
       "id": "homey:manager:logic:variable_set_boolean",
-      "x": 360,
-      "y": 780,
+      "x": 640,
+      "y": 680,
       "args": {
         "value": false,
         "variable": {
@@ -317,8 +319,116 @@
       "type": "note",
       "x": 400,
       "y": 1260,
-      "value": "Pro skickar mork_ja/mork_nej nar Is_Dark andras och varje timme. Pro hortts av nollstalls var tredje timme; om Pro darefter ar tyst satts Morkt av solnedgang/soluppgang. Kl 12:00 nollstalls dygnsvakterna for rullgardinen (Morklaggning gjord, Uppdragning gjord).",
+      "value": "Pro skickar mork_ja/mork_nej nar Is_Dark andras och varje timme. Pro hortts av nollstalls var tredje timme; om Pro darefter ar tyst satts Morkt av solnedgang/soluppgang. Kl 12:00 nollstalls dygnsvakterna for rullgardinen (Morklaggning gjord, Uppdragning gjord).\n\nOmg. 2026-11-25: vid varje nollställning (x:50 var tredje timme) kollas först om Pro hörts av. Om inte skickas en push till båda (en gång, spärr Pro tyst varnat). När Pro hörs av igen kommer en push och spärren nollas.",
       "color": "blue"
+    },
+    "2670a17c-d4ce-4b83-b0fc-5edf21fa9e81": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 360,
+      "y": 680,
+      "droptoken": "homey:manager:logic|dc74541d-0ca3-478c-b5e1-cbbd73ac82a3",
+      "outputTrue": [
+        "f7000000-0000-4000-8000-000000000060"
+      ],
+      "outputFalse": [
+        "ff297a5d-1225-4610-ab1b-f9c6460860c6"
+      ]
+    },
+    "ff297a5d-1225-4610-ab1b-f9c6460860c6": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 640,
+      "y": 820,
+      "droptoken": "homey:manager:logic|be5a04df-34df-40db-a5a5-7040302c83d6",
+      "inverted": true,
+      "outputTrue": [
+        "8f9ec420-7751-4c8a-b0bb-9081cd123dd0",
+        "f781e823-223d-4740-a20e-b91116ca2775",
+        "0543cf20-a24f-4607-b418-26fa6f3efa46"
+      ]
+    },
+    "8f9ec420-7751-4c8a-b0bb-9081cd123dd0": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "args": {
+        "text": "⚠️ Homey Pro i lägenheten har inte hörts av på ca 3 timmar. Inbrottslarmet i lägenheten och larm som går via Pro fungerar inte. Stugans egna notiser går fortfarande fram.",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "x": 920,
+      "y": 780
+    },
+    "f781e823-223d-4740-a20e-b91116ca2775": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "args": {
+        "text": "⚠️ Homey Pro i lägenheten har inte hörts av på ca 3 timmar. Inbrottslarmet i lägenheten och larm som går via Pro fungerar inte. Stugans egna notiser går fortfarande fram.",
+        "user": {
+          "athomId": "5e5bb16268f3640c4a77c2f8",
+          "id": "c7a33685-aea4-41be-a336-fbfb0ad3f4c4",
+          "image": "https://api.athom.com/user/5e5bb16268f3640c4a77c2f8/avatar",
+          "name": "Lidija Tomic"
+        }
+      },
+      "x": 920,
+      "y": 860
+    },
+    "0543cf20-a24f-4607-b418-26fa6f3efa46": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "be5a04df-34df-40db-a5a5-7040302c83d6",
+          "name": "Pro tyst varnat"
+        }
+      },
+      "x": 920,
+      "y": 940
+    },
+    "fbce0f36-5bcd-440d-b461-26e014ea3443": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal_boolean",
+      "x": 360,
+      "y": 220,
+      "droptoken": "homey:manager:logic|be5a04df-34df-40db-a5a5-7040302c83d6",
+      "outputTrue": [
+        "5ec6aace-14a3-438f-872d-6d434f3edaec",
+        "b5f0770a-18e9-4e53-9324-11a0c88fcbf0"
+      ]
+    },
+    "5ec6aace-14a3-438f-872d-6d434f3edaec": {
+      "type": "action",
+      "id": "homey:manager:mobile:push_text",
+      "args": {
+        "text": "✅ Homey Pro i lägenheten hörs av igen",
+        "user": {
+          "athomId": "5e04e01b6d46dd0c44fec6f3",
+          "id": "9165c651-2957-48ae-a05f-c97d70a3042d",
+          "image": "https://api.athom.com/user/5e04e01b6d46dd0c44fec6f3/avatar",
+          "name": "Christer Gustafsson"
+        }
+      },
+      "x": 680,
+      "y": 200
+    },
+    "b5f0770a-18e9-4e53-9324-11a0c88fcbf0": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "args": {
+        "value": false,
+        "variable": {
+          "id": "be5a04df-34df-40db-a5a5-7040302c83d6",
+          "name": "Pro tyst varnat"
+        }
+      },
+      "x": 680,
+      "y": 260
     }
   }
 }
