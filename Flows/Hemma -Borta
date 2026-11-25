@@ -14,7 +14,7 @@
       "y": 680,
       "inverted": true,
       "outputTrue": [
-        "63bfe104-b0fc-41d1-9969-3d2cd8495fb8"
+        "048d39b8-b3a5-45df-8634-5fe68ecc1747"
       ]
     },
     "0a4fda37-d17e-4115-9dd7-8aa9cad091ce": {
@@ -110,20 +110,6 @@
       "x": 3420,
       "y": 1340
     },
-    "63bfe104-b0fc-41d1-9969-3d2cd8495fb8": {
-      "type": "all",
-      "x": 960,
-      "y": 740,
-      "input": [
-        "02b95311-01b9-4602-aa64-295c8ebd8e50::outputTrue",
-        "68200389-47ff-42e6-a2a1-4a37a7421867::outputTrue",
-        "9fbe774f-b179-4293-95bf-f903d1b7825f::outputTrue",
-        "ed4874fa-2da9-4986-8a94-5d3a920e2da4::outputTrue"
-      ],
-      "outputSuccess": [
-        "7c2a0aae-e7fe-41fe-bb59-2eae42c3ddd6"
-      ]
-    },
     "642c02a7-6d04-422b-afd3-7513d8ccddd5": {
       "type": "action",
       "id": "homey:device:e220f422-7755-498a-aaf4-f69ed8f9d8cd:off",
@@ -141,7 +127,7 @@
       "args": {},
       "droptoken": "homey:manager:logic|088e5cb5-82e5-45e4-ab19-bfb3256c15db",
       "outputTrue": [
-        "63bfe104-b0fc-41d1-9969-3d2cd8495fb8"
+        "048d39b8-b3a5-45df-8634-5fe68ecc1747"
       ]
     },
     "7b7620c6-8d98-4354-8218-4a8f71e8b5d7": {
@@ -197,7 +183,7 @@
       "y": 840,
       "inverted": true,
       "outputTrue": [
-        "63bfe104-b0fc-41d1-9969-3d2cd8495fb8"
+        "048d39b8-b3a5-45df-8634-5fe68ecc1747"
       ]
     },
     "a0b8928b-8661-4583-ad59-a3137615ffbe": {
@@ -277,6 +263,19 @@
       },
       "outputTrue": [
         "22642d32-8f29-46bd-9b20-14c719ca4849"
+      ]
+    },
+    "048d39b8-b3a5-45df-8634-5fe68ecc1747": {
+      "type": "all",
+      "x": 980,
+      "y": 780,
+      "input": [
+        "02b95311-01b9-4602-aa64-295c8ebd8e50::outputTrue",
+        "68200389-47ff-42e6-a2a1-4a37a7421867::outputTrue",
+        "9fbe774f-b179-4293-95bf-f903d1b7825f::outputTrue"
+      ],
+      "outputSuccess": [
+        "7c2a0aae-e7fe-41fe-bb59-2eae42c3ddd6"
       ]
     }
   }

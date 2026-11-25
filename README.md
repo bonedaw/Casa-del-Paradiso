@@ -28,4 +28,4 @@ Make/Google Sheet används fortfarande för loggning och den dagliga batteri-/mi
 ## Kända lösa trådar i Homey (2026-11-24)
 
 - **Rullgardin hallen**: triggern `windowcoverings_set_changed` pekar även på kortet `d6dc150c-…`, som inte finns.
-- **Hemma /Borta**: `someone_enter` och ALL-kortet pekar på `ed4874fa-…`, som inte finns. ALL-kortet väntar därför på en ingång som aldrig kommer, så stämningen (mood `7921a075-…`) vid hemkomst sätts sannolikt aldrig.
+- **Hemma /Borta**: ALL-kortet byggdes om 2026-11-25 och har nu bara de tre villkoren som ingång, så stämningen vid hemkomst kan sättas. Hemkomst-triggern pekar fortfarande på det borttagna kortet `ed4874fa-…`, vilket inte påverkar något.
