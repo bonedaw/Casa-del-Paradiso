@@ -172,9 +172,47 @@
     "f7000000-0000-4000-8000-000000000040": {
       "type": "note",
       "x": 60,
-      "y": 760,
-      "value": "Tar emot faktisk nederbörd (lördag, söndag) och dagens prognos (måndag) från Homey Pro och sätter Regn lördag, Regn söndag och Regn. Används av Bevattning.",
+      "y": 1100,
+      "value": "Tar emot från Homey Pro: faktisk nederbörd (lördag, söndag) och dagens prognos (måndag) → Regn lördag, Regn söndag och Regn (används inte längre av Bevattning). Sedan 2026-11-25 även ctx_vattna (ET0_WATER 06:40 apr–sep): true → Vattna idag = Ja, som Bevattning kör på 07:00. False ändrar inget, så en Vattna idag som du slått på själv ligger kvar.",
       "color": "blue"
+    },
+    "f7000000-0000-4000-8000-000000000004": {
+      "type": "trigger",
+      "id": "homey:manager:logic:webhook",
+      "x": 60,
+      "y": 900,
+      "args": {
+        "event": "ctx_vattna_a77168457227"
+      },
+      "outputSuccess": [
+        "f7000000-0000-4000-8000-000000000041"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000041": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 420,
+      "y": 900,
+      "args": {
+        "comparator": "true"
+      },
+      "droptoken": "trigger::f7000000-0000-4000-8000-000000000004::tag",
+      "outputTrue": [
+        "f7000000-0000-4000-8000-000000000042"
+      ]
+    },
+    "f7000000-0000-4000-8000-000000000042": {
+      "type": "action",
+      "id": "homey:manager:logic:variable_set_boolean",
+      "x": 800,
+      "y": 900,
+      "args": {
+        "value": true,
+        "variable": {
+          "id": "def6f040-4461-4090-b8bd-2d271774e542",
+          "name": "Vattna idag"
+        }
+      }
     }
   }
 }

@@ -1,0 +1,72 @@
+{
+  "id": "b0c8ce62-334b-4d2b-ae37-26032102cc04",
+  "uri": "homey:advancedflow:b0c8ce62-334b-4d2b-ae37-26032102cc04",
+  "name": "ST Lämna stugan-check",
+  "folder": null,
+  "triggerable": false,
+  "enabled": true,
+  "broken": false,
+  "cards": {
+    "c6d76f94-8a96-4185-9349-cb51864aa557": {
+      "type": "trigger",
+      "id": "homey:manager:logic:variable_changed",
+      "x": 40,
+      "y": 120,
+      "args": {
+        "variable": {
+          "id": "69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+          "name": "Stugläge"
+        }
+      },
+      "outputSuccess": [
+        "a9248452-5968-4142-a074-842340bcd7cc"
+      ]
+    },
+    "a9248452-5968-4142-a074-842340bcd7cc": {
+      "type": "condition",
+      "id": "homey:manager:logic:equal",
+      "x": 360,
+      "y": 120,
+      "droptoken": "homey:manager:logic|69bb133a-bc5b-4ef1-a610-b619afb86fdf",
+      "args": {
+        "comparator": "Borta"
+      },
+      "outputTrue": [
+        "a6de5e36-f008-4240-91c9-810f711ff98d"
+      ]
+    },
+    "a6de5e36-f008-4240-91c9-810f711ff98d": {
+      "type": "delay",
+      "x": 680,
+      "y": 120,
+      "args": {
+        "delay": {
+          "number": "3",
+          "multiplier": 60
+        }
+      },
+      "outputSuccess": [
+        "2d3d8043-19bc-4089-a3b2-9ae86c13739d"
+      ]
+    },
+    "2d3d8043-19bc-4089-a3b2-9ae86c13739d": {
+      "type": "action",
+      "id": "homey:manager:logic:http",
+      "x": 960,
+      "y": 120,
+      "args": {
+        "method": "get",
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/lamna_a77168457227?tag=[[homey:device:f9119942-bb7f-4eae-9905-242f9654622d|alarm_contact]]_[[homey:device:205766ba-7a99-48c1-913e-55a5dcd38b24|alarm_contact]]_[[homey:device:6dece838-e029-48a2-bbc3-6bcbe29e5ed0|locked]]_[[homey:device:204683ec-648a-40db-96a4-3c145df320cc|onoff]]_[[homey:device:b8513f32-b97f-4eec-98c2-8b67462292f6|onoff]]_[[homey:manager:logic|b024073e-9733-4b3e-8ace-cdb7b5d0e95a]]_[[homey:device:25bc4409-b5af-45f9-a25e-eb6d6e1dcbaf|ac_mode]]_[[homey:manager:logic|be722fa1-d64b-46a7-b2f4-9b295088cf46]]_[[homey:device:cdaa78ff-5188-4d30-a0db-d61539c8156f|onoff]]_[[homey:device:47aa5bf3-bb96-4dba-ae41-1b20a1f17780|onoff]]_[[homey:device:e5c5204d-9b66-49a1-b9ec-b7d2ef2ebefb|onoff]]_[[homey:device:44359093-724d-428f-85f0-226b0f334f98|onoff]]_[[homey:device:27418356-ff6a-4239-a228-cacc401eb619|onoff]]_[[homey:device:c0398229-3307-4f52-9b5e-47553368d6e2|onoff]]_[[homey:device:e230ca8b-67f4-488d-9ce0-541b77d5d827|onoff]]_[[homey:device:6f174e96-3926-4bc4-8209-c246cf6ec915|onoff]]_[[homey:device:8040e223-aa46-46e2-a032-67e8fbab5523|onoff]]",
+        "headers": "",
+        "body": ""
+      }
+    },
+    "2858e223-102d-489d-806b-a7e07167ee6f": {
+      "type": "note",
+      "x": 40,
+      "y": -160,
+      "value": "Tre minuter efter att Stugläge blivit Borta skickas stugans läge till Homey Pro (Lämna stugan-check 🏡): loftdörr, loftfönster, ytterdörrens lås, vattenventilen, Virtuell TV, Vintertid + värmepumpens läge, Fönster öppet, Larmat och åtta lampor. Pro pushar bara avvikelserna till Christer och Lidija. Skapad 2026-11-25.",
+      "color": "yellow"
+    }
+  }
+}

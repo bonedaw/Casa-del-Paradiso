@@ -23,7 +23,7 @@
       "type": "note",
       "x": 600,
       "y": 320,
-      "value": "Varje hel timme: (1) puls till Homey Pro i lagenheten (vakthund), (2) inne- och loftsensorernas temperatur och luftfuktighet till Pro for fuktrisk/vadringsrad.",
+      "value": "Varje hel timme: (1) puls till Homey Pro i lagenheten (vakthund), (2) temperatur och luftfuktighet inne, på loftet, i förråd mat (Temp förråd mat) och förråd trädgård (Temp trädgård förråd) till Pro för vädringsråd och mögelindex (MOLD_INDEX, från 2026-11-25).",
       "color": "blue"
     },
     "b2000000-0000-4000-8000-000000000004": {
@@ -35,7 +35,7 @@
         "body": "",
         "headers": "",
         "method": "get",
-        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/fukt_a77168457227?tag=[[homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_temperature]]_[[homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_humidity]]_[[homey:device:620c47f7-9437-402d-ae43-e47e550f5723|measure_temperature]]_[[homey:device:620c47f7-9437-402d-ae43-e47e550f5723|measure_humidity]]"
+        "url": "https://webhook.homey.app/5db978c28987d30c5bfeef8d/fukt_a77168457227?tag=[[homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_temperature]]_[[homey:device:da69b402-4a05-44de-9a1e-1b152d836b72|measure_humidity]]_[[homey:device:620c47f7-9437-402d-ae43-e47e550f5723|measure_temperature]]_[[homey:device:620c47f7-9437-402d-ae43-e47e550f5723|measure_humidity]]_[[homey:device:017aab61-9fb7-49f9-b312-b120cdb6b0aa|measure_temperature]]_[[homey:device:017aab61-9fb7-49f9-b312-b120cdb6b0aa|measure_humidity]]_[[homey:device:00a7df1d-d8c0-4246-a98b-da6de99ffe76|measure_temperature]]_[[homey:device:00a7df1d-d8c0-4246-a98b-da6de99ffe76|measure_humidity]]"
       }
     },
     "b2000000-0000-4000-8000-000000000005": {
